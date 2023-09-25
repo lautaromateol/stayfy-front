@@ -4,12 +4,12 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Driver",
+    "Book",
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        initialValue: 1001,
+        initialValue: 1,
         unique: true,
         allowNull: false,
         primaryKey: true,
@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       publishedDate: {
-        type: DataTypes.DATE,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       pageCount: {
@@ -42,7 +42,7 @@ module.exports = (sequelize) => {
         unique: false,
         allowNull: false,
       },
-      categories: {
+      genre: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -50,10 +50,22 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      origin: {
-        type: DataTypes.STRING,
+      usdPrice: {
+        type: DataTypes.INTEGER,
+        unique: false,
+        allowNull: false, 
+      },
+      arsPrice: {
+        type: DataTypes.INTEGER,
+        unique: false,
         allowNull: false,
-        defaultValue: "db",
+        defaultValue: usdPrice * 350, 
+      },
+      copPrice: {
+        type: DataTypes.INTEGER,
+        unique: false,
+        allowNull: false,
+        defaultValue: usdPrice * 4000, 
       },
     },
     {
