@@ -6,7 +6,6 @@ const { API_URL, DEFAULT_IMAGE } = process.env;
 // const { DESC, ASC } = require('../utils.js');
 // const DISPLAYED_BOOKS = 10;
 
-
 const getBooks = async () => {
     //{ sort, page = 0 }
     const apiBooks = []; 
@@ -26,9 +25,10 @@ const getBooks = async () => {
             publishedDate: book.publishedDate,
             pageCount:book.pageCount,
             genre: book.genre,
-            usdPrice: book.price,
-            arsPrice: book.price * 350,
-            copPrice: book.price * 4000, 
+            price: book.price,
+            // usdPrice: book.price,
+            // arsPrice: book.price * 350,
+            // copPrice: book.price * 4000, 
             description: book.description,
           };
       });
@@ -57,6 +57,5 @@ const getBooks = async () => {
   //   let allBooks = apiBooks.concat(dbBooks);
   //   return allBooks;
   // };
-
 
   module.exports = { getBooks };

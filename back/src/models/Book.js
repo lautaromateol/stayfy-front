@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       authors: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY,
         unique: false,
         allowNull: false,
       },
@@ -46,26 +46,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      usdPrice: {
+      price: {
         type: DataTypes.INTEGER,
         unique: false,
         allowNull: false, 
       },
-      arsPrice: {
-        type: DataTypes.INTEGER,
-        unique: false,
+      description: {
+        type: DataTypes.TEXT,
         allowNull: false,
-        defaultValue: usdPrice * 350, 
-      },
-      copPrice: {
-        type: DataTypes.INTEGER,
-        unique: false,
-        allowNull: false,
-        defaultValue: usdPrice * 4000, 
       },
     },
     {
