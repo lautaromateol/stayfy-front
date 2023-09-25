@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       authors: {
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         unique: false,
         allowNull: false,
       },

@@ -1,16 +1,17 @@
 const { getBooks } = require("../controllers/getBooksController");
-const { getByName } = require("../controllers/getByNameController");
+// const { getByName } = require("../controllers/getByNameController");
 
 const getBooksHandler = async (req, res) => {
-  const { name } = req.query;
+  // const { name } = req.query;
 
-  if(name === undefined || name === null){
-    const response = await getByName();
-  }
-  else {  
-    const response = await getBooks();
-  }
+  // if(name === undefined || name === null){
+  //   const response = await getByName();
+  // }
+  // else {  
+  //   const response = await getBooks();
+  // }
   
+  const response = await getBooks();
   try {
     res.status(200).json(response);
   } catch (error) {

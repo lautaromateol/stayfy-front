@@ -1,7 +1,8 @@
 const axios = require('axios');
 const Book = require('../models/Book');
+const { DEFAULT_IMAGE } = require('../utils');
 require('dotenv').config();
-const { API_URL, DEFAULT_IMAGE } = process.env;
+const { API_URL } = process.env;
 // const { Book } = require('../db.js');
 // const { DESC, ASC } = require('../utils.js');
 // const DISPLAYED_BOOKS = 10;
@@ -12,10 +13,10 @@ const getBooks = async () => {
   
     const apiRequest = axios.get(API_URL);
     const responses = await Promise.all([apiRequest]);
-  
+
     // FOR PARA OBJETOS
     for (const response of responses) {
-      const books = response.data.items.map((book) => {
+      const books = response.data.map((book) => {
           return {
             id: book.id,   
             title: book.title,
@@ -24,7 +25,7 @@ const getBooks = async () => {
             image: book.image ? book.image: DEFAULT_IMAGE,
             publishedDate: book.publishedDate,
             pageCount:book.pageCount,
-            genre: book.genre,
+            genre: book.gender,
             price: book.price,
             // usdPrice: book.price,
             // arsPrice: book.price * 350,
@@ -59,3 +60,6 @@ const getBooks = async () => {
   // };
 
   module.exports = { getBooks };
+
+
+  // -------------------------------------------------------------

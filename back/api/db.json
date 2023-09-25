@@ -370,7 +370,7 @@
             "image": "https://m.media-amazon.com/images/I/91GuzVNlQ+L._SL1500_.jpg"
         },
         {
-            "tittle": "The Longmire Defense: A Longmire Mystery",
+            "title": "The Longmire Defense: A Longmire Mystery",
             "authors": [
                 "Craig Johnson"
             ],
@@ -396,7 +396,7 @@
             "image": "https://m.media-amazon.com/images/I/81yLgiXobUL._SL1500_.jpg"
         },
         {
-            "tittle": "Where Is Joe Merchant?",
+            "title": "Where Is Joe Merchant?",
             "authors": [
                 "Jimmy Buffett"
             ],
@@ -423,7 +423,7 @@
             "image": "https://m.media-amazon.com/images/I/918p2-u8X0L._SL1500_.jpg"
         },
         {
-            "tittle": "All the Sinners Bleed: A Novel",
+            "title": "All the Sinners Bleed: A Novel",
             "authors": [
                 "S. A. Cosby"
             ],
@@ -436,7 +436,7 @@
             "image": "https://m.media-amazon.com/images/I/91xxhwnNcyL._SL1500_.jpg"
         },
         {
-            "tittle": "Obsessed: A Psychological Thriller",
+            "title": "Obsessed: A Psychological Thriller",
             "authors": [
                 "James Patterson ",
                 "James O. Born"
@@ -464,7 +464,7 @@
         },
         {
             "title": "The Hitchhiker's Guide to the Galaxy",
-            "authors": "Douglas Adams",
+            "authors": ["Douglas Adams"],
             "publisher": "Pan Books",
             "description": "A hilarious science fiction comedy about the misadventures of an unwitting human and his alien friend as they travel through space.",
             "genre": "Comedy",
@@ -475,7 +475,7 @@
         },
         {
             "title": "Good Omens",
-            "authors": "Neil Gaiman, Terry Pratchett",
+            "authors": ["Neil Gaiman, Terry Pratchett"],
             "publisher": "William Morrow",
             "description": "A witty and satirical take on the apocalypse, featuring an angel and a demon who team up to prevent it.",
             "genre": "Comedy",
@@ -486,7 +486,7 @@
         },
         {
             "title": "Bridget Jones's Diary",
-            "authors": "Helen Fielding",
+            "authors": ["Helen Fielding"],
             "publisher": "Picador",
             "description": "The humorous diary of a single woman in her 30s as she navigates life, love, and awkward situations.",
             "genre": "Comedy",
@@ -497,7 +497,7 @@
         },
         {
             "title": "Catch-22",
-            "authors": "Joseph Heller",
+            "authors": ["Joseph Heller"],
             "publisher": "Simon & Schuster",
             "description": "A classic dark comedy set during World War II, exploring the absurdity and bureaucracy of war.",
             "genre": "Comedy",
@@ -508,7 +508,7 @@
         },
         {
             "title": "The Princess Bride",
-            "authors": "William Goldman",
+            "authors": ["William Goldman"],
             "publisher": "Harcourt Brace",
             "description": "A humorous and swashbuckling tale of love, adventure, and inconceivable twists.",
             "genre": "Comedy",
@@ -519,7 +519,7 @@
         },
         {
             "title": "Don Quixote",
-            "authors": "Miguel de Cervantes",
+            "authors": ["Miguel de Cervantes"],
             "publisher": "Penguin Classics",
             "description": "A classic comedy of errors following the adventures of a delusional knight and his loyal squire.",
             "genre": "Comedy",
@@ -530,7 +530,7 @@
         },
         {
             "title": "The Rosie Project",
-            "authors": "Graeme Simsion",
+            "authors": ["Graeme Simsion"],
             "publisher": "Simon & Schuster",
             "description": "A heartwarming and comedic story about a genetics professor's quest to find a suitable life partner.",
             "genre": "Comedy",
@@ -541,7 +541,7 @@
         },
         {
             "title": "Lamb: The Gospel According to Biff, Christ's Childhood Pal",
-            "authors": "Christopher Moore",
+            "authors": ["Christopher Moore"],
             "publisher": "William Morrow",
             "description": "A humorous and irreverent account of Jesus' missing years, as narrated by his best friend Biff.",
             "genre": "Comedy",
@@ -552,7 +552,7 @@
         },
         {
             "title": "Pride and Prejudice and Zombies",
-            "authors": "Seth Grahame-Smith",
+            "authors": ["Seth Grahame-Smith"],
             "publisher": "Quirk Books",
             "description": "A comedic reimagining of Jane Austen's classic with the addition of zombies and mayhem.",
             "genre": "Comedy",
@@ -563,7 +563,7 @@
         },
         {
             "title": "Bossypants",
-            "authors": "Tina Fey",
+            "authors": ["Tina Fey"],
             "publisher": "Reagan Arthur Books",
             "description": "Tina Fey's witty and humorous memoir, filled with anecdotes and insights into her life and career.",
             "genre": "Comedy",
@@ -571,6 +571,116 @@
             "pageCount": 288,
             "publishedDate": 2011,
             "image": "https://m.media-amazon.com/images/I/81wOflATS3L._AC_UF894,1000_QL80_.jpg"
-        }
+        },
+        {
+            "title" : "Pride and Prejudice",
+            "authors": ["Jane Austen"],
+            "publisher": "Scribner",
+            "description": "Pride and Prejudice has remained one of the most popular novels in the English language. Jane Austen called this brilliant work 'her own darling child' and its vivacious heroine, Elizabeth Bennet, 'as delightful a creature as ever appeared in print.' The romantic clash between the opinionated Elizabeth and her proud beau, Mr. Darcy, is a splendid performance of civilized sparring. And Jane Austen's radiant wit sparkles as her characters dance a delicate quadrille of flirtation and intrigue, making this book the most superb comedy of manners of Regency England.",
+            "publishedDate": 1813,
+            "price": 4.99,
+            "gender": "Romance",
+            "pageCount": 464,
+            "image":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg"
+        },
+        {
+            "title" : "Eleanor & Park",
+            "authors": ["Rainbow Rowell"],
+            "publisher": "Orion Books",
+            "description": "Eleanor & Park is the first young adult novel written by Rainbow Rowell. Published in 2012, the story follows dual narratives by Eleanor and Park, two misfits living in Omaha, Nebraska from 1986 to 1987. Eleanor, a chubby[1] 16-year-old girl with curly red hair, and Park, a 16-year-old biracial Korean boy, meet on a school bus on Eleanor's first day at the school and gradually connect through comic books and mix tapes of '80s music, sparking a love story.",
+            "publishedDate": 2012,
+            "price": 11.99,
+            "gender": "Romance",
+            "pageCount": 333,
+            "image":"https://m.media-amazon.com/images/I/3199vr0jB1L._SY445_SX342_.jpg"
+        },
+        {
+            "title" : "The Book Thief",
+            "authors": ["Markus Zusak"],
+            "publisher": "Picador",
+            "description": "The Book Thief is a historical fiction novel by the Australian author Markus Zusak, set in Nazi Germany during World War II. Published in 2006, The Book Thief became an international bestseller and was translated into 63 languages and sold 17 million copies. It was adapted into the 2013 feature film, The Book Thief. The novel follows the adventures of a young girl, Liesel Meminger. Narrated by Death, the novel presents the lives and viewpoints of the many victims of the ongoing war. Themes throughout the story include death, literature, and love.",
+            "publishedDate": 2006,
+            "price": 7.83,
+            "gender": "Romance",
+            "pageCount": 584,
+            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg/220px-The_Book_Thief_by_Markus_Zusak_book_cover.jpg"
+        },
+        {
+            "title" : "Fifty Shades of Grey",
+            "authors": ["E.L. James"],
+            "publisher": "Vintage Books",
+            "description": "Fifty Shades of Grey is a 2011 erotic romance novel by British author E. L. James. It became the first instalment in the Fifty Shades novel series that follows the deepening relationship between a college graduate, Anastasia Steele, and a young business magnate, Christian Grey. It is notable for its explicitly erotic scenes featuring elements of sexual practices involving BDSM (bondage/discipline, dominance/submission, and sadism/masochism). Originally self-published as an ebook and print-on-demand in June 2011, the publishing rights to the novel were acquired by Vintage Books in March 2012.",
+            "publishedDate": 2011,
+            "price": 19.92,
+            "gender": "Romance",
+            "pageCount": 514,
+            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/50ShadesofGreyCoverArt.jpg/220px-50ShadesofGreyCoverArt.jpg"
+        },
+        {
+            "title" : "Love in the Time of Cholera",
+            "authors": ["Gabriel García Márquez"],
+            "publisher": "Editorial Oveja Negra",
+            "description": "The main characters of the novel are Florentino Ariza and Fermina Daza. Florentino and Fermina fall in love in their youth. A secret relationship blossoms between the two with the help of Fermina's Aunt Escolástica. They exchange love letters. But once Fermina's father, Lorenzo Daza, finds out about the two, he forces his daughter to stop seeing Florentino immediately. When she refuses, he and his daughter move in with his deceased wife's family in another city. Regardless of the distance, Fermina and Florentino continue to communicate via telegraph. Upon her return, Fermina realizes that her relationship with Florentino was nothing but a dream since they are practically strangers; she breaks off her engagement to Florentino and returns all his letters.",
+            "publishedDate": 1985,
+            "price": 19.99,
+            "gender": "Romance",
+            "pageCount": 348,
+            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/d/de/LoveInTheTimeOfCholera.jpg/220px-LoveInTheTimeOfCholera.jpg"
+        },
+        {
+            "title" : "Under the Never Sky",
+            "authors": ["Veronica Rossi"],
+            "publisher": "HarperCollins",
+            "description": "Under the Never Sky follows the character of Aria, a 17-year-old girl who has been exiled from Reverie, the domed city in a dystopian future 300 years after a major catastrophe has decimated the Earth. Aria was banished from her home when she is blamed for starting a fire that took the lives of her best friend and two others. This punishment means almost certain death: outside of her Pod and other similar Pods where the technologically advanced dwell, is a wasteland known as the Death Shop. It's a place known to be filled with cannibals and terrible Aether storms; even the air can kill you. However, she soon discovers that she can breathe the outside air without fatal harm, though she has little other means of surviving in the savage land. Then she meets an Outsider named Perry, Aria eventually realizes that he is her only chance for survival. Despite his reluctance to help a sheltered girl from Reverie, Perry knows that Aria has the potential to help him redeem himself. The two must learn how to work together if they are to survive in this new dangerous world.",
+            "publishedDate": 2012,
+            "price": 9.99,
+            "gender": "Romance",
+            "pageCount": 400,
+            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Book_cover_of_the_novel%2C_%22Under_the_Never_Sky%22%2C_by_Veronica_Rossi.jpg/220px-Book_cover_of_the_novel%2C_%22Under_the_Never_Sky%22%2C_by_Veronica_Rossi.jpg"
+        },
+        {
+            "title" : "One Day",
+            "authors": ["David Nicholls"],
+            "publisher": "Hodder & Stoughton",
+            "description": "Dexter and Emma spend the night together following their graduation from the University of Edinburgh, in 1988. They talk about how they will be once they are 40. While they do not become romantically involved completely, this is the beginning of their friendship. The novel visits their lives and their relationship on 15 July in successive years in each chapter, for 20 years.",
+            "publishedDate": 2009,
+            "price": 12.99,
+            "gender": "Romance",
+            "pageCount": 435,
+            "image":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327873020i/6280118.jpg"
+        },
+        {
+            "title" : "The Shadow of the Wind",
+            "authors": ["Carlos Ruiz Zafón"],
+            "publisher": "Penguin Books",
+            "description": "The novel is actually a story within a story. The novel opens in the 1940s with the protagonist, Daniel, a boy whose father owns a bookshop in Barcelona. One day, his father takes him to the Cemetery of Forgotten books—a secret labyrinthine library that houses rare and banned books. Daniel is drawn to one called The Shadow of the Wind by Julian Carax and takes it home with him. Daniel quickly reads and falls in love with the story. He soon discovers that the book's mysterious author, Carax, has gone missing along with every other copy of The Shadow of the Wind and most of his other works. Daniel then sets out to find out what happened to the author and his books. When word gets around that Daniel possesses the only known copy of The Shadow of the Wind, he receives an inquiry from Gustavo Barcelo, a rare-book seller and expert on Carax who wishes to purchase it. Daniel refuses to sell it, but soon falls in love with Barcelo's blind niece, Clara, and begins to pay frequent visits to read The Shadow of the Wind to her. However, she is several years older and does not reciprocate his feelings. His possession of the book also attracts the attention of a mysterious stranger with a badly burned and disfigured face named Lain Coubert (the name of the character of the devil in the book) who is also trying to get his hands on it.",
+            "publishedDate": 2001,
+            "price": 13.99,
+            "gender": "Romance",
+            "pageCount": 487,
+            "image":"https://upload.wikimedia.org/wikipedia/en/8/84/TheShadowOfTheWind.jpg"
+        },
+        {
+            "title" : "Anna and the French Kiss",
+            "authors": ["Stephanie Perkins"],
+            "publisher": "Dutton Juvenile",
+            "description": "Anna Oliphant is a senior in high school who is forced by her father to attend the fictional boarding school 'School of America in Paris' – nicknamed SOAP by students. She is heavily against having to leave Atlanta for Paris, specifically due to leaving her best friend, Bridgette, and Toph, her almost boyfriend, who worked with her in a multiplex and the two shared a kiss before her leaving for Paris. Anna wants to become a film critic, being a major movie fan. On her first night at SOAP, she meets her neighbor Meredith (Mer), who consoles her after finding Anna crying in her room. After Anna leaves Meredith's room, she bumps into a handsome boy who introduces himself as Étienne St. Clair, and has an English accent. The next morning at breakfast, Mer invites Anna to sit with her and her friends; Rashmi and boyfriend Josh, as well as Étienne from the night before – he is known by everyone as St. Clair. St. Clair has a girlfriend, Ellie, who used to be in the group before she graduated SOAP.",
+            "publishedDate": 2010,
+            "price": 8.84,
+            "gender": "Romance",
+            "pageCount": 372,
+            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Stephanie_Perkins_-Anna_and_the_French_Kiss.jpeg/220px-Stephanie_Perkins-_Anna_and_the_French_Kiss.jpeg"
+        },
+        {
+            "title" : "Outlander",
+            "authors": ["Diana Gabaldon"],
+            "publisher": "Dell",
+            "description": "Scottish Highlands, 1945. Claire Randall, a former British combat nurse, is just back from the war and reunited with her husband on a second honeymoon when she walks through a standing stone in one of the ancient circles that dot the British Isles. Suddenly she is a Sassenach—an “outlander”—in a Scotland torn by war and raiding clans in the year of Our Lord... 1743. Claire is catapulted into the intrigues of a world that threatens her life, and may shatter her heart. Marooned amid danger, passion, and violence, Claire learns her only chance of safety lies in Jamie Fraser, a gallant young Scots warrior. What begins in compulsion becomes urgent need, and Claire finds herself torn between two very different men, in two irreconcilable lives.",
+            "publishedDate": 2004,
+            "price": 27.99,
+            "gender": "Romance",
+            "pageCount": 642,
+            "image":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659086907i/10964.jpg"
+     }
     ]
 }
