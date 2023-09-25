@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const { DB_USER, DB_PASSWORD, DB_HOST, } = process.env;
 
-// const defineDrivers = require ('./models/Driver'); // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
-// const defineTeams = require ('./models/Team'); // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
+const defineDrivers = require ('./models/Book'); 
+
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/drivers`, {
   logging: false, 
@@ -28,10 +28,10 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// defineDrivers(sequelize); // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
-// defineTeams(sequelize); // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
+defineBooks(sequelize); 
 
-// const { Driver, Team } = sequelize.models; // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
+
+const { Book } = sequelize.models; 
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
