@@ -1,0 +1,94 @@
+{
+    "books": [
+        {
+            "name" : "12 Rules for Life: An Antidote to Chaos",
+            "author": "Jordan Peterson",
+            "description": "12 Rules for Life: An Antidote to Chaos is a 2018 self-help book by the Canadian clinical psychologist Jordan Peterson. It provides life advice through essays in abstract ethical principles, psychology, mythology, religion, and personal anecdotes. The book topped bestseller lists in Canada, the United States, and the United Kingdom, and had sold over five million copies worldwide by the end of 2020.",
+            "publication": 2018,
+            "price": [{"currency": "USD", "price": "20,00"}, {"currency": "ARS", "price": "15500"}],
+            "gender": "Self-help",
+            "pages": 512,
+            "image": ""
+        },
+        {
+            "name" : "Beyond Order: 12 More Rules for Life",
+            "author": "Jordan Peterson",
+            "description": "Beyond Order: 12 More Rules for Life is a 2021 self-help book by Canadian clinical psychologist, YouTube personality, and psychology professor Jordan Peterson, as a sequel to his 2018 book 12 Rules for Life.",
+            "publication": 2021,
+            "price": [{"currency": "USD", "price": "20,00"}, {"currency": "ARS", "price": "15500"}],
+            "gender": "Self-help",
+            "pages": 432,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg/330px-Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg"
+        },
+        {
+            "name": "The 7 Habits of Highly Effective People",
+            "author": "Stephen Covey",
+            "description": "The 7 Habits of Highly Effective People, first published in 1989, is a business and self-help book written by Stephen R. Covey. Covey defines effectiveness as the balance of obtaining desirable results with caring for that which produces those results. He illustrates this by referring to the fable of the goose that laid the golden eggs. He claims that effectiveness can be expressed in terms of the P/PC ratio, where P refers to getting desired results and PC is caring for that which produces the results.",
+            "publication": 1989,
+            "price": [{"currency": "USD", "price": "12,32"}, {"currency": "ARS", "price": "9120"}],
+            "gender": "Self-help",
+            "pages": 381,
+            "image": "https://upload.wikimedia.org/wikipedia/en/a/a2/The_7_Habits_of_Highly_Effective_People.jpg"
+        },
+        {
+            "name": "Think and Grow Rich",
+            "author": "Napoleon Hill and Rosa Lee Beeland",
+            "description": "Think and Grow Rich is a book written by Napoleon Hill and Rosa Lee Beeland released in 1937 and promoted as a personal development and self-improvement book. He claimed to be inspired by a suggestion from business magnate and later-philanthropist Andrew Carnegie. However there is no evidence that the two ever met. The book is considered a classic in the personal development genre and has been widely influential in shaping the way people think about success and wealth.",
+            "publication": 1937,
+            "price": [{"currency": "USD", "price": "8,18"}, {"currency": "ARS", "price": "6053"}],
+            "gender": "Self-help",
+            "pages": 238,
+            "image": ""
+        },
+        {
+            "name": "48 Laws of Power",
+            "author": "Robert Greene",
+            "description": "The 48 Laws of Power is a bestselling self-help book written by Robert Greene. It explores the principles of power and manipulation through 48 laws that provide strategies for achieving and maintaining power in various social and professional settings. Greene draws on historical anecdotes and case studies to illustrate these laws and their applications in different situations, ultimately offering insights into the dynamics of power and human behavior. The book is a provocative guide to understanding and mastering the complex game of power.",
+            "publication": 1998,
+            "price": [{"currency": "USD", "price": "14,45"}, {"currency": "ARS", "price": "10767"}],
+            "gender": "Self-help",
+            "pages": 480,
+            "image": "https://upload.wikimedia.org/wikipedia/en/9/9d/GreeneRobert-48LawsOfPower.jpg"
+        },
+        {
+            "name": "How to Win Friends and Influence People",
+            "author": "Dale Carnegie",
+            "description": "How to Win Friends and Influence People by Dale Carnegie is a classic self-help book that provides practical tips for improving interpersonal skills, fostering meaningful relationships, and positively influencing others. Using relatable anecdotes and actionable advice, Carnegie emphasizes the importance of genuine interest in others, appreciation, and effective communication to achieve personal and professional success.",
+            "publication": 1936,
+            "price": [{"currency": "USD", "price": "9,75"}, {"currency": "ARS", "price": "7215"}],
+            "gender": "Self-help",
+            "pages": 303,
+            "image": "https://upload.wikimedia.org/wikipedia/en/3/33/How-to-win-friends-and-influence-people.jpg"
+        },
+        {
+            "name": "$100M Offers: How to Make Offers So Good People Feel Stupid Saying No",
+            "author": "Alex Hormozi",
+            "description": "100M Offers by Alex Hormozi is a business book that delves into the strategies and concepts to create and scale a business to a $100 million level. It provides insights into developing and optimizing offers, marketing, and sales processes to achieve significant revenue milestones. Hormozi emphasizes refining value propositions and understanding customer needs to create highly successful offers that drive substantial business growth. The book is a comprehensive guide for entrepreneurs and business owners aiming to build successful and lucrative ventures.",
+            "publication": 2021,
+            "price": [{"currency": "USD", "price": "9.99"}, {"currency": "ARS", "price": "7400"}],
+            "gender": "Self-help",
+            "pages": 164,
+            "image": "https://m.media-amazon.com/images/I/718ewn+YFJL._SY466_.jpg"
+        },
+        {
+            "name": "Rich Dad Poor Dad",
+            "author": "Robert T. Kiyosaki and Sharon Lecther",
+            "description": "Rich Dad Poor Dad is a 1997 book written by Robert T. Kiyosaki and Sharon Lechter. It advocates the importance of financial literacy, financial independence and building wealth through investing in assets, real estate investing, starting and owning businesses, as well as increasing one's financial intelligence.",
+            "publication": 1997,
+            "price": [{"currency": "USD", "price": "6,64"}, {"currency": "ARS", "price": "4913"}],
+            "gender": "Self-help",
+            "pages": 336,
+            "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Rich_Dad_Poor_Dad.jpg"
+        },
+        {
+            "name": "The Secrets of the Millionaire Mind",
+            "author": "T. Harv Eker",
+            "description": "The Secrets of the Millionaire Mind is a self-help book by T. Harv Eker. It focuses on the mindset and beliefs that influence financial success. Eker advocates for shifting one's mindset towards abundance and away from scarcity. The book discusses strategies to manage money effectively, develop a wealthy mindset, and overcome limiting beliefs about money and success. It's a guide to transforming one's financial habits and attitudes to achieve prosperity and abundance.",
+            "publication": 2005,
+            "price": [{"currency": "USD", "price": "15,35"}, {"currency": "ARS", "price": "11359"}],
+            "gender": "Self-help",
+            "pages": 224,
+            "image": ""
+        }
+    ]
+}
