@@ -1,0 +1,114 @@
+{
+    "books": [
+        {
+            "title" : "12 Rules for Life: An Antidote to Chaos",
+            "authors": "Jordan Peterson",
+            "publisher": "",
+            "description": "12 Rules for Life: An Antidote to Chaos is a 2018 self-help book by the Canadian clinical psychologist Jordan Peterson. It provides life advice through essays in abstract ethical principles, psychology, mythology, religion, and personal anecdotes. The book topped bestseller lists in Canada, the United States, and the United Kingdom, and had sold over five million copies worldwide by the end of 2020.",
+            "publishedDate": 2018,
+            "price": 20.00,
+            "gender": "Self-help",
+            "pageCount": 512,
+            "image": ""
+        },
+        {
+            "title" : "Beyond Order: 12 More Rules for Life",
+            "authors": "Jordan Peterson",
+            "publisher": "",
+            "description": "Beyond Order: 12 More Rules for Life is a 2021 self-help book by Canadian clinical psychologist, YouTube personality, and psychology professor Jordan Peterson, as a sequel to his 2018 book 12 Rules for Life.",
+            "publishedDate": 2021,
+            "price": 20.00,
+            "gender": "Self-help",
+            "pageCount": 432,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg/330px-Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg"
+        },
+        {
+            "title": "The 7 Habits of Highly Effective People",
+            "authors": "Stephen Covey",
+            "publisher": "",
+            "description": "The 7 Habits of Highly Effective People, first published in 1989, is a business and self-help book written by Stephen R. Covey. Covey defines effectiveness as the balance of obtaining desirable results with caring for that which produces those results. He illustrates this by referring to the fable of the goose that laid the golden eggs. He claims that effectiveness can be expressed in terms of the P/PC ratio, where P refers to getting desired results and PC is caring for that which produces the results.",
+            "publishedDate": 1989,
+            "price": 12.32,
+            "gender": "Self-help",
+            "pageCount": 381,
+            "image": "https://upload.wikimedia.org/wikipedia/en/a/a2/The_7_Habits_of_Highly_Effective_People.jpg"
+        },
+        {
+            "title": "Think and Grow Rich",
+            "authors": "Napoleon Hill and Rosa Lee Beeland",
+            "publisher": "",
+            "description": "Think and Grow Rich is a book written by Napoleon Hill and Rosa Lee Beeland released in 1937 and promoted as a personal development and self-improvement book. He claimed to be inspired by a suggestion from business magnate and later-philanthropist Andrew Carnegie. However there is no evidence that the two ever met. The book is considered a classic in the personal development genre and has been widely influential in shaping the way people think about success and wealth.",
+            "publishedDate": 1937,
+            "price": 8.18,
+            "gender": "Self-help",
+            "pageCount": 238,
+            "image": ""
+        },
+        {
+            "title": "48 Laws of Power",
+            "authors": "Robert Greene",
+            "publisher": "",
+            "description": "The 48 Laws of Power is a bestselling self-help book written by Robert Greene. It explores the principles of power and manipulation through 48 laws that provide strategies for achieving and maintaining power in various social and professional settings. Greene draws on historical anecdotes and case studies to illustrate these laws and their applications in different situations, ultimately offering insights into the dynamics of power and human behavior. The book is a provocative guide to understanding and mastering the complex game of power.",
+            "publishedDate": 1998,
+            "price": 14.45,
+            "gender": "Self-help",
+            "pageCount": 480,
+            "image": "https://upload.wikimedia.org/wikipedia/en/9/9d/GreeneRobert-48LawsOfPower.jpg"
+        },
+        {
+            "title": "How to Win Friends and Influence People",
+            "authors": "Dale Carnegie",
+            "publisher": "",
+            "description": "How to Win Friends and Influence People by Dale Carnegie is a classic self-help book that provides practical tips for improving interpersonal skills, fostering meaningful relationships, and positively influencing others. Using relatable anecdotes and actionable advice, Carnegie emphasizes the importance of genuine interest in others, appreciation, and effective communication to achieve personal and professional success.",
+            "publishedDate": 1936,
+            "price": 9.75,
+            "gender": "Self-help",
+            "pageCount": 303,
+            "image": "https://upload.wikimedia.org/wikipedia/en/3/33/How-to-win-friends-and-influence-people.jpg"
+        },
+        {
+            "title": "$100M Offers: How to Make Offers So Good People Feel Stupid Saying No",
+            "authors": "Alex Hormozi",
+            "publisher": "",
+            "description": "100M Offers by Alex Hormozi is a business book that delves into the strategies and concepts to create and scale a business to a $100 million level. It provides insights into developing and optimizing offers, marketing, and sales processes to achieve significant revenue milestones. Hormozi emphasizes refining value propositions and understanding customer needs to create highly successful offers that drive substantial business growth. The book is a comprehensive guide for entrepreneurs and business owners aiming to build successful and lucrative ventures.",
+            "publishedDate": 2021,
+            "price": 9.99,
+            "gender": "Self-help",
+            "pageCount": 164,
+            "image": "https://m.media-amazon.com/images/I/718ewn+YFJL._SY466_.jpg"
+        },
+        {
+            "title": "Rich Dad Poor Dad",
+            "authors": "Robert T. Kiyosaki and Sharon Lecther",
+            "publisher": "",
+            "description": "Rich Dad Poor Dad is a 1997 book written by Robert T. Kiyosaki and Sharon Lechter. It advocates the importance of financial literacy, financial independence and building wealth through investing in assets, real estate investing, starting and owning businesses, as well as increasing one's financial intelligence.",
+            "publishedDate": 1997,
+            "price": 6.64,
+            "gender": "Self-help",
+            "pageCount": 336,
+            "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Rich_Dad_Poor_Dad.jpg"
+        },
+        {
+            "title": "The Secrets of the Millionaire Mind",
+            "authors": "T. Harv Eker",
+            "publisher": "",
+            "description": "The Secrets of the Millionaire Mind is a self-help book by T. Harv Eker. It focuses on the mindset and beliefs that influence financial success. Eker advocates for shifting one's mindset towards abundance and away from scarcity. The book discusses strategies to manage money effectively, develop a wealthy mindset, and overcome limiting beliefs about money and success. It's a guide to transforming one's financial habits and attitudes to achieve prosperity and abundance.",
+            "publishedDate": 2005,
+            "price": 15.35,
+            "gender": "Self-help",
+            "pageCount": 224,
+            "image": ""
+        },
+        {
+            "title": "The Chinese Art of War",
+            "authors": "Sun Tzu",
+            "publisher": "Sun Tzu",
+            "description": "The Art of War by Sun Tzu is an ancient Chinese military treatise, focusing on strategy, tactics, and adaptability in warfare. Its principles have been widely applied in business and life to achieve success through careful planning and execution.",
+            "publishedDate": "",
+            "price": 4.99,
+            "gender": "Self-help",
+            "pageCount": 60,
+            "image": ""
+        }
+    ]
+}
