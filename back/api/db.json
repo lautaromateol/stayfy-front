@@ -370,7 +370,7 @@
             "image": "https://m.media-amazon.com/images/I/91GuzVNlQ+L._SL1500_.jpg"
         },
         {
-            "tittle": "The Longmire Defense: A Longmire Mystery",
+            "title": "The Longmire Defense: A Longmire Mystery",
             "authors": [
                 "Craig Johnson"
             ],
@@ -396,7 +396,7 @@
             "image": "https://m.media-amazon.com/images/I/81yLgiXobUL._SL1500_.jpg"
         },
         {
-            "tittle": "Where Is Joe Merchant?",
+            "title": "Where Is Joe Merchant?",
             "authors": [
                 "Jimmy Buffett"
             ],
@@ -423,7 +423,7 @@
             "image": "https://m.media-amazon.com/images/I/918p2-u8X0L._SL1500_.jpg"
         },
         {
-            "tittle": "All the Sinners Bleed: A Novel",
+            "title": "All the Sinners Bleed: A Novel",
             "authors": [
                 "S. A. Cosby"
             ],
@@ -436,7 +436,7 @@
             "image": "https://m.media-amazon.com/images/I/91xxhwnNcyL._SL1500_.jpg"
         },
         {
-            "tittle": "Obsessed: A Psychological Thriller",
+            "title": "Obsessed: A Psychological Thriller",
             "authors": [
                 "James Patterson ",
                 "James O. Born"
@@ -465,7 +465,7 @@
         {
             "title": "The Hitchhiker's Guide to the Galaxy",
             "authors": "Douglas Adams",
-            "publisher": "Pan Books",
+            "publisher": ["Pan Books"],
             "description": "A hilarious science fiction comedy about the misadventures of an unwitting human and his alien friend as they travel through space.",
             "genre": "Comedy",
             "price": 12.99,
@@ -475,7 +475,7 @@
         },
         {
             "title": "Good Omens",
-            "authors": "Neil Gaiman, Terry Pratchett",
+            "authors": ["Neil Gaiman, Terry Pratchett"],
             "publisher": "William Morrow",
             "description": "A witty and satirical take on the apocalypse, featuring an angel and a demon who team up to prevent it.",
             "genre": "Comedy",
@@ -486,7 +486,7 @@
         },
         {
             "title": "Bridget Jones's Diary",
-            "authors": "Helen Fielding",
+            "authors": ["Helen Fielding"],
             "publisher": "Picador",
             "description": "The humorous diary of a single woman in her 30s as she navigates life, love, and awkward situations.",
             "genre": "Comedy",
@@ -497,7 +497,7 @@
         },
         {
             "title": "Catch-22",
-            "authors": "Joseph Heller",
+            "authors": ["Joseph Heller"],
             "publisher": "Simon & Schuster",
             "description": "A classic dark comedy set during World War II, exploring the absurdity and bureaucracy of war.",
             "genre": "Comedy",
@@ -508,7 +508,7 @@
         },
         {
             "title": "The Princess Bride",
-            "authors": "William Goldman",
+            "authors": ["William Goldman"],
             "publisher": "Harcourt Brace",
             "description": "A humorous and swashbuckling tale of love, adventure, and inconceivable twists.",
             "genre": "Comedy",
@@ -519,7 +519,7 @@
         },
         {
             "title": "Don Quixote",
-            "authors": "Miguel de Cervantes",
+            "authors": ["Miguel de Cervantes"],
             "publisher": "Penguin Classics",
             "description": "A classic comedy of errors following the adventures of a delusional knight and his loyal squire.",
             "genre": "Comedy",
@@ -530,7 +530,7 @@
         },
         {
             "title": "The Rosie Project",
-            "authors": "Graeme Simsion",
+            "authors": ["Graeme Simsion"],
             "publisher": "Simon & Schuster",
             "description": "A heartwarming and comedic story about a genetics professor's quest to find a suitable life partner.",
             "genre": "Comedy",
@@ -541,7 +541,7 @@
         },
         {
             "title": "Lamb: The Gospel According to Biff, Christ's Childhood Pal",
-            "authors": "Christopher Moore",
+            "authors": ["Christopher Moore"],
             "publisher": "William Morrow",
             "description": "A humorous and irreverent account of Jesus' missing years, as narrated by his best friend Biff.",
             "genre": "Comedy",
@@ -552,7 +552,7 @@
         },
         {
             "title": "Pride and Prejudice and Zombies",
-            "authors": "Seth Grahame-Smith",
+            "authors": ["Seth Grahame-Smith"],
             "publisher": "Quirk Books",
             "description": "A comedic reimagining of Jane Austen's classic with the addition of zombies and mayhem.",
             "genre": "Comedy",
@@ -563,7 +563,7 @@
         },
         {
             "title": "Bossypants",
-            "authors": "Tina Fey",
+            "authors": ["Tina Fey"],
             "publisher": "Reagan Arthur Books",
             "description": "Tina Fey's witty and humorous memoir, filled with anecdotes and insights into her life and career.",
             "genre": "Comedy",
