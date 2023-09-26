@@ -14,7 +14,7 @@ export const SET_ERROR = "SET ERROR";
 export function getBooks() {
     return async function (dispatch) {
         try {
-            const response = await axios("LINK"); //LINK
+            const response = await axios("http://localhost:5432/books");
             return dispatch({
                 type: "GET_BOOKS",
                 payload: response.data,
@@ -33,7 +33,7 @@ export function orderBooks(orderType) {
 export function getAuthor() {
     return async function (dispatch) {
         try {
-            const response = await axios (""); //LINK
+            const response = await axios ("http://localhost:5432/author");
             return dispatch({
                 type: GET_AUTHOR,
                 payload: response.data,
@@ -47,7 +47,7 @@ export function getAuthor() {
 export function getGender() {
     return async function (dispatch) {
         try {
-            const response = await axios (""); //LINK
+            const response = await axios ("http://localhost:5432/gender"); 
             return dispatch ({
                 type: GET_GENDER,
                 payload: response.data,
@@ -61,7 +61,7 @@ export function getGender() {
 export function getYear() {
     return async function (dispatch) {
         try {
-            const response = await axios (""); //LINK
+            const response = await axios ("http://localhost:5432/year");
             return dispatch ({
                 type: GET_YEAR,
                 payload: response.data,
@@ -75,7 +75,7 @@ export function getYear() {
 export function getPublisher() {
     return async function (dispatch) {
         try {
-            const response = await axios (""); //LINK
+            const response = await axios ("http://localhost:5432/publisher");
             return dispatch ({
                 type: GET_PUBLISHER,
                 payload: response.data,
