@@ -1,7 +1,7 @@
 
 
 const initialState = {
-    AllBooks: []
+    allBooks: []
 }
 
 
