@@ -1,7 +1,9 @@
-const Book = require('../models/Book.js');
+// const Book = require('../models/Book.js');
+const { Book } = require('../db.js');
+const { DEFAULT_IMAGE } = require('../utils.js');
 // const { Op, Sequelize } = require('sequelize');
 require('dotenv').config();
-const { DEFAULT_IMAGE } = process.env;
+// const { DEFAULT_IMAGE } = process.env;
 
 const createBook = async (title, authors, publisher, image, publishedDate, pageCount, genre, price, description) => {
   
