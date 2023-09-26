@@ -1,6 +1,6 @@
 require('dotenv').config();
-const Book = require('../models/Book.js');
-const { getAPIbooks } = require('./getBooksController.js');
+const {Book} = require('../../src/db');
+// const { getAPIbooks } = require('./getBooksController.js');
 
 const getByID = async (bookID) => {    
     IDFoundBook = [];

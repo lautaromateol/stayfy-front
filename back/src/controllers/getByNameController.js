@@ -1,7 +1,7 @@
 const axios = require("axios");
 require('dotenv').config();
 // const { API_URL, DEFAULT_IMAGE } = process.env;
-const Book = require("../models/Book.js");
+const {Book} = require("../../src/db");
 // const { getBooks } = require("./getBooksController.js");
 
 const getByName = async (originalName) => {
