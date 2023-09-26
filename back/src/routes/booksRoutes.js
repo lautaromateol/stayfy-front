@@ -8,4 +8,6 @@ const booksRouter = Router();
 booksRouter.get("/", getBooksHandler);
 booksRouter.get("/search", getByName);
 booksRouter.get("/:id", getByIDHandler);
-// booksRouter.post("/create", postHandler);
+booksRouter.post("/create", postHandler);
+
+module.exports = {booksRouter}
