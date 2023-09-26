@@ -20,7 +20,7 @@ const getBooks = async () => {
           return {
             id: book.id,   
             title: book.title,
-            authors: book.authors,
+            authors: book.authors[0],
             publisher: book.publisher,
             image: book.image ? book.image: DEFAULT_IMAGE,
             publishedDate: book.publishedDate,
@@ -36,12 +36,12 @@ const getBooks = async () => {
       apiBooks.push(...books);
     }
 
-    const dbBooks = await Book.findAll();
-    if (dbBooks.length < 1){
-      await Book.bulkCreate(apiBooks, {
-        ignoreDuplicates: true,
-    });
-    };
+    // const dbBooks = await Book.findAll();
+    // if (dbBooks.length < 1){
+    //   await Book.bulkCreate(apiBooks, {
+    //     ignoreDuplicates: true,
+    // });
+    // };
     
     return apiBooks;
   };
