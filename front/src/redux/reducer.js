@@ -1,18 +1,14 @@
 
-
 const initialState = {
-    allBooks: []
+    books: []
 }
 
-
-const reducer = (state = initialState, { type, payload }) => {
-    switch(type){
-
-
+const reducer = (state= initialState, action) => {
+    switch (action.type) {
         default:
-            return { ...state }
+            return {...state}
     }
 }
 
+export default reducer
 
-export default reducer;
