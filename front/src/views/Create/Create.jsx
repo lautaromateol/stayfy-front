@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import validation from './validation/validation';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getBooks } from '../../redux/actions'  poner la direccion como tenga que ir
+import { getBooks } from '../../redux/actions' 
 
 
 const Create = () => {
 
     const dispatch = useDispatch();
-    const books = useSelector((state) => state.books)
 
     const [input, setInput] = useState({
         title: '',
@@ -22,7 +21,6 @@ const Create = () => {
     })
 
     const [error, setError] = useState({})
-    const [state, setState] = useState(false)
 
 
     const handleChange = (event) => {
@@ -35,12 +33,6 @@ const Create = () => {
             [event.target.name]: event.target.value
         }))
     }
-
-
-    const handleInputFocus = () => {
-        setState(true);
-    }
-
 
 
     const handleSubmit = (e) => {
@@ -68,7 +60,7 @@ const Create = () => {
             <form action="">
                 <div>
                     <label>Title</label>
-                    <input name='title' type="text" value={input.title} onChange={handleChange} onFocus={handleInputFocus}/>
+                    <input name='title' type="text" value={input.title} onChange={handleChange}/>
                     {error.title && <span>{error.title}</span>}
                 </div>
                 <div>
