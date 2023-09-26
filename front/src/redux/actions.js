@@ -3,18 +3,19 @@ import axios from "axios";
 export const GET_BOOKS = "GET_BOOKS";
 export const ORDER = "ORDER";
 export const GET_AUTHOR = "GET_AUTHOR";
-export const GET_GENDER = "GET_GENDER";
-export const GET_YEAR = "GET_YEAR";
 export const GET_PUBLISHER = "GET_PUBLISHER";
+export const GET_YEAR = "GET_YEAR";
+export const GET_GENDER = "GET_GENDER";
 export const FILTER = "FILTER";
 export const RESET = "RESET";
 export const SEARCH_BOOK = "SEARCH_BOOK";
 export const SET_ERROR = "SET ERROR";
 
+
 export function getBooks() {
     return async function (dispatch) {
         try {
-            const response = await axios("http://localhost:5432/books");
+            const response = await axios("http://localhost:5432/title");
             return dispatch({
                 type: "GET_BOOKS",
                 payload: response.data,
@@ -23,6 +24,7 @@ export function getBooks() {
     };
 }
 
+
 export function orderBooks(orderType) {
     return {
         type: ORDER,
@@ -30,10 +32,11 @@ export function orderBooks(orderType) {
     }
 }
 
+
 export function getAuthor() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:5432/author");
+            const response = await axios ("http://localhost:5432/authors");
             return dispatch({
                 type: GET_AUTHOR,
                 payload: response.data,
@@ -44,33 +47,6 @@ export function getAuthor() {
     };
 }
 
-export function getGender() {
-    return async function (dispatch) {
-        try {
-            const response = await axios ("http://localhost:5432/gender"); 
-            return dispatch ({
-                type: GET_GENDER,
-                payload: response.data,
-            })
-        } catch (error) {
-
-        }
-    }
-}
-
-export function getYear() {
-    return async function (dispatch) {
-        try {
-            const response = await axios ("http://localhost:5432/year");
-            return dispatch ({
-                type: GET_YEAR,
-                payload: response.data,
-            })
-        } catch (error) {
-
-        }
-    }
-}
 
 export function getPublisher() {
     return async function (dispatch) {
@@ -86,6 +62,37 @@ export function getPublisher() {
     }
 }
 
+
+export function getYear() {
+    return async function (dispatch) {
+        try {
+            const response = await axios ("http://localhost:5432/publishedDate");
+            return dispatch ({
+                type: GET_YEAR,
+                payload: response.data,
+            })
+        } catch (error) {
+
+        }
+    }
+}
+
+
+export function getGender() {
+    return async function (dispatch) {
+        try {
+            const response = await axios ("http://localhost:5432/gender"); 
+            return dispatch ({
+                type: GET_GENDER,
+                payload: response.data,
+            })
+        } catch (error) {
+
+        }
+    }
+}
+
+
 export function filter (filtraTodo) {
     return {
         type: FILTER,
@@ -93,11 +100,13 @@ export function filter (filtraTodo) {
     }
 }
 
+
 export function reset() {
     return {
         type: RESET,
     }
 }
+
 
 export function searchBook(name) {
     return {
@@ -105,6 +114,7 @@ export function searchBook(name) {
         payload: name
     }
 }
+
 
 export const setError = (errorMessage) => ({
     type: SET_ERROR,
