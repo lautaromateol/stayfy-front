@@ -35,11 +35,11 @@ const validation = ({title, authors, publisher, image, publishedDate, pageCount,
     }
 
 
-    if(!image){
-        errors.image = 'Please, insert an image in URL format' 
-    }else if(!regexImg.test(image)){
-        errors.image = 'Please, insert a valid image format'
-    }
+    // if(!image){
+    //     errors.image = 'Please, insert an image in URL format'
+    // }else if(!regexImg.test(image)){
+    //     errors.image = 'Please, insert a valid image format'
+    // }
 
     if(!publishedDate){
         errors.publishedDate = 'Please, insert a year'
@@ -64,7 +64,7 @@ const validation = ({title, authors, publisher, image, publishedDate, pageCount,
     }
 
 
-    if(!price){ 
+    if(!price){
         errors.price = 'Please, insert a price'
     }else if(!regexPrice.test(price)){
         errors.price = 'Insert a valid format'
