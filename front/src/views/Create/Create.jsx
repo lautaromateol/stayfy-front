@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import validation from './validation/validation';
 import { useDispatch} from 'react-redux';
-import { getBooks } from '../../redux/actions' 
+import axios from 'axios';
 
 
 const Create = () => {
@@ -35,10 +35,11 @@ const Create = () => {
     }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        dispatch(getBooks(input))
         console.log(input);
+        setInput({...input, authors: [...input.authors]})
+        await axios.post('http://localhost:3001/books/create',  input)
         alert('Your book has been added succesfully')
         setInput({
             title: '',
