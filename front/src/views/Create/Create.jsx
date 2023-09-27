@@ -34,6 +34,42 @@ const Create = () => {
         }))
     }
 
+    const handleImageChange = async (event) => {
+        const files = event.target.files;
+    
+        if (files.length > 0) {
+            const file = files[0]; 
+            const formData = new FormData();
+            const allowedExtensions = ["jpg", "jpeg", "png"];
+            const fileExtension = file.name.split(".").pop().toLowerCase();
+            if (!allowedExtensions.includes(fileExtension)) {
+                console.error("Tipo de archivo no válido");
+                return;
+            }
+    
+            // formData.append("file", file);
+            formData.append("image", file);
+    
+            try {
+                const response = await axios.post("http://localhost:3001/books/uploads", formData, {
+                    headers: {
+                    'Content-Type': 'multipart/form-data',
+                    },
+                });
+    
+                if (response.status === 200) {
+                    setInput((prevInput) => ({
+                        ...prevInput,
+                        image: response.data.imageUrl,
+                    }));
+                } else {
+                    console.error("Error al cargar la imagen_1");
+                }
+            } catch (error) {
+                console.error("Error al cargar la imagen_2", error);
+            }
+        }
+    };
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -77,7 +113,13 @@ const Create = () => {
                 </div>
                 <div>
                     <label>Image</label>
-                    <input name='image' type="text" value={input.image} onChange={handleChange}/>
+                    <input
+                        name="image"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                    />
+                    {/* <input name='image' type="text" value={input.image} onChange={handleChange}/> */}
                     {error.image && <span>{error.image}</span>}
 
                 </div>
