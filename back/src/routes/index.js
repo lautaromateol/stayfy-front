@@ -6,8 +6,8 @@ const { paymentRouter } = require("./paymentRouter");
 
 const router = Router();
 
-router.use(morgan("dev"));
-router.use(cors());
+// router.use(morgan("dev"));
+// router.use(cors());
 
 router.use('/books', booksRouter);
 router.use('/checkout', paymentRouter)
