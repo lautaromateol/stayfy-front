@@ -7,9 +7,8 @@ require('dotenv').config();
 
 const createBook = async (title, authors, publisher, image, publishedDate, pageCount, genre, price, description) => {
 
-  if (!Array.isArray(authors)) {
-    throw new Error('authors should be an array.');
-  }
+  authors.includes(',') ? authors = authors.split(', ') : authors = authors.split('  ')
+
     const newBook = await Book.create({title, authors, publisher, image: image? image: DEFAULT_IMAGE, publishedDate, pageCount, genre, price, description });
     return newBook;
 };
