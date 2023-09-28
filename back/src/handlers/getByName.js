@@ -2,7 +2,7 @@ const { getByName } = require("../controllers/getByNameController");
 
 const getBooksHandler = async (req, res) => {
   const { name } = req.query;
-
+  
   const response = await getByName(name);
   try {
     res.status(200).json(response);

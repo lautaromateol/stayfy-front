@@ -22,15 +22,15 @@ const getByName = async (originalName) => {
 
 
     // if (!dbFoundBook.length){
-    //     throw new Error (The book ${bookTitle} was not found.);
+    //     throw new Error (`The book ${bookTitle} was not found.`);
     // } else{
     //     return dbFoundBook;
     // };
 
     const bookTitle = originalName;
     const dbFoundBook = [];
-
-    const apiFoundBooks = apiBooks.filter((book) => book.title == bookTitle);
+    
+    const apiFoundBooks = apiBooks.filter((book) => book.title == bookTitle);   
     const queryFoundBooks = dbFoundBook.concat(apiFoundBooks);
 
     if (!queryFoundBooks.length){
