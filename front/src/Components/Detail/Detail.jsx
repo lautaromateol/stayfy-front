@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import EstrellasRating from '../StartRating/StartRating';
 
 const Detail = () => {
 
@@ -10,6 +11,8 @@ const Detail = () => {
 
   const { id } = useParams()
 
+
+    const promedioCalificaciones = 3.5;
 
   const handleCheckout = async () => {
     try {
@@ -45,6 +48,7 @@ const Detail = () => {
           <img className='w-[350px] h-[500px]' src={book.image} />
         </div>
         <div className='mr-2.5'>
+        <EstrellasRating promedioCalificaciones={promedioCalificaciones} />
           <h1 className='text-4xl mb-2'>{book.title && book.title}</h1>
           {book.authors && book.authors.length === 1 ? <p className='mb-5'>By <a className='underline'>{book.authors && book.authors[0]}</a></p> : <p className='mb-5'>By <a>{book.authors && book.authors[0]}</a> and <a>{book.authors && book.authors[1]}</a></p>}
           <p className='mb-2.5'>{book.description && book.description}</p>
