@@ -92,7 +92,7 @@ const Create = () => {
 
 
     return (
-        <div>
+        <div className='bg-red-400 h-screen'>
             <div className="flex justify-center w-full">
                  <div className="flex flex-col justify-center items-center max-w-7xl w-[90%]">
                      <div className="flex flex-col justify-center text-center space-y-3 my-9">
@@ -100,7 +100,7 @@ const Create = () => {
                         <p className="text-gray-600">Add your favorite book in just a few steps.</p> 
                     </div> 
                     <div className="flex flex-col justify-center lg:flex-row items-center lg:space-x-10 xl:space-x-24 "> 
-                        <form className=" shadow-lg flex flex-col justify-center space-y-3 md:w-full mb-7 md:mx-16 lg:mx-0 px-8 py-4 lg:px-4"> 
+                        <form className="bg-gray-200 shadow-2xl flex flex-col justify-center space-y-3 md:w-full mb-7 md:mx-16 lg:mx-0 px-8 py-4 lg:px-4"> 
                             <div className="flex flex-col justify-between lg:flex-row space-y-1 lg:space-y-0 "> 
                                 <h1>Title</h1> 
                                 <input className="bg-slate-100 rounded-lg px-2 py-1 placeholder:text-gray-600 w-[80%] lg:w-[60%] focus:border focus:outline-none focus:border-blue-500" name='title' type="text" value={input.title} onChange={handleChange}/>
@@ -146,7 +146,7 @@ const Create = () => {
                                 <input name='description' type="text" value={input.description} onChange={handleChange} className="bg-slate-100 rounded-lg px-2 py-1 placeholder:text-gray-300 w-[80%] lg:w-[60%] focus:border focus:outline-none focus:border-blue-500"/> 
                                 {error.description && <span>{error.description}</span>}
                             </div> 
-                            <div className="text-center md:text-left lg:text-right"> 
+                            <div className="text-center md:text-left lg:text-right text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5  mr-2 mb-2"> 
                                 <button type='submit' onClick={handleSubmit} className="bg-blue-500 my-2 px-3 py-1 text-white rounded-md hover:bg-blue-600">Add Book</button> 
                             </div> 
                         </form> 
