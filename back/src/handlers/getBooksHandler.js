@@ -1,16 +1,6 @@
-const { getBooks } = require("../controllers/getBooksController");
-// const { getByName } = require("../controllers/getByNameController");
+const { getBooks, getFilteredBooks } = require("../controllers/getBooksController");
 
 const getBooksHandler = async (req, res) => {
-  // const { name } = req.query;
-
-  // if(name === undefined || name === null){
-  //   const response = await getByName();
-  // }
-  // else {  
-  //   const response = await getBooks();
-  // }
-  
   const response = await getBooks();
   try {
     res.status(200).json(response);
@@ -19,4 +9,15 @@ const getBooksHandler = async (req, res) => {
   }
 };
 
-module.exports = { getBooksHandler };
+const getFilteredBooksHandler = async (req, res) => {
+  const { sort, page, genre, title, publishedDate } = req.query;
+
+  const response = await getFilteredBooks({ sort, page, genre, title, publishedDate });
+  try {
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
+};
+
+module.exports = { getBooksHandler, getFilteredBooksHandler };
