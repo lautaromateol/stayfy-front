@@ -4,8 +4,8 @@ function filterByTitle(drivers, searchTitle) {
     };
     const lowerSearchTitle = searchTitle.toLocaleLowerCase();
     const filteredDrivers = drivers.filter(({ title }) => {
-      const title = filteredDrivers.toLocaleLowerCase();
-      return title.includes(lowerSearchTitle);
+      const bookTitle = title.toLocaleLowerCase();
+      return bookTitle.includes(lowerSearchTitle);
     });
     return filteredDrivers;
   };
