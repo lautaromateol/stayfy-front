@@ -8,8 +8,6 @@ const Detail = () => {
 
   const [book, setBook] = useState({})
 
-  const [render, setRender] = useState(false)
-
   const { id } = useParams()
 
 
@@ -19,8 +17,8 @@ const Detail = () => {
         items: [{
           title: book.title,
           quantity: 1,
-          currency_id: 'ARS', // Moneda (pesos argentinos)
-          unit_price: book.price, // Precio del producto en centavos
+          currency_id: 'ARS', 
+          unit_price: book.price, 
         }]
       });
       const { id } = response.data;
@@ -38,7 +36,6 @@ const Detail = () => {
         window.alert('Product not found');
       }
     })
-    setRender(true)
   }, []);
 
   return (
