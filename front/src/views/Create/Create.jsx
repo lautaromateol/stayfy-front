@@ -37,9 +37,6 @@ const Create = () => {
 
     const handleImageChange = async (event) => {
         const files = event.target.files;
-
-
-
         if (files.length > 0) {
             const file = files[0]; 
             const formData = new FormData();

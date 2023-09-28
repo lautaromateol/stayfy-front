@@ -6,7 +6,7 @@ function Cards({ book }) {
 
     return (
         <div title={`Click here to see more details of ${title}`}>
-            <NavLink to={`/detail/${id}`}>
+            <NavLink to={`/product-page/${id}`}>
                 <img src={image} alt='Book' />
                 <div>
                     <h3>{title}</h3>
