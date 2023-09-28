@@ -12,7 +12,7 @@ const Detail = () => {
   const { id } = useParams()
 
 
-    const promedioCalificaciones = 3.5;
+    const promedioCalificaciones = 4.5;
 
   const handleCheckout = async () => {
     try {
