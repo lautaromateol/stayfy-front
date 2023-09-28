@@ -3,11 +3,13 @@ import './App.css'
 import Home from './Views/Home/Home'
 import Create from './views/Create/Create'
 import Detail from './Components/Detail/Detail'
+import Google from './Components/Google/Google'
 
 function App() {
 
   return (
       <div>
+        <Google/>
         <Routes>
           {/* <Route path='/home' element= {<Home/>}/>
           <Route path='/cart' element= {<Cart/>}/> */}
