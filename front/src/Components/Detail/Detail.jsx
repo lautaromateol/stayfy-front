@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import style from './Detail.module.css'
 import axios from 'axios';
+import EstrellasRating from '../StartRating/StartRating';
 
 const Detail = ()=>{
 
@@ -13,7 +14,8 @@ const Detail = ()=>{
 
     const {id} = useParams()
 
-    
+    const promedioCalificaciones = 3.5;
+
   const handleCheckout = async () => {
     try {
       const response = await axios.post('http://localhost:3001/checkout/mercado-pago/create_preference', {
@@ -36,18 +38,19 @@ const Detail = ()=>{
               setBook(data);
            } else {
               window.alert('Product not found');
-           }
-        })
-        setRender(true)
-     }, []);
-
-    return(
-        <div class={style.container}>
+            }
+          })
+          setRender(true)
+        }, []);
+        
+        return(
+          <div class={style.container}>
           <div class={style.info_container}>
           <div class={style.image_container}>
             <img id={style.product_image} src={book.image}/>
           </div>
           <div class={style.description}>
+          <EstrellasRating promedioCalificaciones={promedioCalificaciones} />
             <h2>{book.title && book.title}</h2>
             {book.authors && book.authors.length === 1 ? <p>By <a>{book.authors && book.authors[0]}</a></p> : <p>By <a>{book.authors && book.authors[0]}</a> and <a>{book.authors && book.authors[1]}</a></p> }           
             <p>{book.description && book.description}</p>
@@ -63,6 +66,7 @@ const Detail = ()=>{
             Pagar con Mercado Pago</a></button>)}
             </fieldset>
           </div>
+
           </div>
         <div class={style.secondary_info}>
           <div id={style.card}>
