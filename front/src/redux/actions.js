@@ -12,6 +12,7 @@ export const FILTER = "FILTER";
 export const RESET = "RESET";
 export const SEARCH_BOOK = "SEARCH_BOOK";
 export const SET_ERROR = "SET ERROR";
+export const POST_BOOK = "POST_BOOK"
 
 
 export function getBooks() {
@@ -24,6 +25,13 @@ export function getBooks() {
             });
         } catch (error) {}
     };
+}
+
+export function postBook(payload){
+    return async function (){
+            const postBook = await axios.post('http://localhost:3001/books/create', payload)
+            return postBook;
+    }
 }
 
 

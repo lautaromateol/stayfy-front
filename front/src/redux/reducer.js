@@ -1,4 +1,4 @@
-import { GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR } from "./actions";
+import { GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK } from "./actions";
 
 
 const initialState = {
@@ -36,6 +36,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         publishers: action.payload,
       };
+      case POST_BOOK:
+        return {
+          ...state
+        }
     default:
       return { ...state };
   }
