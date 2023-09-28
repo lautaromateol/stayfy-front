@@ -1,15 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooks, orderBooks, getAuthor, getPublisher, getYear,
-getGender, filter, reset, searchBook, setError } from "../../redux/actions";
+getGender, filter, reset, searchBook, setError, getFilteredBooks } from "../../redux/actions";
 import Paginado from "../../components/Paginado/paginado";
 import CardList from "../../components/CardList/cardList";
 import Nav from "../../components/Nav";
 //import css
 
 function Books() {
-    const dispatch = useDispatch();
-    
+  // NUEVOS ESTADOS PARA FILTROS (pendientes de revisar - DC)
+  const [sort, setSort] = useState();
+  const [page, setPage] = useState(0);
+  const [title, setTitle] = useState('');
+  const [publishedDate, setpublishedDate] = useState(0);
+  const [genreList, setGenreList] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState('');
+
+  const dispatch = useDispatch();
+  const { totalPages, filteredBooks } = useSelector((state) => state); // nuevo para filtros 
+
+  useEffect(() => { // nuevo para filtros 
+    dispatch(
+      getFilteredBooks({
+        sort,
+        page,
+        genre: selectedGenre,
+        title,
+        publishedDate,
+      })
+    );
+  }, [sort, page, selectedGenre, title, publishedDate]);
+
+
+  useEffect(() => { // nuevo para filtros 
+    getGender(setGenreList);  // --> pendiente crear una endpoint en el back que nos retorne un arreglo con todos los géneros y verificar respuesta acá
+  }, []);
 
     //define estados para paginacion y filtros
     const [currentPage, setCurrentPage] = useState(
