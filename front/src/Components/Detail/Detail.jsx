@@ -12,11 +12,7 @@ const Detail = () => {
   const { id } = useParams()
 
 
-<<<<<<< HEAD
     const promedioCalificaciones = 4.5;
-=======
-    const promedioCalificaciones = 3.5;
->>>>>>> 9ecc45f (Componente StartRating)
 
   const handleCheckout = async () => {
     try {
@@ -35,7 +31,6 @@ const Detail = () => {
     }
   };
 
-<<<<<<< HEAD
   useEffect(() => {
     axios(`http://localhost:3001/books/${id}`).then(({ data }) => {
       if (data.title) {
@@ -62,35 +57,6 @@ const Detail = () => {
           <fieldset className="border border-solid border-gray-400 p-3">
             <button className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer' onClick={handleCheckout}>Realizar compra</button>
             <button className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>Agregar al carrito</button>
-=======
-    useEffect(() => {
-      axios(`http://localhost:3001/books/${id}`).then(({ data }) => {
-           if (data.title) {
-              setBook(data);
-           } else {
-              window.alert('Product not found');
-            }
-          })
-          setRender(true)
-        }, []);
-        
-        return(
-          <div class={style.container}>
-          <div class={style.info_container}>
-          <div class={style.image_container}>
-            <img id={style.product_image} src={book.image}/>
-          </div>
-          <div class={style.description}>
-          <EstrellasRating promedioCalificaciones={promedioCalificaciones} />
-            <h2>{book.title && book.title}</h2>
-            {book.authors && book.authors.length === 1 ? <p>By <a>{book.authors && book.authors[0]}</a></p> : <p>By <a>{book.authors && book.authors[0]}</a> and <a>{book.authors && book.authors[1]}</a></p> }           
-            <p>{book.description && book.description}</p>
-            <hr/>
-            <p id={style.price}>{book.price && book.price}$</p>
-            <fieldset>
-            <button class={style.button} onClick={handleCheckout}>Realizar compra</button>
-            <button class={style.button}>Agregar al carrito</button>
->>>>>>> 9ecc45f (Componente StartRating)
             {preferenceId && (
               <button className='block w-60 h-7.1 bg-[rgba(0,188,255,255)] rounded-md border-none hover:cursor-pointer m-2.5 py-0.5 px-1'>
                 <img className='relative top-3 w-7.5 h-5' src='https://vectorseek.com/wp-content/uploads/2023/08/Mercado-Pago-Icon-Logo-Vector.svg-.png' />
@@ -107,13 +73,9 @@ const Detail = () => {
             <span>Publisher:</span>
             <span>{book.publisher}</span>
           </div>
-<<<<<<< HEAD
           <div className='grid grid-cols-[50%_50%] border border-solid border-gray-400'>
             <span>Publication year:</span>
             <span>{book.publishedDate}</span>
-=======
-
->>>>>>> 9ecc45f (Componente StartRating)
           </div>
           <div className='grid grid-cols-[50%_50%] border border-solid border-gray-400'>
             <span>Genre:</span>
