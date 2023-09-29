@@ -7,7 +7,7 @@ function CardList() {
   const books = useSelector((state) => state.books);
 
   return (
-    <div>
+    <div className="grid grid-cols-3">
       {/* mapeamos la matriz para generar un componente cards para cada controlador en la lista */}
       {books.map(({ id, title, authors, price, image }) => (
         <Cards 

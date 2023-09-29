@@ -129,13 +129,9 @@ export function getYear() {
 export function getGender() {
     return async function (dispatch) {
         try {
-<<<<<<< HEAD
-            const response = await axios ("http://localhost:5432/genre"); 
-=======
             const response = await axios ("http://localhost:3001/books");
             const genre = response.data.map((book) => book.genre)
             let uniqueGenres = [...new Set(genre)]; 
->>>>>>> f109404 (Select de genre en Create listo)
             return dispatch ({
                 type: GET_GENDER,
                 payload: uniqueGenres,
