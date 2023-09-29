@@ -105,7 +105,7 @@ const Create = () => {
             </p>
           </div>
           <div className="flex flex-col justify-center lg:w-full lg:flex-row items-center lg:space-x-10 xl:space-x-24 ">
-            <form className="bg-gray-200 shadow-2xl flex justify-center md:w-full mb-7 md:mx-16 lg:mx-0 px-8 py-4  lg:py-8 ">
+            <form className="bg-gray-200 shadow-2xl flex justify-center md:w-full mb-7 md:mx-16 lg:mx-0 px-8 py-4  lg:py-8 rounded-lg">
               <div className="w-full">
                 <div className="flex flex-col justify-between items-center lg:flex-row space-y-1 lg:space-y-0 my-5">
                   <div className="flex flex-col w-full items-center">
