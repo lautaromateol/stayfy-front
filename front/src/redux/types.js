@@ -1,0 +1,14 @@
+export const GET_BOOKS = "GET_BOOKS";
+export const GET_FILTERED_BOOKS = "GET_BOOKS";  // nuevo para filtros
+export const ORDER = "ORDER";
+export const GET_AUTHOR = "GET_AUTHOR";
+export const GET_PUBLISHER = "GET_PUBLISHER";
+export const GET_YEAR = "GET_YEAR";
+export const GET_GENDER = "GET_GENDER";
+export const FILTER = "FILTER";
+export const RESET = "RESET";
+export const SEARCH_BOOK = "SEARCH_BOOK";
+export const SET_ERROR = "SET ERROR";
+export const POST_BOOK = "POST_BOOK"
+export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
+export const SET_LOADING_FALSE = "SET_LOADING_FALSE";
