@@ -3,10 +3,10 @@ import Google from "../../Components/Google/Google";
 
 const LogIn = () => {
   return (
-    <div>
+    <div className="bg-slate-100 h-screen">
       
       <div className="flex justify-center">
-        <div className="flex flex-col justify-center items-center md:flex-row shadow rounded-xl max-w-7xl md:w-[50%]  m-2">
+        <div className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
           <div className=" w-full md:w-3/4">
             <div className="text-xl cursor-pointer flex flex-col justify-center items-center mt-5 md:mt-0 py-4">
               <h1 className="font-semibold text-xl md:text-3xl text-gray-600 m-2">
