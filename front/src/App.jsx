@@ -5,6 +5,7 @@ import Create from './views/Create/Create'
 import Detail from './Components/Detail/Detail'
 import Google from './Components/Google/Google'
 import Nav from './Components/Nav/Nav'
+import ReviewForm from './Components/ReviewForm/ReviewForm'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element= {<Home/>}/>
           <Route path='/create' element={<Create/>}/>
           <Route path='/product-page/:id' element={<Detail/>}/>
+          <Route path='/review' element={<ReviewForm/>}/>
 
 
         </Routes>
