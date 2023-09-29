@@ -3,23 +3,21 @@ import './App.css'
 import Home from './Views/Home/Home'
 import Create from './views/Create/Create'
 import Detail from './Components/Detail/Detail'
-import Google from './Components/Google/Google'
 import Nav from './Components/Nav/Nav'
+import LogIn from './Components/LogIn/LogIn'
+import Books from './Components/Books/Books'
 
 function App() {
 
   return (
       <div>
         <Nav />
-        <Google/>
         <Routes>
-          {/* <Route path='/home' element= {<Home/>}/>
-          <Route path='/cart' element= {<Cart/>}/> */}
           <Route path='/' element= {<Home/>}/>
           <Route path='/create' element={<Create/>}/>
           <Route path='/product-page/:id' element={<Detail/>}/>
-
-
+          <Route path='/login' element={<LogIn/>}></Route>
+          <Route path='/books' element={<Books/>}></Route>
         </Routes>
       </div>
   )
