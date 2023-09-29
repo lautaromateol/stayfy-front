@@ -1,4 +1,4 @@
-import CardList from "../../Components/CardList/cardList"
+import CardList from "../../components/CardList/cardList"
 // import Nav from "../../Components/Nav/Nav"
 
 const Home = ()=>{

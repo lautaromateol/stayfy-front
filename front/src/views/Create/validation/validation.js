@@ -15,7 +15,7 @@ const validation = ({title, authors, publisher, image, publishedDate, pageCount,
     if(!title){
         errors.title = 'Please, insert a title'
     }else if(title.length < 2 || title.length > 30){
-        errors.title = 'The title must be between 2  and  30 characters'
+        errors.title = 'This field must contain between 2 and 30 characters'
     }
 
     if(!authors){
