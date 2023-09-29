@@ -7,9 +7,7 @@ const Nav = ()=>{
             <button>
                 <Link to="/">Home</Link>
             </button>
-            <button>
-                <Link to="/books">Books</Link>
-            </button>
+            <button>Books</button>
             <button>
                 <Link to="/create">Create</Link>
             </button>

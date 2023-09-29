@@ -44,7 +44,7 @@ export function getFilteredBooks() {    // nuevo para filtros
 export function getBooks() {
     return async function (dispatch) {
         try {
-            const response = await axios("http://localhost:5432/title");
+            const response = await axios("http://localhost:3001/title");
             return dispatch({
                 type: "GET_BOOKS",
                 payload: response.data,
@@ -72,7 +72,7 @@ export function orderBooks(orderType) {
 export function getAuthor() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:5432/authors");
+            const response = await axios ("http://localhost:3001/authors");
             return dispatch({
                 type: GET_AUTHOR,
                 payload: response.data,
@@ -87,7 +87,7 @@ export function getAuthor() {
 export function getPublisher() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:5432/publisher");
+            const response = await axios ("http://localhost:3001/publisher");
             return dispatch ({
                 type: GET_PUBLISHER,
                 payload: response.data,
@@ -102,7 +102,7 @@ export function getPublisher() {
 export function getYear() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:5432/publishedDate");
+            const response = await axios ("http://localhost:3001/publishedDate");
             return dispatch ({
                 type: GET_YEAR,
                 payload: response.data,
@@ -117,7 +117,7 @@ export function getYear() {
 export function getGender() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:5432/gender"); 
+            const response = await axios ("http://localhost:3001/gender"); 
             return dispatch ({
                 type: GET_GENDER,
                 payload: response.data,
