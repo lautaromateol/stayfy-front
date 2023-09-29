@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const mercadopago = require("mercadopago")
+const { Order } = require("../db");
+const mercadopago = require("mercadopago");
 const mercadopagoRouter = Router();
 
 mercadopago.configure({
@@ -7,10 +8,16 @@ mercadopago.configure({
 });
 
 mercadopagoRouter.post('/create_preference', async (req, res) => {
-	const { items } = req.body;
-  
+	const { items, image } = req.body;
+
+	const {title, quantity, unit_price} = items[0]
+
 	const preference = {
 	  items,
+	  back_urls: {
+		success: `http://localhost:5173/order-approved/?title=${title}&quantity=${quantity}&unit_price=${unit_price}&image=${image}`
+	  },
+	  auto_return: 'approved'
 	};
   
 	try {
@@ -23,12 +30,11 @@ mercadopagoRouter.post('/create_preference', async (req, res) => {
   });
 
 mercadopagoRouter.get('/feedback', function (req, res) {
-	res.send('Aca va lo que vamos a poner en un pago exitoso')
-	// res.json({
-	// 	Payment: req.query.payment_id,
-	// 	Status: req.query.status,
-	// 	MerchantOrder: req.query.merchant_order_id
-	// });
+	res.json({
+	Payment: req.query.payment_id,
+	Status: req.query.status,
+	MerchantOrder: req.query.merchant_order_id
+    });
 });
 
 module.exports = {mercadopagoRouter}
