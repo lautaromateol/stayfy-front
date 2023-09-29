@@ -153,7 +153,7 @@ const Create = () => {
                       className="bg-slate-100 rounded-lg px-2 py-1 placeholder:text-gray-600 w-[80%] lg:w-[60%] focus:border focus:outline-none focus:border-blue-500"
                       name="image"
                       type="file"
-                      accept="image/*"
+                      accept=".jpg,.jpeg,.png" 
                       onChange={handleImageChange}
                     />
                     {/* value={input.image}onChange={handleChange} */}
@@ -191,13 +191,20 @@ const Create = () => {
                 <div className="flex flex-col justify-between items-center lg:flex-row space-y-1 lg:space-y-0 my-5">
                     <div className="flex flex-col w-full items-center">
                     <h1 className="font-semibold mb-2 text-lg">Genre</h1>
-                    <input
+                    <select 
                         name="genre"
-                        type="text"
+                        type="select"
                         value={input.genre}
                         onChange={handleChange}
-                        className="bg-slate-100 rounded-lg px-2 py-1 placeholder:text-gray-300 w-[80%] lg:w-[60%] focus:border focus:outline-none focus:border-blue-500"
-                    />
+                        className="bg-slate-100 rounded-lg px-2 py-1 placeholder:text-gray-300 w-[80%] lg:w-[60%] focus:border focus:outline-none focus:border-blue-500">
+                          <option value='' disabled defaultValue>Genre</option>
+                          <option value="Self-help">Self help</option>
+                          <option value="Horror">Horror</option>
+                          <option value="Sci-Fi">Science Fiction</option>
+                          <option value="Mystery & Detective">Mystery & Detective</option>
+                          <option value="Comedy">Comedy</option>
+                          <option value="Romance">Romance</option>
+                    </select>
                     {error.genre && <span className="text-red-500">{error.genre}</span>}
                     </div>
                 </div>

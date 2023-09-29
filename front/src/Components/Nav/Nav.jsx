@@ -2,7 +2,7 @@ import {Link} from "react-router-dom"
 
 const Nav = ()=>{
     return (
-        <div className="flex justify-between w-screen py-5 bg-blue-400 text-lg font-semibold">
+        <div className="flex justify-between w-full py-5 bg-blue-400 text-lg font-semibold">
             <button className="ml-8">
                 <Link to="/">Home</Link>
             </button>
