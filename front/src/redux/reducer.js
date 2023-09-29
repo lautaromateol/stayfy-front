@@ -1,5 +1,5 @@
 // import { GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK } from "./actions";
-import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK } from "./types";
+import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK, GET_GENRES } from "./types";
 
 const initialState = {
   books: [],
@@ -29,6 +29,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         filterdBooks: action.payload.foundBooks,
         // totalPages: action.payload.totalPages,
+      };
+    case GET_GENRES: // nuevo por filtros
+      return {
+        ...state,
+        genres: action.payload,
       };
     case GET_BOOKS:
       return {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../utils";
-import { GET_FILTERED_BOOKS, GET_GENDER, SET_LOADING_FALSE, SET_LOADING_TRUE } from "./types";
+import { GET_FILTERED_BOOKS, GET_GENDER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE } from "./types";
 
 // export const GET_BOOKS = "GET_BOOKS";
 // export const GET_FILTERED_BOOKS = "GET_BOOKS";  // nuevo para filtros
@@ -39,6 +39,18 @@ export function getFilteredBooks() {    // nuevo para filtros
         dispatch({ type: SET_LOADING_FALSE });
       }
     };
+}
+
+export function getGenres() {
+    return async function (dispatch) {
+        try {
+            return dispatch ({
+                type: GET_GENRES,
+                payload: ["Self-help", "Horror", "Sci-Fi", "Mystery & Detective", "Comedy", "Romance"],
+            })
+        } catch (error) {
+        }
+    }
 }
 
 export function getBooks() {
@@ -117,7 +129,7 @@ export function getYear() {
 export function getGender() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:5432/gender"); 
+            const response = await axios ("http://localhost:5432/genre"); 
             return dispatch ({
                 type: GET_GENDER,
                 payload: response.data,

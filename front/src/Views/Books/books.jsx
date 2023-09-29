@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooks, orderBooks, getAuthor, getPublisher, getYear,
-getGender, filter, reset, searchBook, setError } from "../../redux/actions";
+getGender, filter, reset, searchBook, setError, getGenres } from "../../redux/actions";
 import Paginado from "../../Components/Paginado/paginado";
 import CardList from "../../Components/CardList/CardList";
+import Nav from "../../components/Nav";
 //import css
 
 function Books() {
@@ -32,7 +33,7 @@ function Books() {
 
 
   useEffect(() => { // nuevo para filtros 
-    getGender(setGenreList);  // --> pendiente crear una endpoint en el back que nos retorne un arreglo con todos los géneros y verificar respuesta acá
+    getGenres(setGenreList);  // --> pendiente crear una endpoint en el back que nos retorne un arreglo con todos los géneros y verificar respuesta acá
   }, []);
 
     //define estados para paginacion y filtros
