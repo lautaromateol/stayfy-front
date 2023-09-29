@@ -30,12 +30,11 @@ sequelize.models = Object.fromEntries(capsEntries);
 defineBooks(sequelize); 
 
 const { Book } = sequelize.models; 
+const { User } = sequelize.models;
+const { Order } = sequelize.models;
 
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-
-// Driver.belongsToMany(Team, {through: 'Driver_Team'});    // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
-// Team.belongsToMany(Driver, {through: 'Driver_Team'});    // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
+ Order.belongsToMany(User, {through: 'User_Order'});    // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
+ User.belongsToMany(Order, {through: 'User_Order'});    // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
 
 // sequelize.sync({ force: false }) // Cambiar a true si deseo que se eliminen y vuelvan a crear las tablas
 //   .then(() => {
