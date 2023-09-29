@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBooks, orderBooks, getAuthor, getPublisher, getYear,
 getGender, filter, reset, searchBook, setError } from "../../redux/actions";
 import Paginado from "../../Components/Paginado/paginado";
-import CardList from "../../components/CardList/cardList";
+import CardList from "../../Components/CardList/cardList";
 import Nav from "../../components/Nav";
 //import css
 

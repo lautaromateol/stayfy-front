@@ -44,7 +44,7 @@ export function getFilteredBooks() {    // nuevo para filtros
 export function getBooks() {
     return async function (dispatch) {
         try {
-            const response = await axios("http://localhost:5432/title");
+            const response = await axios("http://localhost:3001/books");
             return dispatch({
                 type: "GET_BOOKS",
                 payload: response.data,
