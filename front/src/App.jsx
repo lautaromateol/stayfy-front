@@ -8,6 +8,7 @@ import LogIn from "./Views/LogIn/LogIn"
 import Books from "./Views/Books/books"
 import Success from './Components/Success/Success'
 import './App.css'
+import ReviewForm from './Components/ReviewForm/ReviewForm'
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/books' element={<Books/>}/>
           <Route path='/order-approved' element={<Success/>}/>
+          <Route path='/review' element={<ReviewForm/>}/>
+
+
         </Routes>
       </div>
   )
