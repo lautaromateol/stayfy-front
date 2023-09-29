@@ -4,8 +4,8 @@ import Home from './Views/Home/Home'
 import Create from './Views/Create/Create'
 import Detail from './Components/Detail/Detail'
 import Nav from './Components/Nav/Nav'
-import LogIn from './Components/LogIn/LogIn'
-import Books from './Components/Books/Books'
+import LogIn from "./Views/LogIn/LogIn"
+import Books from "./Views/Books/books"
 
 function App() {
 

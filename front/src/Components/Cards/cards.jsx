@@ -1,19 +1,16 @@
-import { NavLink } from "react-router-dom";
+
 //importar css
 
-function Cards({ books }) {
-    const { title, authors, price, image, id } = books;
+function Cards({ title, authors, price, image, id  }) {
 
     return (
         <div title={`Click here to see more details of ${title}`}>
-            <NavLink to={`/product-page/${id}`}>
-                <img src={books.image} alt='Book' />
+                <img src={image} alt={title} />
                 <div>
-                    <h3>{books.title}</h3>
-                    <h4>{books.authors}</h4>
-                    <h5>{books.price}</h5>
+                    <p>{title}</p>
+                    <p>{authors}</p>
+                    <p>{price}</p>
                 </div>
-            </NavLink>
         </div>
     );
 }

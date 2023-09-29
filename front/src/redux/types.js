@@ -1,5 +1,5 @@
 export const GET_BOOKS = "GET_BOOKS";
-export const GET_FILTERED_BOOKS = "GET_BOOKS";  // nuevo para filtros
+export const GET_FILTERED_BOOKS = "GET_FILTERED_BOOKS";  // nuevo para filtros
 export const ORDER = "ORDER";
 export const GET_AUTHOR = "GET_AUTHOR";
 export const GET_PUBLISHER = "GET_PUBLISHER";
