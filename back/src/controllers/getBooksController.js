@@ -106,11 +106,9 @@ const getBooks = async () => {
             publishedDate: book.publishedDate,
             pageCount:book.pageCount,
             genre: book.gender,
-            price: book.price,
-            // usdPrice: book.price,
-            // arsPrice: book.price * 350,
-            // copPrice: book.price * 4000, 
+            price: book.price * 800,
             description: book.description,
+            rating: Math.floor(Math.random() * 5 + 1)
           })
       });
     }

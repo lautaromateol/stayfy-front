@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import axios from 'axios'
 
 const Success = ()=>{
 
@@ -16,6 +17,14 @@ const unit_price = params.get('unit_price')
 const quantity = params.get('quantity')
 
 const image = params.get('image')
+
+useEffect(()=>{
+    axios.post('http://localhost:3001/checkout/mercado-pago/create_order', {
+        paymentId: payment_id, 
+        merchantOrder: merchant_order_id, 
+        products: title.split('  '), 
+        spent: unit_price * quantity})
+}, [])
 
     return(
         <div className="grid place-items-center">
