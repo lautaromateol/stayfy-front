@@ -5,6 +5,7 @@ import CardList from "../../Components/CardList/cardList"
 import Slider from "../../Components/Slider/Slider"
 import Filters from '../../Components/Filters/Filters'
 
+// import Paginado from "../../Components/Paginado/paginado"
 // import Nav from "../../Components/Nav/Nav"
 
 const Home = ()=>{
