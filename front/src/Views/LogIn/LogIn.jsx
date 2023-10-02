@@ -41,7 +41,7 @@ const LogIn = () => {
           </div>
           <div className="h-[100%] w-full md:w-1/2 items-center flex justify-center">
             <div className="text-stone-700 text-base font-semibold text-center my-10 space-y-2 m-2 cursor-pointer">
-              <div className="flex justify-center border-2 border-stone-700 px-6 py-2">
+              <div className="flex justify-center border-2 border-stone-700 px-4 py-2">
                 <Google />
                 <ion-icon
                   name="logo-google"
