@@ -106,7 +106,7 @@ const getBooks = async () => {
             publishedDate: book.publishedDate,
             pageCount:book.pageCount,
             genre: book.gender,
-            price: book.price * 800,
+            price: book.price,
             description: book.description,
             rating: Math.floor(Math.random() * 5 + 1)
           })

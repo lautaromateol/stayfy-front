@@ -66,7 +66,7 @@ const Detail = () => {
         </div>
       </div>
       <hr className="border-bottom border-solid border-gray-400 p-1 mt-10" />
-      <div class=" grid place-content-center mx-auto w-[80%] p-5">
+      <div className=" grid place-content-center mx-auto w-[80%] p-5">
         <div className='w-[350px]'>
           <h2 className='text-2xl  text-center border border-solid border-gray-400'>Product Details</h2>
           <div className='grid grid-cols-[50%_50%] border border-solid border-gray-400'>
