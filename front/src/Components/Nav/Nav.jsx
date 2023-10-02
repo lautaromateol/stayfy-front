@@ -29,7 +29,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                         {/* <FontAwesomeIcon icon={faMoon} className="text-gray-500" /> */}
                     </>
                     )}
-                <button className="mr-8">
+                <button className="mx-8">
                     <Link to='/login'>Log In</Link>
                 </button>
                 </button>
