@@ -93,14 +93,14 @@ const Create = () => {
   };
 
   return (
-    <div className="bg-stone-400 h-screen">
+    <div className="bg-stone-400 dark:bg-gray-900 h-screen">
       <div className="flex justify-center w-full">
         <div className="flex flex-col justify-center items-center max-w-7xl w-[90%]">
           <div className="flex flex-col justify-center text-center space-y-3 my-9">
-            <h1 className="text-2xl md:text-3xl font-semibold">
+            <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-300">
               Add a new book
             </h1>
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 text-lg text-gray-800 dark:text-gray-300">
               Add your favorite book in just a few steps.
             </p>
           </div>

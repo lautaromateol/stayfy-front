@@ -6,14 +6,14 @@ const ReviewForm = () => {
         <div >
 
 
-            <div className="min-h-screen bg-stone-400">
+            <div className="min-h-screen bg-stone-400 dark:bg-gray-900">
 
-                <div className="bg-stone-400 text-black py-20">
+                <div className="bg-stone-400 dark:bg-gray-900 text-black py-20">
                     <div className="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
                         <div className="flex flex-col w-full lg:w-1/2 p-8">
                             <p className=" text-yellow-300 text-6xl uppercase tracking-loose">REVIEW</p>
-                            <p className="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Leave us a feedback!</p>
-                            <p className="text-sm md:text-base leading-snug text-gray-70 text-opacity-100">
+                            <p className="text-3xl md:text-5xl text-gray-800 dark:text-gray-300 my-4 leading-relaxed md:leading-snug">Leave us a feedback!</p>
+                            <p className="text-sm md:text-base text-gray-800 dark:text-gray-300 leading-snug text-gray-70 text-opacity-100">
                                 Please provide your valuable feedback.
                             </p>
                         </div>
