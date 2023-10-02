@@ -23,7 +23,7 @@ export function getFilteredBooks() {    // nuevo para filtros
     return async (dispatch) => {
       try {
         dispatch({ type: SET_LOADING_TRUE });
-        const response = await axios.get(`${BACKEND_URL}/drivers`, {
+        const response = await axios.get(`${BACKEND_URL}/drivers/filters`, {
           params: {
             sort,
             page,
