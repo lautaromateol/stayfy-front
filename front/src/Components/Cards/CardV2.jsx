@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EstrellasRating from '../StartRating/StartRating';
-import { Link } from 'react-router-dom';
 
 function CardV2({ title, authors, price, image, id }) {
     const rating = 4.5;
