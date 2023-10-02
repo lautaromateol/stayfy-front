@@ -22,7 +22,6 @@ function App() {
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/books' element={<Books/>}/>
           <Route path='/order-approved' element={<Success/>}/>
-
         </Routes>
       </div>
   )

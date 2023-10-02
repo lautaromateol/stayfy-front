@@ -93,7 +93,7 @@ const Create = () => {
   };
 
   return (
-    <div className="bg-blue-300 h-screen">
+    <div className="bg-stone-400 h-screen">
       <div className="flex justify-center w-full">
         <div className="flex flex-col justify-center items-center max-w-7xl w-[90%]">
           <div className="flex flex-col justify-center text-center space-y-3 my-9">
@@ -238,7 +238,7 @@ const Create = () => {
                     <button
                         type="submit"
                         onClick={handleSubmit}
-                        className="bg-blue-500 px-6 py-3 text-white rounded-md before:ease relative h-12 w-40 overflow-hidden border border-blue-500  shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-blue-500 hover:before:-translate-x-40"
+                        className="bg-yellow-500 px-6 py-3 rounded-md before:ease relative h-12 w-40 overflow-hidden border border-yellow-500  shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-yellow-500 hover:before:-translate-x-40"
                         disabled={error.title || error.authors || error.publisher || error.image || error.publishedDate || error.pageCount || error.genre || error.price || error.description || !input.title}
                     >
                         Add Book
