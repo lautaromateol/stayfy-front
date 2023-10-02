@@ -15,7 +15,7 @@ const Home = ()=>{
     }, [])
 
     return (
-        <div className="bg-stone-400">
+        <div className="bg-stone-400 dark:bg-gray-900 ">
             <Slider />
             {/* <img src="https://banner2.cleanpng.com/20180316/chq/kisspng-book-free-content-clip-art-office-books-cliparts-5aab4c121e0864.187068161521175570123.jpg" /> */}
             <div>
