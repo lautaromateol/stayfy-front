@@ -3,7 +3,7 @@ import Google from "../../Components/Google/Google";
 
 const LogIn = () => {
   return (
-    <div className="bg-slate-100 h-screen">
+    <div className="bg-stone-400 h-screen">
       
       <div className="flex justify-center">
         <div className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
