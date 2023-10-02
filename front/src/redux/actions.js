@@ -27,9 +27,9 @@ export function getFilteredBooks() {    // nuevo para filtros
           params: {
             sort,
             page,
-            genre,
-            title,
-            publishedDate,
+            // genre,
+            // title,
+            // publishedDate,
           },
         });
         dispatch({ type: GET_FILTERED_BOOKS, payload: response.data }); // --> modificado soundDrivers
