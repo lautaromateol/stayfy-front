@@ -6,7 +6,7 @@ function Cards({ title, authors, price, image, id  }) {
     return (
         <div>
             <Link to={`/product-page/${id}`}>
-                <div title={`Click here to see more details of "${title}"`} className="bg-gray-200 flex flex-col my-28 mx-32 shadow-2xl rounded-lg pt-6 cursor-pointer transition-transform transform hover:scale-105 ">
+                <div title={`Click here to see more details of "${title}"`} className="bg-gray-200 flex flex-col my-28 mx-32 shadow-2xl rounded-lg pt-6 cursor-pointer transition-transform transform hover:scale-105">
                         <div className="mx-auto">
                             <img src={image} alt={title} className="w-60 h-80 rounded-md"/>
                         </div>
