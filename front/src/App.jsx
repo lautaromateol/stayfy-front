@@ -9,12 +9,34 @@ import Books from "./Views/Books/books"
 import Success from './Components/Success/Success'
 import { useState } from 'react'
 import './App.css'
+import TestComponent from './TestComponent/TestComponent'
+import { BACKEND_URL } from '../utils'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  // const [errorApi, setErrorApi] = useState(false);  // NUEVO PARA TESTCOMPONENT / FILTROS
+  // const [books, setBooks] = useState([]); // NUEVO PARA TESTCOMPONENT / FILTROS
+  // const [isLoading, setIsLoading] = useState(false);  // NUEVO PARA TESTCOMPONENT / FILTROS
+
+  // useEffect(() => { // NUEVO PARA TESTCOMPONENT / FILTROS
+  //   fetchAllBooks();
+  // }, []);
+
+  // const fetchAllBooks = async () => { // NUEVO PARA TESTCOMPONENT / FILTROS
+  //   setIsLoading(true);
+  //   try {
+  //     const response = await axios.get(`${BACKEND_URL}/books/filters`);
+  //     setBooks(response.data);
+  //     setErrorApi(false);
+  //   } catch (error) {
+  //     setErrorApi(true);
+  //   }
+  //   setIsLoading(false);
+  // };
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -28,8 +50,10 @@ function App() {
           <Route path='/books' element={<Books/>}/>
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
-
-
+          {/* <Route
+                path="/test"
+                element={<TestComponent books={books} isLoading={isLoading} />}
+              />   */}
         </Routes>
       </div>
   )

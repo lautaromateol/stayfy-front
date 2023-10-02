@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { getBooksHandler, getFilteredBooksHandler } = require("../handlers/getBooksHandler");
 const { getByIDHandler } = require("../handlers/getByIDHandler");
-const { getByName } = require("../controllers/getByNameController");
+// const { getByName } = require("../controllers/getByNameController");
 const { postHandler } = require("../handlers/postBook")
 const { getGenresHandler } = require("../handlers/genresHandler");
 
@@ -26,6 +26,7 @@ const upload = Multer({
 const booksRouter = Router();
 
 booksRouter.get("/", getBooksHandler);
+booksRouter.get("/filters", getFilteredBooksHandler);
 // booksRouter.get("/search", getByName);
 booksRouter.get("/:id", getByIDHandler);
 booksRouter.get("/genres", getGenresHandler);

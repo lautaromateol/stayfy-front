@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
+import styles from './TestComponent.module.css';
+import Cards2 from "./Cards/Cards2";
 import { useDispatch, useSelector } from "react-redux";
-import { getBooks, orderBooks, getAuthor, getPublisher, getYear,
-getGender, filter, reset, searchBook, setError, getGenres } from "../../redux/actions";
-// import Paginado from "../../Components/Paginado/paginado";
-// import CardList from "../../Components/CardList/CardList";
-// import Nav from "../../components/Nav";
-//import css
+import { getFilteredBooks } from "../redux/actions";
+// import { getBooks, orderBooks, getAuthor, getPublisher, getYear,
+// getGender, filter, reset, searchBook, setError, getGenres } from "../../redux/actions";
+import { ASC, DESC, getGenresList } from "../../utils";
+import SearchBar2 from "./SearchBar2/SearchBar2";
+
 
 export default function TestComponent() {
   // NUEVOS ESTADOS PARA FILTROS (pendientes de revisar - DC)
   const [sort, setSort] = useState();
   const [page, setPage] = useState(0);
   const [title, setTitle] = useState('');
-  const [publishedDate, setpublishedDate] = useState(0);
   const [genreList, setGenreList] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('');
+  const [publishedDate, setpublishedDate] = useState(0);
 
   const dispatch = useDispatch();
   const { totalPages, filteredBooks } = useSelector((state) => state); // nuevo para filtros 
@@ -33,52 +35,85 @@ export default function TestComponent() {
 
 
   useEffect(() => { // nuevo para filtros 
-    getGenres(setGenreList);  // --> pendiente crear una endpoint en el back que nos retorne un arreglo con todos los géneros y verificar respuesta acá
+    getGenresList(setGenreList);  // --> pendiente crear una endpoint en el back que nos retorne un arreglo con todos los géneros y verificar respuesta acá
   }, []);
 
-    //define estados para paginacion y filtros
-    const [currentPage, setCurrentPage] = useState(
-        parseInt(localStorage.getItem("currentPage")) || 1
-    );
-    const booksPerPage = 10;
-    const indexLastBook =  currentPage * booksPerPage;
-    const indexOfFirstBook = indexLastBook - booksPerPage;
+  return (
+    <div className={styles.container}>
+      <SearchBar2 handleSearch={(title) => setTitle(title)} />
+      <div className={styles.sortContainer}>
+        <button
+          className={styles.sortButton}
+          onClick={() => {
+            setSort({
+              field: "title",
+              direction: ASC,
+            });
+          }}
+        >
+          <strong>Title Asc</strong>
+        </button>
 
-    //MANEJA PAGINADO
-    useEffect(() => {
-        const storedCurrentPage = localStorage.getItem("currentPage");
-        if (storedCurrentPage) {
-          setCurrentPage(parseInt(storedCurrentPage));
-          localStorage.removeItem("currentPage");
-        }
-      }, []);
+        <button
+          className={styles.sortButton}
+          onClick={() => {
+            setSort({
+              field: "title",
+              direction: DESC,
+            });
+          }}
+        >
+          <strong>Title Desc</strong>
+        </button>
 
-    //GUARDA PAGINA ACTUAL
-    useEffect(() => {
-        localStorage.setItem("currentPage", currentPage.toString());
-      }, [currentPage]);
-    
-      const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber);
-      };
+        <button
+          className={styles.sortButton}
+          onClick={() => {
+            setSort();
+          }}
+        >
+          <strong>Clear</strong>
+        </button>
 
-      return (
-        <div>
-            <div>
-                
-            </div>
-            
-            <div>
-                <Paginado
-                booksPerPage={booksPerPage}
-                paginado={paginado}
-                currentPage={currentPage}
-                />
-            </div>
-
-            <div>
-                <CardList/>
-            </div>
+        <div className={styles.select}>
+          <select
+            name="select"
+            className={styles.teamInput}
+            onChange={(e) => setSelectedGenre(e.target.value)}
+          >
+            {genreList.map((genre) => (
+              <option value={genre === "Select genre" ? "" : genre}>{genre}</option>
+            ))}
+          </select>
+          {/* <select
+            name="select"
+            className={styles.teamInput}
+            onChange={(e) => setSelectedOrigin(e.target.value)}
+          >
+            <option value={""}>Select origin</option>
+            <option value={"api"}>API</option>
+            <option value={"db"}>Database</option>
+          </select> */}
         </div>
-      )
-}
+      </div>
+
+      <Cards2 books={filteredBooks} />
+      <div className={styles.pagesContainer}>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+          (buttonPage) => (
+            <button
+              onClick={() => {
+                setPage(buttonPage - 1);
+              }}
+              className={`${styles.pageButton} ${
+                buttonPage - 1 === page ? styles.pageButtonSelected : ""
+              }`}
+            >
+              {buttonPage}
+            </button>
+          )
+        )}
+      </div>
+    </div>
+  );
+};
