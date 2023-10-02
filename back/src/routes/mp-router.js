@@ -29,12 +29,19 @@ mercadopagoRouter.post('/create_preference', async (req, res) => {
 	}
   });
 
-mercadopagoRouter.get('/feedback', function (req, res) {
-	res.json({
-	Payment: req.query.payment_id,
-	Status: req.query.status,
-	MerchantOrder: req.query.merchant_order_id
-    });
+mercadopagoRouter.post('/create_order', async(req, res) => {
+	
+	const {merchantOrder, paymentId, products, spent} = req.body
+
+	console.log(req.body)
+
+	try {
+		await Order.create({merchantOrder, paymentId, products, spent})
+		res.status(200).send('Orden creada con exito')
+	} catch (error) {
+		console.error(error)
+	}
+
 });
 
 module.exports = {mercadopagoRouter}

@@ -11,7 +11,7 @@ const Detail = () => {
 
   const { id } = useParams()
 
-  const rating = 4.5;
+  const rating = 4.5
 
   const handleCheckout = async () => {
     try {

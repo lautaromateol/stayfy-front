@@ -4,13 +4,13 @@ module.exports = (sequelize) => {
     sequelize.define(
         "Order", {
             merchantOrder: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.BIGINT,
                 primaryKey: true,
                 allowNull: false
             },
             buyer: {
                 type: DataTypes.STRING,
-                allowNull: false
+                //allowNull: false
             },
             products: {
                 type: DataTypes.ARRAY(DataTypes.STRING),
@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
                 allowNull: false
             },
             paymentId: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.BIGINT,
                 allowNull: false
             }
         },
