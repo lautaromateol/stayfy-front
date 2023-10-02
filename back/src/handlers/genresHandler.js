@@ -1,7 +1,6 @@
 const { getGenres } = require("../controllers/getGenresController");
 
 const getGenresHandler = async (req, res) => {
-console.log("ESTÁ LLEGANDO LA SOLICITUD")
   const response = await getGenres();
   try {
     res.status(200).json(response);
