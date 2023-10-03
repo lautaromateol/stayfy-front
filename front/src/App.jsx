@@ -12,6 +12,8 @@ import Register from './Views/Register/Register'
 import Users from './Components/Users/Users'
 import { BACKEND_URL } from '../utils'
 import './App.css'
+// import NewsList from './Components/News/News'
+import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -41,7 +43,8 @@ function App() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-          <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <CartProvider>
+            <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <Routes>
           <Route path='/' element= {<Home/>}/>
           <Route path='/create' element={<Create/>}/>
@@ -53,6 +56,7 @@ function App() {
           <Route path='/review' element={<ReviewForm/>}/>
           <Route path='/admin/users' element={<Users/>}/>
         </Routes>
+        </CartProvider>
       </div>
   )
 }
