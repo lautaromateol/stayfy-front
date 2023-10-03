@@ -9,9 +9,9 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                 <Link to="/" className="h-full p-3">HOME</Link>
             </button>
             <div className="flex justify-around w-60">
-                <button>
+                {/* <button>
                     <Link to='/books'>Books</Link>
-                </button>
+                </button> */}
                 <button>
                     <Link to="/create">Create</Link>
                 </button>
