@@ -1,7 +1,7 @@
 const { ASC } = require("../../utils");
 
 function sortByDate(books, direction) {
-    let sortedBooks = [...drivers];
+    let sortedBooks = [...books];
     sortedBooks.sort((a, b) => {
       // const dateA = new Date(a.dob);
       // const dateB = new Date(b.dob);

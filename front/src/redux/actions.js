@@ -23,13 +23,13 @@ export function getFilteredBooks() {    // nuevo para filtros
     return async (dispatch) => {
       try {
         dispatch({ type: SET_LOADING_TRUE });
-        const response = await axios.get(`${BACKEND_URL}/drivers/filters`, {
+        const response = await axios.get(`${BACKEND_URL}/books/filters`, {
           params: {
             sort,
             page,
             genre,
             title,
-            publishedDate,
+            // publishedDate,
           },
         });
         dispatch({ type: GET_FILTERED_BOOKS, payload: response.data }); // --> modificado soundDrivers
