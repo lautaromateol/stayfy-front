@@ -16,15 +16,18 @@ const Filters = () => {
 
     const [sort, setSort] = useState('')
 
-    useEffect(() => { 
-        dispatch(getFilteredBooks({sort, genre: selectedGenre, author: selectedAuthor, publisher: selectedPublisher})
+    const [bookName, setBookName] = useState('')
+
+    useEffect(() => {
+        dispatch(getFilteredBooks({ sort, genre: selectedGenre, author: selectedAuthor, publisher: selectedPublisher, title: bookName })
         );
-    }, [sort, selectedGenre, selectedAuthor, selectedPublisher])
+    }, [sort, selectedGenre, selectedAuthor, selectedPublisher, bookName])
 
     return (
+        <div>
         <div className="grid grid-cols-[25%_25%_25%_25%]">
             <div className="mt-5 mx-auto">
-                <select onChange={(e) => setGenre(e.target.value)}>
+                <select className='rounded-3xl h-9' onChange={(e) => setGenre(e.target.value)}>
                     <option hidden value=''>Genre</option>
                     {genres.map((genre) => {
                         return (
@@ -39,7 +42,7 @@ const Filters = () => {
             </div>
 
             <div className="mt-5 mx-auto">
-                <select onChange={(e) => setPublisher(e.target.value)}>
+                <select className='rounded-3xl h-9' onChange={(e) => setPublisher(e.target.value)}>
                     <option hidden value=''>Publisher</option>
                     {publishers.map((publisher) => {
                         return (
@@ -54,7 +57,7 @@ const Filters = () => {
             </div>
 
             <div className="mt-5 mx-auto">
-                <select onChange={(e) => setAuthor(e.target.value)}>
+                <select className='rounded-3xl h-9' onChange={(e) => setAuthor(e.target.value)}>
                     <option hidden value=''>Author</option>
                     {authors.map((author) => {
                         return (
@@ -69,19 +72,25 @@ const Filters = () => {
             </div>
 
             <div className="mt-5 mx-auto">
-                <select onChange={(e) => setSort(e.target.value)}>
-                    <option hidden value=''>Date</option>
-                    <option value="ASC">Most recent</option>
-                    <option value="DESC">Older</option>
+                <select className='rounded-3xl h-9' onChange={(e) => setSort({ field: 'title', direction: e.target.value })}>
+                    <option hidden value=''>Title</option>
+                    <option value='ASC'>A-Z</option>
+                    <option value='DESC'>Z-A</option>
                 </select>
                 <div className="flex justify-center mt-2">
-                    <p className="text-center mr-0.5 border border-solid border-black-500 bg-white rounded-xl">{sort && sort === 'ASC' ? 'Most Recent' : sort && 'Older'}</p>
-                    {sort ? <button className="w-5 h-5" onClick={() => setSort('')}>❌ </button> : ''}
+                    <p className="text-center mr-0.5 border border-solid border-black-500 bg-white rounded-xl">{sort.direction}</p>
+                    {sort.direction ? <button className="w-5 h-5" onClick={() => setSort('')}>❌ </button> : ''}
                 </div>
             </div>
 
 
         </div>
+
+<div className="grid place-content-center">
+<input className="rounded-3xl h-9 mt-9 " type="text" placeholder="Search by name...    🔍︎" value={bookName} onChange={(e) => setBookName(e.target.value)}></input>
+</div>
+</div>
+
     )
 }
 
