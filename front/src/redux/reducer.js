@@ -3,7 +3,7 @@ import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GE
 
 const initialState = {
   books: [],
-  filterdBooks: [],   // nuevo por filtros
+  filteredBooks: [],   // nuevo por filtros
   genres: [],
   authors: [],
   year: [],
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
     case GET_FILTERED_BOOKS: // nuevo por filtros
       return {
         ...state,
-        filterdBooks: action.payload.foundBooks,
+        filteredBooks: action.payload.foundBooks,
         totalPages: action.payload.totalPages,
       };
     case GET_GENRES: // nuevo por filtros

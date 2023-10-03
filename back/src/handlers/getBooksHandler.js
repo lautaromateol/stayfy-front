@@ -10,9 +10,9 @@ const getBooksHandler = async (req, res) => {
 };
 
 const getFilteredBooksHandler = async (req, res) => {
-  const { sort, page, genre, title, publishedDate } = req.query;
+  const { sort, page, genre, title, publishedDate, author, publisher, rating } = req.query;
 
-  const response = await getFilteredBooks({ sort, page, genre, title, publishedDate });
+  const response = await getFilteredBooks({ sort, page, genre, title, publishedDate, author, publisher, rating });
   try {
     res.status(200).json(response);
   } catch (error) {
