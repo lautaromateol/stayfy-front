@@ -27,6 +27,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                 )}
                 <button className="mr-8">
                 </button>
+                <Link className="mr-5" to='/register'>Register</Link>
                 <Link to='/login'>Log In</Link>
             </button>
 

@@ -55,7 +55,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px] bg-transparent"    
                             />       
-                            {errors.fullname && <span>{errors.fullname}</span>}   
+                            {errors.fullname && <span className="text-red-500">{errors.fullname}</span>}   
                         </div>
                         <div className='flex flex-col'>
                             <h2 className="text-lg text-gray-500 text-semibold">Email</h2>
@@ -66,7 +66,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px] bg-transparent"
                             />
-                            {errors.email && <span>{errors.email}</span>} 
+                            {errors.email && <span className="text-red-500">{errors.email}</span>} 
                         </div>
                     </div>
                     <div className='flex flex-col lg:ml-3 space-y-6'>
@@ -79,7 +79,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px] bg-transparent"
                             />
-                            {errors.username && <span>{errors.username}</span>} 
+                            {errors.username && <span className="text-red-500">{errors.username}</span>} 
                         </div>
                         <div className='flex flex-col'>
                             <h2 className="text-lg text-gray-500 text-semibold">Password</h2>
@@ -90,7 +90,7 @@ const Register = () => {
                                 onChange={handleChange}
                                 className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px] bg-transparent"
                             />
-                            {errors.password && <span>{errors.password}</span>} 
+                            {errors.password && <span className="text-red-500">{errors.password}</span>} 
                         </div>
                     </div>
                 </div>

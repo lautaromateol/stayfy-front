@@ -49,12 +49,8 @@ function App() {
           <Route path='/product-page/:id' element={<Detail/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
           <Route path='/login' element={<LogIn/>}/>
-<<<<<<< HEAD
-          {/* <Route path='/books' element={<Books/>}/> */}
-=======
           <Route path='/register' element={<Register/>}/>
           <Route path='/books' element={<Books/>}/>
->>>>>>> fd405d6 (View de REGISTER lista)
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
 
