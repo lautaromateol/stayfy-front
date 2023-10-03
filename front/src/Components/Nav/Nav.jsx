@@ -23,6 +23,10 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                     <Link to='/review'>Rate us!</Link>
                 </button>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a73b6d6 (empezando carrito)
             <div className="flex justify-center space-x-4 w-40">
                 {/* Botón de Modo Oscuro */}
                 <button onClick={toggleDarkMode}>
@@ -32,9 +36,12 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                         <FontAwesomeIcon icon={faMoon} className="text-gray-500" />
                     )}
                 </button>
+<<<<<<< HEAD
                 <Link className="mr-5" to='/register'>Register</Link>
                 <Link to='/login'>Log In</Link>
             
+=======
+>>>>>>> a73b6d6 (empezando carrito)
 
                 {/* Icono de Carrito con Contador */}
                 <button>

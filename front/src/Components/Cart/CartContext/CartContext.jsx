@@ -42,24 +42,6 @@ export function CartProvider({ children }) {
     };
 
 
-    // const addToCart = (productId) => {
-    //     const productIdInt = parseInt(productId, 10);
-
-    //     if (!isNaN(productIdInt)) {
-    //         const updatedCart = [...cart, productIdInt];
-    //         const newCartCount = updatedCart.length;
-
-    //         setCartCount(newCartCount);
-    //         setCart(updatedCart);
-
-    //         localStorage.setItem("cartItems", JSON.stringify(updatedCart));
-    //         localStorage.setItem("cartCount", newCartCount.toString());
-    //     } else {
-    //         console.error(`El productId "${productId}" no es un número válido.`);
-    //     }
-    // };
-
-
     const removeFromCart = (productId) => {
         const productIdInt = parseInt(productId, 10);
 

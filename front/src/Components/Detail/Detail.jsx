@@ -34,6 +34,11 @@ const Detail = () => {
     addToCart(id);
   };
 
+  const handleAddToCart = () => {
+    addToCart();
+    setAddedToCart(true);
+  };
+
   const handleCheckout = async () => {
     try {
       const response = await axios.post('http://localhost:3001/checkout/mercado-pago/create_preference', {
