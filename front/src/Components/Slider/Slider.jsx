@@ -7,7 +7,7 @@
     /* Ajustar el ancho al 100% y la altura según tus necesidades */
     .carousel {
       width: 100%;
-      max-height: 400px; /* Ajusta la altura según tus necesidades */
+      max-height: 800px; /* Ajusta la altura según tus necesidades */
     }
 
     /* Ajustar la altura de las imágenes */

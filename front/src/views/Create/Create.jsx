@@ -100,7 +100,7 @@ const Create = () => {
             <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-300">
               Add a new book
             </h1>
-            <p className="text-gray-700 text-lg text-gray-800 dark:text-gray-300">
+            <p className="text-gray-700 text-lg dark:text-gray-300">
               Add your favorite book in just a few steps.
             </p>
           </div>
@@ -238,7 +238,7 @@ const Create = () => {
                     <button
                         type="submit"
                         onClick={handleSubmit}
-                        className="bg-yellow-500 px-6 py-3 rounded-md before:ease relative h-12 w-40 overflow-hidden border border-yellow-500  shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-yellow-500 hover:before:-translate-x-40"
+                        className="bg-stone-500 text-white mt-7 px-6 py-3 rounded-md before:ease relative h-12 w-40 overflow-hidden border border-stone-500  shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-stone-500 hover:before:-translate-x-40"
                         disabled={error.title || error.authors || error.publisher || error.image || error.publishedDate || error.pageCount || error.genre || error.price || error.description || !input.title}
                     >
                         Add Book
