@@ -1,35 +1,19 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../utils";
-import { GET_FILTERED_BOOKS, GET_GENDER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE } from "./types";
+import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR } from "./types";
 
-// export const GET_BOOKS = "GET_BOOKS";
-// export const GET_FILTERED_BOOKS = "GET_BOOKS";  // nuevo para filtros
-// export const ORDER = "ORDER";
-// export const GET_AUTHOR = "GET_AUTHOR";
-// export const GET_PUBLISHER = "GET_PUBLISHER";
-// export const GET_YEAR = "GET_YEAR";
-// export const GET_GENDER = "GET_GENDER";
-// export const FILTER = "FILTER";
-// export const RESET = "RESET";
-// export const SEARCH_BOOK = "SEARCH_BOOK";
-// export const SET_ERROR = "SET ERROR";
-// export const POST_BOOK = "POST_BOOK"
-// export const SET_LOADING_TRUE = "SET_LOADING_TRUE"; // nuevo
-// export const SET_LOADING_FALSE = "SET_LOADING_FALSE"; // nuevo
-
-
-export function getFilteredBooks() {    // nuevo para filtros
-    const { sort, page, genre, title, publishedDate } = args || {};
+export function getFilteredBooks(args) {  
+    const { sort, genre, title, publisher, author } = args || {};
     return async (dispatch) => {
       try {
         dispatch({ type: SET_LOADING_TRUE });
         const response = await axios.get(`${BACKEND_URL}/books/filters`, {
           params: {
             sort,
-            page,
             genre,
             title,
-            // publishedDate,
+            publisher,
+            author
           },
         });
         dispatch({ type: GET_FILTERED_BOOKS, payload: response.data }); // --> modificado soundDrivers
@@ -39,18 +23,6 @@ export function getFilteredBooks() {    // nuevo para filtros
         dispatch({ type: SET_LOADING_FALSE });
       }
     };
-}
-
-export function getGenres() {
-    return async function (dispatch) {
-        try {
-            return dispatch ({
-                type: GET_GENRES,
-                payload: ["Self-help", "Horror", "Sci-Fi", "Mystery & Detective", "Comedy", "Romance"],
-            })
-        } catch (error) {
-        }
-    }
 }
 
 export function getBooks() {
@@ -81,31 +53,35 @@ export function orderBooks(orderType) {
 }
 
 
-export function getAuthor() {
+export function getAuthors() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:3001/authors");
-            return dispatch({
+            const response = await axios ("http://localhost:3001/books");
+            const authors = response.data.map((book) => book.authors[0])
+            let uniqueAuthors = [...new Set(authors)]; 
+            return dispatch ({
                 type: GET_AUTHOR,
-                payload: response.data,
-            });
+                payload: uniqueAuthors,
+            })
         } catch (error) {
-
+            console.error(error)
         }
-    };
+    }
 }
 
 
-export function getPublisher() {
+export function getPublishers() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:3001/publisher");
+            const response = await axios ("http://localhost:3001/books");
+            const publisher = response.data.map((book) => book.publisher)
+            let uniquePublishers = [...new Set(publisher)]; 
             return dispatch ({
                 type: GET_PUBLISHER,
-                payload: response.data,
+                payload: uniquePublishers,
             })
         } catch (error) {
-
+            console.error(error)
         }
     }
 }
@@ -126,14 +102,14 @@ export function getYear() {
 }
 
 
-export function getGender() {
+export function getGenres() {
     return async function (dispatch) {
         try {
             const response = await axios ("http://localhost:3001/books");
             const genre = response.data.map((book) => book.genre)
             let uniqueGenres = [...new Set(genre)]; 
             return dispatch ({
-                type: GET_GENDER,
+                type: GET_GENRES,
                 payload: uniqueGenres,
             })
         } catch (error) {

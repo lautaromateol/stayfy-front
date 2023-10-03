@@ -1,8 +1,9 @@
 import { useEffect } from "react"
 import {useDispatch} from "react-redux"
+import { getAuthors, getBooks, getGenres, getPublishers } from "../../redux/actions"
 import CardList from "../../Components/CardList/cardList"
-import { getBooks } from "../../redux/actions"
 import Slider from "../../Components/Slider/Slider"
+import Filters from '../../Components/Filters/Filters'
 
 // import Nav from "../../Components/Nav/Nav"
 
@@ -12,6 +13,9 @@ const Home = ()=>{
 
     useEffect(()=>{
         dispatch(getBooks())
+        dispatch(getPublishers())
+        dispatch(getAuthors())
+        dispatch(getGenres())
     }, [])
 
     return (
@@ -19,6 +23,7 @@ const Home = ()=>{
             <Slider />
             {/* <img src="https://banner2.cleanpng.com/20180316/chq/kisspng-book-free-content-clip-art-office-books-cliparts-5aab4c121e0864.187068161521175570123.jpg" /> */}
             <div>
+            <Filters/>
             <CardList />
             </div>
         </div>
