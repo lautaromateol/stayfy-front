@@ -53,8 +53,6 @@ function App() {
           <Route path='/books' element={<Books/>}/>
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
-
-
         </Routes>
       </div>
   )
