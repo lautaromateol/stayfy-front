@@ -4,6 +4,7 @@ import { getAuthors, getBooks, getGenres, getPublishers } from "../../redux/acti
 import CardList from "../../Components/CardList/cardList"
 import Slider from "../../Components/Slider/Slider"
 import Filters from '../../Components/Filters/Filters'
+import SearchBar from "../../Components/SearchBar/SearchBar"
 
 // import Paginado from "../../Components/Paginado/paginado"
 // import Nav from "../../Components/Nav/Nav"
@@ -25,6 +26,7 @@ const Home = ()=>{
             {/* <img src="https://banner2.cleanpng.com/20180316/chq/kisspng-book-free-content-clip-art-office-books-cliparts-5aab4c121e0864.187068161521175570123.jpg" /> */}
             <div>
             <Filters/>
+            <SearchBar />
             <CardList />
             </div>
         </div>
