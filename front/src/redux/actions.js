@@ -134,9 +134,16 @@ export function reset() {
 
 
 export function searchBook(name) {
-    return {
-        type: SEARCH_BOOK,
-        payload: name
+    try {
+        return async function (dispatch) {
+            const booksName = await axios.get(
+                `http://localhost:3001/books/filters?title=${name}`
+            )
+            const book = booksName.data
+            dispatch({type:SEARCH_BOOK, payload: book})
+        }
+    } catch (error) {
+        window.alert("Error, Book doesn't exist")
     }
 }
 

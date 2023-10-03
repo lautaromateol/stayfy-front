@@ -11,6 +11,8 @@ import { useState } from 'react'
 import './App.css'
 import TestComponent from './TestComponent/TestComponent'
 import { BACKEND_URL } from '../utils'
+import BooksView from './Views/BooksView/BooksView'
+// import NewsList from './Components/News/News'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -50,10 +52,9 @@ function App() {
           {/* <Route path='/books' element={<Books/>}/> */}
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
-          {/* <Route
-                path="/test"
-                element={<TestComponent books={books} isLoading={isLoading} />}
-              />   */}
+          <Route path='/booksview' element={<BooksView />} />
+
+
         </Routes>
       </div>
   )

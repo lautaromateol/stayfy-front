@@ -36,10 +36,10 @@
           <img src="https://res.cloudinary.com/dhqudb28a/image/upload/v1696141761/Blue_Modern_Furniture_Mega_Sale_Blog_Banner_fyydhz.png" alt="Image 1" />
         </div>
         <div>
-          <img src="https://static.wingify.com/gcp/uploads/sites/3/2013/08/OG-image_How-to-Use-Image-Carousels-the-Right-Way.png" alt="Image 2" />
+          <img src="https://www-cms.pipedriveassets.com/blog-assets/sales-books-3.png" alt="Image 2" />
         </div>
         <div>
-          <img src="https://static.wingify.com/gcp/uploads/sites/3/2013/08/OG-image_How-to-Use-Image-Carousels-the-Right-Way.png" alt="Image 3" />
+          <img src="https://dhjhkxawhe8q4.cloudfront.net/notre-dame-university-press-wp/wp-content/uploads/2023/09/21150519/Book-Festival-Slider.jpg" alt="Image 3" />
         </div>
         </Carousel>
       </>
