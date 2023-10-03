@@ -11,6 +11,7 @@ import { useState } from 'react'
 import './App.css'
 import TestComponent from './TestComponent/TestComponent'
 import { BACKEND_URL } from '../utils'
+import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -40,7 +41,8 @@ function App() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-          <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <CartProvider>
+            <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <Routes>
           <Route path='/' element= {<Home/>}/>
           <Route path='/create' element={<Create/>}/>
@@ -55,6 +57,7 @@ function App() {
                 element={<TestComponent books={books} isLoading={isLoading} />}
               />   */}
         </Routes>
+        </CartProvider>
       </div>
   )
 }
