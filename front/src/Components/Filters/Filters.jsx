@@ -17,9 +17,9 @@ const Filters = () => {
     const [sort, setSort] = useState('')
 
     useEffect(() => { 
-        dispatch(getFilteredBooks({sort, genre: selectedGenre})
+        dispatch(getFilteredBooks({sort, genre: selectedGenre, author: selectedAuthor, publisher: selectedPublisher})
         );
-    }, [selectedGenre, sort])
+    }, [sort, selectedGenre, selectedAuthor, selectedPublisher])
 
     return (
         <div className="grid grid-cols-[25%_25%_25%_25%]">

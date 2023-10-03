@@ -28,9 +28,8 @@ const reducer = (state = initialState, action) => {
     case GET_FILTERED_BOOKS: // nuevo por filtros
       return {
         ...state,
-        filteredBooks: action.payload.foundBooks,
-        totalPages: action.payload.totalPages,
-      };
+        books: action.payload.foundBooks
+            };
     case GET_GENRES: // nuevo por filtros
       return {
         ...state,

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBooks, orderBooks, getAuthor, getPublisher, getYear,
-getGender, filter, reset, searchBook, setError, getGenres } from "../../redux/actions";
+import { getBooks, orderBooks, getAuthors, getPublishers, getYear, filter, reset, searchBook, setError, getGenres } from "../../redux/actions";
 // import Paginado from "../../Components/Paginado/paginado";
 // import CardList from "../../Components/CardList/CardList";
 // import Nav from "../../components/Nav";
