@@ -14,3 +14,5 @@ export const SET_ERROR = "SET ERROR";
 export const POST_BOOK = "POST_BOOK"
 export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
 export const SET_LOADING_FALSE = "SET_LOADING_FALSE";
+export const BUY_ORDERS = "BUY_ORDERS"
+export const GET_USERS = "GET_USERS"

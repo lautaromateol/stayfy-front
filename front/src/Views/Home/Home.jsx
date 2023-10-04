@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import {useDispatch} from "react-redux"
-import { getAuthors, getBooks, getGenres, getPublishers } from "../../redux/actions"
+import { getAuthors, getBooks, getFilteredBooks, getGenres, getPublishers } from "../../redux/actions"
 import CardList from "../../Components/CardList/cardList"
 import Slider from "../../Components/Slider/Slider"
 import Filters from '../../Components/Filters/Filters'
@@ -13,7 +13,8 @@ const Home = ()=>{
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(getBooks())
+        // dispatch(getBooks())
+        dispatch(getFilteredBooks())
         dispatch(getPublishers())
         dispatch(getAuthors())
         dispatch(getGenres())
