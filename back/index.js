@@ -3,7 +3,7 @@ const { conn } = require('./src/db.js');
 const http = require('http');
 const PORT = 3001;
 
-conn.sync({ alter: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   const httpServer = http.createServer(server);
   httpServer.timeout = 300000;
 

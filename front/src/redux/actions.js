@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../utils";
-import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR } from "./types";
+import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS } from "./types";
 
 export function getFilteredBooks(args) {  
     const { sort, genre, title, publisher, author } = args || {};
@@ -153,3 +153,30 @@ export const setError = (errorMessage) => ({
     payload: errorMessage,
 })
 
+export const getOrders = ()=>{
+    try {
+        return async function (dispatch) {
+            const allOrders = await axios.get(
+                "http://localhost:3001/books/orders"
+            )
+            const ordersBuy = allOrders.data
+            dispatch({type: BUY_ORDERS, payload: ordersBuy})
+        }
+    } catch (error) {
+        
+    }
+}
+
+export const getUsers = ()=>{
+    try {
+        return async function (dispatch) {
+            const usuarios = await axios.get(
+                "http://localhost:3001/books/users"
+            )
+            const allUsuarios = usuarios.data
+            dispatch({type: GET_USERS, payload: allUsuarios})
+        }
+    } catch (error) {
+        
+    }
+}
