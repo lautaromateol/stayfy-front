@@ -1,12 +1,12 @@
 const {User} = require("../../db")
 const createUser = async(req, res) => {
     try {
-       const {username, email, password, fullName} = req.body 
+       const {username, email, password, fullname} = req.body 
        const newUser = {
         username,
         email,
         passwordHash: password,
-        fullName
+        fullName: fullname
        }
 
        const userDb = await User.create(newUser)

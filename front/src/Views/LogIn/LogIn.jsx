@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Google from "../../Components/Google/Google";
 import validation from "./validations/loginValidations";
 import { Link } from "react-router-dom";
@@ -34,8 +34,8 @@ const LogIn = () => {
     })
     try {
       const user = await loginAction.login({
-        username,
-        password
+        username: input.username,
+        password: input.password
       })
       console.log(user);
       setUser(user)
@@ -59,9 +59,8 @@ const LogIn = () => {
 
   return (
     <div className="bg-stone-400 h-screen">
-      <form onSubmit={handleSubmit}>
       <div className="flex justify-center">
-        <form className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
+        <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
           <div className=" w-full md:w-3/4">
             <div className="text-xl cursor-pointer flex flex-col justify-center items-center mt-5 md:mt-0 py-4">
               <h1 className="font-semibold text-xl md:text-3xl text-gray-600 m-2">
@@ -74,7 +73,7 @@ const LogIn = () => {
                 <input
                   type="text"
                   name="username"
-                  value={username}
+                  value={input.username}
                   onChange={handleChange}
                   className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px] bg-transparent"
                 />
@@ -85,7 +84,7 @@ const LogIn = () => {
                 <input
                   type="password"
                   name="password"
-                  value={password}
+                  value={input.password}
                   onChange={handleChange}
                   className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px] bg-transparent"
                   />
@@ -122,7 +121,6 @@ const LogIn = () => {
           </div>
         </form>
       </div>
-      </form>
       <script
         type="module"
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
