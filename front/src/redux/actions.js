@@ -157,13 +157,13 @@ export const getOrders = ()=>{
     try {
         return async function (dispatch) {
             const allOrders = await axios.get(
-                "http://localhost:3001/books/orders"
+                "http://localhost:3001/orders"
             )
             const ordersBuy = allOrders.data
             dispatch({type: BUY_ORDERS, payload: ordersBuy})
         }
     } catch (error) {
-        
+        console.error(error)
     }
 }
 
@@ -171,12 +171,12 @@ export const getUsers = ()=>{
     try {
         return async function (dispatch) {
             const usuarios = await axios.get(
-                "http://localhost:3001/books/users"
+                "http://localhost:3001/users"
             )
             const allUsuarios = usuarios.data
             dispatch({type: GET_USERS, payload: allUsuarios})
         }
     } catch (error) {
-        
+        console.error(error)
     }
 }
