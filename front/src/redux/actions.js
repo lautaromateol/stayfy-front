@@ -3,12 +3,13 @@ import { BACKEND_URL } from "../../utils";
 import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS } from "./types";
 
 export function getFilteredBooks(args) {  
-    const { sort, genre, title, publisher, author } = args || {};
+    const { sort, page, genre, title, publisher, author } = args || {};
     return async (dispatch) => {
       try {
         dispatch({ type: SET_LOADING_TRUE });
         const response = await axios.get(`${BACKEND_URL}/books/filters`, {
           params: {
+            page,
             sort,
             genre,
             title,

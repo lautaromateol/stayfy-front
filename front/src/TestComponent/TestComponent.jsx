@@ -117,3 +117,22 @@ export default function TestComponent() {
     </div>
   );
 };
+
+const totalPages = 6;
+const arrayPages = [];
+
+for (let i=0; totalPages.length > 0; i++){
+  let count = 1 + i;
+  arrayPages.push(count)
+}
+
+<div>
+  <select onChange={(e) => setPage(e.target.value)}>
+    <option hidden value="">
+      Page
+    </option>
+    {arrayPages.map((pg) => {
+      return <option>{pg}</option>;
+    })}
+  </select>
+</div>;
