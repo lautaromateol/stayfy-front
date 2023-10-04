@@ -1,5 +1,5 @@
 const { ASC, DESC } = require("../../utils");
-const DISPLAYED_BOOKS = 10;
+const DISPLAYED_BOOKS = 12;
 
 function sortBooks(foundBooks, sort, page) {
   

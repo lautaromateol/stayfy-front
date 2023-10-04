@@ -30,7 +30,9 @@ const getBooks = async () => {
             publishedDate: book.publishedDate,
             pageCount:book.pageCount,
             genre: book.gender,
-            price: book.price,
+            price: Math.ceil(book.price),
+            // arsPrice: Math.ceil(book.price * 843),
+            // copPrice: Math.ceil(book.price * 4200),
             description: book.description,
             rating: Math.floor(Math.random() * 5 + 1)
           })
@@ -58,50 +60,3 @@ const getFilteredBooks = async ({ sort, page = 0, genre = '', title, publishedDa
 };
 
 module.exports = { getBooks, getFilteredBooks };
-
-
-// -------------------------------------------------------------
-
-// FOR PARA OBJETOS
-// for (const response of responses) {
-//   const books = response.data.map((book) => {
-//       return {
-//         id: book.id,   
-//         title: book.title,
-//         authors: book.authors,
-//         publisher: book.publisher,
-//         image: book.image ? book.image: DEFAULT_IMAGE,
-//         publishedDate: book.publishedDate,
-//         pageCount:book.pageCount,
-//         genre: book.gender,
-//         price: book.price,
-//         // usdPrice: book.price,
-//         // arsPrice: book.price * 350,
-//         // copPrice: book.price * 4000, 
-//         description: book.description,
-//       };
-//   });
-//   apiBooks.push(...books);
-// }
-
-
-
-// const dbBooks = await Book.findAll();
-// if (dbBooks.length < 1){
-  //   await Book.bulkCreate(apiBooks, {
-  //     ignoreDuplicates: true,
-  // });
-  // };  
-  
-  // const getDBbooks = async () => {
-    //   const dbBooks = await Book.findAll();
-    //   return dbBooks;
-    // };
-    
-    // const getAllBooks = async () => {
-    //   const apiBooks = await getAPIbooks();
-    //   const dbBooks = await getDBbooks();
-  
-    //   let allBooks = apiBooks.concat(dbBooks);
-    //   return allBooks;
-    // };
