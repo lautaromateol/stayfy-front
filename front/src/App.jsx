@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Views/Home/Home'
 import Create from './Views/Create/Create'
@@ -8,11 +9,9 @@ import LogIn from "./Views/LogIn/LogIn"
 import Books from "./Views/Books/books"
 import Success from './Components/Success/Success'
 import Register from './Views/Register/Register'
-import { useState } from 'react'
-import './App.css'
-import TestComponent from './TestComponent/TestComponent'
+import Users from './Components/Users/Users'
 import { BACKEND_URL } from '../utils'
-// import NewsList from './Components/News/News'
+import './App.css'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -47,12 +46,12 @@ function App() {
           <Route path='/' element= {<Home/>}/>
           <Route path='/create' element={<Create/>}/>
           <Route path='/product-page/:id' element={<Detail/>}/>
-          <Route path='/review' element={<ReviewForm/>}/>
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/books' element={<Books/>}/>
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
+          <Route path='/admin/users' element={<Users/>}/>
         </Routes>
       </div>
   )
