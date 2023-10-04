@@ -27,8 +27,25 @@ const Register = () => {
     }
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
+        try {
+            const response = await fetch("http://localhost:3001/user/", {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(input),
+            });
+            if(response.ok){
+                alert("usuario creado")
+                console.log(input)
+            } else {
+                alert("Erorr al crear usuario")
+            }
+        } catch (error) {
+            console.error('Error al crear el usuario', error);
+        }
         setInput({
             fullname: '',
             email: '',
@@ -36,8 +53,6 @@ const Register = () => {
             password: '',
         })
     }
-
-
 
 
     return (
