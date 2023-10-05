@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom"
+// eslint-disable-next-line no-unused-vars
+import React from "react";
+import { Link } from "react-router-dom";
+import UserProfile from "../User/Userprofile";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from "../Cart/CartContext/CartContext";
 // import { useSpring, animated } from "react-spring";
 
+// eslint-disable-next-line react/prop-types
 const Nav = ({ darkMode, toggleDarkMode }) => {
+    // eslint-disable-next-line no-unused-vars
     const { cartCount, addToCart } = useCart();
 
     return (
@@ -41,11 +46,17 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                 </button>
                 <Link className="mr-5" to='/register'>Register</Link>
 
+
+            
+
                 <Link to='/login'>Log In</Link>
+            
+                <button className="mr-8  flex justify-around w-60"><UserProfile/></button>
+
             </div>
 
-        </div>
-    )
+    </div>
+  );
 }
 
-export default Nav
+export default Nav;
