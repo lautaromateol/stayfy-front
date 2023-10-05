@@ -14,6 +14,7 @@ import { BACKEND_URL } from '../utils'
 import './App.css'
 // import NewsList from './Components/News/News'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
+import CartList from './Components/Cart/CartList/CartList'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -55,6 +56,9 @@ function App() {
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
           <Route path='/admin/users' element={<Users/>}/>
+          <Route path='/cart' element={<CartList/>}/>
+
+
         </Routes>
         </CartProvider>
       </div>

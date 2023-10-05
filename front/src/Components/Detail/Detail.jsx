@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import EstrellasRating from '../StartRating/StartRating';
-import { useCart } from "../Cart/CartContext/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from "../Cart/CartContext/CartContext";
+import QuantityControl from '../Cart/CartList/QuantityControl';
 
 const Detail = () => {
-  const { addToCart } = useCart();
-  const [addedToCart, setAddedToCart] = useState(false);
+  const { cart, addToCart, removeAllByProduct, removeFromCart } = useCart();
 
   const [preferenceId, setPreferenceId] = useState(null);
 
@@ -17,10 +17,21 @@ const Detail = () => {
   const { id } = useParams()
 
   const rating = 4.5
+  const [isInCart, setIsInCart] = useState(false);
+  const [quantityBooks, setQuantityBooks] = useState(1); 
+  useEffect(() => {
+      const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const productExistsInCart = storedCart.includes(parseInt(id, 10));
+      const savedCartCount = storedCart.length;
+
+      setIsInCart(productExistsInCart);
+      const quantityBook =cart.filter((item) => item === parseInt(id, 10)).length;
+      setQuantityBooks(quantityBook);
+
+  }, [id, cart]);
 
   const handleAddToCart = () => {
-    addToCart();
-    setAddedToCart(true);
+    addToCart(id);
   };
 
   const handleCheckout = async () => {
@@ -63,28 +74,48 @@ const Detail = () => {
           {book.authors && book.authors.length === 1 ? <p className='mb-5'>By <a className='underline'>{book.authors && book.authors[0]}</a></p> : <p className='mb-5'>By <a>{book.authors && book.authors[0]}</a> and <a>{book.authors && book.authors[1]}</a></p>}
           <p className='mb-2.5'>{book.description && book.description}</p>
           <hr className="border-bottom border-solid border-gray-400 p-1" />
-          <p className='text-3xl mb-2.5'>${book.price && book.price}</p>
-          <fieldset className="border border-solid border-gray-400 p-3">
-            <button className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer' onClick={handleCheckout}>Buy now</button>
-            {/* <button className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer' onClick={handleAddToCart} >Add to cart</button> */}
-            
-            {/* Resto del componente Detail */}
-            <button onClick={handleAddToCart} disabled={addedToCart} className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
-              {addedToCart ? (
-                <>
-                  <FontAwesomeIcon icon={faCheck} /> Agregado al carrito
-                </>
-              ) : (
-                "Add to cart"
-              )}
-            </button>
+          {/* <p className='text-3xl mb-2.5'>${book.price && book.price}</p> */}
+          <p className="text-3xl mb-2.5">
+          {quantityBooks === 0
+            ? (book.price * 1.0).toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+              })
+            : ((book.price * quantityBooks) * 1.0).toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+              })}
+        </p>
 
-            {preferenceId && (
-              <button className='block w-60 h-7.1 bg-[rgba(0,188,255,255)] rounded-md border-none hover:cursor-pointer m-2.5 py-0.5 px-1'>
-                <img className='relative top-3 w-7.5 h-5' src='https://vectorseek.com/wp-content/uploads/2023/08/Mercado-Pago-Icon-Logo-Vector.svg-.png' />
-                <a className='relative bottom-3 ml-2.5 mr-0 text-base font-roboto no-underline text-white' href={`https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${preferenceId}`} target="_blank" rel="noopener noreferrer">
-                  Pagar con Mercado Pago</a></button>)}
-          </fieldset>
+          <div className="flex flex-col">
+  <button className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer' onClick={handleCheckout}>Buy now</button>
+  
+  {isInCart ? (
+      // <button  className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
+      //   <FontAwesomeIcon icon={faCheck} /> added to cart
+      // </button>
+  
+    <QuantityControl
+      quantity={cart.filter((item) => item === parseInt(id, 10)).length}
+      onIncrement={()=> addToCart(id)}
+      onDecrement={() => removeFromCart(id)}
+      onRemove={() => removeAllByProduct(id)}
+    />
+  ) : (
+    <button onClick={handleAddToCart} className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
+      <FontAwesomeIcon icon={faCartShopping} /> Add to cart
+    </button>
+  )}
+
+  {preferenceId && (
+    <button className='block w-60 h-7.1 bg-[rgba(0,188,255,255)] rounded-md border-none hover:cursor-pointer m-2.5 py-0.5 px-1'>
+      <img className='relative top-3 w-7.5 h-5' src='https://vectorseek.com/wp-content/uploads/2023/08/Mercado-Pago-Icon-Logo-Vector.svg-.png' />
+      <a className='relative bottom-3 ml-2.5 mr-0 text-base font-roboto no-underline text-white' href={`https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${preferenceId}`} target="_blank" rel="noopener noreferrer">
+        Pagar con Mercado Pago
+      </a>
+    </button>
+  )}
+</div>
         </div>
       </div>
       <hr className="border-bottom border-solid border-gray-400 p-1 mt-10" />

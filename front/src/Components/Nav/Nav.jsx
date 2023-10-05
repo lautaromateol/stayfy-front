@@ -23,7 +23,6 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                     <Link to='/review'>Rate us!</Link>
                 </button>
             </div>
-
             <div className="flex justify-center space-x-4 w-40">
                 {/* Botón de Modo Oscuro */}
                 <button onClick={toggleDarkMode}>
