@@ -1,45 +1,17 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { getUsers } from '../../../redux/actions'
 
 const Users = ()=>{
 
-    const users = [
-        {
-        userId: '1',
-        username: 'lautaromateol',
-        email: 'lau@gmail',
-        passwordHash: '211',
-        fullName: 'Lautaro Mateo Leguizamon',
-        dateRegistered: '22/12/2023',
-        isAdmin: false,
-    },
-    {
-        userId: '2',
-        username: 'lautaromateol',
-        email: 'lau@gmail',
-        passwordHash: '211',
-        fullName: 'Lautaro Mateo Leguizamon',
-        dateRegistered: '22/12/2023',
-        isAdmin: false
-    },
-    {
-        userId: '3',
-        username: 'lautaromateol',
-        email: 'lau@gmail',
-        passwordHash: '211',
-        fullName: 'Lautaro Mateo Leguizamon',
-        dateRegistered: '22/12/2023',
-        isAdmin: false
-    },
-    {
-        userId: '4',
-        username: 'lautaromateol',
-        email: 'lau@gmail',
-        passwordHash: '211',
-        fullName: 'Lautaro Mateo Leguizamon',
-        dateRegistered: '22/12/2023',
-        isAdmin: false
-    }
-]
+    const dispatch = useDispatch()
+
+    const {users} = useSelector((state) => state)
+
+    useEffect(()=>{
+        dispatch(getUsers())
+    }, [])
 
     return(
         <div>
@@ -57,8 +29,10 @@ const Users = ()=>{
                         <div className="mt-2">
                             {user.userId}
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-2 underline">
+                            <Link to={`/admin/users/${user.userId}`}>
                             {user.username}
+                            </Link>
                         </div>
                         <div className="mt-2">
                             {user.email}

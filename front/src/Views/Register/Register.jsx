@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import registerValidation from './validations/registerValidations';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -13,7 +14,10 @@ const Register = () => {
 
     const [errors, setErrors] = useState({})
 
+    const [warning, setWarning] = useState('')
+
     const handleChange = (e) => {
+        setWarning('')
         setInput({
             ...input,
             [e.target.name]: e.target.value
@@ -30,28 +34,17 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            const response = await fetch("http://localhost:3001/user/", {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(input),
-            });
-            if(response.ok){
-                alert("usuario creado")
-                console.log(input)
-            } else {
-                alert("Erorr al crear usuario")
-            }
+            const response = await axios.post("http://localhost:3001/users", input)
+            alert('Usuario creado con exito')
+            setInput({
+                fullname: '',
+                email: '',
+                username: '',
+                password: '',
+            })
         } catch (error) {
-            console.error('Error al crear el usuario', error);
+            setWarning(error.response.data)
         }
-        setInput({
-            fullname: '',
-            email: '',
-            username: '',
-            password: '',
-        })
     }
 
 
@@ -110,6 +103,7 @@ const Register = () => {
                     </div>
                 </div>
                     <div className='md:w-full md:flex flex-col items-center'>
+                        {warning ? <p className='mt-2'>{warning}</p> : ''}
                         <button 
                         className="lg:w-[260px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500 font-medium mb-3 mt-7"
                         onClick={handleSubmit}
