@@ -34,10 +34,6 @@ const Detail = () => {
     addToCart(id);
   };
 
-  const handleAddToCart = () => {
-    addToCart();
-    setAddedToCart(true);
-  };
 
   const handleCheckout = async () => {
     try {

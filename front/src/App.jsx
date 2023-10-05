@@ -11,14 +11,10 @@ import Success from './Components/Success/Success'
 import Register from './Views/Register/Register'
 import Users from './Components/Users/Users'
 import { BACKEND_URL } from '../utils'
-<<<<<<< HEAD
 import './App.css'
 // import NewsList from './Components/News/News'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import CartList from './Components/Cart/CartList/CartList'
-=======
-import { CartProvider } from "./Components/Cart/CartContext/CartContext";
->>>>>>> a73b6d6 (empezando carrito)
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
