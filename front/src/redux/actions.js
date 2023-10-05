@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../utils";
-import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS } from "./types";
+import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DELETE_USER, DESACTIVATE_USER } from "./types";
 
 export function getFilteredBooks(args) {  
     const { sort, page, genre, title, publisher, author } = args || {};
@@ -170,12 +170,42 @@ export const getOrders = ()=>{
 
 export const getUsers = ()=>{
     try {
-        return async function (dispatch) {
-            const usuarios = await axios.get(
-                "http://localhost:3001/users"
-            )
-            const allUsuarios = usuarios.data
-            dispatch({type: GET_USERS, payload: allUsuarios})
+        return async (dispatch) => {
+            const {data} = await axios.get("http://localhost:3001/users")
+            dispatch({type: GET_USERS, payload: data})
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const deleteUser = (id)=>{
+    try {
+        return async (dispatch)=>{
+        const {data} = axios.delete(`http//localhost:3001/users/${id}`)
+        dispatch({type: DELETE_USER, payload: data})
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const reactivateUser = (id)=>{
+    try {
+        return async (dispatch)=>{
+        const {data} = axios.put(`http://localhost:3001/users/${id}`)
+        dispatch({type: REACTIVATE_USER, payload: data})
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const desactivateUser = (id)=>{
+    try {
+        return async (dispatch)=>{
+        const {data} = axios.put(`http://localhost:3001/users/${id}`)
+        dispatch({type: DESACTIVATE_USER, payload: data})
         }
     } catch (error) {
         console.error(error)

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { BACKEND_URL } from '../utils'
+import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import Home from './Views/Home/Home'
 import Create from './Views/Create/Create'
 import Detail from './Components/Detail/Detail'
@@ -9,12 +11,10 @@ import LogIn from "./Views/LogIn/LogIn"
 import Books from "./Views/Books/books"
 import Success from './Components/Success/Success'
 import Register from './Views/Register/Register'
-import Users from './Components/Users/Users'
-import { BACKEND_URL } from '../utils'
-import './App.css'
-// import NewsList from './Components/News/News'
-import { CartProvider } from "./Components/Cart/CartContext/CartContext";
+import Users from './Components/Admin dashboard/Users/Users'
 import CartList from './Components/Cart/CartList/CartList'
+import UserDetail from './Components/Admin dashboard/Detail/UserDetail'
+import './App.css'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -56,9 +56,8 @@ function App() {
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>
           <Route path='/admin/users' element={<Users/>}/>
+          <Route path='/admin/users/:id' element={<UserDetail/>}/>
           <Route path='/cart' element={<CartList/>}/>
-
-
         </Routes>
         </CartProvider>
       </div>
