@@ -17,6 +17,19 @@ const Filters = () => {
     const [selectedPage, setSelectedPage] = useState(1); // Inicialmente seleccionamos la página 
 
 
+    const handlePreviousPage = () => {
+      if (selectedPage > 1) {
+        setSelectedPage(selectedPage - 1);
+      }
+    };
+    
+    const handleNextPage = () => {
+      if (selectedPage < totalPages) {
+        setSelectedPage(selectedPage + 1);
+      }
+    };
+
+
     useEffect(() => {
         dispatch(getFilteredBooks({ 
             sort,
@@ -152,6 +165,15 @@ const Filters = () => {
         </div>
 
         <div className="mt-5 mx-auto flex space-x-4">
+
+        <button
+          onClick={handlePreviousPage}
+          disabled={selectedPage === 1}
+          className="rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white"
+        >
+          {"<"}
+        </button>
+
           {Array.from({ length: totalPages }, (_, i) => i + 1).map(
              (buttonPage) => (
             <button
@@ -166,6 +188,15 @@ const Filters = () => {
               {buttonPage}
             </button>
           ))}
+
+        <button
+          onClick={handleNextPage}
+          disabled={selectedPage === totalPages}
+          className="rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white"
+        >
+          {">"}
+        </button> 
+
         </div>
 
       </div>
