@@ -24,6 +24,13 @@ import UpdateBook from './Components/Admin dashboard/UpdateBook/UpdateBook';
 import BookActivation from './Components/Admin dashboard/UpdateBook/BookActivation';
 import './App.css'
 
+//import TestComponent from './TestComponent/TestComponent'
+//import { BACKEND_URL } from '../utils'
+import Users from './Components/Users/Users'
+import { BACKEND_URL } from '../utils'
+import './App.css'
+import { CartProvider } from "./Components/Cart/CartContext/CartContext";
+import Orders from './Components/Orders/Orders'
 
 function App() {
   const { user, userData } = useUser();
@@ -53,6 +60,7 @@ function App() {
           <Route path='/store' element={<Store />} />
           <Route path='/address' element={<Address />} />
           <Route path="/*" element={<NotFound />} />
+          <Route path='/admin/orders' element={<Orders />} />
         </Routes>
         <Footer />
       </CartProvider>
