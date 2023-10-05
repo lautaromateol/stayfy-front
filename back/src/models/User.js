@@ -40,11 +40,11 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: false,
       },
-      active: {
+      isSuperAdmin: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: true,
-      }
+        defaultValue: false,
+      },
     },
     {
       timestamps: false, 

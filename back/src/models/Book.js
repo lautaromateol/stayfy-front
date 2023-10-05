@@ -51,6 +51,21 @@ module.exports = (sequelize) => {
         unique: false,
         allowNull: false, 
       },
+      arsPrice: {
+        type: DataTypes.FLOAT,
+        unique: false,
+        allowNull: false, 
+      },
+      copPrice: {
+        type: DataTypes.FLOAT,
+        unique: false,
+        allowNull: false, 
+      },
+      mxnPrice: {
+        type: DataTypes.FLOAT,
+        unique: false,
+        allowNull: false, 
+      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
