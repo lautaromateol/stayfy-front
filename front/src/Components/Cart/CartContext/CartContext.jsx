@@ -8,6 +8,7 @@ export function useCart() {
 
 export function CartProvider({ children }) {
     const [cartCount, setCartCount] = useState(0);
+<<<<<<< HEAD
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -112,6 +113,27 @@ export function CartProvider({ children }) {
         removeFromCart,
         removeAllByProduct,
         removeAll,    
+=======
+
+    useEffect(() => {
+        // Recuperar el estado del carrito almacenado en localStorage al cargar la aplicación
+        const savedCartCount = localStorage.getItem("cartCount");
+        if (savedCartCount) {
+            setCartCount(parseInt(savedCartCount));
+        }
+    }, []);
+
+    const addToCart = () => {
+        const newCartCount = cartCount + 1;
+        setCartCount(newCartCount);
+
+        localStorage.setItem("cartCount", newCartCount.toString());
+    };
+
+    const value = {
+        cartCount,
+        addToCart,
+>>>>>>> a73b6d6226b861e55f4e2bd5e2fdc6841e5039e8
     };
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
