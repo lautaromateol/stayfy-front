@@ -30,8 +30,9 @@ const createBooks = async () => {
           pageCount: book.pageCount,
           genre: book.gender,
           price: Math.ceil(book.price),
-          // arsPrice: Math.ceil(book.price * 843),
-          // copPrice: Math.ceil(book.price * 4200),
+          arsPrice: Math.ceil(book.price * 843),
+          copPrice: Math.ceil(book.price * 4200),
+          mxnPrice: Math.ceil(book.price * 18),
           description: book.description,
           rating: Math.floor(Math.random() * 5 + 1),
         });
