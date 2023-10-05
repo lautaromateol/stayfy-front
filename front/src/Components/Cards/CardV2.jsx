@@ -1,10 +1,31 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import EstrellasRating from '../StartRating/StartRating';
 import { Link } from 'react-router-dom';
+import { useCart } from "../Cart/CartContext/CartContext";
+import QuantityControl from '../Cart/CartList/QuantityControl';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function CardV2({id,  title, authors, price, image }) {
-    const rating = 4.5;
+  const { cart, addToCart, removeAllByProduct, removeFromCart } = useCart();
 
+    const rating = 4.5;
+    const [isInCart, setIsInCart] = useState(false);
+    const [quantityBooks, setQuantityBooks] = useState(1);
+    useEffect(() => {
+      const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const productExistsInCart = storedCart.includes(parseInt(id, 10));
+      const savedCartCount = storedCart.length;
+  
+      setIsInCart(productExistsInCart);
+      const quantityBook = cart.filter((item) => item === parseInt(id, 10)).length;
+      setQuantityBooks(quantityBook);
+  
+    }, [id, cart]);
+    const handleAddToCart = () => {
+      addToCart(id);
+    };
+  
   return (
     <div
       title={`Click here to see more details of ${title}`}
@@ -28,6 +49,22 @@ function CardV2({id,  title, authors, price, image }) {
         <EstrellasRating promedioCalificaciones={rating} />
 <p className="text-sm mb-2 text-gray-500 dark:text-gray-400">{authors}</p>
         <p className="text-lg mb-4 font-bold text-gray-800 dark:text-gray-300">${price}</p>
+
+
+        {isInCart ? (
+          <QuantityControl
+            quantity={cart.filter((item) => item === parseInt(id, 10)).length}
+            onIncrement={()=> addToCart(id)}
+            onDecrement={() => removeFromCart(id)}
+            onRemove={() => removeAllByProduct(id)}
+          />
+        ) : (
+          <button onClick={handleAddToCart} className='bg-green-500 py-0.5 px-2 w-30 rounded-md text-white hover:cursor-pointer'>
+            <FontAwesomeIcon icon={faCartShopping} /> Add to cart
+          </button>
+        )}
+
+
       </figcaption>
     </div>
   );
