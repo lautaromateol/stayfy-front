@@ -10,35 +10,38 @@ const { sortBooks } = require('./filters.js/sortBooks');
 const { filterByAuthor } = require('./filters.js/filterByAuthor');
 const { filterByPublisher } = require('./filters.js/filterByPublisher');
 const { filterByRating } = require('./filters.js/filterByRating');
-const DISPLAYED_BOOKS = 10;
+
+const createBooks = async () => {
+
+  const apiRequest = axios.get(API_URL);
+  const responses = await Promise.all([apiRequest]);
+  const dbBooks = await Book.findAll();
+
+  if (dbBooks.length < 1) {
+    for (const response of responses) {
+      response.data.forEach(async (book) => {
+        await Book.create({
+          id: book.id,
+          title: book.title,
+          authors: book.authors,
+          publisher: book.publisher,
+          image: book.image ? book.image : DEFAULT_IMAGE,
+          publishedDate: book.publishedDate,
+          pageCount: book.pageCount,
+          genre: book.gender,
+          price: Math.ceil(book.price),
+          // arsPrice: Math.ceil(book.price * 843),
+          // copPrice: Math.ceil(book.price * 4200),
+          description: book.description,
+          rating: Math.floor(Math.random() * 5 + 1),
+        });
+      });
+    };
+  };
+};
 
 const getBooks = async () => {
-  
-    const apiRequest = axios.get(API_URL);
-    const responses = await Promise.all([apiRequest]); 
-    const dbBooks = await Book.findAll();
-    
-    if(dbBooks.length < 1){
-    for (const response of responses) {
-      response.data.forEach(async(book) => {
-        await Book.create({
-            id: book.id,   
-            title: book.title,
-            authors: book.authors,
-            publisher: book.publisher,
-            image: book.image ? book.image: DEFAULT_IMAGE,
-            publishedDate: book.publishedDate,
-            pageCount:book.pageCount,
-            genre: book.gender,
-            price: Math.ceil(book.price),
-            // arsPrice: Math.ceil(book.price * 843),
-            // copPrice: Math.ceil(book.price * 4200),
-            description: book.description,
-            rating: Math.floor(Math.random() * 5 + 1)
-          })
-      });
-    }
-  }
+  const dbBooks = await Book.findAll();
   return dbBooks;
 };
 
@@ -59,4 +62,4 @@ const getFilteredBooks = async ({ sort, page = 0, genre = '', title, publishedDa
   return sortedBooks;
 };
 
-module.exports = { getBooks, getFilteredBooks };
+module.exports = { createBooks, getBooks, getFilteredBooks };
