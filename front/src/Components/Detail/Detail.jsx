@@ -63,7 +63,7 @@ const Detail = () => {
   }, []);
 
   return (
-    <div className='bg-stone-400 dark:bg-gray-900 text-gray-800 dark:text-gray-300'>
+    <div>
       <div className='grid grid-cols-[50%_50%] mt-11'>
         <div className='grid place-content-center'>
           <img className='w-[350px] h-[500px]' src={book.image} />
