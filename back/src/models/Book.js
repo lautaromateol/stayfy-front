@@ -70,10 +70,10 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      // rating: {
-      //   type: DataTypes.FLOAT,
-      //   allowNull: false
-      // }
+      rating: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+      }
     },
     {
       timestamps: false,
