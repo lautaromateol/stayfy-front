@@ -40,9 +40,8 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                     </Link>
                 </button>
                 <Link className="mr-5" to='/register'>Register</Link>
-                <Link to='/login'>Log In</Link>
-            
 
+                <Link to='/login'>Log In</Link>
             </div>
 
         </div>

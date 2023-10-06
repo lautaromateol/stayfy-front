@@ -50,7 +50,7 @@ const Register = () => {
 
     return (
         <div className='flex flex-col items-center h-screen w-full bg-stone-400'>
-            <form className='py-10 px-20 bg-white mt-20 rounded-md' action="">
+            <form className='py-10 px-20 bg-white mt-20 rounded-3xl' action="">
                 <h1 className="font-semibold text-xl md:text-3xl text-gray-600 m-2 text-center mb-7">Register</h1>
                 <div className='flex sm:flex-col lg:flex-row'>
                     <div className='flex flex-col lg:mr-3 space-y-6'>
