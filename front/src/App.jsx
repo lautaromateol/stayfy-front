@@ -14,6 +14,7 @@ import Register from './Views/Register/Register'
 import Users from './Components/Admin dashboard/Users/Users'
 import CartList from './Components/Cart/CartList/CartList'
 import UserDetail from './Components/Admin dashboard/Detail/UserDetail'
+import Footer from './Components/Footer/Footer';
 import './App.css'
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
           <Route path='/admin/users/:id' element={<UserDetail/>}/>
           <Route path='/cart' element={<CartList/>}/>
         </Routes>
+          <Footer/>
         </CartProvider>
       </div>
   )
