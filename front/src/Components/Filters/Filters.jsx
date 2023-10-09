@@ -14,7 +14,7 @@ const Filters = () => {
     const [selectedPublisher, setPublisher] = useState('')
     const [sort, setSort] = useState('')
     const [bookName, setBookName] = useState('')
-    const [selectedPage, setSelectedPage] = useState(1); // Inicialmente seleccionamos la página 
+    const [selectedPage, setSelectedPage] = useState(0); // Inicialmente seleccionamos la página 
 
 
     const handlePreviousPage = () => {
@@ -24,7 +24,7 @@ const Filters = () => {
     };
     
     const handleNextPage = () => {
-      if (selectedPage < totalPages) {
+      if (selectedPage < totalPages - 1 ) {
         setSelectedPage(selectedPage + 1);
       }
     };
@@ -156,15 +156,15 @@ const Filters = () => {
 
         <div className="grid place-content-center">
           <input
-            className="rounded-3xl h-9 mt-9 "
+            className="rounded-3xl h-9 mt-8 "
             type="text"
-            placeholder="Search by name...    🔍︎"
+            placeholder="Search by name...           🔍︎"
             value={bookName}
             onChange={(e) => setBookName(e.target.value)}
           ></input>
         </div>
 
-        <div className="mt-5 mx-auto flex space-x-4">
+        <div className="flex justify-center mt-8 space-x-4">
 
         <button
           onClick={handlePreviousPage}
