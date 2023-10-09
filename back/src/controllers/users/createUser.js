@@ -1,7 +1,12 @@
-const {User} = require("../../db")
+const {User} = require("../../db");
+const bcrypt = require('bcrypt');
+
 const createUser = async(req, res) => {
     try {
-       const {username, email, password, fullname} = req.body 
+        const {username, email, password, fullname} = req.body 
+        const saltRounds = 10;
+        const passwordHash = await bcrypt.hash(password, saltRounds);
+    
 
        const emailFilter = await User.findOne({where: {email}})
 
@@ -14,7 +19,7 @@ const createUser = async(req, res) => {
        const newUser = {
         username,
         email,
-        passwordHash: password,
+        passwordHash,
         fullName: fullname
        }
 

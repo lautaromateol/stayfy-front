@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
@@ -21,6 +22,26 @@ import UserProfile from './Components/User/Userprofile'
 
 //import TestComponent from './TestComponent/TestComponent'
 //import { BACKEND_URL } from '../utils'
+=======
+import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { CartProvider } from './Components/Cart/CartContext/CartContext';
+import { UserProvider } from './Context/UserContext'; 
+import Home from './Views/Home/Home';
+import Create from './Views/Create/Create';
+import Detail from './Components/Detail/Detail';
+import Nav from './Components/Nav/Nav';
+import ReviewForm from './Components/ReviewForm/ReviewForm';
+import LogIn from './Views/LogIn/LogIn';
+import Books from './Views/Books/books';
+import Success from './Components/Success/Success';
+import Register from './Views/Register/Register';
+import Users from './Components/Admin dashboard/Users/Users';
+import CartList from './Components/Cart/CartList/CartList';
+import UserDetail from './Components/Admin dashboard/Detail/UserDetail';
+import Footer from './Components/Footer/Footer';
+import './App.css';
+>>>>>>> a9bb89f (logueo context global)
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -28,31 +49,15 @@ function App() {
     setDarkMode(!darkMode);
   };
 
-  // const [errorApi, setErrorApi] = useState(false);  // NUEVO PARA TESTCOMPONENT / FILTROS
-  // const [books, setBooks] = useState([]); // NUEVO PARA TESTCOMPONENT / FILTROS
-  // const [isLoading, setIsLoading] = useState(false);  // NUEVO PARA TESTCOMPONENT / FILTROS
-
-  // useEffect(() => { // NUEVO PARA TESTCOMPONENT / FILTROS
-  //   fetchAllBooks();
-  // }, []);
-
-  // const fetchAllBooks = async () => { // NUEVO PARA TESTCOMPONENT / FILTROS
-  //   setIsLoading(true);
-  //   try {
-  //     const response = await axios.get(`${BACKEND_URL}/books/filters`);
-  //     setBooks(response.data);
-  //     setErrorApi(false);
-  //   } catch (error) {
-  //     setErrorApi(true);
-  //   }
-  //   setIsLoading(false);
-  // };
+  const isLoggedIn = !!localStorage.getItem("jwtToken");
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-          <CartProvider>
-            <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <UserProvider>
+        <CartProvider>
+          <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <Routes>
+<<<<<<< HEAD
           <Route path='/' element= {<Home/>}/>
           <Route path='/create' element={<Create/>}/>
           <Route path='/product-page/:id' element={<Detail/>}/>
@@ -67,9 +72,35 @@ function App() {
           <Route path='/cart' element={<CartList/>}/>
         </Routes>
           <Footer/>
+=======
+            {/* Proteger rutas Libres */}
+
+            <Route path="/" element={<Home />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/product-page/:id" element={<Detail />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/review" element={<ReviewForm />} />
+
+            {/* Proteger rutas privadas */}
+            {isLoggedIn ? (
+              <>
+                <Route path="/order-approved" element={<Success />} />
+                <Route path="/admin/users" element={<Users />} />
+                <Route path="/admin/users/:id" element={<UserDetail />} />
+                <Route path="/cart" element={<CartList />} />
+              </>
+            ) : null}
+
+            {/* Rutas de autenticación */}
+            <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <LogIn />} />
+            <Route path="/register" element={isLoggedIn ? <Navigate to="/" /> : <Register />} />
+          </Routes>
+          <Footer />
+>>>>>>> a9bb89f (logueo context global)
         </CartProvider>
-      </div>
-  )
+      </UserProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;
