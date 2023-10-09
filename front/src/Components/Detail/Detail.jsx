@@ -8,59 +8,72 @@ import { useCart } from "../Cart/CartContext/CartContext";
 import QuantityControl from '../Cart/CartList/QuantityControl';
 
 const Detail = () => {
+
+  const { id } = useParams()
+
   const { cart, addToCart, removeAllByProduct, removeFromCart } = useCart();
 
   const [preferenceId, setPreferenceId] = useState(null);
 
   const [book, setBook] = useState({})
 
-  const { id } = useParams()
+  const [rating, setRating] = useState(4.5)
 
-  const rating = 4.5
   const [isInCart, setIsInCart] = useState(false);
-  const [quantityBooks, setQuantityBooks] = useState(1); 
-  useEffect(() => {
-      const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
-      const productExistsInCart = storedCart.includes(parseInt(id, 10));
-      const savedCartCount = storedCart.length;
 
-      setIsInCart(productExistsInCart);
-      const quantityBook =cart.filter((item) => item === parseInt(id, 10)).length;
-      setQuantityBooks(quantityBook);
-
-  }, [id, cart]);
-
+  const [quantityBooks, setQuantityBooks] = useState(1);
+    
   const handleAddToCart = () => {
     addToCart(id);
   };
 
-  const handleCheckout = async () => {
-    try {
-      const response = await axios.post('http://localhost:3001/checkout/mercado-pago/create_preference', {
-        items: [{
-          title: book.title,
-          quantity: 1,
-          currency_id: 'ARS', 
-          unit_price: book.price, 
-        }],
-        image: book.image
-      });
-      const { id } = response.data;
-      setPreferenceId(id);
-    } catch (error) {
-      console.error('Error al crear preferencia:', error);
-    }
-  };
-
   useEffect(() => {
-    axios(`http://localhost:3001/books/${id}`).then(({ data }) => {
-      if (data.title) {
-        setBook(data);
-              } else {
-        window.alert('Product not found');
-      }
-    })
-  }, []);
+
+    try {
+      axios(`http://localhost:3001/books/${id}`).then(({ data }) => {
+        if (data.title) {
+          setBook(data)
+          setRating(data.rating)
+  
+          axios
+            .post('http://localhost:3001/checkout/mercado-pago/create_preference', {
+              items: [
+                {
+                  title: data.title, 
+                  unit_price: data.price,
+                  quantity: 1,
+                  currency_id: 'ARS'
+                }
+              ],
+              image: data.image
+            })
+            .then(({ data }) => {
+              setPreferenceId(data.id);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    const storedCart = JSON.parse(localStorage.getItem("cartItems")) || []
+
+    const productExistsInCart = storedCart.includes(parseInt(id, 10))
+
+    const savedCartCount = storedCart.length
+
+    setIsInCart(productExistsInCart)
+
+    const quantityBook = cart.filter((item) => item === parseInt(id, 10)).length
+
+    setQuantityBooks(quantityBook)
+
+    return setBook({})
+
+  }, [cart, id]);
 
   return (
     <div>
@@ -76,46 +89,34 @@ const Detail = () => {
           <hr className="border-bottom border-solid border-gray-400 p-1" />
           {/* <p className='text-3xl mb-2.5'>${book.price && book.price}</p> */}
           <p className="text-3xl mb-2.5">
-          {quantityBooks === 0
-            ? (book.price * 1.0).toLocaleString("en-US", {
+            {
+              (book.price * 1.0).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })
-            : ((book.price * quantityBooks) * 1.0).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
-        </p>
+            }
+          </p>
 
           <div className="flex flex-col">
-  <button className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer' onClick={handleCheckout}>Buy now</button>
-  
-  {isInCart ? (
-      // <button  className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
-      //   <FontAwesomeIcon icon={faCheck} /> added to cart
-      // </button>
-  
-    <QuantityControl
-      quantity={cart.filter((item) => item === parseInt(id, 10)).length}
-      onIncrement={()=> addToCart(id)}
-      onDecrement={() => removeFromCart(id)}
-      onRemove={() => removeAllByProduct(id)}
-    />
-  ) : (
-    <button onClick={handleAddToCart} className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
-      <FontAwesomeIcon icon={faCartShopping} /> Add to cart
-    </button>
-  )}
+            <button className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'><a href={`https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${preferenceId}`} target="_blank" rel="noopener noreferrer">Buy now</a></button>
 
-  {preferenceId && (
-    <button className='block w-60 h-7.1 bg-[rgba(0,188,255,255)] rounded-md border-none hover:cursor-pointer m-2.5 py-0.5 px-1'>
-      <img className='relative top-3 w-7.5 h-5' src='https://vectorseek.com/wp-content/uploads/2023/08/Mercado-Pago-Icon-Logo-Vector.svg-.png' />
-      <a className='relative bottom-3 ml-2.5 mr-0 text-base font-roboto no-underline text-white' href={`https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${preferenceId}`} target="_blank" rel="noopener noreferrer">
-        Pagar con Mercado Pago
-      </a>
-    </button>
-  )}
-</div>
+            {isInCart ? (
+              // <button  className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
+              //   <FontAwesomeIcon icon={faCheck} /> added to cart
+              // </button>
+
+              <QuantityControl
+                quantity={cart.filter((item) => item === parseInt(id, 10)).length}
+                onIncrement={() => addToCart(id)}
+                onDecrement={() => removeFromCart(id)}
+                onRemove={() => removeAllByProduct(id)}
+              />
+            ) : (
+              <button onClick={handleAddToCart} className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
+                <FontAwesomeIcon icon={faCartShopping} /> Add to cart
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <hr className="border-bottom border-solid border-gray-400 p-1 mt-10" />
@@ -140,7 +141,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <hr className="border-bottom border-solid border-gray-400 p-1 mt-10"/>
+      <hr className="border-bottom border-solid border-gray-400 p-1 mt-10" />
       <div>
         <h2 className='text-2xl text-center'>Comment Section</h2>
         <button className='bg-green-500 m-2.5 py-0.5 px-1 w-30 h-7.3 rounded-md text-white hover:cursor-pointer'>Add review</button>

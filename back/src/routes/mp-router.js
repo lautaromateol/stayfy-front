@@ -10,33 +10,51 @@ mercadopago.configure({
 mercadopagoRouter.post('/create_preference', async (req, res) => {
 	const { items, image } = req.body;
 
-	const {title, quantity, unit_price} = items[0]
+	if (items.length === 1) {
 
-	const preference = {
-	  items,
-	  back_urls: {
-		success: `http://localhost:5173/order-approved/?title=${title}&quantity=${quantity}&unit_price=${unit_price}&image=${image}`
-	  },
-	  auto_return: 'approved'
-	};
-  
-	try {
-	  const response = await mercadopago.preferences.create(preference);
-	  res.json({ id: response.body.id });
-	} catch (error) {
-	  console.error(error);
-	  res.status(500).send('Error al crear preferencia');
+		const { title, quantity, unit_price } = items[0]
+
+		const preference = {
+			items,
+			back_urls: {
+				success: `http://localhost:5173/order-approved/?title=${title}&quantity=${quantity}&unit_price=${unit_price}&image=${image}`
+			},
+			auto_return: 'approved'
+		};
+
+		try {
+			const response = await mercadopago.preferences.create(preference);
+			res.json({ id: response.body.id });
+		} catch (error) {
+			console.error(error);
+			res.status(500).send('Error al crear preferencia');
+		}
 	}
-  });
 
-mercadopagoRouter.post('/create_order', async(req, res) => {
-	
-	const {merchantOrder, paymentId, products, spent} = req.body
+	if (items.length > 1) {
+
+		const preference = {
+			items
+		};
+
+		try {
+			const response = await mercadopago.preferences.create(preference);
+			res.json({ id: response.body.id });
+		} catch (error) {
+			console.error(error);
+			res.status(500).send('Error al crear preferencia');
+		}
+	}
+});
+
+mercadopagoRouter.post('/create_order', async (req, res) => {
+
+	const { merchantOrder, paymentId, products, spent } = req.body
 
 	console.log(req.body)
 
 	try {
-		await Order.create({merchantOrder, paymentId, products, spent})
+		await Order.create({ merchantOrder, paymentId, products, spent })
 		res.status(200).send('Orden creada con exito')
 	} catch (error) {
 		console.error(error)
@@ -44,4 +62,4 @@ mercadopagoRouter.post('/create_order', async(req, res) => {
 
 });
 
-module.exports = {mercadopagoRouter}
+module.exports = { mercadopagoRouter }

@@ -34,7 +34,7 @@ const createBooks = async () => {
           copPrice: Math.ceil(book.price * 4200),
           mxnPrice: Math.ceil(book.price * 18),
           description: book.description,
-          rating: Math.floor(Math.random() * 5 + 1),
+          rating: Math.round(Math.random() * (5 - 3) + 3),
         });
       });
     };
