@@ -30,6 +30,7 @@ import Users from './Components/Users/Users'
 import { BACKEND_URL } from '../utils'
 import './App.css'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
+// import NewsList from './Components/News/News'
 import Orders from './Components/Orders/Orders'
 
 function App() {
