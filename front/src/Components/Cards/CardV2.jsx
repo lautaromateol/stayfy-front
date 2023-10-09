@@ -54,7 +54,7 @@ function CardV2({ id, title, authors, price, image, rating }) {
             {/* <p className="text-lg mb-2 font-bold leading-relaxed text-gray-800 dark:text-gray-300"> */}
             {title}</p>
         </Link>
-        <EstrellasRating promedioCalificaciones={rating} />
+        <EstrellasRating average={rating} />
         <p className="text-sm mb-2 text-gray-500 dark:text-gray-400">{authors}</p>
         <p className="text-lg mb-4 font-bold text-gray-800 dark:text-gray-300">${price}</p>
 

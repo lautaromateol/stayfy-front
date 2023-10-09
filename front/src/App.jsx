@@ -5,7 +5,7 @@ import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import Home from './Views/Home/Home'
 import Create from './Views/Create/Create'
-import Detail from './Components/Detail/Detail'
+import Detail from './Components/Detail/Detail2'
 import Nav from './Components/Nav/Nav'
 import ReviewForm from './Components/ReviewForm/ReviewForm'
 import LogIn from "./Views/LogIn/LogIn"

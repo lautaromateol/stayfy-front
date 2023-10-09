@@ -4,7 +4,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const QuantityControl = ({ quantity, onIncrement, onDecrement, onRemove }) => {
     return (
-        <div className="flex">
+        <div className="flex ml-5">
             <button
                 type="button"
                 className="font-medium text-red-700 hover:text-red-500"
