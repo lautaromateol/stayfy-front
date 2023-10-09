@@ -49,6 +49,10 @@ const LogIn = () => {
     }
   }
 
+    const handleLogout = () => {
+      window.localStorage.removeItem("logged")
+      setUser(null)
+    }
  
 
   useEffect(()=> {
@@ -105,7 +109,9 @@ const LogIn = () => {
               <span className="mb-6">Don't have an account? Register <Link to='/register' className="text-yellow-500">here.</Link></span>
             </div>
             <div className="text-center mt-7">
-              <button className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 ">
+              <button className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 "
+              onClick={handleLogout}
+              >
                 Sign Out
               </button>
             </div>

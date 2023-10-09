@@ -7,7 +7,7 @@ const Google = () => {
     const [user, setUser] = useState({})
 
     const checkToken = () => {
-        const token = localStorage.getItem("jwtToken")
+        const token = localStorage.getItem("logged")
         if(token){
             const userObj = jwt_decode(token);
             setUser(userObj);
@@ -21,13 +21,13 @@ const Google = () => {
         //console.log("JWT: " + response.credential)
         var userObj = jwt_decode(response.credential);
         setUser(userObj)
-        localStorage.setItem("jwtToken", response.credential)
+        localStorage.setItem("logged", response.credential)
         document.getElementById("signInDiv").hidden = true;
     }
 
     const handleSignOut = (event) => {
         setUser({})
-        localStorage.removeItem("jwtToken")
+        localStorage.removeItem("logged")
         document.getElementById("signInDiv").hidden = false;
         
     }
