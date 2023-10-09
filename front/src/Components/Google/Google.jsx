@@ -9,8 +9,8 @@ const Google = () => {
     const checkToken = () => {
         const token = localStorage.getItem("logged")
         if(token){
-            const userObj = jwt_decode(token);
-            setUser(userObj);
+            //const userObj = jwt_decode(token);
+            setUser(token);
             document.getElementById("signInDiv").hidden = true;
         }else {
             document.getElementById("signInDiv").hidden = false; // Show the signInDiv if there is no token

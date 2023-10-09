@@ -56,10 +56,10 @@ const LogIn = () => {
  
 
   useEffect(()=> {
-    const logged = window.localStorage.getItem("logged")
-    const user = JSON.parse(logged)
-    setUser(user)
-    console.log(user)
+    // const logged = window.localStorage.getItem("logged")
+    // const user = JSON.parse(logged)
+    // setUser(user)
+    // console.log(user)
   },[])
 
 
