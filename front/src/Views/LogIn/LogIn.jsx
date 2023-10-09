@@ -36,6 +36,10 @@ const LogIn = () => {
       password: "",
     })
     try {
+      const bcrypt = require('bcrypt');
+      const saltRounds = 10; 
+      const hashedPassword = await bcrypt.hash(input.password, saltRounds); 
+
       const user = await loginAction.login({
         username: input.username,
         password: input.password
@@ -45,7 +49,7 @@ const LogIn = () => {
       
       window.localStorage.setItem("logged", JSON.stringify(user))
     } catch (error) {
-      window.alert("Error!")
+      window.alert("Error!",error)
     }
   }
 
@@ -108,13 +112,13 @@ const LogIn = () => {
               </button>
               <span className="mb-6">Don't have an account? Register <Link to='/register' className="text-yellow-500">here.</Link></span>
             </div>
-            <div className="text-center mt-7">
-              <button className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 "
-              onClick={handleLogout}
-              >
+            {/* <div className="text-center mt-7">
+              <button 
+                className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 "
+                onClick={signOut}>
                 Sign Out
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="h-[100%] w-full md:w-1/2 items-center flex justify-center">
             <div className="text-stone-700 text-base font-semibold text-center my-10 space-y-2 m-2 cursor-pointer">

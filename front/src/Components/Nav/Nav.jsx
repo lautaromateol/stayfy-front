@@ -5,13 +5,18 @@ import UserProfile from "../User/Userprofile";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from "../Cart/CartContext/CartContext";
+import { useUser } from '../../Context/UserContext';
+
 // import { useSpring, animated } from "react-spring";
 
 // eslint-disable-next-line react/prop-types
 const Nav = ({ darkMode, toggleDarkMode }) => {
     // eslint-disable-next-line no-unused-vars
     const { cartCount, addToCart } = useCart();
+    const { user, signOut } = useUser();
 
+    
+// console.log(user);
     return (
         <div className="flex justify-between w-full py-5 bg-gray-200 text-lg">
             <button className="ml-8 bg-yellow-300 text-black active:bg-yellow-400 text-sm font-bold rounded shadow hover:shadow-lg outline-none focus:outline-none h-10 w-20">
@@ -44,19 +49,22 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                         <span className="ml-1">{cartCount}</span>
                     </Link>
                 </button>
+                {user ? (
+                    <>
+                    <button onClick={signOut}>Sign Out</button>
+                    <p>{user.name}</p>
+                    </>
+                ) : (
+                    <>
                 <Link className="mr-5" to='/register'>Register</Link>
-
-
-            
-
                 <Link to='/login'>Log In</Link>
-            
                 <button className="mr-8  flex justify-around w-60"><UserProfile/></button>
-
+                    </>
+                )}
             </div>
 
-    </div>
-  );
+        </div>
+    )
 }
 
-export default Nav;
+export default Nav
