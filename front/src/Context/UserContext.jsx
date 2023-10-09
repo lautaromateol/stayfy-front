@@ -11,7 +11,7 @@ export function UserProvider({ children }) {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const token = localStorage.getItem('jwtToken');
+        const token = localStorage.getItem('logged');
 
         if (token) {
             // Decodificar el token JWT
@@ -23,12 +23,12 @@ export function UserProvider({ children }) {
     const signIn = (token) => {
         const decodedToken = jwtDecode(token);
         setUser(decodedToken);
-        localStorage.setItem('jwtToken', token);
+        localStorage.setItem('logged', token);
     };
 
     const signOut = () => {
         setUser(null);
-        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('logged');
     };
 
     return (

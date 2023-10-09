@@ -26,13 +26,9 @@ const Google = () => {
         //console.log("JWT: " + response.credential)
         var userObj = jwt_decode(response.credential);
         setUser(userObj)
-<<<<<<< HEAD
-        localStorage.setItem("logged", response.credential)
-=======
-        // // localStorage.setItem("jwtToken", response.credential)
+        // localStorage.setItem("logged", response.credential)
         signIn(response.credential);
         //insertar en la bd 
->>>>>>> a9bb89f (logueo context global)
         document.getElementById("signInDiv").hidden = true;
         navigate("/");
     }

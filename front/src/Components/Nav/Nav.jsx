@@ -57,24 +57,14 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
                 ) : (
                     <>
                 <Link className="mr-5" to='/register'>Register</Link>
-<<<<<<< HEAD
-
-
-            
-
                 <Link to='/login'>Log In</Link>
-            
                 <button className="mr-8  flex justify-around w-60"><UserProfile/></button>
-
-=======
-                <Link to='/login'>Log In</Link>
                     </>
                 )}
->>>>>>> a9bb89f (logueo context global)
             </div>
 
-    </div>
-  );
+        </div>
+    )
 }
 
-export default Nav;
+export default Nav

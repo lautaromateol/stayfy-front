@@ -36,6 +36,10 @@ const LogIn = () => {
       password: "",
     })
     try {
+      const bcrypt = require('bcrypt');
+      const saltRounds = 10; 
+      const hashedPassword = await bcrypt.hash(input.password, saltRounds); 
+
       const user = await loginAction.login({
         username: input.username,
         password: input.password
@@ -108,17 +112,10 @@ const LogIn = () => {
               </button>
               <span className="mb-6">Don't have an account? Register <Link to='/register' className="text-yellow-500">here.</Link></span>
             </div>
-<<<<<<< HEAD
-            <div className="text-center mt-7">
-              <button className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 "
-              onClick={handleLogout}
-              >
-=======
             {/* <div className="text-center mt-7">
               <button 
                 className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 "
                 onClick={signOut}>
->>>>>>> a9bb89f (logueo context global)
                 Sign Out
               </button>
             </div> */}

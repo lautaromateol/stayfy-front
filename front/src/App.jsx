@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
+import { UserProvider } from './Context/UserContext'; 
 import Home from './Views/Home/Home'
 import Create from './Views/Create/Create'
 import Detail from './Components/Detail/Detail'
@@ -22,26 +22,6 @@ import UserProfile from './Components/User/Userprofile'
 
 //import TestComponent from './TestComponent/TestComponent'
 //import { BACKEND_URL } from '../utils'
-=======
-import React, { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { CartProvider } from './Components/Cart/CartContext/CartContext';
-import { UserProvider } from './Context/UserContext'; 
-import Home from './Views/Home/Home';
-import Create from './Views/Create/Create';
-import Detail from './Components/Detail/Detail';
-import Nav from './Components/Nav/Nav';
-import ReviewForm from './Components/ReviewForm/ReviewForm';
-import LogIn from './Views/LogIn/LogIn';
-import Books from './Views/Books/books';
-import Success from './Components/Success/Success';
-import Register from './Views/Register/Register';
-import Users from './Components/Admin dashboard/Users/Users';
-import CartList from './Components/Cart/CartList/CartList';
-import UserDetail from './Components/Admin dashboard/Detail/UserDetail';
-import Footer from './Components/Footer/Footer';
-import './App.css';
->>>>>>> a9bb89f (logueo context global)
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -49,7 +29,7 @@ function App() {
     setDarkMode(!darkMode);
   };
 
-  const isLoggedIn = !!localStorage.getItem("jwtToken");
+  const isLoggedIn = !!localStorage.getItem("logged");
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -57,22 +37,6 @@ function App() {
         <CartProvider>
           <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <Routes>
-<<<<<<< HEAD
-          <Route path='/' element= {<Home/>}/>
-          <Route path='/create' element={<Create/>}/>
-          <Route path='/product-page/:id' element={<Detail/>}/>
-          <Route path='/login' element={<LogIn/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path = '/user' element ={<UserProfile/>}/>
-          <Route path='/books' element={<Books/>}/>
-          <Route path='/order-approved' element={<Success/>}/>
-          <Route path='/review' element={<ReviewForm/>}/>
-          <Route path='/admin/users' element={<Users/>}/>
-          <Route path='/admin/users/:id' element={<UserDetail/>}/>
-          <Route path='/cart' element={<CartList/>}/>
-        </Routes>
-          <Footer/>
-=======
             {/* Proteger rutas Libres */}
 
             <Route path="/" element={<Home />} />
@@ -96,7 +60,6 @@ function App() {
             <Route path="/register" element={isLoggedIn ? <Navigate to="/" /> : <Register />} />
           </Routes>
           <Footer />
->>>>>>> a9bb89f (logueo context global)
         </CartProvider>
       </UserProvider>
     </div>
