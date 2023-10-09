@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+// eslint-disable-next-line no-unused-vars
 import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import Home from './Views/Home/Home'
@@ -16,6 +17,10 @@ import CartList from './Components/Cart/CartList/CartList'
 import UserDetail from './Components/Admin dashboard/Detail/UserDetail'
 import Footer from './Components/Footer/Footer';
 import './App.css'
+import UserProfile from './Components/User/Userprofile'
+
+//import TestComponent from './TestComponent/TestComponent'
+//import { BACKEND_URL } from '../utils'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -53,6 +58,7 @@ function App() {
           <Route path='/product-page/:id' element={<Detail/>}/>
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/register' element={<Register/>}/>
+          <Route path = '/user' element ={<UserProfile/>}/>
           <Route path='/books' element={<Books/>}/>
           <Route path='/order-approved' element={<Success/>}/>
           <Route path='/review' element={<ReviewForm/>}/>

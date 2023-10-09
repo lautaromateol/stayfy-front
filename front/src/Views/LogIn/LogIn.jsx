@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import Google from "../../Components/Google/Google";
 import validation from "./validations/loginValidations";
@@ -10,6 +12,7 @@ const LogIn = () => {
     password: "",
   });
   const [error, setError] = useState({});
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null)
 
   const handleChange = (e) => {
