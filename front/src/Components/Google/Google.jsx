@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
+import { useNavigate } from "react-router-dom";
+import { useUser } from '../../Context/UserContext';
 
 //JWT solo es necesario si se quiere usar datos del usuario que inicio sesion
 
 const Google = () => {
     const [user, setUser] = useState({})
+    const { signIn, signOut } = useUser();
+    const userContexto = useUser(user);
+    const navigate = useNavigate();
 
     const checkToken = () => {
         const token = localStorage.getItem("jwtToken")
@@ -21,8 +26,11 @@ const Google = () => {
         //console.log("JWT: " + response.credential)
         var userObj = jwt_decode(response.credential);
         setUser(userObj)
-        localStorage.setItem("jwtToken", response.credential)
+        // // localStorage.setItem("jwtToken", response.credential)
+        signIn(response.credential);
+        //insertar en la bd 
         document.getElementById("signInDiv").hidden = true;
+        navigate("/");
     }
 
     const handleSignOut = (event) => {
@@ -46,7 +54,7 @@ const Google = () => {
         );
 
         //google.accounts.id.prompt(); Esta linea es para que salga automaticamente el cartel para iniciar sesion
-    }, []);
+    }, [navigate]);
 
     return(
         <div>
