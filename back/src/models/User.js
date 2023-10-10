@@ -45,6 +45,10 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: false,
       },
+      profilePicture: {
+        type: DataTypes.STRING, // You can use STRING to store the URL or file path
+        allowNull: true, // Set this to true if you want the profile picture to be optional
+      },
     },
     {
       timestamps: false, 

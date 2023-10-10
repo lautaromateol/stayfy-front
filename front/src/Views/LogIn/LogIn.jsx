@@ -45,11 +45,18 @@ const LogIn = () => {
       
       window.localStorage.setItem("logged", JSON.stringify(user))
     } catch (error) {
-      window.alert("Error!")
+      if (error.response && (error.response.status === 404 || error.response.status === 403)) {
+      
+        window.alert("Usuario no encontrado o contraseña incorrecta");
+      } else {
+        
+        window.alert("Error!");
     }
   }
+}
 
-    const handleLogout = () => {
+    const handleLogout = (event) => {
+      event.preventDefault()
       window.localStorage.removeItem("logged")
       setUser(null)
     }
@@ -67,7 +74,7 @@ const LogIn = () => {
   return (
     <div className="bg-stone-400 h-screen">
       <div className="flex justify-center">
-        <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
+        <form  className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
           <div className=" w-full md:w-3/4">
             <div className="text-xl cursor-pointer flex flex-col justify-center items-center mt-5 md:mt-0 py-4">
               <h1 className="font-semibold text-xl md:text-3xl text-gray-600 m-2">
@@ -103,6 +110,7 @@ const LogIn = () => {
               type="submit"  
               className="lg:w-[340px] px-24 md:px-[118px] lg:px-[110px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-3 "
               disabled= {error.username || error.password || !input.username}
+              onClick={handleSubmit}
               >
                 Sign In
               </button>
