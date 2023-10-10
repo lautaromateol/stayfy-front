@@ -15,7 +15,7 @@ const LogIn = () => {
   const [error, setError] = useState({});
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null)
-  const {signOut} = useUser();
+  const {signIn, signOut} = useUser();
 
   const handleChange = (e) => {
     setInput({
@@ -45,7 +45,9 @@ const LogIn = () => {
       console.log(user);
       setUser(user)
       
-      window.localStorage.setItem("logged", JSON.stringify(user))
+      // window.localStorage.setItem("logged", JSON.stringify(user))
+      signIn(JSON.stringify(user));
+
     } catch (error) {
       if (error.response && (error.response.status === 404 || error.response.status === 403)) {
       
