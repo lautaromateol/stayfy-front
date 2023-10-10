@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import Google from "../../Components/Google/Google";
 import validation from "./validations/loginValidations";
@@ -10,6 +12,7 @@ const LogIn = () => {
     password: "",
   });
   const [error, setError] = useState({});
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null)
 
   const handleChange = (e) => {
@@ -46,13 +49,17 @@ const LogIn = () => {
     }
   }
 
+    const handleLogout = () => {
+      window.localStorage.removeItem("logged")
+      setUser(null)
+    }
  
 
   useEffect(()=> {
-    const logged = window.localStorage.getItem("logged")
-    const user = JSON.parse(logged)
-    setUser(user)
-    console.log(user)
+    // const logged = window.localStorage.getItem("logged")
+    // const user = JSON.parse(logged)
+    // setUser(user)
+    // console.log(user)
   },[])
 
 
@@ -102,7 +109,9 @@ const LogIn = () => {
               <span className="mb-6">Don't have an account? Register <Link to='/register' className="text-yellow-500">here.</Link></span>
             </div>
             <div className="text-center mt-7">
-              <button className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 ">
+              <button className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 "
+              onClick={handleLogout}
+              >
                 Sign Out
               </button>
             </div>
