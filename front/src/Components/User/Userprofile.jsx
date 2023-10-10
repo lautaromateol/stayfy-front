@@ -27,7 +27,7 @@ const UserProfile = () => {
 
       {/* Menú desplegable */}
       {showDropdown && (
-        <div className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+        <div className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow right-0 w-44 dark:bg-gray-700 dark:divide-gray-600">
           <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
             <div>Bonnie Green</div>
             <div className="font-medium truncate">name@flowbite.com</div>
