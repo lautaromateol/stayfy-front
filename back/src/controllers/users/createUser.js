@@ -1,7 +1,9 @@
 const {User} = require("../../db")
+const { DEFAULT_PROFILE_PICTURE } = require("../../utils")
+
 const createUser = async(req, res) => {
     try {
-       const {username, email, password, fullname} = req.body 
+       const {username, email, password, fullname, profilePicture} = req.body 
 
        const emailFilter = await User.findOne({where: {email}})
 
@@ -15,7 +17,8 @@ const createUser = async(req, res) => {
         username,
         email,
         passwordHash: password,
-        fullName: fullname
+        fullName: fullname,
+        profilePicture: profilePicture ? profilePicture :  DEFAULT_PROFILE_PICTURE,
        }
 
        const userDb = await User.create(newUser)
