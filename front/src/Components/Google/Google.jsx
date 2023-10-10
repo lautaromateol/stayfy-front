@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
+import { useUser } from '../../Context/UserContext';
+import { useNavigate } from "react-router-dom";
 
 //JWT solo es necesario si se quiere usar datos del usuario que inicio sesion
 
 const Google = () => {
     const [user, setUser] = useState({})
+    const { signIn, signOut } = useUser();
 
     const checkToken = () => {
         const token = localStorage.getItem("logged")
@@ -21,13 +24,15 @@ const Google = () => {
         //console.log("JWT: " + response.credential)
         var userObj = jwt_decode(response.credential);
         setUser(userObj)
-        localStorage.setItem("logged", response.credential)
+        // localStorage.setItem("logged", response.credential)
+        signIn(response.credential);
         document.getElementById("signInDiv").hidden = true;
     }
 
     const handleSignOut = (event) => {
         setUser({})
-        localStorage.removeItem("logged")
+        // localStorage.removeItem("logged")
+        signOut();
         document.getElementById("signInDiv").hidden = false;
         
     }
