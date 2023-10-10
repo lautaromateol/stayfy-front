@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
+import { useUser } from './Context/UserContext'; 
 import Home from './Views/Home/Home'
 import Create from './Views/Create/Create'
 import Detail from './Components/Detail/Detail2'
@@ -23,30 +24,11 @@ import UserProfile from './Components/User/Userprofile'
 //import { BACKEND_URL } from '../utils'
 
 function App() {
+  const user = useUser();
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-
-  // const [errorApi, setErrorApi] = useState(false);  // NUEVO PARA TESTCOMPONENT / FILTROS
-  // const [books, setBooks] = useState([]); // NUEVO PARA TESTCOMPONENT / FILTROS
-  // const [isLoading, setIsLoading] = useState(false);  // NUEVO PARA TESTCOMPONENT / FILTROS
-
-  // useEffect(() => { // NUEVO PARA TESTCOMPONENT / FILTROS
-  //   fetchAllBooks();
-  // }, []);
-
-  // const fetchAllBooks = async () => { // NUEVO PARA TESTCOMPONENT / FILTROS
-  //   setIsLoading(true);
-  //   try {
-  //     const response = await axios.get(`${BACKEND_URL}/books/filters`);
-  //     setBooks(response.data);
-  //     setErrorApi(false);
-  //   } catch (error) {
-  //     setErrorApi(true);
-  //   }
-  //   setIsLoading(false);
-  // };
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -60,10 +42,15 @@ function App() {
           <Route path='/register' element={<Register/>}/>
           <Route path = '/user' element ={<UserProfile/>}/>
           <Route path='/books' element={<Books/>}/>
-          <Route path='/order-approved' element={<Success/>}/>
-          <Route path='/review' element={<ReviewForm/>}/>
-          <Route path='/admin/users' element={<Users/>}/>
-          <Route path='/admin/users/:id' element={<UserDetail/>}/>
+          {/* {console.log(user.isAuthenticated() )} */}
+          {user.isAuthenticated() ? (
+            <>
+              <Route path='/order-approved' element={<Success/>}/>
+              <Route path='/review' element={<ReviewForm/>}/>
+              <Route path='/admin/users' element={<Users/>}/>
+              <Route path='/admin/users/:id' element={<UserDetail/>}/>
+            </>
+          ) : null}
           <Route path='/cart' element={<CartList/>}/>
         </Routes>
           <Footer/>

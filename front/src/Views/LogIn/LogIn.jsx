@@ -5,6 +5,7 @@ import Google from "../../Components/Google/Google";
 import validation from "./validations/loginValidations";
 import { Link } from "react-router-dom";
 import loginAction from "../../redux/login";
+import { useUser } from '../../Context/UserContext';
 
 const LogIn = () => {
   const [input, setInput] = useState({
@@ -14,6 +15,7 @@ const LogIn = () => {
   const [error, setError] = useState({});
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null)
+  const {signIn, signOut} = useUser();
 
   const handleChange = (e) => {
     setInput({
@@ -43,7 +45,9 @@ const LogIn = () => {
       console.log(user);
       setUser(user)
       
-      window.localStorage.setItem("logged", JSON.stringify(user))
+      // window.localStorage.setItem("logged", JSON.stringify(user))
+      signIn(JSON.stringify(user));
+
     } catch (error) {
       if (error.response && (error.response.status === 404 || error.response.status === 403)) {
       
@@ -118,7 +122,7 @@ const LogIn = () => {
             </div>
             <div className="text-center mt-7">
               <button className=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-6 "
-              onClick={handleLogout}
+              onClick={signOut}
               >
                 Sign Out
               </button>
