@@ -4,7 +4,9 @@ const createUser = require("../controllers/users/createUser");
 const getUsers = require("../controllers/users/getUsers.js")
 const getUserById = require("../controllers/users/getUserById");
 const deleteUser = require("../controllers/users/deleteUser");
-const updateUser = require("../controllers/users/updateUser")
+const updateUser = require("../controllers/users/updateUser");
+const checkGoogle = require("../controllers/users/checkGoogle");
+const googleCreate = require("../controllers/users/googleCreate");
 
 const userRouter = Router()
 
@@ -12,7 +14,9 @@ userRouter.get('/', getUsers);
 userRouter.get('/:id', getUserById)
 userRouter.post('/', createUser);
 userRouter.post('/login', login);
-userRouter.put('/:id', updateUser)
+userRouter.post('/check', checkGoogle);
+userRouter.post('/google', googleCreate);
+userRouter.put('/:id', updateUser);
 userRouter.delete('/:id', deleteUser)
 
 module.exports = { userRouter };

@@ -15,9 +15,8 @@ const login = async (req, res) =>{
         } else {
             const userForToken = {
                 id: user.id,
-                name: user.username,
-                fullname: user.fullname,
-                icon: user.profilePicture
+                name: user.fullName,
+                image: user.profilePicture
             }
 
             const token = jwt.sign(userForToken, process.env.SECRET)
