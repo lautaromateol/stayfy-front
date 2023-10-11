@@ -2,7 +2,8 @@ const { Router } = require("express");
 const { getBooksHandler, getFilteredBooksHandler } = require("../handlers/getBooksHandler");
 const { getByIDHandler } = require("../handlers/getByIDHandler");
 const { postHandler } = require("../handlers/postBook")
-const { getGenresHandler } = require("../handlers/genresHandler");
+// const { getGenresHandler } = require("../handlers/genresHandler");
+const { deactivateBookHandler, updateBookHandler } = require("../handlers/books/updateBookHandler");
 
 
 const cloudinary = require("cloudinary").v2;
@@ -30,6 +31,8 @@ booksRouter.get("/filters", getFilteredBooksHandler);
 booksRouter.get("/:id", getByIDHandler);
 // booksRouter.get("/genres", getGenresHandler);
 booksRouter.post("/create", postHandler);
+booksRouter.put("/activation", deactivateBookHandler);
+booksRouter.put("/update", updateBookHandler);
 booksRouter.post("/uploads", upload.single("image"), async (req, res) => {
     try {
         const b64 = Buffer.from(req.file.buffer).toString("base64");

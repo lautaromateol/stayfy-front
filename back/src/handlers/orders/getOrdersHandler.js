@@ -10,7 +10,7 @@ const getOrdersHandler = async (req, res) => {
 };
 
 const getUserOrdersHandler = async (req, res) => {
-  const { username } = req.query;
+  const { username } = req.query; // o por params quizás, el front podría decidir/manejar esto
 
   const response = await getUserOrders({ username });
   try {
