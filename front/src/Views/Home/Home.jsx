@@ -6,6 +6,7 @@ import Slider from "../../Components/Slider/Slider"
 import Filters from '../../Components/Filters/Filters'
 import OurTeam from "../../Components/ourTeam/ourTeam"
 
+
 // import Paginado from "../../Components/Paginado/paginado"
 // import Nav from "../../Components/Nav/Nav"
 

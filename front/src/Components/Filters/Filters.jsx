@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { getFilteredBooks } from "../../redux/actions";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Filters = () => {
 
@@ -18,7 +20,7 @@ const Filters = () => {
 
 
     const handlePreviousPage = () => {
-      if (selectedPage > 1) {
+      if (selectedPage >= 1) {
         setSelectedPage(selectedPage - 1);
       }
     };
@@ -31,6 +33,7 @@ const Filters = () => {
 
 
     useEffect(() => {
+        Aos.init({duration: 1500})
         dispatch(getFilteredBooks({ 
             sort,
             genre: selectedGenre,
@@ -43,8 +46,8 @@ const Filters = () => {
     }, [sort, selectedGenre, selectedAuthor, selectedPublisher, bookName, selectedPage])
 
     return (
-      <div>
-        <div className="grid grid-cols-[25%_25%_25%_25%]">
+      <div data-aos = 'fade-up'>
+        <div className="grid grid-cols-[25%_25%_25%_25%]" >
           <div className="mt-5 mx-auto">
             <select
               className="rounded-3xl "
@@ -168,7 +171,7 @@ const Filters = () => {
 
         <button
           onClick={handlePreviousPage}
-          disabled={selectedPage === 1}
+          disabled={selectedPage === 0}
           className="rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white"
         >
           {"<"}
@@ -191,7 +194,7 @@ const Filters = () => {
 
         <button
           onClick={handleNextPage}
-          disabled={selectedPage === totalPages}
+          disabled={selectedPage === totalPages - 1}
           className="rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white"
         >
           {">"}

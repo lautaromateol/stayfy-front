@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from "../Cart/CartContext/CartContext";
 import { useUser } from '../../Context/UserContext';
+import logo from './img/STAYFY2(2).png'
 
-import logo from './img/logo-marron.png'
 // import { useSpring, animated } from "react-spring";
 
 // eslint-disable-next-line react/prop-types

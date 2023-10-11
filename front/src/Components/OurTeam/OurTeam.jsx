@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import juaneImg from './img/juane.jpg'
 import laraImg from './img/lara.png'
 import matiImg from './img/mati.jpeg'
@@ -7,10 +7,17 @@ import danielImg from './img/daniel.jpg'
 import agusImg from './img/agustin.png'
 import L from './img/L.svg'
 import D from './img/D.png'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const OurTeam = () => {
+
+  useEffect(() => {
+    Aos.init({duration:1500})
+  }, [])
+
   return (
-    <div className="mt-16 pb-16">
+    <div className="mt-16 pb-16" data-aos = 'fade-up'>
       <div className="flex items-center justify-center text-center ">
         <div className="flex flex-col p-10 m-2 ">
           <div className="text-3xl font-medium ">Meet Our Team</div>

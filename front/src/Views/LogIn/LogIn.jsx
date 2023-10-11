@@ -6,6 +6,8 @@ import validation from "./validations/loginValidations";
 import { Link } from "react-router-dom";
 import loginAction from "../../redux/login";
 import { useUser } from '../../Context/UserContext';
+import Aos from "aos"
+import 'aos/dist/aos.css'
 
 const LogIn = () => {
   const [input, setInput] = useState({
@@ -67,6 +69,7 @@ const LogIn = () => {
  
 
   useEffect(()=> {
+    Aos.init({duration: 1500})
     // const logged = window.localStorage.getItem("logged")
     // const user = JSON.parse(logged)
     // setUser(user)
@@ -77,8 +80,8 @@ const LogIn = () => {
 
   return (
     <div className="bg-stone-400 h-screen">
-      <div className="flex justify-center">
-        <form  className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
+      <div className="flex justify-center" data-aos = 'fade-up'>
+        <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
           <div className=" w-full md:w-3/4">
             <div className="text-xl cursor-pointer flex flex-col justify-center items-center mt-5 md:mt-0 py-4">
               <h1 className="font-semibold text-xl md:text-3xl text-gray-600 m-2">
