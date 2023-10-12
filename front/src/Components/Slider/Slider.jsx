@@ -39,7 +39,7 @@ function Slider() {
         <Carousel>
         <div data-aos = 'fade-in'>
           <video className='h-full w-full'autoPlay muted loop >
-          <source src="https://res.cloudinary.com/dhqudb28a/video/upload/v1697064342/STAYFY_PORTADA_n8v736.mp4" alt="Image 1" />
+          <source src="https://res.cloudinary.com/dhqudb28a/video/upload/v1697064350/STAYFY_PORTADA_wt4bou.mp4" alt="Image 1" />
           </video>
         </div>
 
