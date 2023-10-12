@@ -93,7 +93,7 @@ const Create = () => {
   };
 
   return (
-    <div className="bg-stone-400 dark:bg-gray-900 h-screen">
+    <div className="bg-[#A4BCB3] dark:bg-gray-900 h-screen">
       <div className="flex justify-center w-full">
         <div className="flex flex-col justify-center items-center max-w-7xl w-[90%]">
           <div className="flex flex-col justify-center text-center space-y-3 my-9">

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-//importar css
 
 function Cards({ title, authors, price, image, id  }) {
 

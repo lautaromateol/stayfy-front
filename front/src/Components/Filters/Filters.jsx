@@ -26,7 +26,7 @@ const Filters = () => {
     };
     
     const handleNextPage = () => {
-      if (selectedPage < totalPages - 1 ) {
+      if (selectedPage < totalPages - 1) {
         setSelectedPage(selectedPage + 1);
       }
     };
@@ -47,7 +47,7 @@ const Filters = () => {
 
     return (
       <div data-aos = 'fade-up'>
-        <div className="grid grid-cols-[25%_25%_25%_25%]" >
+        <div className="grid grid-cols-[20%_20%_20%_20%_20%]">
           <div className="mt-5 mx-auto">
             <select
               className="rounded-3xl "
@@ -155,54 +155,63 @@ const Filters = () => {
               )}
             </div>
           </div>
-        </div>
+        
 
         <div className="grid place-content-center">
           <input
-            className="rounded-3xl h-9 mt-8 "
+            className="rounded-3xl"
             type="text"
             placeholder="Search by name...           🔍︎"
             value={bookName}
             onChange={(e) => setBookName(e.target.value)}
           ></input>
         </div>
+</div>
 
-        <div className="flex justify-center mt-8 space-x-4">
+        {/* PAGINADO */}
+        <div class="flex items-center justify-center  border-gray-200 bg-blue-300 bg-opacity-30 p-3"
+        style={{
+          
+          backgroundClip: 'padding-box',  // Evita que el fondo se extienda a través del borde
 
-        <button
-          onClick={handlePreviousPage}
-          disabled={selectedPage === 0}
-          className="rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white"
-        >
-          {"<"}
-        </button>
+          boxShadow: '0px 5px 15px 0px rgba(0, 0, 0, 0.35)'  // Aplica un efecto de sombra para lograr un borde difuminado
+        }}>
+  <button
+    onClick={handlePreviousPage}
+    disabled={selectedPage === 0}
+    class="inline-flex items-center rounded-full border border-gray-300 bg-white px-3 py-1 text-base font-medium text-gray-700 hover:bg-gray-200 focus:outline-none"
+  >
+    {"<"}
+  </button>
 
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-             (buttonPage) => (
-            <button
-              // key={i + 1}
-              onClick={() => {
-                setSelectedPage(buttonPage - 1);
-              }}
-              className={`rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white ${
-                buttonPage - 1 === selectedPage ? "bg-blue-600" : ""
-              }`}
-            >
-              {buttonPage}
-            </button>
-          ))}
+  {Array.from({ length: totalPages }, (_, i) => i).map((buttonPage) => (
+    <button
+      onClick={() => {
+        setSelectedPage(buttonPage);
+      }}
+      key={buttonPage}
+      class={`mx-2 inline-flex items-center px-4 py-2 text-base font-semibold rounded-full ${
+        buttonPage === selectedPage
+          ? 'bg-blue-800 text-white'
+          : 'bg-white text-gray-700 hover:bg-gray-200'
+      }`}
+    >
+      {buttonPage + 1}
+    </button>
+  ))}
 
-        <button
-          onClick={handleNextPage}
-          disabled={selectedPage === totalPages - 1}
-          className="rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white"
-        >
-          {">"}
-        </button> 
+  <button
+    onClick={handleNextPage}
+    disabled={selectedPage === totalPages - 1}
+    class="inline-flex items-center rounded-full border border-gray-300 bg-white px-3 py-1 text-base font-medium text-gray-700 hover:bg-gray-200 focus:outline-none"
+  >
+    {">"}
+  </button>
+</div>
 
         </div>
 
-      </div>
+
     );
 }
 

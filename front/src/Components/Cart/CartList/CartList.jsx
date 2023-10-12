@@ -78,7 +78,7 @@ const CartList = () => {
     }, 0);
 
     return (
-        <div className="min-h-screen bg-stone-400 dark:bg-gray-900 text-gray-800 dark:text-gray-300">
+        <div className="min-h-screen bg-[#A4BCB3] dark:bg-gray-900 text-gray-800 dark:text-gray-300">
             <div className="py-24 sm:py-12">
                 <div className="mx-auto max-w-7xl px-6 lg:px-20">
                     <div className="mx-auto max-w-2xl lg:mx-0">

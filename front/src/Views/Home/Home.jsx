@@ -1,5 +1,6 @@
 import Slider from "../../Components/Slider/Slider"
 import OurTeam from "../../Components/ourTeam/ourTeam"
+import Buttons from "../../Components/Buttons/Buttons"
 
 
 // import Paginado from "../../Components/Paginado/paginado"
@@ -8,10 +9,10 @@ import OurTeam from "../../Components/ourTeam/ourTeam"
 const Home = ()=>{
 
     return (
-        <div className="bg-stone-400 dark:bg-gray-900 h-full">
+        <div className="bg-gray-200 dark:bg-gray-900 h-full">
             <Slider />
-            {/* <img src="https://banner2.cleanpng.com/20180316/chq/kisspng-book-free-content-clip-art-office-books-cliparts-5aab4c121e0864.187068161521175570123.jpg" /> */}
             <div>
+            <Buttons />
             <OurTeam/>
             </div>
         </div>
