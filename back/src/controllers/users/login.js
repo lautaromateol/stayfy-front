@@ -4,14 +4,14 @@ const {User} = require("../../db");
 const login = async (req, res) =>{
   try {
     const {username, password} = req.body
-    if(!username || !password) return res.status(400).send("Faltan datos")
+    if(!username || !password) return res.status(400).send("Data missing")
 
     const user = await User.findOne({where: {username}})
     if(!user){
-        return res.status(404).send("Usuario no encontrado")
+        return res.status(404).send("User not found")
     } else {
         if(user.passwordHash !== password){
-            return res.status(403).send("Contraseña incorrecta")
+            return res.status(403).send("Incorrect password")
         } else {
             const userForToken = {
                 id: user.id,

@@ -73,6 +73,11 @@ module.exports = (sequelize) => {
       rating: {
         type: DataTypes.FLOAT,
         allowNull: false
+      },
+      active: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       }
     },
     {
