@@ -1,12 +1,4 @@
 import React, { useEffect } from "react";
-import juaneImg from './img/juane.jpg'
-import laraImg from './img/lara.png'
-import matiImg from './img/mati.jpeg'
-import joseLuisImg from './img/joseLuis.jpeg'
-import danielImg from './img/daniel.jpg'
-import agusImg from './img/agustin.png'
-import L from './img/L.svg'
-import D from './img/D.png'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
@@ -30,8 +22,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2  max-w-7xl">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={juaneImg}
-                    alt=""
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/juane_w65i3b.jpg'
+                    alt="Imagen de Juan Emilio Elizondo"
                     className=""
                   />
                 </div>
@@ -44,8 +36,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={laraImg}
-                    alt=""
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066819/lara_fd5dtn.png'
+                    alt="Imagen de Lara María De Cillis"
                     className=""
                   />
                 </div>
@@ -58,8 +50,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={matiImg}
-                    alt=""
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/mati_ztu9in.jpg'
+                    alt="Imagen de Matias Helueni"
                     className=""
                   />
                 </div>
@@ -72,8 +64,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={L}
-                    alt=""
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/L_vghyg7.svg'
+                    alt="Imagen de Lautaro Leguizamon"
                     className=""
                   />
                 </div>
@@ -88,8 +80,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={agusImg}
-                    alt="imagen de agustin"
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066819/agustin_ynxqtl.png'
+                    alt="Imagen de Agustin Radocaj"
                     className=""
                   />
                 </div>
@@ -102,8 +94,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={danielImg}
-                    alt="imagen de daniel"
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/daniel_xm7ywx.jpg'
+                    alt="Imagen de Daniel Chávez"
                     className=""
                   />
                 </div>
@@ -116,8 +108,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={joseLuisImg}
-                    alt=""
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/joseLuis_rhicxl.jpg'
+                    alt="Imagen de José Luis Farias"
                     className=""
                   />
                 </div>
@@ -130,8 +122,8 @@ const OurTeam = () => {
               <div className="flex-col px-6 py-2 ">
                 <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
-                    src={D}
-                    alt=""
+                    src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066817/D_ukboni.png'
+                    alt="Imagen de Duglas Antonio Paez"
                     className=""
                   />
                 </div>
