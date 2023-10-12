@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import registerValidation from './validations/registerValidations';
 import axios from 'axios';
+import Aos from "aos"
+import 'aos/dist/aos.css'
+import { useEffect } from 'react';
 
 const Register = () => {
+
+    useEffect(() => {
+        Aos.init({duration:1500})
+      }, [])
 
     const [input, setInput] = useState({
         fullname: '',
@@ -49,8 +56,8 @@ const Register = () => {
 
 
     return (
-        <div className='flex flex-col items-center h-screen w-full bg-stone-400'>
-            <form className='py-10 px-20 bg-white mt-20 rounded-3xl' action="">
+        <div className='flex flex-col items-center h-screen w-full bg-stone-400' >
+            <form className='py-10 px-20 bg-white mt-20 rounded-3xl' action="" data-aos = 'fade-up'>
                 <h1 className="font-semibold text-xl md:text-3xl text-gray-600 m-2 text-center mb-7">Register</h1>
                 <div className='flex sm:flex-col lg:flex-row'>
                     <div className='flex flex-col lg:mr-3 space-y-6'>

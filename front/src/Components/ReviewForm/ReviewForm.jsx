@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import Stars from './Stars';
+import { useEffect } from "react";
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const ReviewForm = () => {
+
+    useEffect(() => {
+        Aos.init({duration:1500})
+      }, [])
+
     return (
         <div >
 
 
-            <div className="min-h-screen bg-stone-400 dark:bg-gray-900">
+            <div className="min-h-screen bg-stone-400 dark:bg-gray-900" >
 
-                <div className="bg-stone-400 dark:bg-gray-900 text-black py-20">
+                <div className="bg-stone-400 dark:bg-gray-900 text-black py-20" data-aos = 'fade-up'>
                     <div className="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
                         <div className="flex flex-col w-full lg:w-1/2 p-8">
                             <p className=" text-yellow-300 text-6xl uppercase tracking-loose">REVIEW</p>

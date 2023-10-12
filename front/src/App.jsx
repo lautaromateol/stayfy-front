@@ -16,6 +16,7 @@ import Register from './Views/Register/Register'
 import Users from './Components/Admin dashboard/Users/Users'
 import CartList from './Components/Cart/CartList/CartList'
 import UserDetail from './Components/Admin dashboard/Detail/UserDetail'
+import Store from './Views/Store/Store';
 import Footer from './Components/Footer/Footer';
 import './App.css'
 import UserProfile from './Components/User/Userprofile'
@@ -52,6 +53,7 @@ function App() {
             </>
           ) : null}
           <Route path='/cart' element={<CartList/>}/>
+          <Route path='/store' element={<Store/>}/>
         </Routes>
           <Footer/>
         </CartProvider>

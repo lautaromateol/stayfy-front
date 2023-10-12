@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
                 <div className="flex hover:text-[#cacaca]">
                     <img src={linkedin} alt="linkedin svg" className="w-4 mr-2"/>
-                    <a href="https://www.linkedin.com/in/juan-emilio-elizondo-728456220/">Juan Emilio Elizondo</a>
+                    <a href="https://www.linkedin.com/in/juan-emilio-elizondo/">Juan Emilio Elizondo</a>
                 </div>
                 <div className="flex hover:text-[#cacaca]">
                     <img src={linkedin} alt="linkedin svg" className="w-4 mr-2"/>
