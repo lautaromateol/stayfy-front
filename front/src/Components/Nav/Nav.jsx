@@ -66,7 +66,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         )}
 
         <button>
-          <UserProfile />
+          {/* <UserProfile /> */}
         </button>
         {/* Icono de Carrito con Contador */}
         <button>
