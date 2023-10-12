@@ -9,7 +9,7 @@ function Slider() {
     /* Ajustar el ancho al 100% y la altura según tus necesidades */
     .carousel {
       width: 100%;
-      max-height: 800px; /* Ajusta la altura según tus necesidades */
+      max-height: 100%; /* Ajusta la altura según tus necesidades */
     }
 
     /* Ajustar la altura de las imágenes */
@@ -29,19 +29,18 @@ function Slider() {
       display: none !important;
     }
   `;
-
-  useEffect(() => {
-    Aos.init({duration: 1500})
-  })
-  return (
-    <>
-      <style>{carouselStyles}</style>
-      <Carousel>
+      useEffect(() => {
+          Aos.init({duration: 1500})
+        })             
+      return (
+        <>
+        <style>{carouselStyles}
+        </style>
+        <Carousel>
         <div data-aos = 'fade-in'>
-          <img
-            src="https://res.cloudinary.com/dhqudb28a/image/upload/v1696141761/Blue_Modern_Furniture_Mega_Sale_Blog_Banner_fyydhz.png"
-            alt="Image 1"
-          />
+          <video className='h-full w-full'autoPlay muted loop >
+          <source src="https://res.cloudinary.com/dhqudb28a/video/upload/v1697064342/STAYFY_PORTADA_n8v736.mp4" alt="Image 1" />
+          </video>
         </div>
 
         <div>

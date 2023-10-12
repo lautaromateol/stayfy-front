@@ -79,7 +79,7 @@ const LogIn = () => {
 
 
   return (
-    <div className="bg-stone-400 h-screen">
+    <div className="bg-[#A4BCB3] h-screen dark:bg-gray-900">
       <div className="flex justify-center" data-aos = 'fade-up'>
         <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
           <div className=" w-full md:w-3/4">

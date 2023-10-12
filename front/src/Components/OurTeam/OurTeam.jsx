@@ -12,15 +12,15 @@ const OurTeam = () => {
     <div className="mt-16 pb-16" data-aos = 'fade-up'>
       <div className="flex items-center justify-center text-center ">
         <div className="flex flex-col p-10 m-2 ">
-          <div className="text-3xl font-medium ">Meet Our Team</div>
-          <div className="text-sm mx-2 md:text-xl ">
+          <div className="text-3xl font-medium dark:text-gray-100">Meet Our Team</div>
+          <div className="text-sm mx-2 md:text-xl  dark:text-gray-100">
             Meet the team member who have worked in this project
           </div>
 
           <div className="md:grid flex">
-            <div className="flex items-center justify-center md:flex-row flex-col space-x-4  p-2">
-              <div className="flex-col px-6 py-2  max-w-7xl">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+            <div className="flex items-center justify-center md:flex-row flex-col space-x-4  p-2 ">
+              <div className="flex-col px-6 py-2  max-w-7xl ">
+                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200 ">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/juane_w65i3b.jpg'
                     alt="Imagen de Juan Emilio Elizondo"
@@ -28,7 +28,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
                     Juan Emilio Elizondo
                 </div>
                 <div className=" italic text-gray-500">FrontEnd</div>
@@ -42,7 +42,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
                     Lara María De Cillis
                 </div>
                 <div className=" italic text-gray-500">FrontEnd</div>
@@ -56,7 +56,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
                     Matias Helueni
                 </div>
                 <div className=" italic text-gray-500">FrontEnd</div>
@@ -70,7 +70,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
                     Lautaro Leguizamon
                 </div>
                 <div className=" italic text-gray-500">FrontEnd</div>
@@ -86,7 +86,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
                     Agustín Radocaj
                 </div>
                 <div className=" italic text-gray-500">BackEnd</div>
@@ -100,7 +100,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
                     Daniel Chávez
                 </div>
                 <div className=" italic text-gray-500">BackEnd</div>
@@ -114,7 +114,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
                     José Luis Farias
                 </div>
                 <div className=" italic text-gray-500">BackEnd</div>
@@ -128,7 +128,7 @@ const OurTeam = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900">
+                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900 dark:text-gray-100">
                     Duglas Antonio Paez
                 </div>
                 <div className=" italic text-gray-500">BackEnd</div>
