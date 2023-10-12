@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
       },
       passwordHash: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       fullName: {
         type: DataTypes.STRING,
@@ -46,8 +46,8 @@ module.exports = (sequelize) => {
         defaultValue: false,
       },
       profilePicture: {
-        type: DataTypes.STRING, // You can use STRING to store the URL or file path
-        allowNull: true, // Set this to true if you want the profile picture to be optional
+        type: DataTypes.STRING, 
+        allowNull: true, 
       },
     },
     {
