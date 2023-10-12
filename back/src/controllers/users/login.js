@@ -14,7 +14,7 @@ const login = async (req, res) =>{
             return res.status(403).send("Incorrect password")
         } else {
             const userForToken = {
-                id: user.id,
+                id: user.userId,
                 name: user.fullName,
                 image: user.profilePicture,
                 email: user.email

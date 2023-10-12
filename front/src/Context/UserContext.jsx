@@ -9,7 +9,9 @@ export function useUser() {
 
 export function UserProvider({ children }) {
     const [user, setUser] = useState(null);
-// console.log("info token",user);
+    const [id, setId] = useState(null);
+
+    console.log("info token", user)
     useEffect(() => {
         const token = localStorage.getItem('logged');
 
@@ -19,6 +21,34 @@ export function UserProvider({ children }) {
             setUser(decodedToken);
         }
     }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            if (user) {
+                try {
+                    const email = user.email;
+                    const response = await fetch(`http://localhost:3001/users/search/${email}`);
+
+                    if (response.ok) {
+                        const userData = await response.json();
+
+                        if (userData.userId) {
+                            setId(userData.userId);
+                        } else {
+                            console.error('No se encontró el ID del usuario.');
+                        }
+                    } else {
+                        console.error('La respuesta del servidor no fue exitosa.');
+                    }
+                } catch (error) {
+                    console.error('Error al obtener los datos del usuario:', error);
+                }
+            }
+        };
+
+        fetchData();
+    }, [user]);
+    console.log("id: ",id);
 
     const isAuthenticated = () => {
         return user !== null;
@@ -35,8 +65,9 @@ export function UserProvider({ children }) {
         localStorage.removeItem('logged');
     };
 
+
     return (
-        <UserContext.Provider value={{ user, signIn, signOut, isAuthenticated }}>
+        <UserContext.Provider value={{id, user, signIn, signOut, isAuthenticated }}>
             {children}
         </UserContext.Provider>
     );
