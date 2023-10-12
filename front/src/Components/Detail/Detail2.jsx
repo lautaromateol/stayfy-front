@@ -42,10 +42,9 @@ const Detail = () => {
                   title: data.title,
                   unit_price: data.price,
                   quantity: 1,
-                  currency_id: 'ARS'
+                  currency_id: 'ARS',
                 }
               ],
-              image: data.image
             })
             .then(({ data }) => {
               setPreferenceId(data.id);
@@ -84,7 +83,13 @@ const Detail = () => {
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 class="text-sm title-font text-gray-500 tracking-widest">Book Store</h2>
               <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{book.title && book.title.toUpperCase()}</h1>
-              {book.authors && book.authors.length === 1 ? <p className='mb-5'>By <a className='underline'>{book.authors && book.authors[0]}</a></p> : <p className='mb-5'>By <a>{book.authors && book.authors[0]}</a> and <a>{book.authors && book.authors[1]}</a></p>}
+              {book.authors && book.authors.map((aut)=> {
+          
+          return book.authors.length > 1 && book.authors.indexOf(aut) !== book.authors.length -1 ? 
+          <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">{aut}, </span> :
+          <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">{aut}</span>
+
+        })}
               <div class="flex">
                 <span class="flex items-center">
                   <EstrellasRating average={rating} />
@@ -174,23 +179,3 @@ const Detail = () => {
 }
 
 export default Detail;
-
-{/* <div className='w-[350px]'>
-          <h2 className='text-2xl  text-center border border-solid border-gray-400'>Product Details</h2>
-          <div className='grid grid-cols-[50%_50%] border border-solid border-gray-400 body-font text-gray-700'>
-            <span>Publisher:</span>
-            <span>{book.publisher}</span>
-          </div>
-          <div className='grid grid-cols-[50%_50%] border border-solid border-gray-400 body-font text-gray-700'>
-            <span>Publication year:</span>
-            <span>{book.publishedDate}</span>
-          </div>
-          <div className='grid grid-cols-[50%_50%] border border-solid border-gray-400 body-font text-gray-700'>
-            <span>Genre:</span>
-            <span>{book.genre}</span>
-          </div>
-          <div className='grid grid-cols-[50%_50%] border border-solid border-gray-400 body-font text-gray-700'>
-            <span>Pages:</span>
-            <span>{book.pageCount}</span>
-          </div>
-        </div> */}

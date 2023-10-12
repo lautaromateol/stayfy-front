@@ -8,42 +8,29 @@ mercadopago.configure({
 });
 
 mercadopagoRouter.post('/create_preference', async (req, res) => {
-	const { items, image } = req.body;
+	const { items } = req.body;
 
-	if (items.length === 1) {
+	const externalReferenceInfo = {
+		items
+	  };
 
-		const { title, quantity, unit_price } = items[0]
+	const encodedInfo = btoa(JSON.stringify(externalReferenceInfo));
 
-		const preference = {
-			items,
-			back_urls: {
-				success: `http://localhost:5173/order-approved/?title=${title}&quantity=${quantity}&unit_price=${unit_price}&image=${image}`
-			},
-			auto_return: 'approved'
-		};
+	const preference = {
+		items,
+		back_urls: {
+			success: 'http://localhost:5173/order-approved'
+		},
+		auto_return: 'approved',
+		external_reference: encodedInfo
+	};
 
-		try {
-			const response = await mercadopago.preferences.create(preference);
-			res.json({ id: response.body.id });
-		} catch (error) {
-			console.error(error);
-			res.status(500).send('Error al crear preferencia');
-		}
-	}
-
-	if (items.length > 1) {
-
-		const preference = {
-			items
-		};
-
-		try {
-			const response = await mercadopago.preferences.create(preference);
-			res.json({ id: response.body.id });
-		} catch (error) {
-			console.error(error);
-			res.status(500).send('Error al crear preferencia');
-		}
+	try {
+		const response = await mercadopago.preferences.create(preference);
+		res.json({ id: response.body.id });
+	} catch (error) {
+		console.error(error);
+		res.status(500).send('Error al crear preferencia');
 	}
 });
 
@@ -51,9 +38,9 @@ mercadopagoRouter.post('/create_order', async (req, res) => {
 
 	const { merchantOrder, paymentId, products, spent } = req.body
 
-	console.log(req.body)
-
 	try {
+		const order = await Order.findOne({where: {merchantOrder}})
+		if(order) return res.status(400).send('Esta orden ya fue agregada')
 		await Order.create({ merchantOrder, paymentId, products, spent })
 		res.status(200).send('Orden creada con exito')
 	} catch (error) {
