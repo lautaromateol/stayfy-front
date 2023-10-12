@@ -209,14 +209,6 @@ const Filters = () => {
   </button>
 </div>
 
-        <button
-          onClick={handleNextPage}
-          disabled={selectedPage === totalPages - 1}
-          className="rounded-full w-8 h-8 flex items-center justify-center bg-blue-500 text-white"
-        >
-          {">"}
-        </button> 
-
         </div>
 
 
