@@ -11,9 +11,11 @@ const Orders = ()=>{
     }, [])
 
     return (
-      <table>
+        <div className='w-full'>
+            <h1 className="text-center text-3xl mt-5">Orders admin-dashboard</h1>
+      <table className='w-full'>
         <thead>
-          <tr>
+          <tr className="grid grid-cols-[33%_33%_33%] place-items-center mt-5">
             <th>Buyer</th>
             <th>Product</th>
             <th>Spent</th>
@@ -21,14 +23,16 @@ const Orders = ()=>{
         </thead>
         <tbody>
           {orders.map((order, index) => (
-            <tr key={index}>
-              <td>{order.buyer}</td>
-              <td>{order.products}</td>
-              <td>{order.spent}</td>
+            <tr className="grid grid-cols-[33%_33%_33%] place-items-center mt-5" key={index}>
+              <td className="mt-2">{order.buyer}</td>
+              <td className="mt-2">{order.products}</td>
+              <td className="mt-2">{order.spent}</td>
             </tr>
           ))}
         </tbody>
       </table>
+        </div>
+        
     );
   }
 export default Orders

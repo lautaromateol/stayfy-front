@@ -1,15 +1,20 @@
 import UserDetail from "../../Components/Admin dashboard/Detail/UserDetail";
 import Users from "../../Components/Admin dashboard/Users/Users";
 import Orders from "../../Components/Orders/Orders";
+import Products from "../../Components/Products/Products";
 
-const DashboarAdmin = () => {
-  return <div>
+const DashboardAdmin = () => {
+  return( 
+  <div>
     <UserDetail />
     <hr></hr>
     <Users />
     <hr></hr>
     <Orders />
-  </div>;
+    <hr></hr>
+    <Products />
+  </div>
+  )
 };
 
-export default DashboarAdmin;
+export default DashboardAdmin;

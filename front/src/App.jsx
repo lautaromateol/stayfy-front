@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
+// eslint-disable-next-line no-unused-vars
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import { useUser } from './Context/UserContext';
 import AddBook  from './Views/Add Book (nuevo create)/AddBook'
@@ -25,13 +26,12 @@ import BookActivation from './Components/Admin dashboard/UpdateBook/BookActivati
 import './App.css'
 
 //import TestComponent from './TestComponent/TestComponent'
-//import { BACKEND_URL } from '../utils'
-import Users from './Components/Users/Users'
-import { BACKEND_URL } from '../utils'
 import './App.css'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 // import NewsList from './Components/News/News'
 import Orders from './Components/Orders/Orders'
+import DashboardAdmin from './Views/DashboardAdmin/DashboardAdmin';
+import Products from './Components/Products/Products';
 
 function App() {
   const { user, userData } = useUser();
@@ -62,6 +62,8 @@ function App() {
           <Route path='/address' element={<Address />} />
           <Route path="/*" element={<NotFound />} />
           <Route path='/admin/orders' element={<Orders />} />
+          <Route path='/admin/dashboard' element={<DashboardAdmin />} />
+          <Route path='/products' element={<Products />}></Route>
         </Routes>
         <Footer />
       </CartProvider>
