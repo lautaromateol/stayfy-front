@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
 import { useUser } from '../../Context/UserContext';
-//import { User } from "../../../../back/src/db";
-
-
-//JWT solo es necesario si se quiere usar datos del usuario que inicio sesion
 
 const Google = () => {
     const [user, setUser] = useState({})
@@ -13,7 +9,6 @@ const Google = () => {
     const checkToken = () => {
         const token = localStorage.getItem("logged")
         if(token){
-            //const userObj = jwt_decode(token);
             setUser(token);
             document.getElementById("signInDiv").hidden = true;
         }else {
@@ -28,7 +23,6 @@ const Google = () => {
         const existingUser = await checkIfUserExists(userObj.email);
 
   if (!existingUser) {
-    // El usuario no existe, crea un nuevo usuario
     await createUser(userObj);
   }
 
@@ -92,7 +86,7 @@ async function createUser(userObj) {
         checkToken();
         /* global google */
         
-        google.accounts.id.initialize({
+        google.accounts.id.initialize({ 
             client_id: "977033928878-fhtsoleu1of5a13q4psdn699t31apk5q.apps.googleusercontent.com",
             callback: handleCallbackResponse
         })
@@ -100,16 +94,11 @@ async function createUser(userObj) {
             document.getElementById("signInDiv"),
             { theme: "outline", size: "large"}
         );
-
-        //google.accounts.id.prompt(); Esta linea es para que salga automaticamente el cartel para iniciar sesion
     }, []);
 
     return(
         <div>
         <div id="signInDiv"></div>
-        {Object.keys(user).length != 0 &&
-        <button onClick={ (e) => handleSignOut(e)}>Sign out</button>
-        }
         </div>
     )
 }
