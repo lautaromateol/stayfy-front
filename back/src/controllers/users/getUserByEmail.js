@@ -5,7 +5,7 @@ const getUserByEmail = async (req, res) => {
         const { email } = req.params;
         const user = await User.findOne({
             where: { email: email },
-            attributes: ['userId'],
+            attributes: ['userId','isAdmin','isSuperAdmin'],
         });
 
         if (user) {

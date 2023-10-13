@@ -10,8 +10,13 @@ export function useUser() {
 export function UserProvider({ children }) {
     const [user, setUser] = useState(null);
     const [id, setId] = useState(null);
-
-    console.log("info token", user)
+    const [userData, setUserData] = useState({
+        userId: null,
+        isAdmin: false,
+        isSuperAdmin: false,
+    });
+    
+    // console.log("info token", user)
     useEffect(() => {
         const token = localStorage.getItem('logged');
 
@@ -34,6 +39,7 @@ export function UserProvider({ children }) {
 
                         if (userData.userId) {
                             setId(userData.userId);
+                            setUserData(userData);
                         } else {
                             console.error('No se encontró el ID del usuario.');
                         }
@@ -48,7 +54,6 @@ export function UserProvider({ children }) {
 
         fetchData();
     }, [user]);
-    console.log("id: ",id);
 
     const isAuthenticated = () => {
         return user !== null;
@@ -62,12 +67,17 @@ export function UserProvider({ children }) {
 
     const signOut = () => {
         setUser(null);
+        setUserData({
+            userId: null,
+            isAdmin: false,
+            isSuperAdmin: false,
+        });
         localStorage.removeItem('logged');
     };
 
 
     return (
-        <UserContext.Provider value={{id, user, signIn, signOut, isAuthenticated }}>
+        <UserContext.Provider value={{id, userData, user, signIn, signOut, isAuthenticated }}>
             {children}
         </UserContext.Provider>
     );
