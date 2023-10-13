@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Google from "../../Components/Google/Google";
 import validation from "./validations/loginValidations";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import loginAction from "../../redux/login";
 import { useUser } from '../../Context/UserContext';
@@ -10,6 +11,7 @@ import Aos from "aos"
 import 'aos/dist/aos.css'
 
 const LogIn = () => {
+  const navigate = useNavigate();
   const [input, setInput] = useState({
     username: "",
     password: "",
@@ -49,7 +51,7 @@ const LogIn = () => {
       
       // window.localStorage.setItem("logged", JSON.stringify(user))
       signIn(JSON.stringify(user));
-
+      navigate("/");
     } catch (error) {
       if (error.response && (error.response.status === 404 || error.response.status === 403)) {
       

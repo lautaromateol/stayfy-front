@@ -61,7 +61,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         {user ? (
           <>
             <button onClick={signOut}>Sign Out</button>
-            <p>{user.name}</p>
+            <UserProfile  />
           </>
         ) : (
           <>
@@ -71,10 +71,6 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
             <Link to="/login">Log In</Link>
           </>
         )}
-
-        <button>
-          {/* <UserProfile /> */}
-        </button>
         {/* Icono de Carrito con Contador */}
         <button>
           <Link to="/cart">

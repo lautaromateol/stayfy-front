@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
 import { useUser } from '../../Context/UserContext';
+import { useNavigate } from "react-router-dom";
 
 const Google = () => {
+  const navigate = useNavigate();
     const [user, setUser] = useState({})
     const { signIn, signOut } = useUser();
 
@@ -29,6 +31,7 @@ const Google = () => {
   setUser(userObj);
   signIn(response.credential);
   document.getElementById("signInDiv").hidden = true;
+  navigate("/")
 };
 
 async function checkIfUserExists(email) {
@@ -69,6 +72,7 @@ async function createUser(userObj) {
     } else {
       console.error('Error al crear el usuario');
     }
+
   } catch (error) {
     console.error(error);
   }
