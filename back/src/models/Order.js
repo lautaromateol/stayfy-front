@@ -9,8 +9,8 @@ module.exports = (sequelize) => {
                 allowNull: false
             },
             buyer: {
-                type: DataTypes.STRING,
-                //allowNull: false
+                type: DataTypes.INTEGER,
+                allowNull: false
             },
             products: {
                 type: DataTypes.ARRAY(DataTypes.STRING),

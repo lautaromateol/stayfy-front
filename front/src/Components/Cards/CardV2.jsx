@@ -55,7 +55,13 @@ function CardV2({ id, title, authors, price, image, rating }) {
             {title}</p>
         </Link>
         <EstrellasRating average={rating} />
-        <p className="text-sm mb-2 text-gray-500 dark:text-gray-400">{authors}</p>
+        {authors.map((aut)=> {
+          
+          return authors.length > 1 && authors.indexOf(aut) !== authors.length -1 ? 
+          <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">{aut}, </span> :
+          <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">{aut}</span>
+
+        })}
         <p className="text-lg mb-4 font-bold text-gray-800 dark:text-gray-300">${price}</p>
 
 
