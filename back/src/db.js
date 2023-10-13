@@ -48,10 +48,29 @@ const { Order } = sequelize.models;
 //     console.error('Error syncing database:', err);
 //   });
 
+const createDefaultAdminUser = async () => {
+  const [user, created] = await User.findOrCreate({
+    where: { username: 'admin' },
+    defaults: {
+      email: 'admin@stafy.com',
+      passwordHash: 'administrador',
+      fullName: 'Admin User',
+      isAdmin: true,
+      isSuperAdmin: true,
+    },
+  });
+
+  if (created) {
+    console.log('Usuario administrador por defecto creado.');
+  } else {
+    console.log('El usuario administrador ya existe.😎');
+  }
+};
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
+  createDefaultAdminUser
 };
 
 

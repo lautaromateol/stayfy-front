@@ -18,21 +18,28 @@ import logo from "./img/STAYFY2(2).png";
 const Nav = ({ darkMode, toggleDarkMode }) => {
   // eslint-disable-next-line no-unused-vars
   const { cartCount, addToCart } = useCart();
-  const { user, signOut } = useUser();
-
+  const { user, signOut, userData } = useUser();
+  // console.log("Es super Admin: ",userData.isSuperAdmin);
+  // console.log("ES Admin",userData.isAdmin);
   return (
     <div className="flex justify-between w-full  bg-gray-200 text-lg dark:bg-slate-800 px-12 dark:text-gray-100 items-center sticky top-0 shadow-2xl z-50">
       <div className="flex justify-around w-60">
         <button>
           <Link to="/store">Store</Link>
         </button>
-
+        {/*  BOTONES PARA SUPER ADMIN */}
+        {userData.isSuperAdmin || userData.isAdmin ? (
+          <>
         <button>
           <Link to="/create">Create</Link>
         </button>
         <button>
           <Link to="/review">Rate us!</Link>
         </button>
+          </>
+          ) : (
+            null
+          )}
       </div>
 
       <div>
