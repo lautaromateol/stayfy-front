@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Order } = require("../db");
+const { Order, User } = require("../db");
 const mercadopago = require("mercadopago");
 const mercadopagoRouter = Router();
 
@@ -36,12 +36,14 @@ mercadopagoRouter.post('/create_preference', async (req, res) => {
 
 mercadopagoRouter.post('/create_order', async (req, res) => {
 
-	const { merchantOrder, paymentId, products, spent } = req.body
+	const { merchantOrder, paymentId, products, spent, buyer } = req.body
 
 	try {
-		const order = await Order.findOne({where: {merchantOrder}})
-		if(order) return res.status(400).send('Esta orden ya fue agregada')
-		await Order.create({ merchantOrder, paymentId, products, spent })
+		const validate = await Order.findOne({where: {merchantOrder}})
+		if(validate) return res.status(400).send('Esta orden ya fue agregada')
+		const order = await Order.create({ merchantOrder, paymentId, products, spent, buyer })
+	    const user = await User.findOne({where: {userId: buyer}})
+		await order.addUser(user)
 		res.status(200).send('Orden creada con exito')
 	} catch (error) {
 		console.error(error)

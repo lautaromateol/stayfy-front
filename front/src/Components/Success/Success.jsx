@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from 'axios'
+import { useUser } from "../../Context/UserContext";
 
 const Success = () => {
+
+    const { user, id } = useUser()
 
     const [params] = useSearchParams()
 
@@ -12,22 +15,24 @@ const Success = () => {
 
     const externalReference = params.get('external_reference');
 
-    const {items} = externalReference ? JSON.parse(atob(externalReference)) : null;
+    const { items } = externalReference ? JSON.parse(atob(externalReference)) : null;
 
     useEffect(() => {
         try {
-         axios.post('http://localhost:3001/checkout/mercado-pago/create_order', {
-            paymentId: payment_id,
-            merchantOrder: merchant_order_id,
-            products: items.map(({title})=> title),
-            spent: items.map(({unit_price, quantity})=> unit_price * quantity).reduce((sum, num)=> sum + num, 0)
-
-        })   
+            axios.post('http://localhost:3001/checkout/mercado-pago/create_order', {
+                paymentId: payment_id,
+                merchantOrder: merchant_order_id,
+                products: items.map(({ title }) => title),
+                spent: items.map(({ unit_price, quantity }) => unit_price * quantity).reduce((sum, num) => sum + num, 0),
+                buyer: id
+            })
+                .then((res) => console.log(res))
+                .catch((err) => console.error(err))
         } catch (error) {
-            console.error
+            console.error(error)
         }
-        
     }, [])
+
 
     return (
 
@@ -39,7 +44,7 @@ const Success = () => {
                 <div class="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
                     <div class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
                         <p class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
-                        <div className="grid grid-cols-[40%_20%_20%_20%] w-full">
+                        <div className="grid grid-cols-[55%_15%_15%_15%] w-full">
                             <div>
                                 <p class="mt-5 text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">Book title</p>
                             </div>
@@ -53,23 +58,23 @@ const Success = () => {
                                 <p class="mt-5 text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">Total</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-[40%_20%_20%_20%] w-full">
+                        <div className="grid grid-cols-[55%_15%_15%_15%] w-full">
                             <div>
-                                {items.map(({title}) => {
+                                {items.map(({ title }) => {
                                     return (
                                         <h3 class="my-5 text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800">{title}</h3>
                                     )
                                 })}
                             </div>
                             <div>
-                                {items.map(({unit_price}) => {
+                                {items.map(({ unit_price }) => {
                                     return (
                                         <p class="my-5 text-base dark:text-white xl:text-lg leading-6">${unit_price}</p>
                                     )
                                 })}
                             </div>
                             <div>
-                                {items.map(({quantity}) => {
+                                {items.map(({ quantity }) => {
                                     return (
                                         <p class="my-5 text-base dark:text-white xl:text-lg leading-6 text-gray-800">{quantity}</p>
                                     )
@@ -90,7 +95,7 @@ const Success = () => {
                             <div class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
                                 <div class="flex justify-between w-full">
                                     <p class="text-base dark:text-white leading-4 text-gray-800">Subtotal</p>
-                                    <p class="text-base dark:text-gray-300 leading-4 text-gray-600">${items.map(({unit_price, quantity})=> unit_price * quantity).reduce((sum, num)=> sum + num, 0)}</p>
+                                    <p class="text-base dark:text-gray-300 leading-4 text-gray-600">${items.map(({ unit_price, quantity }) => unit_price * quantity).reduce((sum, num) => sum + num, 0)}</p>
                                 </div>
                                 <div class="flex justify-between items-center w-full">
                                     <p class="text-base dark:text-white leading-4 text-gray-800">Discount</p>
@@ -103,7 +108,7 @@ const Success = () => {
                             </div>
                             <div class="flex justify-between items-center w-full">
                                 <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Total</p>
-                                <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">${items.map(({unit_price, quantity})=> unit_price * quantity).reduce((sum, num)=> sum + num, 0)}</p>
+                                <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">${items.map(({ unit_price, quantity }) => unit_price * quantity).reduce((sum, num) => sum + num, 0)}</p>
                             </div>
                         </div>
                         <div class="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
@@ -130,9 +135,9 @@ const Success = () => {
                     <div class="flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0">
                         <div class="flex flex-col justify-start items-start flex-shrink-0">
                             <div class="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-                                <img src="https://i.ibb.co/5TSg7f6/Rectangle-18.png" alt="avatar" />
+                                <img src={user.image} alt="avatar" className="w-20 h-20" />
                                 <div class="flex justify-start items-start flex-col space-y-2">
-                                    <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">David Kent</p>
+                                    <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">{user.name}</p>
                                     <p class="text-sm dark:text-gray-300 leading-5 text-gray-600">10 Previous Orders</p>
                                 </div>
                             </div>
@@ -140,7 +145,7 @@ const Success = () => {
                             <div class="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
                                 <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/order-summary-3-svg1.svg" alt="email" />
                                 <img class="hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/order-summary-3-svg1dark.svg" alt="email" />
-                                <p class="cursor-pointer text-sm leading-5 ">david89@gmail.com</p>
+                                <p class="cursor-pointer text-sm leading-5 ">{user.email}</p>
                             </div>
                         </div>
                         <div class="flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0">
