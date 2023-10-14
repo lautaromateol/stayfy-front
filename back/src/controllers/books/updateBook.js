@@ -40,13 +40,13 @@ const deactivateBook = async (id) => {
       if (publishedDate) {
         bookUpdate.publishedDate = publishedDate;
       }
-      if (pageCount) {
+      if (pageCount && pageCount > 0) {
         bookUpdate.pageCount = pageCount;
       }
       if (genre) {
         bookUpdate.genre = genre;
       }
-      if (price) {
+      if (price && price > 0) {
         bookUpdate.price = price;
         bookUpdate.arsPrice = Math.ceil(price * 843);
         bookUpdate.copPrice = Math.ceil(price * 4200);
@@ -55,7 +55,7 @@ const deactivateBook = async (id) => {
       if (description) {
         bookUpdate.description = description;
       }
-      if (rating) {
+      if (rating && rating > 0) {
         bookUpdate.rating = rating;
       }
       if (active) {

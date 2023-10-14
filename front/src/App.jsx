@@ -23,6 +23,7 @@ import UserProfile from './Components/User/Userprofile'
 import NotFound from './Views/NotFound/NotFound';
 import NoPermissions from './Views/NotFound/NoPermissions';
 import Address from './Components/Address Form/Address';
+import UpdateBook from './Components/Admin dashboard/UpdateBook/UpdateBook';
 
 //import TestComponent from './TestComponent/TestComponent'
 //import { BACKEND_URL } from '../utils'
@@ -44,6 +45,7 @@ function App() {
           // element={<Create/>}
           element={userData.isSuperAdmin || userData.isAdmin ? <Create /> : <NoPermissions />}
           />
+          <Route path='/admin/update-book' element={<UpdateBook/>}/>
           <Route path='/product-page/:id' element={<Detail/>}/>
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/register' element={<Register/>}/>
@@ -56,6 +58,7 @@ function App() {
               <Route path='/review' element={<ReviewForm/>}/>
               <Route path='/admin/users' element={<Users/>}/>
               <Route path='/admin/users/:id' element={<UserDetail/>}/>
+              {/* <Route path='/admin/update-book' element={<UpdateBook/>}/> */}
             </>
           ) :   null
         }

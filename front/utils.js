@@ -3,6 +3,7 @@ import axios from 'axios';
 export const BACKEND_URL = 'http://localhost:3001';
 export const DESC = 'DESC';
 export const ASC = 'ASC';
+export const DEFAULT_IMAGE = "https://m.media-amazon.com/images/I/71YYxm3UN9L._AC_UF1000,1000_QL80_.jpg";
 
 
 export const getGenresList = async (setGenresList) => {
