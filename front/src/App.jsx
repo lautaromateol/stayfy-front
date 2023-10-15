@@ -45,7 +45,8 @@ function App() {
           // element={<Create/>}
           element={userData.isSuperAdmin || userData.isAdmin ? <Create /> : <NoPermissions />}
           />
-          <Route path='/admin/update-book' element={<UpdateBook/>}/>
+          {/* comentar o borrar para proteger ruta y descomentar línea 61 */}
+          <Route path='/admin/update-book' element={<UpdateBook/>}/> 
           <Route path='/product-page/:id' element={<Detail/>}/>
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/register' element={<Register/>}/>
@@ -58,7 +59,7 @@ function App() {
               <Route path='/review' element={<ReviewForm/>}/>
               <Route path='/admin/users' element={<Users/>}/>
               <Route path='/admin/users/:id' element={<UserDetail/>}/>
-              {/* <Route path='/admin/update-book' element={<UpdateBook/>}/> */}
+              {/* <Route path='/admin/update-book' element={<UpdateBook/>}/> descomentar para habilitar ruta protegida */}
             </>
           ) :   null
         }

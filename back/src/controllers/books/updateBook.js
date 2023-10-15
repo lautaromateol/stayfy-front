@@ -25,25 +25,25 @@ const deactivateBook = async (id) => {
         "The book with the given ID does not exist in the database."
       );
     } else {
-      if (title) {
+      if (title && title.length > 0) {
         bookUpdate.title = title;
       }
-      if (authors) {
+      if (authors && authors.length > 0) {
         bookUpdate.authors = authors;
       }
-      if (publisher) {
+      if (publisher && publisher.length > 0) {
         bookUpdate.publisher = publisher;
       }
-      if (image) {
+      if (image && image.length > 0) {
         bookUpdate.image = image;
       }
-      if (publishedDate) {
+      if (publishedDate && publishedDate > 0 && publishedDate < 2024) {
         bookUpdate.publishedDate = publishedDate;
       }
       if (pageCount && pageCount > 0) {
         bookUpdate.pageCount = pageCount;
       }
-      if (genre) {
+      if (genre && genre.length > 0) {
         bookUpdate.genre = genre;
       }
       if (price && price > 0) {
@@ -52,68 +52,19 @@ const deactivateBook = async (id) => {
         bookUpdate.copPrice = Math.ceil(price * 4200);
         bookUpdate.mxnPrice = Math.ceil(price * 18);
       }
-      if (description) {
+      if (description && description.length > 0) {
         bookUpdate.description = description;
       }
-      if (rating && rating > 0) {
+      if (rating && rating > 0 && rating < 5.001) {
         bookUpdate.rating = rating;
       }
       if (active) {
         bookUpdate.active = active;
       }
       await bookUpdate.save();
+      console.log(bookUpdate);
       return bookUpdate;
     }
   };
 
 module.exports = { deactivateBook, updateBook }
-
-
-
-// const deactivateBook = async (id) => {
-//   let activeBook = await Book.findOne({ where: { id, active: true } });
-//   let inactiveBook = await Book.findOne({ where: { id, active: false } });
-
-//   if (activeBook) {
-//     await activeBook.update({ active: false }, { where: { active: true } });
-//     await activeBook.save();
-//     return activeBook;
-//   } 
-//   if (inactiveBook) {
-//     await inactiveBook.update({ active: true }, { where: { active: false } });
-//     await inactiveBook.save();
-//     return inactiveBook;
-//   }
-//   if (!activeBook && !inactiveBook){
-//     throw new Error ("The book whit the given ID does not exists in the database.")
-//   }
-// };
-
-
-// const updateBook = async (id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active) => {    // --> PENDIENTE TERMINAR ESTE CONTROLADOR
-  //   let bookUpdate = await Book.findOne({ where: { id } });
-  
-  //   if (!bookUpdate) {
-  //     throw new Error(
-  //       "The book whit the given id does not exists within the database."
-  //     );
-  //   } else {
-  //     await bookUpdate.update(
-  //         { title },
-  //         { authors },
-  //         { publisher },
-  //         { image: image ? image: DEFAULT_IMAGE},
-  //         { publishedDate },
-  //         { pageCount }, 
-  //         { genre },
-  //         { price },
-  //         { arsPrice: Math.ceil(price * 843)},
-  //         { copPrice: Math.ceil(price * 4200)},
-  //         { mxnPrice: Math.ceil(price * 18)},
-  //         { description },
-  //         { rating },
-  //         { active },
-  //     );
-  //     return bookUpdate;
-  //   }
-  // };
