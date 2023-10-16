@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import EstrellasRating from '../StartRating/StartRating';
+import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../Cart/CartContext/CartContext";
+import { useUser } from "../../Context/UserContext"
+import EstrellasRating from '../StartRating/StartRating';
 import QuantityControl from '../Cart/CartList/QuantityControl';
+import axios from 'axios';
 
 const Detail = () => {
 
   const { id } = useParams()
 
-  const { cart, addToCart, removeAllByProduct, removeFromCart } = useCart();
+  const { user } = useUser()
 
-  const [preferenceId, setPreferenceId] = useState(null);
+  const { cart, addToCart, removeAllByProduct, removeFromCart } = useCart()
 
   const [book, setBook] = useState({})
 
@@ -27,7 +28,16 @@ const Detail = () => {
     addToCart(id);
   };
 
+  const lastTab = localStorage.getItem('lastTab')
+
+  const preferenceId = localStorage.getItem('preferenceId')
+
   useEffect(() => {
+    
+    if(lastTab && preferenceId){
+      localStorage.removeItem('lastTab')
+      localStorage.removeItem('preferenceId')
+    }
 
     try {
       axios(`http://localhost:3001/books/${id}`).then(({ data }) => {
@@ -45,10 +55,9 @@ const Detail = () => {
                   currency_id: 'ARS'
                 }
               ],
-              image: data.image
             })
             .then(({ data }) => {
-              setPreferenceId(data.id);
+              localStorage.setItem('preferenceId', data.id)
             })
             .catch(error => {
               console.error(error);
@@ -70,10 +79,12 @@ const Detail = () => {
     const quantityBook = cart.filter((item) => item === parseInt(id, 10)).length
 
     setQuantityBooks(quantityBook)
+    
+    localStorage.setItem('lastTab', window.location.href)
 
     return setBook({})
 
-  }, [cart, id]);
+  }, [cart, id, user]);
 
   return (
     <div>
@@ -119,7 +130,13 @@ const Detail = () => {
 
                 }
                 </span>
-                <button className='bg-green-500 ml-5 w-20 h-15 rounded-md text-white hover:cursor-pointer'><a href={`https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${preferenceId}`} target="_blank" rel="noopener noreferrer">Buy now</a></button>
+
+                {user ?
+                  <button className='bg-green-500 ml-5 w-20 h-15 rounded-md text-white hover:cursor-pointer'><a href='/address' target="_blank" rel="noopener noreferrer">Buy now</a></button>
+                  :
+                  <button className='bg-green-500 ml-5 w-20 h-15 rounded-md text-white hover:cursor-pointer'><Link to='/login'>Buy now</Link></button>
+                }
+
 
                 {isInCart ? (
                   // <button  className='bg-green-500 m-2.5 py-0.5 px-1 w-60 h-7.3 rounded-md text-white hover:cursor-pointer'>
