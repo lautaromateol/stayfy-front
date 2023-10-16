@@ -50,7 +50,7 @@ const Filters = () => {
         <div className="grid grid-cols-[20%_20%_20%_20%_20%]">
           <div className="mt-5 mx-auto">
             <select
-              className="rounded-3xl "
+              className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setGenre(e.target.value)}
             >
               <option hidden value="">
@@ -66,7 +66,7 @@ const Filters = () => {
               </p>
               {selectedGenre ? (
                 <button className="w-5 h-5 mt-1" onClick={() => setGenre("")}>
-                  ❌{" "}
+                  ✖{" "}
                 </button>
               ) : (
                 ""
@@ -76,7 +76,7 @@ const Filters = () => {
 
           <div className="mt-5 mx-auto">
             <select
-              className="rounded-3xl"
+              className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setPublisher(e.target.value)}
             >
               <option hidden value="">
@@ -95,7 +95,7 @@ const Filters = () => {
                   className="w-5 h-5 mt-1"
                   onClick={() => setPublisher("")}
                 >
-                  ❌{" "}
+                  ✖{" "}
                 </button>
               ) : (
                 ""
@@ -105,7 +105,7 @@ const Filters = () => {
 
           <div className="mt-5 mx-auto">
             <select
-              className="rounded-3xl"
+              className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setAuthor(e.target.value)}
             >
               <option hidden value="">
@@ -121,7 +121,7 @@ const Filters = () => {
               </p>
               {selectedAuthor ? (
                 <button className="w-5 h-5 mt-1" onClick={() => setAuthor("")}>
-                  ❌{" "}
+                  ✖{" "}
                 </button>
               ) : (
                 ""
@@ -131,7 +131,7 @@ const Filters = () => {
 
           <div className="mt-5 mx-auto">
             <select
-              className="rounded-3xl"
+              className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) =>
                 setSort({ field: "title", direction: e.target.value })
               }
@@ -148,7 +148,7 @@ const Filters = () => {
               </p>
               {sort.direction ? (
                 <button className="w-5 h-5 mt-1" onClick={() => setSort("")}>
-                  ❌{" "}
+                  ✖{" "}
                 </button>
               ) : (
                 ""
@@ -159,7 +159,7 @@ const Filters = () => {
 
         <div className="grid place-content-center">
           <input
-            className="rounded-3xl"
+            className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
             type="text"
             placeholder="Search by name...           🔍︎"
             value={bookName}
@@ -169,7 +169,7 @@ const Filters = () => {
 </div>
 
         {/* PAGINADO */}
-        <div class="flex items-center justify-center  border-gray-200 bg-blue-300 bg-opacity-30 p-3"
+        <div class="flex items-center justify-center border-gray-200 bg-[#74A89B] bg-opacity-30 p-3"
         style={{
           
           backgroundClip: 'padding-box',  // Evita que el fondo se extienda a través del borde
@@ -192,7 +192,7 @@ const Filters = () => {
       key={buttonPage}
       class={`mx-2 inline-flex items-center px-4 py-2 text-base font-semibold rounded-full ${
         buttonPage === selectedPage
-          ? 'bg-blue-800 text-white'
+          ? 'bg-[#756558] text-white dark:bg-blue-800'
           : 'bg-white text-gray-700 hover:bg-gray-200'
       }`}
     >

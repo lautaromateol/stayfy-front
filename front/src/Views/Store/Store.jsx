@@ -23,7 +23,7 @@ const Store = () => {
     }, [])
 
     return (
-        <div className="bg-stone-400 dark:bg-gray-900 h-full">
+        <div className="bg-[#A4BCB3] dark:bg-gray-900 h-full">
             <Filters/>
             <CardList />
         </div>
