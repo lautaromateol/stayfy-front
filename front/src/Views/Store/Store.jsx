@@ -9,8 +9,13 @@ const Store = () => {
 
     const dispatch = useDispatch()
 
+    const lastTab = localStorage.getItem('lastTab')
+
     useEffect(()=>{
-        // dispatch(getBooks())
+        if(lastTab){
+            localStorage.removeItem('lastTab')
+            localStorage.setItem('lastTab', window.location.href)
+        }
         dispatch(getFilteredBooks())
         dispatch(getPublishers())
         dispatch(getAuthors())
