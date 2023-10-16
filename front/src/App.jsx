@@ -22,6 +22,7 @@ import './App.css'
 import UserProfile from './Components/User/Userprofile'
 import NotFound from './Views/NotFound/NotFound';
 import NoPermissions from './Views/NotFound/NoPermissions';
+import Address from './Components/Address Form/Address';
 
 //import TestComponent from './TestComponent/TestComponent'
 //import { BACKEND_URL } from '../utils'
@@ -49,10 +50,9 @@ function App() {
           <Route path = '/user' element ={<UserProfile/>}/>
           <Route path='/books' element={<Books/>}/>
           <Route path="/permissions" element={<NoPermissions />} />
-          {/* {console.log(user.isAuthenticated() )} */}
+          <Route path='/order-approved' element={<Success/>}/>
           {userData.isSuperAdmin || userData.isAdmin ? (
             <>
-              <Route path='/order-approved' element={<Success/>}/>
               <Route path='/review' element={<ReviewForm/>}/>
               <Route path='/admin/users' element={<Users/>}/>
               <Route path='/admin/users/:id' element={<UserDetail/>}/>
@@ -61,6 +61,7 @@ function App() {
         }
           <Route path='/cart' element={<CartList/>}/>
           <Route path='/store' element={<Store/>}/>
+          <Route path='/address' element={<Address/>}/>
           <Route path="/*" element={<NotFound />} />
         </Routes>
           <Footer/>
