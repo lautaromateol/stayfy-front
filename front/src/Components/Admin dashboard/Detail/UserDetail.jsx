@@ -76,7 +76,7 @@ const UserDetail = () => {
                             })}
                         </div>
                         <div className="mt-2">
-                            {order.spent}
+                            ${order.spent}
                         </div>
                     </div>
                 )

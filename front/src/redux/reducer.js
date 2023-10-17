@@ -1,5 +1,5 @@
 // import { GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK } from "./actions";
-import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK, GET_GENRES, GET_BY_NAME, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DESACTIVATE_USER, DELETE_USER } from "./types";
+import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK, GET_GENRES, GET_BY_NAME, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DESACTIVATE_USER, DELETE_USER, GET_TITLES, GET_ALL_BOOKS } from "./types";
 
 const initialState = {
   books: [],
@@ -12,7 +12,9 @@ const initialState = {
   isLoading: false, // nuevo por filtros
   totalPages: 0, // nuevo por filtros
   orders: [],
-  users: []
+  users: [],
+  titles: [],
+  allBooks: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -44,11 +46,11 @@ const reducer = (state = initialState, action) => {
         getByName: action.payload,
         totalPages: action.payload.totalPages,
       };
-    // case GET_BOOKS:
-    //   return {
-    //     ...state,
-    //     books: action.payload,
-    //   };
+    case GET_ALL_BOOKS:
+      return {
+        ...state,
+        allBooks: action.payload,
+      };
     case GET_GENDER:
       return {
         ...state,
@@ -69,6 +71,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         publishers: action.payload,
       };
+      case GET_TITLES:
+        return {
+          ...state,
+          titles: action.payload,
+        };
       case POST_BOOK:
         return {
         ...state

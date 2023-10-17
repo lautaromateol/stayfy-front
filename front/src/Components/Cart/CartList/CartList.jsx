@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useCart } from "../CartContext/CartContext";
 import Cart from "./Cart";
+import { Link } from "react-router-dom";
+import { useCart } from "../CartContext/CartContext";
+import { useUser } from "../../../Context/UserContext"
 
 const CartList = () => {
+
+    const { user } = useUser()
+
     const [cartItems, setCartItems] = useState([]);
+
     const [products, setProducts] = useState([]);
+
     const { cart, addToCart, removeAllByProduct, removeFromCart } = useCart();
-    const [preferenceId, setPreferenceId] = useState('')
+
+    const lastTab = localStorage.getItem('lastTab')
+
+    const preferenceId = localStorage.getItem('preferenceId')
 
     useEffect(() => {
+
+        if(lastTab && preferenceId){
+            localStorage.removeItem('lastTab')
+            localStorage.removeItem('preferenceId')
+          }
+
+          localStorage.setItem('lastTab', window.location.href)
+
         const storedItems = localStorage.getItem("cartItems");
         if (storedItems) {
             const cartItemIDs = JSON.parse(storedItems);
             setCartItems(cartItemIDs);
         }
-    }, []);
 
-    useEffect(() => {
         const fetchUniqueProducts = async () => {
             const uniqueProductIds = [...new Set(cart)];
             const productDetails = [];
@@ -40,15 +56,14 @@ const CartList = () => {
                     console.error(`Error al obtener detalles del producto ${productId}:`, error);
                 }
             }
-            
+
             const preferenceRequest = {
-                items,
-                image: productDetails.length === 1 ? productDetails[0].image : null
-            }; 
-        
+                items
+            };
+
             try {
                 const preferenceResponse = await axios.post('http://localhost:3001/checkout/mercado-pago/create_preference', preferenceRequest);
-                setPreferenceId(preferenceResponse.data.id);
+                localStorage.setItem('preferenceId', preferenceResponse.data.id);
             } catch (error) {
                 console.error('Error al crear la preferencia de pago:', error);
             }
@@ -57,7 +72,8 @@ const CartList = () => {
         };
 
         fetchUniqueProducts();
-    }, [cart]);
+        
+    }, [cart, user]);
 
     const getProductQuantity = (productId) => {
         return cart.filter((item) => item === productId).length;
@@ -99,7 +115,7 @@ const CartList = () => {
                                 decrementQuantity={decrementQuantity}
                             />
                         </div>
-                        <div className="w-80 max-h-[430px] ml-10 border border-solid border-black-500 bg-white rounded-md">
+                        <div className="w-80 max-h-[430px] ml-10 border border-solid border-black-500 bg-white rounded-md dark:bg-stone-200 dark:text-blue-950">
                             <h1 className="text-2xl ml-5 mt-5">Order Summary</h1>
                             <div className="grid grid-cols-[70%_30%]">
                                 <p className="ml-5 mt-5">Total Items:</p>
@@ -129,7 +145,11 @@ const CartList = () => {
                                 })}</strong>
                             </div>
                             <div className="grid place-content-center mt-10">
-                                <button className="bg-green-500 text-white p-2"><a href={`https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${preferenceId}`} target="_blank" rel="noopener noreferrer">CHECKOUT</a></button>
+                                {user ?
+                                    <button className="bg-green-500 text-white p-2"><a href='/address' target="_blank" rel="noopener noreferrer">CHECKOUT</a></button>
+                                    :
+                                    <button className="bg-green-500 text-white p-2"><Link to='/login'>CHECKOUT</Link></button>
+                                }
                             </div>
                         </div>
                     </div>

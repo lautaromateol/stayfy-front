@@ -24,8 +24,8 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
   return (
     <div className="flex justify-between w-full  bg-gray-200 text-lg dark:bg-slate-800 px-12 dark:text-gray-100 items-center sticky top-0 shadow-2xl z-50">
       <div className="flex justify-around w-60">
-        <button>
-          <Link to="/store">Store</Link>
+        <button className="bg-[#477A7D] hover:bg-[#A4BCB3] text-white font-bold py-2 px-4 rounded dark:bg-[#40495C] dark:hover:bg-[#111827]">
+          <Link to="/store">STORE</Link>
         </button>
         {/*  BOTONES PARA SUPER ADMIN */}
         {userData.isSuperAdmin || userData.isAdmin ? (

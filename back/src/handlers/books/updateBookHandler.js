@@ -1,7 +1,8 @@
 const { updateBook, deactivateBook } = require("../../controllers/books/updateBook");
 
 const deactivateBookHandler = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.body;
+  
   const response = await deactivateBook(id);
   try {
     res.status(200).json(response);
@@ -11,9 +12,9 @@ const deactivateBookHandler = async (req, res) => {
 };
 
 const updateBookHandler = async (req, res) => {
-  const { id } = req.params;    // o por query... nuevamente, quedaría en fucnión de lo que quede más cómodo para el front quizás
-  const { title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active } = req.body;
-  const response = await updateBook(id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active);
+  const { id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active, stock } = req.body;
+
+  const response = await updateBook(id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active, stock);
   try {
     res.status(200).json(response);
   } catch (error) {

@@ -19,8 +19,11 @@ const LogIn = () => {
   const [error, setError] = useState({});
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null)
+
   const {signIn, signOut} = useUser();
   const [showPassword, setShowPassword] = useState(false);
+
+  const lastTab = localStorage.getItem('lastTab')
 
   const handleChange = (e) => {
     setInput({
@@ -54,7 +57,9 @@ const LogIn = () => {
       
       // window.localStorage.setItem("logged", JSON.stringify(user))
       signIn(JSON.stringify(user));
-      navigate("/");
+
+      window.location.href = lastTab
+      
     } catch (error) {
       if (error.response && (error.response.status === 404 || error.response.status === 403)) {
       
@@ -85,7 +90,7 @@ const LogIn = () => {
   return (
     <div className="bg-[#A4BCB3] h-screen dark:bg-gray-900">
       <div className="flex justify-center" data-aos = 'fade-up'>
-        <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white">
+        <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white dark:bg-stone-200">
           <div className=" w-full md:w-3/4">
             <div className="text-xl cursor-pointer flex flex-col justify-center items-center mt-5 md:mt-0 py-4">
               <h1 className="font-semibold text-xl md:text-3xl text-gray-600 m-2">

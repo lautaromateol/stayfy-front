@@ -9,8 +9,13 @@ const Store = () => {
 
     const dispatch = useDispatch()
 
+    const lastTab = localStorage.getItem('lastTab')
+
     useEffect(()=>{
-        // dispatch(getBooks())
+        if(lastTab){
+            localStorage.removeItem('lastTab')
+            localStorage.setItem('lastTab', window.location.href)
+        }
         dispatch(getFilteredBooks())
         dispatch(getPublishers())
         dispatch(getAuthors())
@@ -18,7 +23,7 @@ const Store = () => {
     }, [])
 
     return (
-        <div className="bg-stone-400 dark:bg-gray-900 h-full">
+        <div className="bg-[#A4BCB3] dark:bg-gray-900 h-full">
             <Filters/>
             <CardList />
         </div>

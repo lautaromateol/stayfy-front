@@ -13,7 +13,7 @@ const StartRating = ({ average }) => {
     const emptyStars = 'w-7 h-7 fill-current text-gray-700'; // Estilo para estrellas vacías
 
     return (
-        <div className="estrellas-rating flex items-center">
+        <div className="estrellas-rating flex items-center dark:text-[#F2F3F5]">
             {[...Array(fullStar)].map((_, index) => (
                 <svg
                     key={index}
