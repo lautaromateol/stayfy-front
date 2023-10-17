@@ -45,6 +45,12 @@ export function postBook(payload){
     }
 }
 
+export function postReview(payload){
+    return async function (){
+            const postReview = await axios.post('http://localhost:3001/review/', payload)
+            return postReview;
+    }
+}
 
 export function orderBooks(orderType) {
     return {

@@ -36,9 +36,12 @@ defineBooks(sequelize);
 const { Book } = sequelize.models; 
 const { User } = sequelize.models;
 const { Order } = sequelize.models;
+const { Review } = sequelize.models;
 
  Order.belongsToMany(User, {through: 'User_Order'});    // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
  User.belongsToMany(Order, {through: 'User_Order'});    // PENDIENTES DE AJUSTAR SI USAMOS MÁS DE UN MODELO 
+ Review.belongsTo(User, { foreignKey: "userId" });
+ Review.belongsTo(Book, { foreignKey: "bookId" });
 
 // sequelize.sync({ force: false }) // Cambiar a true si deseo que se eliminen y vuelvan a crear las tablas
 //   .then(() => {

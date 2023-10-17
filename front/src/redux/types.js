@@ -20,3 +20,4 @@ export const GET_USERS = "GET_USERS"
 export const REACTIVATE_USER = "REACTIVATE_USER"
 export const DESACTIVATE_USER = "DESACTIVATE_USER"
 export const DELETE_USER = "DELETE_USER"
+export const POST_REVIEW = "POST_REVIEW";

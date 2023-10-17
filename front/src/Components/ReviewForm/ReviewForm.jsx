@@ -3,21 +3,50 @@ import Stars from './Stars';
 import { useEffect } from "react";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import { useDispatch } from "react-redux";
+import { postReview } from "../../redux/actions";
 
 const ReviewForm = () => {
+    const [review, setReview] = useState({
+        rating: 0,
+        title: '',
+        message: '',
+        userId: 1,
+        bookId: 1,
+});
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        Aos.init({duration:1500})
-      }, [])
+        Aos.init({ duration: 1500 });
+    }, []);
 
+    const handleRatingChange = (newRating) => {
+        setReview({ ...review, rating: newRating });
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setReview({ ...review, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Review:', review);
+        dispatch(postReview(review));
+        setReview({
+            rating: 0,
+            title: '',
+            message: '',
+            userId: 1,
+            bookId: 1,
+        });
+    };
+    
     return (
-        <div >
-
-
+        <div>
             <div className="min-h-screen bg-[#A4BCB3] dark:bg-gray-900">
-
-                <div className="bg-[#A4BCB3] dark:bg-gray-900 text-black py-20" data-aos = 'fade-up'>
-                    <div className="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
+                <div className="bg-[#A4BCB3] dark:bg-gray-900 text-black py-20" data-aos='fade-up'>
+                    <div className="container mx-auto flex flex-col md:flex-row my-6 md:my-4">
                         <div className="flex flex-col w-full lg:w-1/2 p-8">
                             <p className=" text-yellow-300 text-6xl uppercase tracking-loose">REVIEW</p>
                             <p className="text-3xl md:text-5xl text-gray-800 dark:text-gray-300 my-4 leading-relaxed md:leading-snug">Leave us a feedback!</p>
@@ -32,16 +61,15 @@ const ReviewForm = () => {
                                         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
                                             <div className="flex-auto p-5 lg:p-10">
                                                 <h4 className="text-2xl mb-4 text-black font-semibold">Have a suggestion?</h4>
-                                                <form id="feedbackForm" action="" method="">
+                                                <form id="feedbackForm" onSubmit={handleSubmit}>
                                                     <div className="relative w-full mb-3">
-                                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="email">
-                                                            {/* Calificación seleccionada: {rating} estrellas */}
+                                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="rating">
+                                                            Calificación seleccionada: {review.rating} estrellas
                                                         </label>
-                                                        <Stars />
-                                                        </div>
-                                                        <div className="relative w-full mb-3">
-
-                                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="email">
+                                                        <Stars handleRatingChange={handleRatingChange} />
+                                                    </div>
+                                                    <div className="relative w-full mb-3">
+                                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="title">
                                                             Title
                                                         </label>
                                                         <input
@@ -49,24 +77,28 @@ const ReviewForm = () => {
                                                             name="title"
                                                             id="title"
                                                             className="border-0 px-3 py-3 rounded text-sm shadow w-full bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400"
-                                                            placeholder=" "
+                                                            placeholder=""
                                                             style={{ transition: 'all 0.15s ease 0s' }}
                                                             required
+                                                            value={review.title}
+                                                            onChange={handleInputChange}
                                                         />
                                                     </div>
                                                     <div className="relative w-full mb-3">
-                                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="message">
+                                                        <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="feedback">
                                                             Message
                                                         </label>
                                                         <textarea
                                                             maxLength="300"
-                                                            name="feedback"
-                                                            id="feedback"
+                                                            name="message"
+                                                            id="message"
                                                             rows="4"
                                                             cols="80"
                                                             className="border-0 px-3 py-3 bg-gray-300 placeholder-black text-gray-800 rounded text-sm shadow focus:outline-none w-full"
                                                             placeholder=""
                                                             required
+                                                            value={review.message}
+                                                            onChange={handleInputChange}
                                                         ></textarea>
                                                     </div>
                                                     <div className="text-center mt-6">
