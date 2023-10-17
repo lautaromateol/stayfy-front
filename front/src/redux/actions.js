@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../utils";
-import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DELETE_USER, DESACTIVATE_USER } from "./types";
+import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DELETE_USER, DESACTIVATE_USER, GET_TITLES, GET_ALL_BOOKS } from "./types";
 
 export function getFilteredBooks(args) {  
     const { sort, page, genre, title, publisher, author } = args || {};
@@ -26,12 +26,12 @@ export function getFilteredBooks(args) {
     };
 }
 
-export function getBooks() {
+export function getAllBooks() {
     return async function (dispatch) {
         try {
             const response = await axios("http://localhost:3001/books");
             return dispatch({
-                type: "GET_BOOKS",
+                type: GET_ALL_BOOKS,
                 payload: response.data,
             });
         } catch (error) {}
@@ -59,7 +59,7 @@ export function getAuthors() {
         try {
             const response = await axios ("http://localhost:3001/books");
             const authors = response.data.map((book) => book.authors[0])
-            let uniqueAuthors = [...new Set(authors)]; 
+            let uniqueAuthors = [...new Set(authors)].sort(); 
             return dispatch ({
                 type: GET_AUTHOR,
                 payload: uniqueAuthors,
@@ -76,10 +76,27 @@ export function getPublishers() {
         try {
             const response = await axios ("http://localhost:3001/books");
             const publisher = response.data.map((book) => book.publisher)
-            let uniquePublishers = [...new Set(publisher)]; 
+            let uniquePublishers = [...new Set(publisher)].sort();
             return dispatch ({
                 type: GET_PUBLISHER,
                 payload: uniquePublishers,
+            })
+        } catch (error) {
+            console.error(error)
+        }
+    }
+}
+
+
+export function getTitles() {
+    return async function (dispatch) {
+        try {
+            const response = await axios (`${BACKEND_URL}/books`);
+            const titles = response.data.map((book) => book.title)
+            let uniqueTitles = [...new Set(titles)].sort();
+            return dispatch ({
+                type: GET_TITLES,
+                payload: uniqueTitles,
             })
         } catch (error) {
             console.error(error)
@@ -108,7 +125,7 @@ export function getGenres() {
         try {
             const response = await axios ("http://localhost:3001/books");
             const genre = response.data.map((book) => book.genre)
-            let uniqueGenres = [...new Set(genre)]; 
+            let uniqueGenres = [...new Set(genre)].sort();
             return dispatch ({
                 type: GET_GENRES,
                 payload: uniqueGenres,
