@@ -32,7 +32,7 @@ import GenreCardList from './Components/GenreCardList/GenreCardList';
 import Orders from './Components/Orders/Orders';
 
 function App() {
-  const { user, userData } = useUser();
+  const { user, userData,isAuthenticated } = useUser();
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -58,6 +58,14 @@ function App() {
           <Route path='/cart' element={<CartList />} />
           <Route path='/store' element={<Store />} />
           <Route path='/address' element={<Address />} />
+          <Route path='/create' 
+          element={userData.isSuperAdmin || userData.isAdmin ? <Create /> : <NoPermissions />}
+          />
+          {isAuthenticated() ? (
+            <>
+              <Route path='/review' element={<ReviewForm/>}/>
+            </>
+          ) : null}
           <Route path="/*" element={<NotFound />} />
           <Route path='/admin/orders' element={<Orders />} />
           <Route path='/admin/products' element={<NewProducts />}></Route>
