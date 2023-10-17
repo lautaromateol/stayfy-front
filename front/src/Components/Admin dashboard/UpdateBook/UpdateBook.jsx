@@ -90,8 +90,6 @@ export default function UpdateBook() {
     });
   };
 
-
-
   const changeHandlder = (event) => {
     const property = event.target.name;
     const value = event.target.value;

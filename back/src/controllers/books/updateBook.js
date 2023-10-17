@@ -12,6 +12,7 @@ const deactivateBook = async (id) => {
         book.active = true;
       }
       await book.save();
+      console.log(book);
       return book;
     }
   };
