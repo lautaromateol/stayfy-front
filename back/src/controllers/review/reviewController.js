@@ -62,3 +62,30 @@ exports.deleteReview = async (req, res) => {
         res.status(500).json({ message: "Error al eliminar la reseña" });
     }
 };
+
+// Obtener el promedio de calificaciones por bookId
+exports.getAverageRating = async (req, res) => {
+    try {
+        const bookId = req.params.bookId;
+
+        const result = await Review.findOne({
+            attributes: [
+                [Sequelize.fn("AVG", Sequelize.col("rating")), "averageRating"],
+            ],
+            where: {
+                bookId: bookId,
+            },
+        });
+
+        if (!result) {
+            return res.status(404).json({ message: "No se encontraron reseñas para este libro" });
+        }
+
+        const averageRating = result.dataValues.averageRating;
+
+        res.json({ averageRating });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error al calcular el promedio de calificaciones" });
+    }
+};
