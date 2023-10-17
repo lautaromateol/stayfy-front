@@ -1,7 +1,7 @@
 const { Router } = require("express");
-const { getBooksHandler, getFilteredBooksHandler } = require("../handlers/getBooksHandler");
-const { getByIDHandler } = require("../handlers/getByIDHandler");
-const { postHandler } = require("../handlers/postBook")
+const { getBooksHandler, getFilteredBooksHandler } = require("../handlers/books/getBooksHandler");
+const { getByIDHandler } = require("../handlers/books/getByIDHandler");
+const { postHandler } = require("../handlers/books/postBook")
 // const { getGenresHandler } = require("../handlers/genresHandler");
 const { deactivateBookHandler, updateBookHandler } = require("../handlers/books/updateBookHandler");
 
@@ -29,7 +29,6 @@ const booksRouter = Router();
 booksRouter.get("/", getBooksHandler);
 booksRouter.get("/filters", getFilteredBooksHandler);
 booksRouter.get("/:id", getByIDHandler);
-// booksRouter.get("/genres", getGenresHandler);
 booksRouter.post("/create", postHandler);
 booksRouter.put("/activation", deactivateBookHandler);
 booksRouter.put("/update", updateBookHandler);

@@ -36,9 +36,8 @@ mercadopagoRouter.post('/create_preference', async (req, res) => {
 
 mercadopagoRouter.post('/create_order', async (req, res) => {
 
-	const { merchantOrder, paymentId, products, spent, buyer } = req.body
-
 	try {
+		const { merchantOrder, paymentId, products, spent, buyer } = req.body
 		const validate = await Order.findOne({where: {merchantOrder}})
 		if(validate) return res.status(400).send('Esta orden ya fue agregada')
 		const order = await Order.create({ merchantOrder, paymentId, products, spent, buyer })
@@ -46,7 +45,7 @@ mercadopagoRouter.post('/create_order', async (req, res) => {
 		await order.addUser(user)
 		res.status(200).send('Orden creada con exito')
 	} catch (error) {
-		console.error(error)
+		res.status(500).send(error)
 	}
 
 });

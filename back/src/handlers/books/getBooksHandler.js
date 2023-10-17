@@ -1,4 +1,4 @@
-const { getBooks, getFilteredBooks } = require("../controllers/getBooksController");
+const { getBooks, getFilteredBooks } = require("../../controllers/books/getBooksController");
 
 const getBooksHandler = async (req, res) => {
   const response = await getBooks();

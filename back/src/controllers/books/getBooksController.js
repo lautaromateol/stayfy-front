@@ -1,16 +1,16 @@
 const axios = require('axios');
-const { DEFAULT_IMAGE, ASC, DESC } = require('../utils');
+const { DEFAULT_IMAGE, ASC, DESC } = require('../../utils');
 require('dotenv').config();
 const { API_URL } = process.env;
-const { Book } = require('../db.js');
-const { filterByTitle } = require('./filters.js/filterByTitle');
-const { filterByGenre } = require('./filters.js/filterByGenre');
-const { sortByDate } = require('./filters.js/sortByDate');
-const { sortBooks } = require('./filters.js/sortBooks');
-const { filterByAuthor } = require('./filters.js/filterByAuthor');
-const { filterByPublisher } = require('./filters.js/filterByPublisher');
-const { filterByRating } = require('./filters.js/filterByRating');
-const { activeFilter } = require('./filters.js/activeFilter');
+const { Book } = require('../../db.js');
+const { filterByTitle } = require('../filters.js/filterByTitle');
+const { filterByGenre } = require('../filters.js/filterByGenre');
+const { sortByDate } = require('../filters.js/sortByDate');
+const { sortBooks } = require('../filters.js/sortBooks');
+const { filterByAuthor } = require('../filters.js/filterByAuthor');
+const { filterByPublisher } = require('../filters.js/filterByPublisher');
+const { filterByRating } = require('../filters.js/filterByRating');
+const { activeFilter } = require('../filters.js/activeFilter');
 
 const createBooks = async () => {
 
