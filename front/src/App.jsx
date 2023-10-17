@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import { useUser } from './Context/UserContext';
-import Create  from './Views/Create/Create'
+import AddBook  from './Views/Add Book (nuevo create)/AddBook'
 import Home from './Views/Home/Home'
 import Detail from './Components/Detail/Detail'
 import Nav from './Components/Nav/Nav'
@@ -47,7 +47,7 @@ function App() {
           <Route path='/order-approved' element={<Success />} />
           {userData.isSuperAdmin || userData.isAdmin ? (
             <>
-              <Route path='/create' element={<Create />} />
+              <Route path='/create' element={<AddBook />} />
               <Route path='/review' element={<ReviewForm />} />
               <Route path='/admin/users' element={<Users />} />
               <Route path='/admin/users/:id' element={<UserDetail />} />
