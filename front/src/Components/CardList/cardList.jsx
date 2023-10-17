@@ -1,5 +1,4 @@
 // import { all } from "axios";
-import Cards from "../Cards/Cards";
 import CardV2 from "../Cards/CardV2";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
