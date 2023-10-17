@@ -1,5 +1,5 @@
 require('dotenv').config();
-const {Book} = require('../db');
+const {Book} = require('../../db');
 
 const getByID = async (bookID) => {
   IDFoundBook = [];

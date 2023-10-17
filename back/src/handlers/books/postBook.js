@@ -1,4 +1,4 @@
-const { createBook } = require("../controllers/postBook");
+const { createBook } = require("../../controllers/books/postBook");
 
 const postHandler = async (req, res) => {
     const { title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active, stock } = req.body;

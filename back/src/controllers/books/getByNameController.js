@@ -1,6 +1,6 @@
 const axios = require("axios");
 // const Book = require("../models/Book.js");
-const { Book } = require('../db.js');
+const { Book } = require('../../db.js');
 const { getAPIbooks } = require("./getBooksController.js");
 
 const getByName = async (originalName) => {

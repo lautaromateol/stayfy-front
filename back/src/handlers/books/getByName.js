@@ -1,4 +1,4 @@
-const { getByName } = require("../controllers/getByNameController");
+const { getByName } = require("../../controllers/books/getByNameController");
 
 const getBooksHandler = async (req, res) => {
   const { name } = req.query;
