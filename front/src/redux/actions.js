@@ -29,7 +29,7 @@ export function getFilteredBooks(args) {
 export function getAllBooks() {
     return async function (dispatch) {
         try {
-            const response = await axios("http://localhost:3001/books");
+            const response = await axios(`${BACKEND_URL}/books/`);
             return dispatch({
                 type: GET_ALL_BOOKS,
                 payload: response.data,
@@ -57,7 +57,7 @@ export function orderBooks(orderType) {
 export function getAuthors() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:3001/books");
+            const response = await axios (`${BACKEND_URL}/books`);
             const authors = response.data.map((book) => book.authors[0])
             let uniqueAuthors = [...new Set(authors)].sort(); 
             return dispatch ({
@@ -74,7 +74,7 @@ export function getAuthors() {
 export function getPublishers() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:3001/books");
+            const response = await axios (`${BACKEND_URL}/books`);
             const publisher = response.data.map((book) => book.publisher)
             let uniquePublishers = [...new Set(publisher)].sort();
             return dispatch ({
@@ -108,7 +108,7 @@ export function getTitles() {
 export function getYear() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:3001/publishedDate");
+            const response = await axios (`${BACKEND_URL}/books/publishedDate`);
             return dispatch ({
                 type: GET_YEAR,
                 payload: response.data,
@@ -123,7 +123,7 @@ export function getYear() {
 export function getGenres() {
     return async function (dispatch) {
         try {
-            const response = await axios ("http://localhost:3001/books");
+            const response = await axios (`${BACKEND_URL}/books`);
             const genre = response.data.map((book) => book.genre)
             let uniqueGenres = [...new Set(genre)].sort();
             return dispatch ({

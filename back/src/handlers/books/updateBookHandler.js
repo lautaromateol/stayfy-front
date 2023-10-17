@@ -12,9 +12,9 @@ const deactivateBookHandler = async (req, res) => {
 };
 
 const updateBookHandler = async (req, res) => {
-  const { id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active } = req.body;
+  const { id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active, stock } = req.body;
 
-  const response = await updateBook(id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active);
+  const response = await updateBook(id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active, stock);
   try {
     res.status(200).json(response);
   } catch (error) {

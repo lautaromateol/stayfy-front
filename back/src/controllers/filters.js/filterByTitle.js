@@ -1,13 +1,13 @@
-function filterByTitle(drivers, searchTitle) {
+function filterByTitle(books, searchTitle) {
     if (!searchTitle) {
-      return drivers;
+      return books;
     };
     const lowerSearchTitle = searchTitle.toLocaleLowerCase();
-    const filteredDrivers = drivers.filter(({ title }) => {
+    const filteredBooks = books.filter(({ title }) => {
       const bookTitle = title.toLocaleLowerCase();
       return bookTitle.includes(lowerSearchTitle);
     });
-    return filteredDrivers;
+    return filteredBooks;
   };
 
   module.exports = { filterByTitle };

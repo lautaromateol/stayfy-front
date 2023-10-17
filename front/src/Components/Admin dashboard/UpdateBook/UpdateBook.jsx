@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function UpdateBook() {
   const dispatch = useDispatch();
   const { genres, titles, allBooks } =  useSelector((state) => state);
-  const ratingArray = [1, 2, 3, 4, 5];
+  const ratingArray = [0, 1, 2, 3, 4, 5];
 
   useEffect(() => {
     dispatch(getGenres());
@@ -89,8 +89,6 @@ export default function UpdateBook() {
       authors: updatedAuthors,
     });
   };
-
-
 
   const changeHandlder = (event) => {
     const property = event.target.name;

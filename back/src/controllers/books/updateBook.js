@@ -1,23 +1,24 @@
 const { Book } = require("../../db");
-// const { DEFAULT_IMAGE } = require("../../utils");
 
 const deactivateBook = async (id) => {
     let book = await Book.findOne({ where: { id } });
   
     if (!book) {
         throw new Error("The book with the given ID does not exist in the database.");
-    }
-    if (book.active) {
-      book.active = false;
     } else {
+      if (book.active) {
+        book.active = false;
+      } else {
         book.active = true;
+      }
+      await book.save();
+      console.log(book);
+      return book;
     }
-    await book.save();
-    return book;
   };
   
 
-  const updateBook = async ( id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active ) => {
+  const updateBook = async ( id, title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, active, stock ) => {
     let bookUpdate = await Book.findOne({ where: { id } });
 
     if (!bookUpdate) {
@@ -48,9 +49,9 @@ const deactivateBook = async (id) => {
       }
       if (price && price > 0) {
         bookUpdate.price = price;
-        bookUpdate.arsPrice = Math.ceil(price * 843);
-        bookUpdate.copPrice = Math.ceil(price * 4200);
-        bookUpdate.mxnPrice = Math.ceil(price * 18);
+        // bookUpdate.arsPrice = Math.ceil(price * 843);
+        // bookUpdate.copPrice = Math.ceil(price * 4200);
+        // bookUpdate.mxnPrice = Math.ceil(price * 18);
       }
       if (description && description.length > 0) {
         bookUpdate.description = description;
@@ -61,6 +62,12 @@ const deactivateBook = async (id) => {
       if (active) {
         bookUpdate.active = active;
       }
+      if (stock !== undefined && stock >= 0) {
+        bookUpdate.stock = stock;
+        if (stock === 0){
+          bookUpdate.active = false;
+        } 
+      }      
       await bookUpdate.save();
       console.log(bookUpdate);
       return bookUpdate;
