@@ -25,7 +25,6 @@ const Address = ()=>{
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        e.target.reset()
         localStorage.setItem('shippingInfo', JSON.stringify(data))
         window.location.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=${preferenceId}`
     }

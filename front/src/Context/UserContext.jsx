@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import {FRONT_URL} from "../../utils"
 import jwtDecode from 'jwt-decode';
 
 const UserContext = createContext();
@@ -72,7 +73,8 @@ export function UserProvider({ children }) {
             isAdmin: false,
             isSuperAdmin: false,
         });
-        localStorage.removeItem('logged');
+        localStorage.removeItem('logged')
+        window.location.href = FRONT_URL
     };
 
 

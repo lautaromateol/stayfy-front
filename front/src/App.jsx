@@ -4,8 +4,8 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import { useUser } from './Context/UserContext'; 
+import {Create} from './Views/Create/Create'
 import Home from './Views/Home/Home'
-import Create from './Views/Create/Create'
 import Detail from './Components/Detail/Detail'
 import Nav from './Components/Nav/Nav'
 import ReviewForm from './Components/ReviewForm/ReviewForm'

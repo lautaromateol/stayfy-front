@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import axios from 'axios'
 import { useUser } from "../../Context/UserContext";
+import { BACKEND_URL } from "../../../utils"
+import axios from 'axios'
 
 const Success = () => {
 
@@ -25,15 +26,18 @@ const Success = () => {
 
         if (id) {
             try {
-                axios.post('http://localhost:3001/checkout/mercado-pago/create_order', {
+                axios.post(`${BACKEND_URL}/checkout/mercado-pago/create_order`, 
+                {
                     paymentId: payment_id,
                     merchantOrder: merchant_order_id,
                     products: items.map(({ title }) => title),
                     spent: items.map(({ unit_price, quantity }) => unit_price * quantity).reduce((sum, num) => sum + num, 0),
                     buyer: id ? id : null
                 })
-                    .then((res) => console.log(res))
-                    .catch((err) => console.error(err))
+                axios.post(`${BACKEND_URL}/mail/order_approved`, 
+                {
+                    items, shippingInfo, buyer: id ? id : null
+                })
             } catch (error) {
                 console.error(error)
             }
@@ -159,11 +163,11 @@ const Success = () => {
                             <div class="flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start">
                                 <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8">
                                     <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Shipping Address</p>
-                                    <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">{shippingInfo?.address}, {shippingInfo?.city}, {shippingInfo?.country} {shippingInfo?.postcode}</p>
+                                    <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">{shippingInfo?.address}, {shippingInfo?.city}, {shippingInfo?.country}, {shippingInfo?.postcode}</p>
                                 </div>
                                 <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4">
                                     <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Billing Address</p>
-                                    <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">{shippingInfo?.address}, {shippingInfo?.city}, {shippingInfo?.country} {shippingInfo?.postcode}</p>
+                                    <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">{shippingInfo?.address}, {shippingInfo?.city}, {shippingInfo?.country}, {shippingInfo?.postcode}</p>
                                 </div>
                             </div>
                             <div class="flex w-full justify-center items-center md:justify-start md:items-start">

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Aos from "aos"
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
+import { FRONT_URL } from '../../../utils';
 
 const Register = () => {
 
@@ -41,14 +42,17 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            const response = await axios.post("http://localhost:3001/users", input)
-            alert('Usuario creado con exito')
+            await axios.post("http://localhost:3001/users", input)
+
             setInput({
                 fullname: '',
                 email: '',
                 username: '',
                 password: '',
             })
+
+            window.location.href =`${FRONT_URL}/login`
+            
         } catch (error) {
             setWarning(error.response.data)
         }

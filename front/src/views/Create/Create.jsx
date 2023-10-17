@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { postBook } from "../../redux/actions";
 
-const Create = () => {
+export const Create = () => {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({

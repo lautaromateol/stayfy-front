@@ -24,9 +24,8 @@ const CartList = () => {
         if(lastTab && preferenceId){
             localStorage.removeItem('lastTab')
             localStorage.removeItem('preferenceId')
+            localStorage.setItem('lastTab', window.location.href)
           }
-
-          localStorage.setItem('lastTab', window.location.href)
 
         const storedItems = localStorage.getItem("cartItems");
         if (storedItems) {
@@ -49,6 +48,7 @@ const CartList = () => {
                             title: product.title,
                             unit_price: product.price,
                             quantity: cart.filter((item) => item === product.id).length,
+                            currency_id: 'ARS'
                         };
                         items.push(item);
                     }
