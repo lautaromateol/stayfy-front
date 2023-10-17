@@ -47,8 +47,8 @@ const Address = ()=>{
 
     return(
 
-        <div className="flex bg-[#A4BCB3] h-screen justify-center align-center">
-            <form className="bg-white rounded-md px-[70px]" onSubmit={handleSubmit}>
+        <div className="flex bg-[#A4BCB3] dark:bg-[#111827] h-auto justify-center align-center">
+            <form className="bg-white dark:bg-[#E7E5E4] rounded-md px-[70px]" onSubmit={handleSubmit}>
             <h1 className="font-semibold text-xl md:text-2xl text-gray-600 mt-10">Shipping Info </h1>
                 <h2 className="mt-5 text-lg text-gray-500 text-semibold">Address: </h2>
                 <input onChange={handleChange} required name="address" value={data.address} type="text"></input>

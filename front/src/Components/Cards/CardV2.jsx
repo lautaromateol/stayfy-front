@@ -37,7 +37,7 @@ function CardV2({ id, title, authors, price, image, rating }) {
   return (
     <div
       title={`Click here to see more details of ${title}`}
-      className="my-4 rounded shadow-lg dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-300 hover:-translate-y-1"
+      className="my-4 rounded-[10px] rounded shadow-lg dark:shadow-gray-900 bg-[#ededed] dark:bg-gray-800 duration-300 hover:-translate-y-1"
     >
       <div className="mx-auto">
         <img src={image} alt={title}
@@ -50,7 +50,7 @@ function CardV2({ id, title, authors, price, image, rating }) {
       </div>
       <figcaption className="p-4">
         <Link to={`/product-page/${id}`}>
-          <p className="text-lg mb-2 font-bold leading-relaxed text-gray-800 dark:text-gray-300 transition-colors hover:text-orange-600 dark:hover:text-orange-600">
+          <p className="text-lg mb-2 font-bold leading-relaxed text-gray-800 dark:text-gray-300 transition-colors hover:text-[#3b9c83] dark:hover:text-[#3b9c83]">
             {/* <p className="text-lg mb-2 font-bold leading-relaxed text-gray-800 dark:text-gray-300"> */}
             {title}</p>
         </Link>
