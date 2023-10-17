@@ -3,8 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
-import { useUser } from './Context/UserContext'; 
-import {Create} from './Views/Create/Create'
+import { useUser } from './Context/UserContext';
+import { Create } from './Views/Create/Create'
 import Home from './Views/Home/Home'
 import Detail from './Components/Detail/Detail'
 import Nav from './Components/Nav/Nav'
@@ -38,42 +38,36 @@ function App() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-          <CartProvider>
-            <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          <Routes>
-          <Route path='/' element= {<Home/>}/>
-          <Route path='/create' 
-          // element={<Create/>}
-          element={userData.isSuperAdmin || userData.isAdmin ? <Create /> : <NoPermissions />}
-          />
-          {/* comentar o borrar para proteger ruta y descomentar línea 61 */}
-          <Route path='/admin/update-book' element={<UpdateBook/>}/>
-          <Route path='/admin/activate-book' element={<BookActivation/>}/> 
-          <Route path='/product-page/:id' element={<Detail/>}/>
-          <Route path='/login' element={<LogIn/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path = '/user' element ={<UserProfile/>}/>
-          <Route path='/books' element={<Books/>}/>
+      <CartProvider>
+        <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/product-page/:id' element={<Detail />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/user' element={<UserProfile />} />
+          <Route path='/books' element={<Books />} />
           <Route path="/permissions" element={<NoPermissions />} />
-          <Route path='/order-approved' element={<Success/>}/>
+          <Route path='/order-approved' element={<Success />} />
           {userData.isSuperAdmin || userData.isAdmin ? (
             <>
-              <Route path='/review' element={<ReviewForm/>}/>
-              <Route path='/admin/users' element={<Users/>}/>
-              <Route path='/admin/users/:id' element={<UserDetail/>}/>
-              {/* <Route path='/admin/update-book' element={<UpdateBook/>}/> descomentar para habilitar ruta protegida */}
-              {/* <Route path='/admin/activate-book' element={<BookActivation/>}/> descomentar para habilitar ruta protegida */}
+              <Route path='/create' element={<Create />} />
+              <Route path='/review' element={<ReviewForm />} />
+              <Route path='/admin/users' element={<Users />} />
+              <Route path='/admin/users/:id' element={<UserDetail />} />
+              <Route path='/admin/update-book' element={<UpdateBook />} />
+              <Route path='/admin/activate-book' element={<BookActivation />} />
             </>
-          ) :   null
-        }
-          <Route path='/cart' element={<CartList/>}/>
-          <Route path='/store' element={<Store/>}/>
-          <Route path='/address' element={<Address/>}/>
+          ) : <NoPermissions />
+          }
+          <Route path='/cart' element={<CartList />} />
+          <Route path='/store' element={<Store />} />
+          <Route path='/address' element={<Address />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
-          <Footer/>
-        </CartProvider>
-      </div>
+        <Footer />
+      </CartProvider>
+    </div>
   )
 }
 
