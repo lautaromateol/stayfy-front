@@ -10,6 +10,7 @@ const { sortBooks } = require('./filters.js/sortBooks');
 const { filterByAuthor } = require('./filters.js/filterByAuthor');
 const { filterByPublisher } = require('./filters.js/filterByPublisher');
 const { filterByRating } = require('./filters.js/filterByRating');
+const { activeFilter } = require('./filters.js/activeFilter');
 
 const createBooks = async () => {
 
@@ -35,7 +36,7 @@ const createBooks = async () => {
           // mxnPrice: Math.ceil(book.price * 18),
           description: book.description,
           rating: Math.round(Math.random() * (5 - 2) + 2),
-          stock: Math.round(Math.random () * (100 - 1) + 1),
+          stock: Math.round(Math.random () * (100 - 0) + 0),
         });
       });
     };
@@ -51,6 +52,7 @@ const getFilteredBooks = async ({ sort, page = 0, genre = '', title, publishedDa
 
   let foundBooks = await getBooks();
 
+  foundBooks = activeFilter(foundBooks);
   foundBooks = filterByTitle(foundBooks, title);
   foundBooks = filterByGenre(foundBooks, genre);
   foundBooks = filterByAuthor(foundBooks, author);

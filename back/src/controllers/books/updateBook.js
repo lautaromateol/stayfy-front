@@ -62,9 +62,12 @@ const deactivateBook = async (id) => {
       if (active) {
         bookUpdate.active = active;
       }
-      if (stock && stock >= 0) {
+      if (stock !== undefined && stock >= 0) {
         bookUpdate.stock = stock;
-      }
+        if (stock === 0){
+          bookUpdate.active = false;
+        } 
+      }      
       await bookUpdate.save();
       console.log(bookUpdate);
       return bookUpdate;
