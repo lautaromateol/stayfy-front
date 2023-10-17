@@ -43,19 +43,12 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/user' element={<UserProfile />} />
           <Route path='/books' element={<Books />} />
-          <Route path="/permissions" element={<NoPermissions />} />
           <Route path='/order-approved' element={<Success />} />
-          {userData.isSuperAdmin || userData.isAdmin ? (
-            <>
-              <Route path='/create' element={<AddBook />} />
-              <Route path='/review' element={<ReviewForm />} />
-              <Route path='/admin/users' element={<Users />} />
-              <Route path='/admin/users/:id' element={<UserDetail />} />
-              <Route path='/admin/update-book' element={<UpdateBook />} />
-              <Route path='/admin/activate-book' element={<BookActivation />} />
-            </>
-          ) : <NoPermissions />
-          }
+          <Route path={'/admin/create'} element = {userData.isSuperAdmin || userData.isAdmin ? <AddBook/> : <NoPermissions/>}/>
+          <Route path={'/admin/users'} element={userData.isSuperAdmin || userData.isAdmin ? <Users /> : <NoPermissions/>} />
+          <Route path={'/admin/users/:id'} element={userData.isSuperAdmin || userData.isAdmin ? <UserDetail /> : <NoPermissions/>} />
+          <Route path={'/admin/update-book'} element={userData.isSuperAdmin || userData.isAdmin ? <UpdateBook /> : <NoPermissions/>} />
+          <Route path={'/admin/activate-book'} element={userData.isSuperAdmin || userData.isAdmin ? <BookActivation /> : <NoPermissions/>} />
           <Route path='/cart' element={<CartList />} />
           <Route path='/store' element={<Store />} />
           <Route path='/address' element={<Address />} />

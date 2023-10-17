@@ -31,7 +31,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         {userData.isSuperAdmin || userData.isAdmin ? (
           <>
         <button>
-          <Link to="/create">Create</Link>
+          <Link to="/admin/create">Create</Link>
         </button>
         <button>
           <Link to="/review">Rate us!</Link>
