@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
-// eslint-disable-next-line no-unused-vars
-import { BACKEND_URL } from '../utils'
+import { Routes, Route } from 'react-router-dom'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import { useUser } from './Context/UserContext';
-import { Create } from './Views/Create/Create'
+import Create  from './Views/Create/Create'
 import Home from './Views/Home/Home'
 import Detail from './Components/Detail/Detail'
 import Nav from './Components/Nav/Nav'
@@ -18,16 +16,14 @@ import CartList from './Components/Cart/CartList/CartList'
 import UserDetail from './Components/Admin dashboard/Detail/UserDetail'
 import Store from './Views/Store/Store';
 import Footer from './Components/Footer/Footer';
-import './App.css'
 import UserProfile from './Components/User/Userprofile'
 import NotFound from './Views/NotFound/NotFound';
 import NoPermissions from './Views/NotFound/NoPermissions';
 import Address from './Components/Address Form/Address';
 import UpdateBook from './Components/Admin dashboard/UpdateBook/UpdateBook';
 import BookActivation from './Components/Admin dashboard/UpdateBook/BookActivation';
+import './App.css'
 
-//import TestComponent from './TestComponent/TestComponent'
-//import { BACKEND_URL } from '../utils'
 
 function App() {
   const { user, userData } = useUser();

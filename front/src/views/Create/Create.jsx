@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { postBook } from "../../redux/actions";
 import axios from "axios";
 
-export const Create = () => {
+const Create = () => {
   
   const dispatch = useDispatch();
 
@@ -256,3 +256,4 @@ export const Create = () => {
   );
 };
 
+export default Create;
