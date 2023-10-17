@@ -1,5 +1,5 @@
 import Slider from "../../Components/Slider/Slider"
-import OurTeam from "../../Components/ourTeam/ourTeam"
+import Members from "../../Components/Members (nuevo Our Team)/Members"
 import Buttons from "../../Components/Buttons/Buttons"
 import { useEffect } from "react"
 
@@ -23,7 +23,7 @@ const Home = ()=>{
             <Slider />
             <div>
             <Buttons />
-            <OurTeam/>
+            <Members/>
             </div>
         </div>
     )

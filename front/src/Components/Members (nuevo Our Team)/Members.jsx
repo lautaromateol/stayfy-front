@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
-const OurTeam = () => {
+const Members = () => {
 
   useEffect(() => {
     Aos.init({duration:1500})
@@ -151,4 +151,4 @@ const OurTeam = () => {
   );
 };
 
-export default OurTeam;
+export default Members;
