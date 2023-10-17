@@ -45,7 +45,6 @@ const Success = () => {
         
     }, [id])
 
-
     return (
 
         <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
@@ -147,7 +146,7 @@ const Success = () => {
                     <div class="flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0">
                         <div class="flex flex-col justify-start items-start flex-shrink-0">
                             <div class="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-                                <img src={user?.image} alt="avatar" className="w-20 h-20" />
+                                <img src={user?.profilePicture} alt="avatar" className="w-20 h-20" />
                                 <div class="flex justify-start items-start flex-col space-y-2">
                                     <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">{user?.name}</p>
                                 </div>
