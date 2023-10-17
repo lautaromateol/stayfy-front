@@ -9,7 +9,7 @@ const NewProducts = () => {
   const books = useSelector((state) => state.books);
 
   useEffect(() => {
-    dispatch(getFilteredBooks());
+    dispatch(getAllBooks());
   }, []);
 
   const columns = [
