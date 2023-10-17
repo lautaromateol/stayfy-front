@@ -1,18 +1,15 @@
 import UserDetail from "../../Components/Admin dashboard/Detail/UserDetail";
 import Users from "../../Components/Admin dashboard/Users/Users";
 import Orders from "../../Components/Orders/Orders";
-import Products from "../../Components/Products/Products";
+import NewProducts from "../../Components/Products/NewProducts";
 
 const DashboardAdmin = () => {
   return( 
   <div>
     <UserDetail />
-    <hr></hr>
     <Users />
-    <hr></hr>
     <Orders />
-    <hr></hr>
-    <Products />
+    <NewProducts />
   </div>
   )
 };
