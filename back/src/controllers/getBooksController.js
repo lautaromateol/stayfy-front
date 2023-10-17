@@ -30,11 +30,12 @@ const createBooks = async () => {
           pageCount: book.pageCount,
           genre: book.gender,
           price: Math.ceil(book.price),
-          arsPrice: Math.ceil(book.price * 843),
-          copPrice: Math.ceil(book.price * 4200),
-          mxnPrice: Math.ceil(book.price * 18),
+          // arsPrice: Math.ceil(book.price * 843),
+          // copPrice: Math.ceil(book.price * 4200),
+          // mxnPrice: Math.ceil(book.price * 18),
           description: book.description,
-          rating: Math.round(Math.random() * (5 - 3) + 3),
+          rating: Math.round(Math.random() * (5 - 2) + 2),
+          stock: Math.round(Math.random () * (100 - 1) + 1),
         });
       });
     };

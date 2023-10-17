@@ -12,7 +12,7 @@ const getUserOrders = async (username) => {
         const user = await User.findOne({ 
             where: { username } 
         });
-        return user.Order;
+        return user.Order; // actualizar controlador
     }
 };
 
