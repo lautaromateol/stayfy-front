@@ -20,6 +20,7 @@ const LogIn = () => {
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null)
   const {signIn, signOut} = useUser();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setInput({
@@ -33,7 +34,9 @@ const LogIn = () => {
       })
     );
   };
-
+ const handleShowPassword = ()=> {
+  setShowPassword(!showPassword)
+ }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -68,7 +71,6 @@ const LogIn = () => {
       window.localStorage.removeItem("logged")
       setUser(null)
     }
- 
 
   useEffect(()=> {
     Aos.init({duration: 1500})
@@ -105,7 +107,8 @@ const LogIn = () => {
               <div className="flex flex-col">
                 <h2 className="m-1 text-lg text-gray-500 text-semibold">Password</h2>
                 <input
-                  type="password"
+                   id="field"
+                  type= {showPassword ? "text" : "password"}
                   name="password"
                   value={input.password}
                   onChange={handleChange}
@@ -113,6 +116,11 @@ const LogIn = () => {
                   />
                   {error.password && <span className="text-red-500">{error.password}</span>}
               </div>
+
+                <h2 className="m-1 text-lg text-gray-500 text-semibold">Show Pasword <input type="checkbox" onClick={handleShowPassword} className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[16px] bg-transparent"/></h2>
+             
+
+
             </div>
             <div className="flex flex-col items-center text-center mt-7">
               <button 

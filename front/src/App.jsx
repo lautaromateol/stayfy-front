@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";

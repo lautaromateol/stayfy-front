@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import registerValidation from './validations/registerValidations';
@@ -22,6 +23,7 @@ const Register = () => {
     const [errors, setErrors] = useState({})
 
     const [warning, setWarning] = useState('')
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
         setWarning('')
@@ -37,6 +39,9 @@ const Register = () => {
         )
     }
 
+    const handleShowPassword = ()=> {
+        setShowPassword(!showPassword)
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -98,7 +103,7 @@ const Register = () => {
                         </div>
                         <div className='flex flex-col'>
                             <h2 className="text-lg text-gray-500 text-semibold">Password</h2>
-                            <input type="password"
+                            <input type= {showPassword ? "text" : "password"}
                                 name='password'
                                 placeholder='e.g.: stephenK5'
                                 value={input.password}
@@ -106,6 +111,9 @@ const Register = () => {
                                 className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[340px] bg-transparent"
                             />
                             {errors.password && <span className="text-red-500">{errors.password}</span>} 
+                            <h2 className="m-1 text-lg text-gray-500 text-semibold">Show Pasword <input type="checkbox" onClick={handleShowPassword} className="border-b border-gray-500 focus:outline-none  text-gray-500 placeholder:opacity-50 font-semibold md:w-72 lg:w-[16px] bg-transparent"/></h2>
+                           
+
                         </div>
                     </div>
                 </div>
