@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { postBook } from "../../redux/actions";
 import axios from "axios";
 
-const addBook = () => {
+const AddBook = () => {
   
   const dispatch = useDispatch();
 
@@ -256,4 +256,4 @@ const addBook = () => {
   );
 };
 
-export default addBook;
+export default AddBook;
