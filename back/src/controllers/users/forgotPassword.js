@@ -1,19 +1,24 @@
 const {User} = require("../../db")
 const nodemailer = require('nodemailer');
+const { FRONT_URL } = require("../../utils");
 
 const forgotPassword = async (req, res) => {
     const {email} = req.body
-
+    console.log(email) 
     const check = await User.findOne({where: {email}})
-    if(!check){
+    console.log("check:", check)
+    if(check === null){
+      console.log("no existe usuario")
         return res.send({Status: "User doesnt exist"})
     }
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: "stayfybooks@gmail.com",
-          pass: 'lmlg nyse vzrc thuc'
-        }
+      host: "smtp.gmail.com",
+      port: 465, 
+      secure: true,
+      auth: {
+        user: "stayfybooks@gmail.com",
+        pass: "lmlg nyse vzrc thuc",
+      },
       });
       
       const mailOptions = {
@@ -41,7 +46,7 @@ const forgotPassword = async (req, res) => {
       </style>
   </head>
   <body>
-    <a class="button-link" href="http://localhost:5173/reset-password/${check.userId}">Reset Password</a>
+    <a class="button-link" href="${FRONT_URL}/reset-password/${check.userId}">Reset Password</a>
   </body>
   </html
     `
