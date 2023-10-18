@@ -1,5 +1,4 @@
 const {User} = require("../../db")
-const jwt = require("jsonwebtoken");
 const nodemailer = require('nodemailer');
 
 const forgotPassword = async (req, res) => {
@@ -9,20 +8,43 @@ const forgotPassword = async (req, res) => {
     if(!check){
         return res.send({Status: "User doesnt exist"})
     }
-    const token = jwt.sign({id: User.userId}, "passwordSecret")
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'youremail@gmail.com',
-          pass: 'yourpassword'
+          user: "stayfybooks@gmail.com",
+          pass: 'lmlg nyse vzrc thuc'
         }
       });
       
       const mailOptions = {
-        from: 'youremail@gmail.com',
-        to: 'myfriend@yahoo.com',
+        from: 'stayfybooks@gmail.com',
+        to: check.email,
         subject: 'Reset Password',
-        text: `http://localhost:5173/forgot-password/${User.userId}/${token}`
+        html: `
+        <html>
+  <head>
+     <style>
+        /* Style the anchor to look like a button */
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Change the background color to your preference */
+            color: #fff; /* Change the text color to your preference */
+            text-decoration: none;
+            border: 1px solid #007bff; /* Add a border to make it look like a button */
+            border-radius: 4px; /* Add rounded corners */
+        }
+
+        .button-link:hover {
+            background-color: #0056b3; /* Change the background color on hover */
+        }
+      </style>
+  </head>
+  <body>
+    <a class="button-link" href="http://localhost:5173/reset-password/${check.userId}">Reset Password</a>
+  </body>
+  </html
+    `
       };
       
       transporter.sendMail(mailOptions, function(error, info){

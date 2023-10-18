@@ -9,9 +9,10 @@ const updateUser = require("../controllers/users/updateUser");
 const checkGoogle = require("../controllers/users/checkGoogle");
 const googleCreate = require("../controllers/users/googleCreate");
 const forgotPassword = require("../controllers/users/forgotPassword");
+const resetPassword = require("../controllers/users/resetPassword");
 const { use } = require(".");
-
 const userRouter = Router()
+
 
 userRouter.get('/', getUsers);
 userRouter.get('/search/:email', getUserByEmail);
@@ -21,6 +22,7 @@ userRouter.post('/login', login);
 userRouter.post('/check', checkGoogle);
 userRouter.post('/google', googleCreate);
 userRouter.post('/forgot-password', forgotPassword)
+userRouter.post('/reset-password/:id', resetPassword)
 userRouter.put('/:id', updateUser);
 userRouter.delete('/:id', deleteUser)
 

@@ -26,7 +26,10 @@ import Orders from './Components/Admin dashboard/Orders/Orders';
 import GenreCardList from './Components/GenreCardList/GenreCardList';
 import ReviewForm from './Components/ReviewForm/ReviewForm'
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
+import ResetPassword from './Components/ResetPassword/ResetPassword';
 import './App.css'
+
+
 
 
 //import TestComponent from './TestComponent/TestComponent'
@@ -49,6 +52,7 @@ function App() {
           <Route path='/login' element={<LogIn />} />
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
           {/* <Route path='/user/:id' element={<UserProfile />} /> */}
           <Route path='/books' element={<Books />} />
           <Route path='/order-approved' element={<Success />} />
