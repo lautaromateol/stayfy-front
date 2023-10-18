@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBooks } from "../../redux/actions";
 import axios from "axios";
-import { BACKEND_URL } from "../../../utils";
+import { BACKEND_URL } from "../../../../utils";
+import { getAllBooks } from "../../../redux/actions";
+
 
 const NewProducts = () => {
   const dispatch = useDispatch();
