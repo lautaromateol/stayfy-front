@@ -25,7 +25,12 @@ import NewProducts from './Components/Admin dashboard/Products/NewProducts';
 import Orders from './Components/Admin dashboard/Orders/Orders';
 import GenreCardList from './Components/GenreCardList/GenreCardList';
 import ReviewForm from './Components/ReviewForm/ReviewForm'
+import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import './App.css'
+
+
+//import TestComponent from './TestComponent/TestComponent'
+//import { BACKEND_URL } from '../utils'
 
 function App() {
   const { user, userData,isAuthenticated } = useUser();
@@ -43,6 +48,7 @@ function App() {
           <Route path='/product-page/:id' element={<Detail />} />
           <Route path='/login' element={<LogIn />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
           {/* <Route path='/user/:id' element={<UserProfile />} /> */}
           <Route path='/books' element={<Books />} />
           <Route path='/order-approved' element={<Success />} />
