@@ -11,7 +11,7 @@ async function deactivateByStock() {
             await book.save(); // Guardar cada libro modificado
         }
     });
-    console.log('Deactivation process completed.');
+    // console.log('Deactivation process completed.');
 };
 
 module.exports = { deactivateByStock };

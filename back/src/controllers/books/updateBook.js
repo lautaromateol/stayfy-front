@@ -29,7 +29,7 @@ const deactivateBook = async (id) => {
       if (title && title.length > 0) {
         bookUpdate.title = title;
       }
-      if (authors && authors.length > 0) {
+      if (authors && (authors.length > 0 || authors == [] || authors == [""])) {
         bookUpdate.authors = authors;
       }
       if (publisher && publisher.length > 0) {
@@ -56,20 +56,20 @@ const deactivateBook = async (id) => {
       if (description && description.length > 0) {
         bookUpdate.description = description;
       }
-      if (rating && rating > 0 && rating < 5.001) {
+      if (rating && rating > 0 && rating < 5.01) {
         bookUpdate.rating = rating;
       }
       if (active) {
         bookUpdate.active = active;
       }
-      if (stock !== undefined && stock >= 0) {
+      if (stock !== undefined && stock !== null && stock >= 0 && stock !== "") {
         bookUpdate.stock = stock;
         if (stock === 0){
           bookUpdate.active = false;
         } 
       }      
       await bookUpdate.save();
-      console.log(bookUpdate);
+      // console.log(bookUpdate);
       return bookUpdate;
     }
   };

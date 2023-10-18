@@ -94,9 +94,20 @@ export default function BookActivation() {
         </div>
 
         <div className="mb-4">
+          {success && (
+            <Link
+              to={`/product-page/${form.id}`}
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-green-300"
+            >
+              View Updated Book
+            </Link>
+          )}
+        </div>
+
+        <div className="mb-4">
             <button
               type="submit"
-              className="bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus-border-blue-300"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
               Change Book Status
             </button>
@@ -108,21 +119,21 @@ export default function BookActivation() {
               href="/admin/activate-book"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
-              Update another book status
+              Update Another Book Status
             </a>
           )}
         </div>
 
+
         <div className="mb-4">
-          {success && (
             <Link
-              to={`/product-page/${form.id}`}
-              className="bg-green-500 hover-bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus-border-green-300"
+              to={"/admin/update-book"}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
-              View updated book
+              Update Books Properties
             </Link>
-          )}
         </div>
+
       </form>
     </div>
   );
