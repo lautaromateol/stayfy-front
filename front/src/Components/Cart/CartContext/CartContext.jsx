@@ -17,13 +17,19 @@ export function CartProvider({ children }) {
         setCart(savedCart);
         setCartCount(savedCartCount);
     }, []);
-
-    const addToCart = (productId) => {
+    const addToCart = (productId, stock) => {
         const productIdInt = parseInt(productId, 10);
     
         if (!isNaN(productIdInt)) {
+            
             // Obtener el carrito actual del localStorage
             const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const countProduct = storedCart.filter(item => item === productIdInt).length;
+            // console.log("stock",stock );
+            if (countProduct >= stock) {
+                console.error(`No hay suficiente stock para agregar el producto con ID ${productIdInt}.`);
+                return;
+            }
     
             // Agregar el nuevo producto al carrito en orden ascendente
             const updatedCart = [...storedCart, productIdInt].sort((a, b) => a - b);

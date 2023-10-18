@@ -49,7 +49,8 @@ const CartList = () => {
                             title: product.title,
                             unit_price: product.price,
                             quantity: cart.filter((item) => item === product.id).length,
-                            currency_id: 'ARS'
+                            currency_id: 'ARS',
+                            stock:product.stock
                         };
                         items.push(item);
                     }
@@ -80,8 +81,8 @@ const CartList = () => {
         return cart.filter((item) => item === productId).length;
     };
 
-    const incrementQuantity = (productId) => {
-        addToCart(productId);
+    const incrementQuantity = (productId, stock) => {
+        addToCart(productId, stock);
     };
 
     const decrementQuantity = (productId) => {

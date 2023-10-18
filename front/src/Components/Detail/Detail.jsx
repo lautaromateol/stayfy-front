@@ -28,7 +28,7 @@ const Detail = () => {
   const [reviews, setReviews] = useState([]);
 
   const handleAddToCart = () => {
-    addToCart(id);
+    addToCart(id, book.stock);
   };
 
   const lastTab = localStorage.getItem('lastTab')
@@ -159,7 +159,7 @@ const Detail = () => {
 
                   <QuantityControl
                     quantity={cart.filter((item) => item === parseInt(id, 10)).length}
-                    onIncrement={() => addToCart(id)}
+                    onIncrement={() => addToCart(id, book.stock)}
                     onDecrement={() => removeFromCart(id)}
                     onRemove={() => removeAllByProduct(id)}
                   />
@@ -168,6 +168,7 @@ const Detail = () => {
                     <FontAwesomeIcon icon={faCartShopping} /> Add to cart
                   </button>
                 )}
+                stock:{book.stock}
               </div>
               <div className="flex flex-col">
               </div>
@@ -219,7 +220,7 @@ const Detail = () => {
               <List.Item>
                 <List.Item.Meta
                   avatar={<Avatar src={item.User.profilePicture || "https://xsgames.co/randomusers/assets/avatars/pixel/2.jpg"} />}
-                  title={<a href="https://ant.design"><div className="text-gray-900 dark:text-[#D1D5DB]">{item.title}</div><EstrellasRating average={item.rating} />
+                  title={<a href="#"><div className="text-gray-900 dark:text-[#D1D5DB]">{item.title}</div><EstrellasRating average={item.rating} />
                   </a>}
                   description={<div className="text-gray-900 dark:text-[#D1D5DB]">{item.message}</div>}
                 />
