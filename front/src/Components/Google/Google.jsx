@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
 import { useUser } from '../../Context/UserContext';
-import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../../../utils";
 
 const Google = () => {
   
@@ -39,7 +39,7 @@ const Google = () => {
 
   async function checkIfUserExists(email) {
     try {
-      const response = await fetch('http://localhost:3001/users/check', {
+      const response = await fetch(`${BACKEND_URL}/users/check`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const Google = () => {
 
   async function createUser(userObj) {
     try {
-      const response = await fetch('http://localhost:3001/users/google', {
+      const response = await fetch(`${BACKEND_URL}/users/google`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

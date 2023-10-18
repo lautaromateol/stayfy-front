@@ -7,6 +7,7 @@ import { useUser } from "../../Context/UserContext"
 import EstrellasRating from '../StartRating/StartRating';
 import QuantityControl from '../Cart/CartList/QuantityControl';
 import axios from 'axios';
+import { BACKEND_URL } from '../../../utils';
 
 const Detail = () => {
 
@@ -40,13 +41,13 @@ const Detail = () => {
     }
 
     try {
-      axios(`http://localhost:3001/books/${id}`).then(({ data }) => {
+      axios(`${BACKEND_URL}/books/${id}`).then(({ data }) => {
         if (data.title) {
           setBook(data)
           setRating(data.rating)
 
           axios
-            .post('http://localhost:3001/checkout/mercado-pago/create_preference', {
+            .post(`${BACKEND_URL}/checkout/mercado-pago/create_preference`, {
               items: [
                 {
                   title: data.title,

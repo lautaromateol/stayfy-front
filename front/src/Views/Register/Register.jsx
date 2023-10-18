@@ -5,7 +5,7 @@ import axios from 'axios';
 import Aos from "aos"
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
-import { FRONT_URL } from '../../../utils';
+import { BACKEND_URL, FRONT_URL } from '../../../utils';
 
 const Register = () => {
 
@@ -42,7 +42,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            await axios.post("http://localhost:3001/users", input)
+            await axios.post(`${BACKEND_URL}/users`, input)
 
             setInput({
                 fullname: '',

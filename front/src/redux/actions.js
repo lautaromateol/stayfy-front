@@ -40,7 +40,7 @@ export function getAllBooks() {
 
 export function postBook(payload){
     return async function (){
-            const postBook = await axios.post('http://localhost:3001/books/create', payload)
+            const postBook = await axios.post(`${BACKEND_URL}/books/create`, payload)
             return postBook;
     }
 }
@@ -155,7 +155,7 @@ export function searchBook(name) {
     try {
         return async function (dispatch) {
             const booksName = await axios.get(
-                `http://localhost:3001/books/filters?title=${name}`
+                `${BACKEND_URL}/books/filters?title=${name}`
             )
             const book = booksName.data
             dispatch({type:SEARCH_BOOK, payload: book})
@@ -175,7 +175,7 @@ export const getOrders = ()=>{
     try {
         return async function (dispatch) {
             const allOrders = await axios.get(
-                "http://localhost:3001/orders"
+                `${BACKEND_URL}/orders`
             )
             const ordersBuy = allOrders.data
             dispatch({type: BUY_ORDERS, payload: ordersBuy})
@@ -188,7 +188,7 @@ export const getOrders = ()=>{
 export const getUsers = ()=>{
     try {
         return async (dispatch) => {
-            const {data} = await axios.get("http://localhost:3001/users")
+            const {data} = await axios.get(`${BACKEND_URL}/users`)
             dispatch({type: GET_USERS, payload: data})
         }
     } catch (error) {
@@ -199,7 +199,7 @@ export const getUsers = ()=>{
 export const deleteUser = (id)=>{
     try {
         return async (dispatch)=>{
-        const {data} = axios.delete(`http//localhost:3001/users/${id}`)
+        const {data} = axios.delete(`${BACKEND_URL}/users/${id}`)
         dispatch({type: DELETE_USER, payload: data})
         }
     } catch (error) {
@@ -210,7 +210,7 @@ export const deleteUser = (id)=>{
 export const reactivateUser = (id)=>{
     try {
         return async (dispatch)=>{
-        const {data} = axios.put(`http://localhost:3001/users/${id}`)
+        const {data} = axios.put(`${BACKEND_URL}/users/${id}`)
         dispatch({type: REACTIVATE_USER, payload: data})
         }
     } catch (error) {
@@ -221,7 +221,7 @@ export const reactivateUser = (id)=>{
 export const desactivateUser = (id)=>{
     try {
         return async (dispatch)=>{
-        const {data} = axios.put(`http://localhost:3001/users/${id}`)
+        const {data} = axios.put(`${BACKEND_URL}/users/${id}`)
         dispatch({type: DESACTIVATE_USER, payload: data})
         }
     } catch (error) {

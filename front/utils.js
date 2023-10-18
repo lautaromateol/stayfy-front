@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export const BACKEND_URL = 'http://localhost:3001';
+// export const BACKEND_URL = 'http://localhost:3001';
+export const BACKEND_URL = 'https://styfyback-production.up.railway.app'
 export const FRONT_URL = 'http://localhost:5173'
 export const DESC = 'DESC';
 export const ASC = 'ASC';

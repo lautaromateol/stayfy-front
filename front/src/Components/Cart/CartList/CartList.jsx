@@ -4,6 +4,7 @@ import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext/CartContext";
 import { useUser } from "../../../Context/UserContext"
+import { BACKEND_URL } from "../../../../utils";
 
 const CartList = () => {
 
@@ -40,7 +41,7 @@ const CartList = () => {
 
             for (const productId of uniqueProductIds) {
                 try {
-                    const response = await axios.get(`http://localhost:3001/books/${productId}`);
+                    const response = await axios.get(`${BACKEND_URL}/books/${productId}`);
                     if (response.data.title) {
                         productDetails.push(response.data);
                         const product = response.data;
@@ -62,7 +63,7 @@ const CartList = () => {
             };
 
             try {
-                const preferenceResponse = await axios.post('http://localhost:3001/checkout/mercado-pago/create_preference', preferenceRequest);
+                const preferenceResponse = await axios.post(`${BACKEND_URL}/checkout/mercado-pago/create_preference`, preferenceRequest);
                 localStorage.setItem('preferenceId', preferenceResponse.data.id);
             } catch (error) {
                 console.error('Error al crear la preferencia de pago:', error);

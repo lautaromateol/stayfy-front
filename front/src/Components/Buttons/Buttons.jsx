@@ -5,15 +5,11 @@ import { useNavigate } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-
-
-
-
 const Buttons = () => {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
 
     const handlerHorror = () => {
       // navigate('/store')

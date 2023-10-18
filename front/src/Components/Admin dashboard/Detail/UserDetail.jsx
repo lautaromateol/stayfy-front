@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { desactivateUser, reactivateUser, deleteUser } from "../../../redux/actions"
 import { useDispatch } from "react-redux"
+import { BACKEND_URL } from "../../../../utils"
 
 const UserDetail = () => {
 
@@ -27,7 +28,7 @@ const UserDetail = () => {
     }
 
     useEffect(() => {
-        axios(`http://localhost:3001/users/${id}`).then(({ data }) => {
+        axios(`${BACKEND_URL}/users/${id}`).then(({ data }) => {
             if (data.username) {
                 setUser(data);
                 setOrders(data.Orders);
