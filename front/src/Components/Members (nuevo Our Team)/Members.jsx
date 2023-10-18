@@ -19,18 +19,17 @@ const Members = () => {
 
           <div className="md:grid flex">
             <div className="flex items-center justify-center md:flex-row flex-col space-x-4  p-2 ">
-              <div className="flex-col px-6 py-2  max-w-7xl ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200 ">
+              <div className="flex-col px-6 py-2  max-w-7xl" >
+                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/juane_w65i3b.jpg'
                     alt="Imagen de Juan Emilio Elizondo"
                     className=""
                   />
                 </div>
-
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100" href="https://www.linkedin.com/in/juan-emilio-elizondo/">
                     Juan Emilio Elizondo
-                </div>
+                </a>
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
@@ -42,9 +41,9 @@ const Members = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100" href="https://www.linkedin.com/in/laradecillis/">
                     Lara María De Cillis
-                </div>
+                </a>
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
@@ -56,9 +55,9 @@ const Members = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100" href="https://www.linkedin.com/in/matias-helueni-255023197/">
                     Matias Helueni
-                </div>
+                </a>
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
@@ -70,9 +69,9 @@ const Members = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100" href="https://www.linkedin.com/in/lautaro-mateo-leguizamon-35b902279/">
                     Lautaro Leguizamon
-                </div>
+                </a>
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
             </div>
@@ -86,9 +85,9 @@ const Members = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100" href="https://www.linkedin.com/in/agustin-radocaj/">
                     Agustín Radocaj
-                </div>
+                </a>
                 <div className=" italic text-gray-500">BackEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
@@ -100,9 +99,9 @@ const Members = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100" href="https://www.linkedin.com/in/daniel-ch%C3%A1vez-93065b181/">
                     Daniel Chávez
-                </div>
+                </a>
                 <div className=" italic text-gray-500">BackEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
@@ -114,9 +113,9 @@ const Members = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900  dark:text-gray-100" href="https://www.linkedin.com/in/jos%C3%A9-luis-far%C3%ADas-4a5816157/">
                     José Luis Farias
-                </div>
+                </a>
                 <div className=" italic text-gray-500">BackEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
@@ -128,9 +127,9 @@ const Members = () => {
                   />
                 </div>
 
-                <div className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900 dark:text-gray-100">
+                <a className="text-lg font-medium text-stone-700 cursor-pointer hover:text-stone-900 dark:text-gray-100" href="https://www.linkedin.com/in/duglas-paez-089065107/">
                     Duglas Antonio Paez
-                </div>
+                </a>
                 <div className=" italic text-gray-500">BackEnd</div>
               </div>
             </div>
