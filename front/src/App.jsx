@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
+// eslint-disable-next-line no-unused-vars
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import { useUser } from './Context/UserContext';
 import AddBook  from './Views/Add Book (nuevo create)/AddBook'
@@ -24,6 +25,11 @@ import UpdateBook from './Components/Admin dashboard/UpdateBook/UpdateBook';
 import BookActivation from './Components/Admin dashboard/UpdateBook/BookActivation';
 import './App.css'
 
+//import TestComponent from './TestComponent/TestComponent'
+import './App.css'
+import NewProducts from './Components/Products/NewProducts';
+import GenreCardList from './Components/GenreCardList/GenreCardList';
+import Orders from './Components/Orders/Orders';
 
 function App() {
   const { user, userData } = useUser();
@@ -53,6 +59,9 @@ function App() {
           <Route path='/store' element={<Store />} />
           <Route path='/address' element={<Address />} />
           <Route path="/*" element={<NotFound />} />
+          <Route path='/admin/orders' element={<Orders />} />
+          <Route path='/admin/products' element={<NewProducts />}></Route>
+          <Route path='/genre/:genre' element={<GenreCardList />}/>
         </Routes>
         <Footer />
       </CartProvider>

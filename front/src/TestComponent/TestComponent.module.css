@@ -20,7 +20,7 @@
 
 .sortContainer {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   background-color: #120f23;
   color: white;
   padding: 10px; 
@@ -28,7 +28,7 @@
 
 .sortContainer {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   background-color: #120f23;
   color: white;
 }
