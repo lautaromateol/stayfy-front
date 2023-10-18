@@ -2,22 +2,37 @@ import React, { useState, useEffect } from 'react';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 import { useUser } from "../../Context/UserContext";
-import Axios from 'axios';
 import { Space, Table, Tag, Button, Modal } from 'antd';
 import { BACKEND_URL } from '../../../utils';
+import ReviewForm from '../../Components/ReviewForm/ReviewForm';
+import axios from 'axios';
 
 
 
 const UserProfile = () => {
+
     const { userData } = useUser();
+
     const [axiosData, setaxiosData] = useState(null);
+
+    const [books, setBooks] = useState(null)
+
+    const [orders, setOrders] = useState([])
+
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
+
+    const [idReview, setIdReview] = useState(null)
+
+    const showModal = (bookTitle) => {
+        const filteredBooks = books.filter((book)=> book.title === bookTitle)[0].id
+        setIdReview(filteredBooks)
         setIsModalOpen(true);
     };
+
     const handleOk = () => {
         setIsModalOpen(false);
     };
+
     const handleCancel = () => {
         setIsModalOpen(false);
     };
@@ -25,86 +40,47 @@ const UserProfile = () => {
 
     const columns = [
         {
-            title: 'Order',
-            dataIndex: 'order',
-            key: 'order',
-            render: (text) => <a>{text}</a>,
+            title: 'Merchant Order',
+            dataIndex: 'merchantOrder',
+            key: 'merchantOrder',
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
+            title: 'Payment ID',
+            dataIndex: 'paymentId',
+            key: 'paymentId',
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Products',
+            dataIndex: 'products',
+            key: 'products',
+            render: (products) =>
+                products.map((product) => (
+                    <div>
+                    {products.length > 1 && products.indexOf(product) !== products.length - 1 ?
+                        <span key={product}>{product} <a className="bg-green-500 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>Review</a></span> :
+                        <span key={product}>{product} <a className="bg-green-500 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>Review</a></span>}
+                    </div>
+                ))
         },
         {
-            title: 'Tags',
-            key: 'tags',
-            dataIndex: 'tags',
-            render: (_, { tags }) => (
-                <>
-                    {tags.map((tag) => {
-                        let color = tag.length > 5 ? 'geekblue' : 'green';
-                        if (tag === 'loser') {
-                            color = 'volcano';
-                        }
-                        return (
-                            <Tag color={color} key={tag}>
-                                {tag.toUpperCase()}
-                            </Tag>
-                        );
-                    })}
-                </>
-            ),
-        },
-        {
-            title: 'Action',
-            key: 'action',
-            render: (_, record) => (
-                <Space size="middle">
-                    {/* <a>Invite {record.name}</a> */}
-                    {/* <a>View</a> */}
-                    <Button  onClick={showModal}>
-                    View
-                    </Button>
-    
-                </Space>
-            ),
+            title: 'Amount',
+            dataIndex: 'spent',
+            key: 'spent',
+            render: (spent) => <span>${spent}</span>,
         },
     ];
-    const data = [
-        {
-            key: '1',
-            order: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
-        },
-        {
-            key: '2',
-            order: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser'],
-        },
-        {
-            key: '3',
-            order: 'Joe Black',
-            age: 32,
-            address: 'Sydney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
-        },
-    ];
-
 
     useEffect(() => {
+        try {
+            axios.get(`${BACKEND_URL}/books`).then(({data}) => setBooks(data))
+        } catch (error) {
+            
+        }
         if (userData.userId) {
-            Axios.get(`${BACKEND_URL}/users/${userData.userId}`)
+            axios.get(`${BACKEND_URL}/users/${userData.userId}`)
                 .then((response) => {
                     setaxiosData(response.data);
+                    setOrders(response.data.Orders)
                 })
                 .catch((error) => {
                     console.error('Error al obtener los datos del usuario:', error);
@@ -117,11 +93,9 @@ const UserProfile = () => {
     }
     return (
         <div className="bg-gray-100 dark:bg-gray-800 py-16">
-        <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-        </Modal>
+            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <ReviewForm idBook={idReview} />
+            </Modal>
 
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
@@ -191,7 +165,12 @@ const UserProfile = () => {
                             {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                             eget justo nec urna cursus blandit. */}
                         </p>
-                        <Table columns={columns} dataSource={data} />
+                        <Table
+                            dataSource={orders}
+                            columns={columns}
+                            rowKey={(record) => record.paymentId}
+                        />
+                        <button onClick={showModal}>Modal</button>
                     </div>
                 </div>
             </div>

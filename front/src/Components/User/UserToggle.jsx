@@ -21,14 +21,15 @@ const UserToggle = () => {
       <button
         id="avatarButton"
         type="button"
-        onClick={toggleDropdown}
+        // onClick={toggleDropdown}
         className="rounded-full cursor-pointer flex justify-center items-center"
-      >
+      ><a href="/user/profile">
         {/* Aquí podría ir tu imagen de perfil */}
         {user?.name || "profile"}
+      </a>
       </button>
 
-      {/* Menú desplegable */}
+      {/* Menú desplegable
       {showDropdown && (
         <div className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow right-0 w-44 dark:bg-gray-700 dark:divide-gray-600">
           <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
@@ -59,7 +60,7 @@ const UserToggle = () => {
           </ul>
           
         </div>
-      )}
+      )} */}
     </div>
   );
 };
