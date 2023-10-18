@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom";
-import UserProfile from "../User/Userprofile";
+import UserToggle from "../User/UserToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSun,
@@ -31,9 +31,6 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         {userData.isSuperAdmin || userData.isAdmin ? (
           <>
         <button>
-          <Link to="/admin/create">Create</Link>
-        </button>
-        <button>
           <Link to="/review">Rate us!</Link>
         </button>
           </>
@@ -62,6 +59,8 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
           <>
             <button className="duration-150 hover:scale-105" onClick={signOut}>Sign Out</button>
             <UserProfile  />
+            <button onClick={signOut}>Sign Out</button>
+            <UserToggle  />
           </>
         ) : (
           <>

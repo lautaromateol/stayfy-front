@@ -43,7 +43,7 @@ function Slider() {
           </video>
         </div>
 
-        <div>
+        {/* <div>
           <img
             src="https://www-cms.pipedriveassets.com/blog-assets/sales-books-3.png"
             alt="Image 2"
@@ -54,7 +54,7 @@ function Slider() {
             src="https://dhjhkxawhe8q4.cloudfront.net/notre-dame-university-press-wp/wp-content/uploads/2023/09/21150519/Book-Festival-Slider.jpg"
             alt="Image 3"
           />
-        </div>
+        </div> */}
       </Carousel>
     </>
   );
