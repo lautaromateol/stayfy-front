@@ -122,6 +122,7 @@ const LogIn = () => {
                 Sign In
               </button>
               <span className="mb-6">Don't have an account? Register <Link to='/register' className="text-yellow-500">here.</Link></span>
+              <Link to="/forgot-password">Forgot password?</Link>
             </div>
             <div className="text-center mt-7">
               

@@ -2,333 +2,425 @@
     "books": [
         {
             "title": "12 Rules for Life: An Antidote to Chaos",
-            "authors": ["Jordan Peterson"],
+            "authors": [
+                "Jordan Peterson"
+            ],
             "publisher": "Random House Canada",
             "description": "12 Rules for Life: An Antidote to Chaos is a 2018 self-help book by the Canadian clinical psychologist Jordan Peterson. It provides life advice through essays in abstract ethical principles, psychology, mythology, religion, and personal anecdotes. The book topped bestseller lists in Canada, the United States, and the United Kingdom, and had sold over five million copies worldwide by the end of 2020.",
             "publishedDate": 2018,
-            "price": 20.00,
+            "price": 20.0,
             "gender": "Self-help",
             "pageCount": 512,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/12_Rules_for_Life_Front_Cover_%282018_first_edition%29.jpg/330px-12_Rules_for_Life_Front_Cover_%282018_first_edition%29.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/12_Rules_for_Life_Front_Cover_%282018_first_edition%29.jpg/330px-12_Rules_for_Life_Front_Cover_%282018_first_edition%29.jpg",
+            "stock": 11
         },
         {
             "title": "Beyond Order: 12 More Rules for Life",
-            "authors": ["Jordan Peterson"],
+            "authors": [
+                "Jordan Peterson"
+            ],
             "publisher": "Random House Canada",
             "description": "Beyond Order: 12 More Rules for Life is a 2021 self-help book by Canadian clinical psychologist, YouTube personality, and psychology professor Jordan Peterson, as a sequel to his 2018 book 12 Rules for Life.",
             "publishedDate": 2021,
-            "price": 20.00,
+            "price": 20.0,
             "gender": "Self-help",
             "pageCount": 432,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg/330px-Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg/330px-Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg",
+            "stock": 30
         },
         {
             "title": "The 7 Habits of Highly Effective People",
-            "authors": ["Stephen Covey"],
+            "authors": [
+                "Stephen Covey"
+            ],
             "publisher": "Free Press",
             "description": "The 7 Habits of Highly Effective People, first published in 1989, is a business and self-help book written by Stephen R. Covey. Covey defines effectiveness as the balance of obtaining desirable results with caring for that which produces those results. He illustrates this by referring to the fable of the goose that laid the golden eggs. He claims that effectiveness can be expressed in terms of the P/PC ratio, where P refers to getting desired results and PC is caring for that which produces the results.",
             "publishedDate": 1989,
             "price": 12.32,
             "gender": "Self-help",
             "pageCount": 381,
-            "image": "https://upload.wikimedia.org/wikipedia/en/a/a2/The_7_Habits_of_Highly_Effective_People.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/a/a2/The_7_Habits_of_Highly_Effective_People.jpg",
+            "stock": 7
         },
         {
             "title": "Think and Grow Rich",
-            "authors": ["Napoleon Hill", "Rosa Lee Beeland"],
+            "authors": [
+                "Napoleon Hill",
+                "Rosa Lee Beeland"
+            ],
             "publisher": "The Ralston Society",
             "description": "Think and Grow Rich is a book written by Napoleon Hill and Rosa Lee Beeland released in 1937 and promoted as a personal development and self-improvement book. He claimed to be inspired by a suggestion from business magnate and later-philanthropist Andrew Carnegie. However there is no evidence that the two ever met. The book is considered a classic in the personal development genre and has been widely influential in shaping the way people think about success and wealth.",
             "publishedDate": 1937,
             "price": 8.18,
             "gender": "Self-help",
             "pageCount": 238,
-            "image": ""
+            "image": "",
+            "stock": 90
         },
         {
             "title": "48 Laws of Power",
-            "authors": ["Robert Greene"],
+            "authors": [
+                "Robert Greene"
+            ],
             "publisher": "Viking Press",
             "description": "The 48 Laws of Power is a bestselling self-help book written by Robert Greene. It explores the principles of power and manipulation through 48 laws that provide strategies for achieving and maintaining power in various social and professional settings. Greene draws on historical anecdotes and case studies to illustrate these laws and their applications in different situations, ultimately offering insights into the dynamics of power and human behavior. The book is a provocative guide to understanding and mastering the complex game of power.",
             "publishedDate": 1998,
             "price": 14.45,
             "gender": "Self-help",
             "pageCount": 480,
-            "image": "https://upload.wikimedia.org/wikipedia/en/9/9d/GreeneRobert-48LawsOfPower.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/9/9d/GreeneRobert-48LawsOfPower.jpg",
+            "stock": 62
         },
         {
             "title": "How to Win Friends and Influence People",
-            "authors": ["Dale Carnegie"],
+            "authors": [
+                "Dale Carnegie"
+            ],
             "publisher": "Simon & Schuster",
             "description": "How to Win Friends and Influence People by Dale Carnegie is a classic self-help book that provides practical tips for improving interpersonal skills, fostering meaningful relationships, and positively influencing others. Using relatable anecdotes and actionable advice, Carnegie emphasizes the importance of genuine interest in others, appreciation, and effective communication to achieve personal and professional success.",
             "publishedDate": 1936,
             "price": 9.75,
             "gender": "Self-help",
             "pageCount": 303,
-            "image": "https://upload.wikimedia.org/wikipedia/en/3/33/How-to-win-friends-and-influence-people.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/3/33/How-to-win-friends-and-influence-people.jpg",
+            "stock": 83
         },
         {
             "title": "$100M Offers: How to Make Offers So Good People Feel Stupid Saying No",
-            "authors": ["Alex Hormozi"],
+            "authors": [
+                "Alex Hormozi"
+            ],
             "publisher": "Alex Hormozi",
             "description": "100M Offers by Alex Hormozi is a business book that delves into the strategies and concepts to create and scale a business to a $100 million level. It provides insights into developing and optimizing offers, marketing, and sales processes to achieve significant revenue milestones. Hormozi emphasizes refining value propositions and understanding customer needs to create highly successful offers that drive substantial business growth. The book is a comprehensive guide for entrepreneurs and business owners aiming to build successful and lucrative ventures.",
             "publishedDate": 2021,
             "price": 9.99,
             "gender": "Self-help",
             "pageCount": 164,
-            "image": "https://m.media-amazon.com/images/I/718ewn+YFJL._SY466_.jpg"
+            "image": "https://m.media-amazon.com/images/I/718ewn+YFJL._SY466_.jpg",
+            "stock": 69
         },
         {
             "title": "Rich Dad Poor Dad",
-            "authors": ["Robert T. Kiyosaki", "Sharon Lecther"],
+            "authors": [
+                "Robert T. Kiyosaki",
+                "Sharon Lecther"
+            ],
             "publisher": "Warner Books",
             "description": "Rich Dad Poor Dad is a 1997 book written by Robert T. Kiyosaki and Sharon Lechter. It advocates the importance of financial literacy, financial independence and building wealth through investing in assets, real estate investing, starting and owning businesses, as well as increasing one's financial intelligence.",
             "publishedDate": 1997,
             "price": 6.64,
             "gender": "Self-help",
             "pageCount": 336,
-            "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Rich_Dad_Poor_Dad.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Rich_Dad_Poor_Dad.jpg",
+            "stock": 70
         },
         {
             "title": "The Secrets of the Millionaire Mind",
-            "authors": ["T. Harv Eker"],
+            "authors": [
+                "T. Harv Eker"
+            ],
             "publisher": "HarperCollins",
             "description": "The Secrets of the Millionaire Mind is a self-help book by T. Harv Eker. It focuses on the mindset and beliefs that influence financial success. Eker advocates for shifting one's mindset towards abundance and away from scarcity. The book discusses strategies to manage money effectively, develop a wealthy mindset, and overcome limiting beliefs about money and success. It's a guide to transforming one's financial habits and attitudes to achieve prosperity and abundance.",
             "publishedDate": 2005,
             "price": 15.35,
             "gender": "Self-help",
             "pageCount": 224,
-            "image": ""
+            "image": "",
+            "stock": 30
         },
         {
             "title": "The Chinese Art of War",
-            "authors": ["Sun Tzu"],
+            "authors": [
+                "Sun Tzu"
+            ],
             "publisher": "Sun Tzu",
             "description": "The Art of War by Sun Tzu is an ancient Chinese military treatise, focusing on strategy, tactics, and adaptability in warfare. Its principles have been widely applied in business and life to achieve success through careful planning and execution.",
             "publishedDate": 5,
             "price": 4.99,
             "gender": "Self-help",
             "pageCount": 60,
-            "image": ""
+            "image": "",
+            "stock": 88
         },
         {
             "title": "Holly",
-            "authors": ["Stephen King"],
+            "authors": [
+                "Stephen King"
+            ],
             "publisher": "Scribner",
             "description": "Holly Gibney, one of Stephen King's most compelling and ingeniously resourceful characters, returns in this thrilling novel to solve the gruesome truth behind multiple disappearances in a midwestern town.",
             "publishedDate": 2023,
-            "price": 18.00,
+            "price": 18.0,
             "gender": "Horror",
             "pageCount": 464,
-            "image": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781668016138/holly-9781668016138_hr.jpg"
+            "image": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781668016138/holly-9781668016138_hr.jpg",
+            "stock": 12
         },
         {
             "title": "The Silent Patient",
-            "authors": ["Alex Michaelides"],
+            "authors": [
+                "Alex Michaelides"
+            ],
             "publisher": "Celadon Books",
-            "description": "The Silent Patient is a shocking psychological thriller of a woman's act of violence against her husband―and of the therapist obsessed with uncovering her motive.",
+            "description": "The Silent Patient is a shocking psychological thriller of a woman's act of violence against her husband\u2015and of the therapist obsessed with uncovering her motive.",
             "publishedDate": 2019,
             "price": 12.99,
             "gender": "Horror",
             "pageCount": 368,
-            "image": "https://m.media-amazon.com/images/I/91lslnZ-btL._AC_UF1000,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/91lslnZ-btL._AC_UF1000,1000_QL80_.jpg",
+            "stock": 17
         },
         {
             "title": "Hidden Pictures",
-            "authors": ["Jason Rekulak"],
+            "authors": [
+                "Jason Rekulak"
+            ],
             "publisher": "Flatiron Books",
             "description": "From Edgar Award-finalist Jason Rekulak comes a wildly inventive spin on the supernatural thriller, for fans of Stranger Things and Riley Sager, about a woman working as a nanny for a young boy with strange and disturbing secrets.",
             "publishedDate": 2022,
             "price": 15.14,
             "gender": "Horror",
             "pageCount": 384,
-            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1635260162l/58724923.jpg"
+            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1635260162l/58724923.jpg",
+            "stock": 56
         },
         {
             "title": "Chasing the Boogeyman",
-            "authors": ["Richard Chizmar"],
+            "authors": [
+                "Richard Chizmar"
+            ],
             "publisher": "Gallery Books",
-            "description": "In the summer of 1988, the mutilated bodies of several missing girls begin to turn up in a small Maryland town. The grisly evidence leads police to the terrifying assumption that a serial killer is on the loose in the quiet suburb. But soon a rumor begins to spread that the evil stalking local teens is not entirely human. Law enforcement, as well as members of the FBI, are certain that the killer is a living, breathing madman—and he's playing games with them. For a once peaceful community trapped in the depths of paranoia and suspicion, it feels like a nightmare that will never end.",
+            "description": "In the summer of 1988, the mutilated bodies of several missing girls begin to turn up in a small Maryland town. The grisly evidence leads police to the terrifying assumption that a serial killer is on the loose in the quiet suburb. But soon a rumor begins to spread that the evil stalking local teens is not entirely human. Law enforcement, as well as members of the FBI, are certain that the killer is a living, breathing madman\u2014and he's playing games with them. For a once peaceful community trapped in the depths of paranoia and suspicion, it feels like a nightmare that will never end.",
             "publishedDate": 2021,
             "price": 16.14,
             "gender": "Horror",
             "pageCount": 336,
-            "image": "https://m.media-amazon.com/images/I/81f5gfGdyPS._AC_UF1000,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81f5gfGdyPS._AC_UF1000,1000_QL80_.jpg",
+            "stock": 47
         },
         {
             "title": "Intercepts",
-            "authors": ["T.J. Payne"],
+            "authors": [
+                "T.J. Payne"
+            ],
             "publisher": "Tunnel Falls",
-            "description": "People are being held at the Facility, where they're being used as “antennas” to intercept some sort of information. They're believed to be vegetables with no real awareness, so their keepers aren't particularly worried about how the process affects them. They, however, are suspended in a hideous darkness without end, until they experience unimaginable pain whenever they're “tuned”.",
+            "description": "People are being held at the Facility, where they're being used as \u201cantennas\u201d to intercept some sort of information. They're believed to be vegetables with no real awareness, so their keepers aren't particularly worried about how the process affects them. They, however, are suspended in a hideous darkness without end, until they experience unimaginable pain whenever they're \u201ctuned\u201d.",
             "publishedDate": 2019,
             "price": 19.99,
             "gender": "Horror",
             "pageCount": 326,
-            "image": "https://m.media-amazon.com/images/I/51azavsYSZL._AC_UF1000,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/51azavsYSZL._AC_UF1000,1000_QL80_.jpg",
+            "stock": 20
         },
         {
             "title": "What Moves the Dead",
-            "authors": ["T. Kingfisher"],
+            "authors": [
+                "T. Kingfisher"
+            ],
             "publisher": "Tor Nightfire",
             "description": "When Alex Easton, a retired soldier, receives word that their childhood friend Madeline Usher is dying, they race to the ancestral home of the Ushers in the remote countryside of Ruritania.What they find there is a nightmare of fungal growths and possessed wildlife, surrounding a dark, pulsing lake. Madeline sleepwalks and speaks in strange voices at night, and her brother Roderick is consumed with a mysterious malady of the nerves. Aided by a redoubtable British mycologist and a baffled American doctor, Alex must unravel the secret of the House of Usher before it consumes them all.",
             "publishedDate": 2022,
             "price": 14.91,
             "gender": "Horror",
             "pageCount": 159,
-            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1632936332l/58724626.jpg"
+            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1632936332l/58724626.jpg",
+            "stock": 97
         },
         {
             "title": "IT",
-            "authors": ["Stephen King"],
+            "authors": [
+                "Stephen King"
+            ],
             "publisher": "Viking Press",
             "description": "A promise made twenty-eight years ago calls seven adults to reunite in Derry, Maine, where as teenagers they battled an evil creature that preyed on the city's children. Unsure that their Losers Club had vanquished the creature all those years ago, the seven had vowed to return to Derry if IT should ever reappear. Now, children are being murdered again and their repressed memories of that summer return as they prepare to do battle with the monster lurking in Derry's sewers once more.",
             "publishedDate": 1986,
             "price": 21.49,
             "gender": "Horror",
             "pageCount": 1138,
-            "image": "https://stephenking.com/images/books/it/hardcover_prop_embed.jpg"
+            "image": "https://stephenking.com/images/books/it/hardcover_prop_embed.jpg",
+            "stock": 68
         },
         {
             "title": "Dracula",
-            "authors": ["Bram Stoker"],
+            "authors": [
+                "Bram Stoker"
+            ],
             "publisher": "Global Publishers",
             "description": "Dracula is a novel by Bram Stoker, published in 1897. As an epistolary novel, the narrative is related through letters, diary entries, and newspaper articles. It has no single protagonist, but opens with solicitor Jonathan Harker taking a business trip to stay at the castle of a Transylvanian nobleman, Count Dracula. Harker escapes the castle after discovering that Dracula is a vampire, and the Count moves to England and plagues the seaside town of Whitby. A small group, led by Abraham Van Helsing, hunt Dracula and, in the end, kill him.",
             "publishedDate": 1897,
             "price": 18.79,
             "gender": "Horror",
             "pageCount": 199,
-            "image": "https://m.media-amazon.com/images/I/5126hLd7jsL.jpg"
+            "image": "https://m.media-amazon.com/images/I/5126hLd7jsL.jpg",
+            "stock": 66
         },
         {
             "title": "House of Leaves: Remastered",
-            "authors": ["Mark Z. Danielewski"],
+            "authors": [
+                "Mark Z. Danielewski"
+            ],
             "publisher": "Pantheon",
-            "description": "Years ago, when House of Leaves was first being passed around, it was nothing more than a badly bundled heap of paper, parts of which would occasionally surface on the Internet. No one could have anticipated the small but devoted following this terrifying story would soon command. Starting with an odd assortment of marginalized youth—musicians, tattoo artists, programmers, strippers, environmentalists, and adrenaline junkies—the book eventually made its way into the hands of older generations, who not only found themselves in those strangely arranged pages but also discovered a way back into the lives of their estranged children.",
+            "description": "Years ago, when House of Leaves was first being passed around, it was nothing more than a badly bundled heap of paper, parts of which would occasionally surface on the Internet. No one could have anticipated the small but devoted following this terrifying story would soon command. Starting with an odd assortment of marginalized youth\u2014musicians, tattoo artists, programmers, strippers, environmentalists, and adrenaline junkies\u2014the book eventually made its way into the hands of older generations, who not only found themselves in those strangely arranged pages but also discovered a way back into the lives of their estranged children.",
             "publishedDate": 2000,
-            "price": 17.30,
+            "price": 17.3,
             "gender": "Horror",
             "pageCount": 736,
-            "image": "https://m.media-amazon.com/images/I/810pcXb+l3L.AC_UF1000,1000_QL80.jpg"
+            "image": "https://m.media-amazon.com/images/I/810pcXb+l3L.AC_UF1000,1000_QL80.jpg",
+            "stock": 64
         },
         {
             "title": "The Shining",
-            "authors": ["Stephen King"],
+            "authors": [
+                "Stephen King"
+            ],
             "publisher": "Anchor",
             "description": "Jack Torrance's new job at the Overlook Hotel is the perfect chance for a fresh start. As the off-season caretaker at the atmospheric old hotel, he'll have plenty of time to spend reconnecting with his family and working on his writing. But as the harsh winter weather sets in, the idyllic location feels ever more remote... and more sinister. And the only one to notice the strange and terrible forces gathering around the Overlook is Danny Torrance, a uniquely gifted five-year-old.",
             "publishedDate": 2013,
             "price": 22.99,
             "gender": "Horror",
             "pageCount": 688,
-            "image": "https://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg"
+            "image": "https://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
+            "stock": 68
         },
         {
             "title": "Frankenstein",
-            "authors": ["Mary Shelley"],
+            "authors": [
+                "Mary Shelley"
+            ],
             "publisher": "Signet Classics",
-            "description": "On a stormy summer night in 1816, eighteen-year-old Mary Shelley sat down to write a ghost story. What poured from her pen that fateful night would change the world, revolutionizing our understanding of artificial life, bewitching generations of readers, and pioneering science fiction as we now know it. Even the uninitiated reader knows the story’s familiar bones: Dr. Victor Frankenstein builds a creature out of scavenged body parts, recoils from his creation, then sees all that he loves destroyed by his spurned progeny. In this landmark novel, Shelley fused a primordial parable with the upheavals and anxieties of the Industrial Revolution, and in doing so, laid the foundation for the themes and constructs of science fiction. The weighty questions she poses in Frankenstein continue to animate the genre to this very day. Why do we harbor such fear of the other? How responsible are we for our creations, and what does it mean when they develop agency of their own? Where’s the line between what science can do, and what it should do? Frankenstein strikes at the very heart of what it means to be human. It also rewards repeat readings—so much so that, even two centuries later, we’re still peering at it through new lenses, as queer, transhumanist, and feminist readings locate new depths within the familiar text. Plenty of imitators have tried to match the heights of Frankenstein, but none have come close. We owe everything to Shelley’s ur-textual story of modernity, morality, and progress’ great and terrible cost.",
+            "description": "On a stormy summer night in 1816, eighteen-year-old Mary Shelley sat down to write a ghost story. What poured from her pen that fateful night would change the world, revolutionizing our understanding of artificial life, bewitching generations of readers, and pioneering science fiction as we now know it. Even the uninitiated reader knows the story\u2019s familiar bones: Dr. Victor Frankenstein builds a creature out of scavenged body parts, recoils from his creation, then sees all that he loves destroyed by his spurned progeny. In this landmark novel, Shelley fused a primordial parable with the upheavals and anxieties of the Industrial Revolution, and in doing so, laid the foundation for the themes and constructs of science fiction. The weighty questions she poses in Frankenstein continue to animate the genre to this very day. Why do we harbor such fear of the other? How responsible are we for our creations, and what does it mean when they develop agency of their own? Where\u2019s the line between what science can do, and what it should do? Frankenstein strikes at the very heart of what it means to be human. It also rewards repeat readings\u2014so much so that, even two centuries later, we\u2019re still peering at it through new lenses, as queer, transhumanist, and feminist readings locate new depths within the familiar text. Plenty of imitators have tried to match the heights of Frankenstein, but none have come close. We owe everything to Shelley\u2019s ur-textual story of modernity, morality, and progress\u2019 great and terrible cost.",
             "publishedDate": 2021,
-            "price": 22.00,
+            "price": 22.0,
             "gender": "Sci-Fi",
             "pageCount": 272,
-            "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1646688860-51y-dq7THDS._SL500_.jpg"
+            "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1646688860-51y-dq7THDS._SL500_.jpg",
+            "stock": 22
         },
         {
             "title": "Dune",
-            "authors": ["Frank Herbert"],
+            "authors": [
+                "Frank Herbert"
+            ],
             "publisher": "Penguin Publishing Group",
-            "description": "Where would we be without Dune, the granddaddy of contemporary science fiction? The world’s bestselling sci-fi novel of all time paved the way for Alien, Blade Runner, Stars both Wars and Trek, and countless other cultural tentpoles. Set far into the future, Dune envisions an intergalactic feudal society where powerful noble houses vy for control over resources, armies, and planetary power. At the center of it all is Arrakis, an inhospitable desert planet home to giant sandworms, a mysterious indigenous population, and the valuable natural resource spice. When young Paul Atreides is targeted as a potential messiah to lead the planet—and the galaxy—toward a new future, an epic story of war, betrayal, and mysticism unfolds. Frighteningly original and thematically ambitious, Dune offers a master class in the power of science fiction not just to entertain, but to examine the cultural landscapes and ethical questions of our time. Religion, colonialism, and environmentalism all come under Herbert’s microscope, as do the limitations of the hero’s journey. “No more terrible disaster could befall your people than for them to fall into the hands of a hero,” Herbert warns ominously. No science fiction hero has stepped lightly since.",
+            "description": "Where would we be without Dune, the granddaddy of contemporary science fiction? The world\u2019s bestselling sci-fi novel of all time paved the way for Alien, Blade Runner, Stars both Wars and Trek, and countless other cultural tentpoles. Set far into the future, Dune envisions an intergalactic feudal society where powerful noble houses vy for control over resources, armies, and planetary power. At the center of it all is Arrakis, an inhospitable desert planet home to giant sandworms, a mysterious indigenous population, and the valuable natural resource spice. When young Paul Atreides is targeted as a potential messiah to lead the planet\u2014and the galaxy\u2014toward a new future, an epic story of war, betrayal, and mysticism unfolds. Frighteningly original and thematically ambitious, Dune offers a master class in the power of science fiction not just to entertain, but to examine the cultural landscapes and ethical questions of our time. Religion, colonialism, and environmentalism all come under Herbert\u2019s microscope, as do the limitations of the hero\u2019s journey. \u201cNo more terrible disaster could befall your people than for them to fall into the hands of a hero,\u201d Herbert warns ominously. No science fiction hero has stepped lightly since.",
             "publishedDate": 2005,
-            "price": 10.00,
+            "price": 10.0,
             "gender": "Sci-Fi",
             "pageCount": 704,
-            "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1638217468-41rxoi1jMQL._SL500_.jpg"
+            "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1638217468-41rxoi1jMQL._SL500_.jpg",
+            "stock": 95
         },
         {
             "title": "The Martian Chronicles",
-            "authors": ["Ray Bradbury"],
+            "authors": [
+                "Ray Bradbury"
+            ],
             "publisher": "Simon & Schuster",
-            "description": "If you expected to see Fahrenheit 451 on this list, then you haven’t spent enough time with The Martian Chronicles, undoubtedly Bradbury’s masterpiece. Radically poetic and rich with metaphor, The Martian Chronicles was an astonishing leap forward for a genre until then not considered sufficiently “literary.” Bradbury’s succession of linked stories opens on an Earth ravaged by nuclear warfare. In search of a new beginning, Americans pack up their manifest destiny and blast off to conquer Mars, but little do they know, the red planet will conquer them in return. Bradbury’s Mars is a dreamlike landscape of wasted cities, populated by a dwindling race of ancient, unknowable beings. In glimmering stories that swing from dark tragedy to pure comedy, Bradbury showcases mankind’s exploration and desolation of Mars, all while dismantling midcentury mythologies of American exceptionalism. Told in language at once elegiac and sinister, fantastical and fable-like, The Martian Chronicles transforms and transcends its genre.",
+            "description": "If you expected to see Fahrenheit 451 on this list, then you haven\u2019t spent enough time with The Martian Chronicles, undoubtedly Bradbury\u2019s masterpiece. Radically poetic and rich with metaphor, The Martian Chronicles was an astonishing leap forward for a genre until then not considered sufficiently \u201cliterary.\u201d Bradbury\u2019s succession of linked stories opens on an Earth ravaged by nuclear warfare. In search of a new beginning, Americans pack up their manifest destiny and blast off to conquer Mars, but little do they know, the red planet will conquer them in return. Bradbury\u2019s Mars is a dreamlike landscape of wasted cities, populated by a dwindling race of ancient, unknowable beings. In glimmering stories that swing from dark tragedy to pure comedy, Bradbury showcases mankind\u2019s exploration and desolation of Mars, all while dismantling midcentury mythologies of American exceptionalism. Told in language at once elegiac and sinister, fantastical and fable-like, The Martian Chronicles transforms and transcends its genre.",
             "publishedDate": 2005,
-            "price": 9.00,
+            "price": 9.0,
             "gender": "Sci-Fi",
             "pageCount": 256,
-            "image": "https://d28hgpri8am2if.cloudfront.net/book_images/cvr9781451678192_9781451678192_hr.jpg"
+            "image": "https://d28hgpri8am2if.cloudfront.net/book_images/cvr9781451678192_9781451678192_hr.jpg",
+            "stock": 13
         },
         {
             "title": "The Fifth Season",
-            "authors": ["N. K. Jemisin"],
+            "authors": [
+                "N. K. Jemisin"
+            ],
             "publisher": "Orbit",
-            "description": "Like many science fiction writers, it’s impossible to categorize Jemisin in just one genre. Many of her works belong to the hybrid genre of science fantasy, including this paradigm-shifting first installment in her Hugo Award-winning Broken Earth trilogy. The Fifth Season introduces a characteristically Jemisinian feat of astonishing worldbuilding: the Stillness, a dangerous continent wracked with volcanoes, earthquakes, and tectonic chaos. There live the orogenes, who have the power to manipulate the elements, but face persecution and lynching. Through the linked narratives of three extraordinary women, Jemisin depicts the tragedy of an orogene’s life with brutal, unsparing detail. As these unforgettable characters seek safety and agency, Jemisin weaves a shattering story about systemic oppression, where gritty glimmers of hope shine through the bleak edges.",
+            "description": "Like many science fiction writers, it\u2019s impossible to categorize Jemisin in just one genre. Many of her works belong to the hybrid genre of science fantasy, including this paradigm-shifting first installment in her Hugo Award-winning Broken Earth trilogy. The Fifth Season introduces a characteristically Jemisinian feat of astonishing worldbuilding: the Stillness, a dangerous continent wracked with volcanoes, earthquakes, and tectonic chaos. There live the orogenes, who have the power to manipulate the elements, but face persecution and lynching. Through the linked narratives of three extraordinary women, Jemisin depicts the tragedy of an orogene\u2019s life with brutal, unsparing detail. As these unforgettable characters seek safety and agency, Jemisin weaves a shattering story about systemic oppression, where gritty glimmers of hope shine through the bleak edges.",
             "publishedDate": 2015,
-            "price": 14.00,
+            "price": 14.0,
             "gender": "Sci-Fi",
             "pageCount": 512,
-            "image": "https://store.orbit-books.co.uk/cdn/shop/products/9780356508191-amazon-image.jpg?v=1666024408"
+            "image": "https://store.orbit-books.co.uk/cdn/shop/products/9780356508191-amazon-image.jpg?v=1666024408",
+            "stock": 50
         },
         {
             "title": "Kindred",
-            "authors": ["Octavia E. Butler"],
+            "authors": [
+                "Octavia E. Butler"
+            ],
             "publisher": "Beacon Press",
-            "description": "Octavia Butler’s contributions to science fiction and Afrofuturism are legendary, meaning that selecting just one of her works for this list was a tall order. But Kindred, perhaps her best-known novel, stood out above the rest as a master class in the ability of science fiction to speak to the contemporary moment. This is the story of Dana, a Black woman in Los Angeles circa 1976, who finds herself violently transported back in time to the antebellum plantation where her ancestors were enslaved. Each time she pinballs through past and present, Dana’s stays at the plantation become longer and more dangerous, forcing her to confront the gruesome legacies of slavery, misogynoir, and white supremacy. As Harlan Ellison once said, “Octavia Butler is a writer who will be with us for a long, long time, and Kindred is that rare magical artifact… the novel one returns to, again and again.” Almost like time travel, we keep coming back to it..",
+            "description": "Octavia Butler\u2019s contributions to science fiction and Afrofuturism are legendary, meaning that selecting just one of her works for this list was a tall order. But Kindred, perhaps her best-known novel, stood out above the rest as a master class in the ability of science fiction to speak to the contemporary moment. This is the story of Dana, a Black woman in Los Angeles circa 1976, who finds herself violently transported back in time to the antebellum plantation where her ancestors were enslaved. Each time she pinballs through past and present, Dana\u2019s stays at the plantation become longer and more dangerous, forcing her to confront the gruesome legacies of slavery, misogynoir, and white supremacy. As Harlan Ellison once said, \u201cOctavia Butler is a writer who will be with us for a long, long time, and Kindred is that rare magical artifact\u2026 the novel one returns to, again and again.\u201d Almost like time travel, we keep coming back to it..",
             "publishedDate": 2003,
-            "price": 10.00,
+            "price": 10.0,
             "gender": "Sci-Fi",
             "pageCount": 288,
-            "image": "https://www.beacon.org/Assets/ProductImages/978-080708369-7.jpg"
+            "image": "https://www.beacon.org/Assets/ProductImages/978-080708369-7.jpg",
+            "stock": 18
         },
         {
             "title": "The Left Hand of Darkness",
-            "authors": ["Ursula K. Le Guin"],
+            "authors": [
+                "Ursula K. Le Guin"
+            ],
             "publisher": "Ace Books",
-            "description": "In 1969, Le Guin put feminist science fiction on the map with The Left Hand of Darkness. According to The Paris Review, ”No single work did more to upend the genre's conventions.” This barrier-breaking first contact narrative opens on the planet Gethen, where Earth-born emissary Genly Ai is dispatched to broker an interplanetary alliance. The ambisexual Gethenians live without gender binaries, meaning that they’ve developed a world without war, where children are raised communally. Ai’s inability to think beyond his own misogyny and homophobia threatens his mission, imperils his life, and endangers his growing connection with Estraven, Gethen’s disgraced prime minister. In this visionary work of radical imagination, Le Guin explores a world beyond the constraints of gender and sex, and takes us to the heights of love without limitations.",
+            "description": "In 1969, Le Guin put feminist science fiction on the map with The Left Hand of Darkness. According to The Paris Review, \u201dNo single work did more to upend the genre's conventions.\u201d This barrier-breaking first contact narrative opens on the planet Gethen, where Earth-born emissary Genly Ai is dispatched to broker an interplanetary alliance. The ambisexual Gethenians live without gender binaries, meaning that they\u2019ve developed a world without war, where children are raised communally. Ai\u2019s inability to think beyond his own misogyny and homophobia threatens his mission, imperils his life, and endangers his growing connection with Estraven, Gethen\u2019s disgraced prime minister. In this visionary work of radical imagination, Le Guin explores a world beyond the constraints of gender and sex, and takes us to the heights of love without limitations.",
             "publishedDate": 1987,
-            "price": 9.00,
+            "price": 9.0,
             "gender": "Sci-Fi",
             "pageCount": 304,
-            "image": "https://m.media-amazon.com/images/I/81A8iBA0FEL._AC_UF1000,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81A8iBA0FEL._AC_UF1000,1000_QL80_.jpg",
+            "stock": 11
         },
         {
             "title": "Never Let Me Go",
-            "authors": ["Kazuo Ishiguro"],
+            "authors": [
+                "Kazuo Ishiguro"
+            ],
             "publisher": "Vintage",
-            "description": "One can’t say too much about Never Let Me Go without spoiling the novel’s gut-wrenching twist. But here’s what we can reveal: in Ishiguro’s chilling magnum opus, we meet three students of Hailsham, a quixotic English boarding school where sheltered children are educated in the arts and taught nothing of the outside world. Only when they become adults do they learn the shocking truth about Hailsham’s nefarious activities, and the reality of their terrible purpose. At once an arresting mystery, a Gothic romance, and a tear-jerking work of science fiction, Never Let Me Go is a masterpiece of tension and tone, as well as a powerful indictment of a future shaped by science without ethics.",
+            "description": "One can\u2019t say too much about Never Let Me Go without spoiling the novel\u2019s gut-wrenching twist. But here\u2019s what we can reveal: in Ishiguro\u2019s chilling magnum opus, we meet three students of Hailsham, a quixotic English boarding school where sheltered children are educated in the arts and taught nothing of the outside world. Only when they become adults do they learn the shocking truth about Hailsham\u2019s nefarious activities, and the reality of their terrible purpose. At once an arresting mystery, a Gothic romance, and a tear-jerking work of science fiction, Never Let Me Go is a masterpiece of tension and tone, as well as a powerful indictment of a future shaped by science without ethics.",
             "publishedDate": 2006,
-            "price": 10.00,
+            "price": 10.0,
             "gender": "Sci-Fi",
             "pageCount": 288,
-            "image": "https://m.media-amazon.com/images/I/71m61vu42YL._AC_UF894,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/71m61vu42YL._AC_UF894,1000_QL80_.jpg",
+            "stock": 27
         },
         {
             "title": "Exhalation",
-            "authors": ["Ted Chiang"],
+            "authors": [
+                "Ted Chiang"
+            ],
             "publisher": "Vintage",
-            "description": "In this stellar collection of short stories, one of the most award-winning science fiction writers of our time tees up nine brilliant tales of time travel, artificial intelligence, and alternate universes. The collection opens with a Hugo Award-winning parable set in ancient Baghdad, where a merchant traveling through an alchemist’s portal learns a familiar lesson about the impossibility of erasing the past. In another standout, a software tester spends an emotional two decades raising an artificial intelligence as if it were a digital pet (Tamagotchi users, take note). The remarkable title story, structured as a journal entry by a mechanical scientist dissecting his own brain, offers profound wisdom about consciousness: “Contemplate the marvel that is existence, and rejoice that you are able to do so.” Through lean, thought-provoking prose, Chiang renders stories about man and machines deeply felt—and deeply human.",
+            "description": "In this stellar collection of short stories, one of the most award-winning science fiction writers of our time tees up nine brilliant tales of time travel, artificial intelligence, and alternate universes. The collection opens with a Hugo Award-winning parable set in ancient Baghdad, where a merchant traveling through an alchemist\u2019s portal learns a familiar lesson about the impossibility of erasing the past. In another standout, a software tester spends an emotional two decades raising an artificial intelligence as if it were a digital pet (Tamagotchi users, take note). The remarkable title story, structured as a journal entry by a mechanical scientist dissecting his own brain, offers profound wisdom about consciousness: \u201cContemplate the marvel that is existence, and rejoice that you are able to do so.\u201d Through lean, thought-provoking prose, Chiang renders stories about man and machines deeply felt\u2014and deeply human.",
             "publishedDate": 2020,
-            "price": 15.00,
+            "price": 15.0,
             "gender": "Sci-Fi",
             "pageCount": 368,
-            "image": "https://http2.mlstatic.com/D_NQ_NP_864719-MLU70303404031_072023-O.webp"
+            "image": "https://http2.mlstatic.com/D_NQ_NP_864719-MLU70303404031_072023-O.webp",
+            "stock": 45
         },
         {
             "title": "Station Eleven",
-            "authors": ["Emily St. John Mandel"],
+            "authors": [
+                "Emily St. John Mandel"
+            ],
             "publisher": "Vintage",
-            "description": "Set before, during, and after the lethal Georgian Flu snuffs out 99% of the world’s population, taking the familiar contours of human civilization along with it, Station Eleven is the incandescent tale of the Traveling Symphony, a nomadic troupe of actors and musicians who perform Shakespeare for the scattered settlements of the Great Lakes region. Along the road, they encounter a violent cult leader known only as the Prophet, who preaches that the virus was an act of God—a divine cleansing of the unworthy. Where so many post-apocalyptic novels traffic in the forces that divide us, Station Eleven celebrates that which allows us not just to survive, but to live: making art, belonging to something bigger than ourselves, searching tirelessly for what it means to be human. Haunting and lovely, Station Eleven is at once an elegy for a lost world and a paean to the human spirit.",
+            "description": "Set before, during, and after the lethal Georgian Flu snuffs out 99% of the world\u2019s population, taking the familiar contours of human civilization along with it, Station Eleven is the incandescent tale of the Traveling Symphony, a nomadic troupe of actors and musicians who perform Shakespeare for the scattered settlements of the Great Lakes region. Along the road, they encounter a violent cult leader known only as the Prophet, who preaches that the virus was an act of God\u2014a divine cleansing of the unworthy. Where so many post-apocalyptic novels traffic in the forces that divide us, Station Eleven celebrates that which allows us not just to survive, but to live: making art, belonging to something bigger than ourselves, searching tirelessly for what it means to be human. Haunting and lovely, Station Eleven is at once an elegy for a lost world and a paean to the human spirit.",
             "publishedDate": 2015,
-            "price": 13.00,
+            "price": 13.0,
             "gender": "Sci-Fi",
             "pageCount": 352,
-            "image": "https://www.refinery29.com/images/9583331.jpg?format=webp&width=&height=&quality=85 "
+            "image": "https://www.refinery29.com/images/9583331.jpg?format=webp&width=&height=&quality=85 ",
+            "stock": 80
         },
         {
             "title": "Do Androids Dream of Electric Sheep?",
-            "authors": ["Philip K. K. Dick"],
+            "authors": [
+                "Philip K. K. Dick"
+            ],
             "publisher": "Random House Worlds",
-            "description": "Do Androids Dream of Electric Sheep? famously became the basis for Blade Runner, but if you’re a movie fan who hasn’t read the novel, you’re in for something new, as it’s more of a complement than a faithful adaptation. Some of the familiar bones are here, like bounty hunter Rick Deckard and his mission to retire rogue androids, but you won’t find the term “blade runner” anywhere. Set in an abandoned San Francisco after World War Terminus’ radioactive fallout has destroyed the earth, this short gut-punch of a novel finds its central theme in empathy. Can androids experience it? Are humans who lack it any better than machines? Do Androids Dream of Electric Sheep? asks more questions than it answers, reveling in ambiguity about just what separates man from machine. Like all the best science fiction, its weighty foray into what makes us human will linger with you for a long time.",
+            "description": "Do Androids Dream of Electric Sheep? famously became the basis for Blade Runner, but if you\u2019re a movie fan who hasn\u2019t read the novel, you\u2019re in for something new, as it\u2019s more of a complement than a faithful adaptation. Some of the familiar bones are here, like bounty hunter Rick Deckard and his mission to retire rogue androids, but you won\u2019t find the term \u201cblade runner\u201d anywhere. Set in an abandoned San Francisco after World War Terminus\u2019 radioactive fallout has destroyed the earth, this short gut-punch of a novel finds its central theme in empathy. Can androids experience it? Are humans who lack it any better than machines? Do Androids Dream of Electric Sheep? asks more questions than it answers, reveling in ambiguity about just what separates man from machine. Like all the best science fiction, its weighty foray into what makes us human will linger with you for a long time.",
             "publishedDate": 1996,
-            "price": 14.00,
+            "price": 14.0,
             "gender": "Sci-Fi",
             "pageCount": 240,
-            "image": "https://images.penguinrandomhouse.com/cover/9780345404473 "
+            "image": "https://images.penguinrandomhouse.com/cover/9780345404473 ",
+            "stock": 21
         },
         {
             "title": "The Last Devil to Die: A Thursday Murder Club Mystery",
@@ -336,12 +428,13 @@
                 "Richard Osman"
             ],
             "publisher": "Penguin Group",
-            "description": "It's rarely a quiet day for the Thursday Murder Club. Shocking news reaches them—an old friend has been killed, and a dangerous package he was protecting has gone missing.The gang's search leads them into the antiques business, where the tricks of the trade are as old as the objects themselves. As they encounter drug dealers, art forgers, and online fraudsters—as well as heartache close to home—Elizabeth, Joyce, Ron, and Ibrahim have no idea whom to trust.",
+            "description": "It's rarely a quiet day for the Thursday Murder Club. Shocking news reaches them\u2014an old friend has been killed, and a dangerous package he was protecting has gone missing.The gang's search leads them into the antiques business, where the tricks of the trade are as old as the objects themselves. As they encounter drug dealers, art forgers, and online fraudsters\u2014as well as heartache close to home\u2014Elizabeth, Joyce, Ron, and Ibrahim have no idea whom to trust.",
             "publishedDate": 2023,
-            "price": 15.00,
+            "price": 15.0,
             "gender": "Mystery & Detective",
             "pageCount": 362,
-            "image": "https://m.media-amazon.com/images/I/71vZXwp2r6L._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/71vZXwp2r6L._SL1500_.jpg",
+            "stock": 28
         },
         {
             "title": "To Kill a Mockingbird",
@@ -349,12 +442,13 @@
                 "Harper Lee"
             ],
             "publisher": "Harper Perennial",
-            "description": "One of the most cherished stories of all time, To Kill a Mockingbird has been translated into more than forty languages, sold more than forty million copies worldwide, served as the basis for an enormously popular motion picture, and was voted one of the best novels of the twentieth century by librarians across the country. A gripping, heart-wrenching, and wholly remarkable tale of coming-of-age in a South poisoned by virulent prejudice, it views a world of great beauty and savage inequities through the eyes of a young girl, as her father—a crusading local lawyer—risks everything to defend a black man unjustly accused of a terrible crime.",
+            "description": "One of the most cherished stories of all time, To Kill a Mockingbird has been translated into more than forty languages, sold more than forty million copies worldwide, served as the basis for an enormously popular motion picture, and was voted one of the best novels of the twentieth century by librarians across the country. A gripping, heart-wrenching, and wholly remarkable tale of coming-of-age in a South poisoned by virulent prejudice, it views a world of great beauty and savage inequities through the eyes of a young girl, as her father\u2014a crusading local lawyer\u2014risks everything to defend a black man unjustly accused of a terrible crime.",
             "publishedDate": 1960,
-            "price": 15.00,
+            "price": 15.0,
             "gender": "Mystery & Detective",
             "pageCount": 331,
-            "image": "https://m.media-amazon.com/images/I/81aY1lxk+9L._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81aY1lxk+9L._SL1500_.jpg",
+            "stock": 85
         },
         {
             "title": "Payback in Death: An Eve Dallas Novel",
@@ -364,10 +458,11 @@
             "publisher": "Macmillan",
             "description": "Lt. Eve Dallas is just home from a long overdue vacation when she responds to a call of an unattended death. The victim is Martin Greenleaf, retired Internal Affairs Captain. At first glance, the scene appears to be suicide, but the closer Eve examines the body, the more suspicious she becomes.",
             "publishedDate": 2023,
-            "price": 15.00,
+            "price": 15.0,
             "gender": "Mystery & Detective",
             "pageCount": 364,
-            "image": "https://m.media-amazon.com/images/I/91GuzVNlQ+L._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/91GuzVNlQ+L._SL1500_.jpg",
+            "stock": 90
         },
         {
             "title": "The Longmire Defense: A Longmire Mystery",
@@ -375,12 +470,13 @@
                 "Craig Johnson"
             ],
             "publisher": "Penguin Group",
-            "description": "Sheriff Walt Longmire and Dog are called on a routine search and rescue to Wyoming’s Big­horn Mountains, where Walt finds himself on a rock outcropping remembering when his father told him about the first time he saw a man die. In the late forties, Bill Sutherland was shot but the investigation was stymied because no mem­ber of the elk camp—where he was found—was carrying the caliber rifle that killed the state accountant. When Dog discovers the miss­ing weapon, the sheriff of Absaroka County is plunged headfirst into a cold case. His inves­tigation quickly finds ties to a hidden mineral fund that someone is willing to kill to keep secret. The embodiment of the fair-minded detective, Walt is pushed to his ethical bound­aries. In his relentless pursuit of the truth, he discovers the rifle in question belonged to none other than Walt’s infamous and uncompromis­ing grandfather, Lloyd Longmire.",
+            "description": "Sheriff Walt Longmire and Dog are called on a routine search and rescue to Wyoming\u2019s Big\u00adhorn Mountains, where Walt finds himself on a rock outcropping remembering when his father told him about the first time he saw a man die. In the late forties, Bill Sutherland was shot but the investigation was stymied because no mem\u00adber of the elk camp\u2014where he was found\u2014was carrying the caliber rifle that killed the state accountant. When Dog discovers the miss\u00ading weapon, the sheriff of Absaroka County is plunged headfirst into a cold case. His inves\u00adtigation quickly finds ties to a hidden mineral fund that someone is willing to kill to keep secret. The embodiment of the fair-minded detective, Walt is pushed to his ethical bound\u00adaries. In his relentless pursuit of the truth, he discovers the rifle in question belonged to none other than Walt\u2019s infamous and uncompromis\u00ading grandfather, Lloyd Longmire.",
             "publishedDate": 2023,
-            "price": 25.00,
+            "price": 25.0,
             "gender": "Mystery & Detective",
             "pageCount": 367,
-            "image": "https://m.media-amazon.com/images/I/81bw2hCIYYL._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81bw2hCIYYL._SL1500_.jpg",
+            "stock": 16
         },
         {
             "title": "23 1/2 Lies",
@@ -388,12 +484,13 @@
                 "James Patterson"
             ],
             "publisher": "Hachette Book Group",
-            "description": "Enjoy three heart-racing thrillers from the New York Times bestselling master of suspense. 23 1/2 LIES: Lindsay Boxer's estranged father is gunned down execution-style, and her investigation uncovers life-altering truths. FALLEN RANGER: To Rory Yates, being a Texas Ranger means absolute loyalty to the badge. But he’s put through the ultimate test when an armored car robbery suspect might be an ex-Ranger gone rogue. WATCH YOUR BACK: When a starving artist is paid to expose his client's cheating wife, can he paint the picture that will save his own life? (with Loren D. Estleman)",
+            "description": "Enjoy three heart-racing thrillers from the New York Times bestselling master of suspense. 23 1/2 LIES: Lindsay Boxer's estranged father is gunned down execution-style, and her investigation uncovers life-altering truths. FALLEN RANGER: To Rory Yates, being a Texas Ranger means absolute loyalty to the badge. But he\u2019s put through the ultimate test when an armored car robbery suspect might be an ex-Ranger gone rogue. WATCH YOUR BACK: When a starving artist is paid to expose his client's cheating wife, can he paint the picture that will save his own life? (with Loren D. Estleman)",
             "publishedDate": 2023,
-            "price": 26.00,
+            "price": 26.0,
             "gender": "Mystery & Detective",
             "pageCount": 449,
-            "image": "https://m.media-amazon.com/images/I/81yLgiXobUL._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81yLgiXobUL._SL1500_.jpg",
+            "stock": 62
         },
         {
             "title": "Where Is Joe Merchant?",
@@ -403,10 +500,11 @@
             "publisher": "Avon Books",
             "description": "Where is Joe Merchant? That's what his sister, Trevor Kane, the hemorrhoid-ointment heiress, wants to know. For Desdemona, Merchant is the missing link in her ongoing communications with space aliens. Tabloid journalist Rudy Breno only cares that Merchant gets bigger headlines than Elvis. And for renegade seaplane pilot Frank Bama, the mystery of the presumed-dead-but-often-sighted rock star is turning his life upside down.",
             "publishedDate": 1992,
-            "price": 20.00,
+            "price": 20.0,
             "gender": "Mystery & Detective",
             "pageCount": 496,
-            "image": "https://m.media-amazon.com/images/I/81LJS3SJcpL._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81LJS3SJcpL._SL1500_.jpg",
+            "stock": 65
         },
         {
             "title": "Dead Mountain",
@@ -415,12 +513,13 @@
                 "Lincoln Child "
             ],
             "publisher": "Hachette Book Group",
-            "description": "In 2008, nine mountaineers failed to return from a winter backpacking trip in the New Mexico mountains. At their final campsite, searchers found a bizarre scene: something had appeared at the door of their tent so terrifying that it impelled them to slash their way out and flee barefoot to certain death in a blizzard. Despite a diligent search, only six bodies were found, two violently crushed and inexplicably missing their eyes. The case, given the code name “Dead Mountain” by the FBI, was never solved.",
+            "description": "In 2008, nine mountaineers failed to return from a winter backpacking trip in the New Mexico mountains. At their final campsite, searchers found a bizarre scene: something had appeared at the door of their tent so terrifying that it impelled them to slash their way out and flee barefoot to certain death in a blizzard. Despite a diligent search, only six bodies were found, two violently crushed and inexplicably missing their eyes. The case, given the code name \u201cDead Mountain\u201d by the FBI, was never solved.",
             "publishedDate": 2013,
-            "price": 21.00,
+            "price": 21.0,
             "gender": "Mystery & Detective",
             "pageCount": 393,
-            "image": "https://m.media-amazon.com/images/I/918p2-u8X0L._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/918p2-u8X0L._SL1500_.jpg",
+            "stock": 25
         },
         {
             "title": "All the Sinners Bleed: A Novel",
@@ -430,10 +529,11 @@
             "publisher": "Macmillan",
             "description": "Titus Crown is the first Black sheriff in the history of Charon County, Virginia. In recent decades, quiet Charon has had only two murders. But after years of working as an FBI agent, Titus knows better than anyone that while his hometown might seem like a land of moonshine, cornbread, and honeysuckle, secrets always fester under the surface.",
             "publishedDate": 2023,
-            "price": 17.00,
+            "price": 17.0,
             "gender": "Mystery & Detective",
             "pageCount": 344,
-            "image": "https://m.media-amazon.com/images/I/91xxhwnNcyL._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/91xxhwnNcyL._SL1500_.jpg",
+            "stock": 61
         },
         {
             "title": "Obsessed: A Psychological Thriller",
@@ -444,10 +544,11 @@
             "publisher": "Hachette Book Group",
             "description": "A killer is obsessed... with Detective Michael Bennetts oldest daughter. Michael Bennett is obsessed... with keeping his family safe. New York City is obsessed...  with cracking the killers code. You will be obsessed...  with this startling psychological thriller.",
             "publishedDate": 2020,
-            "price": 16.00,
+            "price": 16.0,
             "gender": "Mystery & Detective",
             "pageCount": 317,
-            "image": "https://m.media-amazon.com/images/I/81UKBzpvvEL._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81UKBzpvvEL._SL1500_.jpg",
+            "stock": 31
         },
         {
             "title": "Blessing of the Lost Girls",
@@ -455,232 +556,293 @@
                 "J. A. Jance"
             ],
             "publisher": "HarperCollins Publishers",
-            "description": "Driven by a compulsion that challenges his self-control, the man calling himself Charles Milton prowls the rodeo circuit, hunting young women. He chooses those he believes are the most vulnerable, wandering alone and distracted, before he strikes. For years, he has been meticulous in his methods, abducting, murdering, and disposing of his victims while leaving no evidence of his crimes—or their identities—behind. Indigenous women have become his target of choice, knowing law enforcement’s history of ignoring their disappearances.",
+            "description": "Driven by a compulsion that challenges his self-control, the man calling himself Charles Milton prowls the rodeo circuit, hunting young women. He chooses those he believes are the most vulnerable, wandering alone and distracted, before he strikes. For years, he has been meticulous in his methods, abducting, murdering, and disposing of his victims while leaving no evidence of his crimes\u2014or their identities\u2014behind. Indigenous women have become his target of choice, knowing law enforcement\u2019s history of ignoring their disappearances.",
             "publishedDate": 2023,
-            "price": 23.00,
+            "price": 23.0,
             "gender": "Mystery & Detective",
             "pageCount": 345,
-            "image": "https://m.media-amazon.com/images/I/81038Pz8gKL._SL1500_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81038Pz8gKL._SL1500_.jpg",
+            "stock": 68
         },
         {
             "title": "The Hitchhiker's Guide to the Galaxy",
-            "authors": ["Douglas Adams"],
+            "authors": [
+                "Douglas Adams"
+            ],
             "publisher": "Pan Books",
             "description": "A hilarious science fiction comedy about the misadventures of an unwitting human and his alien friend as they travel through space.",
             "gender": "Comedy",
             "price": 12.99,
             "pageCount": 224,
             "publishedDate": 1979,
-            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1512992883i/24654444.jpg"
+            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1512992883i/24654444.jpg",
+            "stock": 1
         },
         {
             "title": "Good Omens",
-            "authors": ["Neil Gaiman, Terry Pratchett"],
+            "authors": [
+                "Neil Gaiman, Terry Pratchett"
+            ],
             "publisher": "William Morrow",
             "description": "A witty and satirical take on the apocalypse, featuring an angel and a demon who team up to prevent it.",
             "gender": "Comedy",
             "price": 14.95,
             "pageCount": 384,
             "publishedDate": 1990,
-            "image": "https://m.media-amazon.com/images/I/51yRKgrt49L.jpg"
+            "image": "https://m.media-amazon.com/images/I/51yRKgrt49L.jpg",
+            "stock": 28
         },
         {
             "title": "Bridget Jones's Diary",
-            "authors": ["Helen Fielding"],
+            "authors": [
+                "Helen Fielding"
+            ],
             "publisher": "Picador",
             "description": "The humorous diary of a single woman in her 30s as she navigates life, love, and awkward situations.",
             "gender": "Comedy",
             "price": 10.99,
             "pageCount": 320,
             "publishedDate": 1996,
-            "image": "https://m.media-amazon.com/images/I/61NTserLWhL._AC_UF894,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/61NTserLWhL._AC_UF894,1000_QL80_.jpg",
+            "stock": 47
         },
         {
             "title": "Catch-22",
-            "authors": ["Joseph Heller"],
+            "authors": [
+                "Joseph Heller"
+            ],
             "publisher": "Simon & Schuster",
             "description": "A classic dark comedy set during World War II, exploring the absurdity and bureaucracy of war.",
             "gender": "Comedy",
-            "price": 11.50,
+            "price": 11.5,
             "pageCount": 464,
             "publishedDate": 1961,
-            "image": "https://m.media-amazon.com/images/I/81cnFcFaFKL._AC_UF894,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81cnFcFaFKL._AC_UF894,1000_QL80_.jpg",
+            "stock": 50
         },
         {
             "title": "The Princess Bride",
-            "authors": ["William Goldman"],
+            "authors": [
+                "William Goldman"
+            ],
             "publisher": "Harcourt Brace",
             "description": "A humorous and swashbuckling tale of love, adventure, and inconceivable twists.",
             "gender": "Comedy",
             "price": 13.99,
             "pageCount": 512,
             "publishedDate": 1973,
-            "image": "https://m.media-amazon.com/images/I/91t3V+MVYAL._AC_UF894,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/91t3V+MVYAL._AC_UF894,1000_QL80_.jpg",
+            "stock": 55
         },
         {
             "title": "Don Quixote",
-            "authors": ["Miguel de Cervantes"],
+            "authors": [
+                "Miguel de Cervantes"
+            ],
             "publisher": "Penguin Classics",
             "description": "A classic comedy of errors following the adventures of a delusional knight and his loyal squire.",
             "gender": "Comedy",
             "price": 9.95,
             "pageCount": 992,
             "publishedDate": 1605,
-            "image": "https://m.media-amazon.com/images/I/61agELRPUjS._AC_UF1000,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/61agELRPUjS._AC_UF1000,1000_QL80_.jpg",
+            "stock": 19
         },
         {
             "title": "The Rosie Project",
-            "authors": ["Graeme Simsion"],
+            "authors": [
+                "Graeme Simsion"
+            ],
             "publisher": "Simon & Schuster",
             "description": "A heartwarming and comedic story about a genetics professor's quest to find a suitable life partner.",
             "gender": "Comedy",
             "price": 12.75,
             "pageCount": 304,
             "publishedDate": 2013,
-            "image": "https://m.media-amazon.com/images/I/61a63kHpCdL._AC_UF894,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/61a63kHpCdL._AC_UF894,1000_QL80_.jpg",
+            "stock": 45
         },
         {
             "title": "Lamb: The Gospel According to Biff, Christ's Childhood Pal",
-            "authors": ["Christopher Moore"],
+            "authors": [
+                "Christopher Moore"
+            ],
             "publisher": "William Morrow",
             "description": "A humorous and irreverent account of Jesus' missing years, as narrated by his best friend Biff.",
             "gender": "Comedy",
             "price": 11.99,
             "pageCount": 432,
             "publishedDate": 2002,
-            "image": "https://m.media-amazon.com/images/I/51RC0CBVPSL._AC_UF1000,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/51RC0CBVPSL._AC_UF1000,1000_QL80_.jpg",
+            "stock": 64
         },
         {
             "title": "Pride and Prejudice and Zombies",
-            "authors": ["Seth Grahame-Smith"],
+            "authors": [
+                "Seth Grahame-Smith"
+            ],
             "publisher": "Quirk Books",
             "description": "A comedic reimagining of Jane Austen's classic with the addition of zombies and mayhem.",
             "gender": "Comedy",
-            "price": 10.50,
+            "price": 10.5,
             "pageCount": 320,
             "publishedDate": 2009,
-            "image": "https://m.media-amazon.com/images/I/919BTlLFXsL._AC_UF894,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/919BTlLFXsL._AC_UF894,1000_QL80_.jpg",
+            "stock": 83
         },
         {
             "title": "Bossypants",
-            "authors": ["Tina Fey"],
+            "authors": [
+                "Tina Fey"
+            ],
             "publisher": "Reagan Arthur Books",
             "description": "Tina Fey's witty and humorous memoir, filled with anecdotes and insights into her life and career.",
             "gender": "Comedy",
             "price": 13.99,
             "pageCount": 288,
             "publishedDate": 2011,
-            "image": "https://m.media-amazon.com/images/I/81wOflATS3L._AC_UF894,1000_QL80_.jpg"
+            "image": "https://m.media-amazon.com/images/I/81wOflATS3L._AC_UF894,1000_QL80_.jpg",
+            "stock": 59
         },
         {
-            "title" : "Pride and Prejudice",
-            "authors": ["Jane Austen"],
+            "title": "Pride and Prejudice",
+            "authors": [
+                "Jane Austen"
+            ],
             "publisher": "Scribner",
             "description": "Pride and Prejudice has remained one of the most popular novels in the English language. Jane Austen called this brilliant work 'her own darling child' and its vivacious heroine, Elizabeth Bennet, 'as delightful a creature as ever appeared in print.' The romantic clash between the opinionated Elizabeth and her proud beau, Mr. Darcy, is a splendid performance of civilized sparring. And Jane Austen's radiant wit sparkles as her characters dance a delicate quadrille of flirtation and intrigue, making this book the most superb comedy of manners of Regency England.",
             "publishedDate": 1813,
             "price": 4.99,
             "gender": "Romance",
             "pageCount": 464,
-            "image":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg"
+            "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg",
+            "stock": 0
         },
         {
-            "title" : "Eleanor & Park",
-            "authors": ["Rainbow Rowell"],
+            "title": "Eleanor & Park",
+            "authors": [
+                "Rainbow Rowell"
+            ],
             "publisher": "Orion Books",
             "description": "Eleanor & Park is the first young adult novel written by Rainbow Rowell. Published in 2012, the story follows dual narratives by Eleanor and Park, two misfits living in Omaha, Nebraska from 1986 to 1987. Eleanor, a chubby[1] 16-year-old girl with curly red hair, and Park, a 16-year-old biracial Korean boy, meet on a school bus on Eleanor's first day at the school and gradually connect through comic books and mix tapes of '80s music, sparking a love story.",
             "publishedDate": 2012,
             "price": 11.99,
             "gender": "Romance",
             "pageCount": 333,
-            "image":"https://m.media-amazon.com/images/I/3199vr0jB1L._SY445_SX342_.jpg"
+            "image": "https://m.media-amazon.com/images/I/3199vr0jB1L._SY445_SX342_.jpg",
+            "stock": 66
         },
         {
-            "title" : "The Book Thief",
-            "authors": ["Markus Zusak"],
+            "title": "The Book Thief",
+            "authors": [
+                "Markus Zusak"
+            ],
             "publisher": "Picador",
             "description": "The Book Thief is a historical fiction novel by the Australian author Markus Zusak, set in Nazi Germany during World War II. Published in 2006, The Book Thief became an international bestseller and was translated into 63 languages and sold 17 million copies. It was adapted into the 2013 feature film, The Book Thief. The novel follows the adventures of a young girl, Liesel Meminger. Narrated by Death, the novel presents the lives and viewpoints of the many victims of the ongoing war. Themes throughout the story include death, literature, and love.",
             "publishedDate": 2006,
             "price": 7.83,
             "gender": "Romance",
             "pageCount": 584,
-            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg/220px-The_Book_Thief_by_Markus_Zusak_book_cover.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg/220px-The_Book_Thief_by_Markus_Zusak_book_cover.jpg",
+            "stock": 35
         },
         {
-            "title" : "Fifty Shades of Grey",
-            "authors": ["E.L. James"],
+            "title": "Fifty Shades of Grey",
+            "authors": [
+                "E.L. James"
+            ],
             "publisher": "Vintage Books",
             "description": "Fifty Shades of Grey is a 2011 erotic romance novel by British author E. L. James. It became the first instalment in the Fifty Shades novel series that follows the deepening relationship between a college graduate, Anastasia Steele, and a young business magnate, Christian Grey. It is notable for its explicitly erotic scenes featuring elements of sexual practices involving BDSM (bondage/discipline, dominance/submission, and sadism/masochism). Originally self-published as an ebook and print-on-demand in June 2011, the publishing rights to the novel were acquired by Vintage Books in March 2012.",
             "publishedDate": 2011,
             "price": 19.92,
             "gender": "Romance",
             "pageCount": 514,
-            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/50ShadesofGreyCoverArt.jpg/220px-50ShadesofGreyCoverArt.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/50ShadesofGreyCoverArt.jpg/220px-50ShadesofGreyCoverArt.jpg",
+            "stock": 36
         },
         {
-            "title" : "Love in the Time of Cholera",
-            "authors": ["Gabriel García Márquez"],
+            "title": "Love in the Time of Cholera",
+            "authors": [
+                "Gabriel Garc\u00eda M\u00e1rquez"
+            ],
             "publisher": "Editorial Oveja Negra",
-            "description": "The main characters of the novel are Florentino Ariza and Fermina Daza. Florentino and Fermina fall in love in their youth. A secret relationship blossoms between the two with the help of Fermina's Aunt Escolástica. They exchange love letters. But once Fermina's father, Lorenzo Daza, finds out about the two, he forces his daughter to stop seeing Florentino immediately. When she refuses, he and his daughter move in with his deceased wife's family in another city. Regardless of the distance, Fermina and Florentino continue to communicate via telegraph. Upon her return, Fermina realizes that her relationship with Florentino was nothing but a dream since they are practically strangers; she breaks off her engagement to Florentino and returns all his letters.",
+            "description": "The main characters of the novel are Florentino Ariza and Fermina Daza. Florentino and Fermina fall in love in their youth. A secret relationship blossoms between the two with the help of Fermina's Aunt Escol\u00e1stica. They exchange love letters. But once Fermina's father, Lorenzo Daza, finds out about the two, he forces his daughter to stop seeing Florentino immediately. When she refuses, he and his daughter move in with his deceased wife's family in another city. Regardless of the distance, Fermina and Florentino continue to communicate via telegraph. Upon her return, Fermina realizes that her relationship with Florentino was nothing but a dream since they are practically strangers; she breaks off her engagement to Florentino and returns all his letters.",
             "publishedDate": 1985,
             "price": 19.99,
             "gender": "Romance",
             "pageCount": 348,
-            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/d/de/LoveInTheTimeOfCholera.jpg/220px-LoveInTheTimeOfCholera.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/thumb/d/de/LoveInTheTimeOfCholera.jpg/220px-LoveInTheTimeOfCholera.jpg",
+            "stock": 60
         },
         {
-            "title" : "Under the Never Sky",
-            "authors": ["Veronica Rossi"],
+            "title": "Under the Never Sky",
+            "authors": [
+                "Veronica Rossi"
+            ],
             "publisher": "HarperCollins",
             "description": "Under the Never Sky follows the character of Aria, a 17-year-old girl who has been exiled from Reverie, the domed city in a dystopian future 300 years after a major catastrophe has decimated the Earth. Aria was banished from her home when she is blamed for starting a fire that took the lives of her best friend and two others. This punishment means almost certain death: outside of her Pod and other similar Pods where the technologically advanced dwell, is a wasteland known as the Death Shop. It's a place known to be filled with cannibals and terrible Aether storms; even the air can kill you. However, she soon discovers that she can breathe the outside air without fatal harm, though she has little other means of surviving in the savage land. Then she meets an Outsider named Perry, Aria eventually realizes that he is her only chance for survival. Despite his reluctance to help a sheltered girl from Reverie, Perry knows that Aria has the potential to help him redeem himself. The two must learn how to work together if they are to survive in this new dangerous world.",
             "publishedDate": 2012,
             "price": 9.99,
             "gender": "Romance",
             "pageCount": 400,
-            "image":"https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Book_cover_of_the_novel%2C_%22Under_the_Never_Sky%22%2C_by_Veronica_Rossi.jpg/220px-Book_cover_of_the_novel%2C_%22Under_the_Never_Sky%22%2C_by_Veronica_Rossi.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Book_cover_of_the_novel%2C_%22Under_the_Never_Sky%22%2C_by_Veronica_Rossi.jpg/220px-Book_cover_of_the_novel%2C_%22Under_the_Never_Sky%22%2C_by_Veronica_Rossi.jpg",
+            "stock": 18
         },
         {
-            "title" : "One Day",
-            "authors": ["David Nicholls"],
+            "title": "One Day",
+            "authors": [
+                "David Nicholls"
+            ],
             "publisher": "Hodder & Stoughton",
             "description": "Dexter and Emma spend the night together following their graduation from the University of Edinburgh, in 1988. They talk about how they will be once they are 40. While they do not become romantically involved completely, this is the beginning of their friendship. The novel visits their lives and their relationship on 15 July in successive years in each chapter, for 20 years.",
             "publishedDate": 2009,
             "price": 12.99,
             "gender": "Romance",
             "pageCount": 435,
-            "image":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327873020i/6280118.jpg"
+            "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327873020i/6280118.jpg",
+            "stock": 7
         },
         {
-            "title" : "The Shadow of the Wind",
-            "authors": ["Carlos Ruiz Zafón"],
+            "title": "The Shadow of the Wind",
+            "authors": [
+                "Carlos Ruiz Zaf\u00f3n"
+            ],
             "publisher": "Penguin Books",
-            "description": "The novel is actually a story within a story. The novel opens in the 1940s with the protagonist, Daniel, a boy whose father owns a bookshop in Barcelona. One day, his father takes him to the Cemetery of Forgotten books—a secret labyrinthine library that houses rare and banned books. Daniel is drawn to one called The Shadow of the Wind by Julian Carax and takes it home with him. Daniel quickly reads and falls in love with the story. He soon discovers that the book's mysterious author, Carax, has gone missing along with every other copy of The Shadow of the Wind and most of his other works. Daniel then sets out to find out what happened to the author and his books. When word gets around that Daniel possesses the only known copy of The Shadow of the Wind, he receives an inquiry from Gustavo Barcelo, a rare-book seller and expert on Carax who wishes to purchase it. Daniel refuses to sell it, but soon falls in love with Barcelo's blind niece, Clara, and begins to pay frequent visits to read The Shadow of the Wind to her. However, she is several years older and does not reciprocate his feelings. His possession of the book also attracts the attention of a mysterious stranger with a badly burned and disfigured face named Lain Coubert (the name of the character of the devil in the book) who is also trying to get his hands on it.",
+            "description": "The novel is actually a story within a story. The novel opens in the 1940s with the protagonist, Daniel, a boy whose father owns a bookshop in Barcelona. One day, his father takes him to the Cemetery of Forgotten books\u2014a secret labyrinthine library that houses rare and banned books. Daniel is drawn to one called The Shadow of the Wind by Julian Carax and takes it home with him. Daniel quickly reads and falls in love with the story. He soon discovers that the book's mysterious author, Carax, has gone missing along with every other copy of The Shadow of the Wind and most of his other works. Daniel then sets out to find out what happened to the author and his books. When word gets around that Daniel possesses the only known copy of The Shadow of the Wind, he receives an inquiry from Gustavo Barcelo, a rare-book seller and expert on Carax who wishes to purchase it. Daniel refuses to sell it, but soon falls in love with Barcelo's blind niece, Clara, and begins to pay frequent visits to read The Shadow of the Wind to her. However, she is several years older and does not reciprocate his feelings. His possession of the book also attracts the attention of a mysterious stranger with a badly burned and disfigured face named Lain Coubert (the name of the character of the devil in the book) who is also trying to get his hands on it.",
             "publishedDate": 2001,
             "price": 13.99,
             "gender": "Romance",
             "pageCount": 487,
-            "image":"https://upload.wikimedia.org/wikipedia/en/8/84/TheShadowOfTheWind.jpg"
+            "image": "https://upload.wikimedia.org/wikipedia/en/8/84/TheShadowOfTheWind.jpg",
+            "stock": 43
         },
         {
-            "title" : "Anna and the French Kiss",
-            "authors": ["Stephanie Perkins"],
+            "title": "Anna and the French Kiss",
+            "authors": [
+                "Stephanie Perkins"
+            ],
             "publisher": "Dutton Juvenile",
-            "description": "Anna Oliphant is a senior in high school who is forced by her father to attend the fictional boarding school 'School of America in Paris' – nicknamed SOAP by students. She is heavily against having to leave Atlanta for Paris, specifically due to leaving her best friend, Bridgette, and Toph, her almost boyfriend, who worked with her in a multiplex and the two shared a kiss before her leaving for Paris. Anna wants to become a film critic, being a major movie fan. On her first night at SOAP, she meets her neighbor Meredith (Mer), who consoles her after finding Anna crying in her room. After Anna leaves Meredith's room, she bumps into a handsome boy who introduces himself as Étienne St. Clair, and has an English accent. The next morning at breakfast, Mer invites Anna to sit with her and her friends; Rashmi and boyfriend Josh, as well as Étienne from the night before – he is known by everyone as St. Clair. St. Clair has a girlfriend, Ellie, who used to be in the group before she graduated SOAP.",
+            "description": "Anna Oliphant is a senior in high school who is forced by her father to attend the fictional boarding school 'School of America in Paris' \u2013 nicknamed SOAP by students. She is heavily against having to leave Atlanta for Paris, specifically due to leaving her best friend, Bridgette, and Toph, her almost boyfriend, who worked with her in a multiplex and the two shared a kiss before her leaving for Paris. Anna wants to become a film critic, being a major movie fan. On her first night at SOAP, she meets her neighbor Meredith (Mer), who consoles her after finding Anna crying in her room. After Anna leaves Meredith's room, she bumps into a handsome boy who introduces himself as \u00c9tienne St. Clair, and has an English accent. The next morning at breakfast, Mer invites Anna to sit with her and her friends; Rashmi and boyfriend Josh, as well as \u00c9tienne from the night before \u2013 he is known by everyone as St. Clair. St. Clair has a girlfriend, Ellie, who used to be in the group before she graduated SOAP.",
             "publishedDate": 2010,
             "price": 8.84,
             "gender": "Romance",
             "pageCount": 372,
-            "image":"https://images.cdn2.buscalibre.com/fit-in/360x360/98/da/98da963f91ac8eb46ff1ad73e19fdbb8.jpg"
+            "image": "https://images.cdn2.buscalibre.com/fit-in/360x360/98/da/98da963f91ac8eb46ff1ad73e19fdbb8.jpg",
+            "stock": 3
         },
         {
-            "title" : "Outlander",
-            "authors": ["Diana Gabaldon"],
+            "title": "Outlander",
+            "authors": [
+                "Diana Gabaldon"
+            ],
             "publisher": "Dell",
-            "description": "Scottish Highlands, 1945. Claire Randall, a former British combat nurse, is just back from the war and reunited with her husband on a second honeymoon when she walks through a standing stone in one of the ancient circles that dot the British Isles. Suddenly she is a Sassenach—an “outlander”—in a Scotland torn by war and raiding clans in the year of Our Lord... 1743. Claire is catapulted into the intrigues of a world that threatens her life, and may shatter her heart. Marooned amid danger, passion, and violence, Claire learns her only chance of safety lies in Jamie Fraser, a gallant young Scots warrior. What begins in compulsion becomes urgent need, and Claire finds herself torn between two very different men, in two irreconcilable lives.",
+            "description": "Scottish Highlands, 1945. Claire Randall, a former British combat nurse, is just back from the war and reunited with her husband on a second honeymoon when she walks through a standing stone in one of the ancient circles that dot the British Isles. Suddenly she is a Sassenach\u2014an \u201coutlander\u201d\u2014in a Scotland torn by war and raiding clans in the year of Our Lord... 1743. Claire is catapulted into the intrigues of a world that threatens her life, and may shatter her heart. Marooned amid danger, passion, and violence, Claire learns her only chance of safety lies in Jamie Fraser, a gallant young Scots warrior. What begins in compulsion becomes urgent need, and Claire finds herself torn between two very different men, in two irreconcilable lives.",
             "publishedDate": 2004,
             "price": 27.99,
             "gender": "Romance",
             "pageCount": 642,
-            "image":"https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659086907i/10964.jpg"
-     }
+            "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659086907i/10964.jpg",
+            "stock": 78
+        }
     ]
 }
