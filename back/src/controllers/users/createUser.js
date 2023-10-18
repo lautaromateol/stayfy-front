@@ -1,5 +1,6 @@
 const {User} = require("../../db")
-const { DEFAULT_PROFILE_PICTURE } = require("../../utils")
+const { DEFAULT_PROFILE_PICTURE, ENDPOINT } = require("../../utils")
+const axios = require("axios")
 
 const createUser = async(req, res) => {
     try {
@@ -22,9 +23,13 @@ const createUser = async(req, res) => {
        }
 
        const userDb = await User.create(newUser)
+       
+       await axios.post(`${ENDPOINT}/mail/register`, {email: userDb.email})
+
        res.status(201).json(userDb)
+
     } catch (error) {
-        res.status(500).json(error.message)
+        res.status(500).send(error.message)
     }
 }
 

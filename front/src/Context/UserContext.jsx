@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import {BACKEND_URL, FRONT_URL} from "../../utils"
 import jwtDecode from 'jwt-decode';
 
 const UserContext = createContext();
@@ -32,7 +33,7 @@ export function UserProvider({ children }) {
             if (user) {
                 try {
                     const email = user.email;
-                    const response = await fetch(`http://localhost:3001/users/search/${email}`);
+                    const response = await fetch(`${BACKEND_URL}/users/search/${email}`);
 
                     if (response.ok) {
                         const userData = await response.json();
@@ -72,7 +73,8 @@ export function UserProvider({ children }) {
             isAdmin: false,
             isSuperAdmin: false,
         });
-        localStorage.removeItem('logged');
+        localStorage.removeItem('logged')
+        window.location.href = FRONT_URL
     };
 
 

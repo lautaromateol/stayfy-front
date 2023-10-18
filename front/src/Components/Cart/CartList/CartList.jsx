@@ -4,6 +4,7 @@ import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext/CartContext";
 import { useUser } from "../../../Context/UserContext"
+import { BACKEND_URL } from "../../../../utils";
 
 const CartList = () => {
 
@@ -24,9 +25,8 @@ const CartList = () => {
         if(lastTab && preferenceId){
             localStorage.removeItem('lastTab')
             localStorage.removeItem('preferenceId')
+            localStorage.setItem('lastTab', window.location.href)
           }
-
-          localStorage.setItem('lastTab', window.location.href)
 
         const storedItems = localStorage.getItem("cartItems");
         if (storedItems) {
@@ -41,7 +41,7 @@ const CartList = () => {
 
             for (const productId of uniqueProductIds) {
                 try {
-                    const response = await axios.get(`http://localhost:3001/books/${productId}`);
+                    const response = await axios.get(`${BACKEND_URL}/books/${productId}`);
                     if (response.data.title) {
                         productDetails.push(response.data);
                         const product = response.data;
@@ -49,6 +49,7 @@ const CartList = () => {
                             title: product.title,
                             unit_price: product.price,
                             quantity: cart.filter((item) => item === product.id).length,
+                            currency_id: 'ARS'
                         };
                         items.push(item);
                     }
@@ -62,7 +63,7 @@ const CartList = () => {
             };
 
             try {
-                const preferenceResponse = await axios.post('http://localhost:3001/checkout/mercado-pago/create_preference', preferenceRequest);
+                const preferenceResponse = await axios.post(`${BACKEND_URL}/checkout/mercado-pago/create_preference`, preferenceRequest);
                 localStorage.setItem('preferenceId', preferenceResponse.data.id);
             } catch (error) {
                 console.error('Error al crear la preferencia de pago:', error);
@@ -115,7 +116,7 @@ const CartList = () => {
                                 decrementQuantity={decrementQuantity}
                             />
                         </div>
-                        <div className="w-80 max-h-[430px] ml-10 border border-solid border-black-500 bg-white rounded-md dark:bg-stone-200 dark:text-blue-950">
+                        <div className="pb-6 w-80 max-h-[430px] ml-10 border border-solid border-black-500 bg-white rounded-md dark:bg-stone-200 dark:text-blue-950">
                             <h1 className="text-2xl ml-5 mt-5">Order Summary</h1>
                             <div className="grid grid-cols-[70%_30%]">
                                 <p className="ml-5 mt-5">Total Items:</p>
@@ -146,9 +147,9 @@ const CartList = () => {
                             </div>
                             <div className="grid place-content-center mt-10">
                                 {user ?
-                                    <button className="bg-green-500 text-white p-2"><a href='/address' target="_blank" rel="noopener noreferrer">CHECKOUT</a></button>
+                                    <button className="bg-green-500 text-white p-2 rounded-md padding-"><a href='/address' target="_blank" rel="noopener noreferrer">CHECKOUT</a></button>
                                     :
-                                    <button className="bg-green-500 text-white p-2"><Link to='/login'>CHECKOUT</Link></button>
+                                    <button className="bg-green-500 text-white p-2 "><Link to='/login'>CHECKOUT</Link></button>
                                 }
                             </div>
                         </div>

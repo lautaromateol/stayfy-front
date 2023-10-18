@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 export const BACKEND_URL = 'http://localhost:3001';
+// export const BACKEND_URL = 'https://styfyback-production.up.railway.app'
+export const FRONT_URL = 'http://localhost:5173'
+// export const FRONT_URL = 'https://stayfy-xi.vercel.app'
 export const DESC = 'DESC';
 export const ASC = 'ASC';
 export const DEFAULT_IMAGE = "https://m.media-amazon.com/images/I/71YYxm3UN9L._AC_UF1000,1000_QL80_.jpg";

@@ -3,12 +3,12 @@ import { Routes, Route, } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { BACKEND_URL } from '../utils'
 import { CartProvider } from "./Components/Cart/CartContext/CartContext";
-import { useUser } from './Context/UserContext'; 
+import { useUser } from './Context/UserContext';
+import AddBook  from './Components/Admin dashboard/Add Book (nuevo create)/AddBook'
 import Home from './Views/Home/Home'
-import Create from './Views/Create/Create'
+import Profile from './Views/Profile/Profile'
 import Detail from './Components/Detail/Detail'
 import Nav from './Components/Nav/Nav'
-import ReviewForm from './Components/ReviewForm/ReviewForm'
 import LogIn from "./Views/LogIn/LogIn"
 import Books from "./Views/Books/books"
 import Success from './Components/Success/Success'
@@ -18,19 +18,19 @@ import CartList from './Components/Cart/CartList/CartList'
 import UserDetail from './Components/Admin dashboard/Detail/UserDetail'
 import Store from './Views/Store/Store';
 import Footer from './Components/Footer/Footer';
-import './App.css'
-import UserProfile from './Components/User/Userprofile'
 import NotFound from './Views/NotFound/NotFound';
 import NoPermissions from './Views/NotFound/NoPermissions';
 import Address from './Components/Address Form/Address';
 import UpdateBook from './Components/Admin dashboard/UpdateBook/UpdateBook';
 import BookActivation from './Components/Admin dashboard/UpdateBook/BookActivation';
-
-//import TestComponent from './TestComponent/TestComponent'
-//import { BACKEND_URL } from '../utils'
+import NewProducts from './Components/Admin dashboard/Products/NewProducts';
+import Orders from './Components/Admin dashboard/Orders/Orders';
+import GenreCardList from './Components/GenreCardList/GenreCardList';
+import ReviewForm from './Components/ReviewForm/ReviewForm'
+import './App.css'
 
 function App() {
-  const { user, userData } = useUser();
+  const { user, userData,isAuthenticated } = useUser();
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -38,42 +38,40 @@ function App() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-          <CartProvider>
-            <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          <Routes>
-          <Route path='/' element= {<Home/>}/>
-          <Route path='/create' 
-          // element={<Create/>}
-          element={userData.isSuperAdmin || userData.isAdmin ? <Create /> : <NoPermissions />}
-          />
-          {/* comentar o borrar para proteger ruta y descomentar línea 61 */}
-          <Route path='/admin/update-book' element={<UpdateBook/>}/>
-          <Route path='/admin/activate-book' element={<BookActivation/>}/> 
-          <Route path='/product-page/:id' element={<Detail/>}/>
-          <Route path='/login' element={<LogIn/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path = '/user' element ={<UserProfile/>}/>
-          <Route path='/books' element={<Books/>}/>
-          <Route path="/permissions" element={<NoPermissions />} />
-          <Route path='/order-approved' element={<Success/>}/>
-          {userData.isSuperAdmin || userData.isAdmin ? (
+      <CartProvider>
+        <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/product-page/:id' element={<Detail />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/register' element={<Register />} />
+          {/* <Route path='/user/:id' element={<UserProfile />} /> */}
+          <Route path='/books' element={<Books />} />
+          <Route path='/order-approved' element={<Success />} />
+          <Route path={'/admin/create'} element = {userData.isSuperAdmin || userData.isAdmin ? <AddBook/> : <NoPermissions/>}/>
+          <Route path={'/admin/users'} element={userData.isSuperAdmin || userData.isAdmin ? <Users /> : <NoPermissions/>} />
+          <Route path={'/admin/users/:id'} element={userData.isSuperAdmin || userData.isAdmin ? <UserDetail /> : <NoPermissions/>} />
+          <Route path={'/admin/update-book'} element={userData.isSuperAdmin || userData.isAdmin ? <UpdateBook /> : <NoPermissions/>} />
+          <Route path={'/admin/activate-book'} element={userData.isSuperAdmin || userData.isAdmin ? <BookActivation /> : <NoPermissions/>} />
+          <Route path='/admin/orders' element={userData.isSuperAdmin || userData.isAdmin ? <Orders /> : <NoPermissions/>} />
+          <Route path='/admin/products' element={userData.isSuperAdmin || userData.isAdmin ? <NewProducts /> : <NoPermissions/>}/>
+          <Route path='/cart' element={<CartList />} />
+          <Route path='/store' element={<Store />} />
+          <Route path='/address' element={<Address />} />
+          {isAuthenticated() ? (
             <>
               <Route path='/review' element={<ReviewForm/>}/>
-              <Route path='/admin/users' element={<Users/>}/>
-              <Route path='/admin/users/:id' element={<UserDetail/>}/>
-              {/* <Route path='/admin/update-book' element={<UpdateBook/>}/> descomentar para habilitar ruta protegida */}
-              {/* <Route path='/admin/activate-book' element={<BookActivation/>}/> descomentar para habilitar ruta protegida */}
+              <Route path='/user/profile' element={<Profile />} />
             </>
-          ) :   null
-        }
-          <Route path='/cart' element={<CartList/>}/>
-          <Route path='/store' element={<Store/>}/>
-          <Route path='/address' element={<Address/>}/>
+          ) : null}
           <Route path="/*" element={<NotFound />} />
+          <Route path='/genre/:genre' element={<GenreCardList />}/>
+          {/* RUTAS USER PROFILE */}
+
         </Routes>
-          <Footer/>
-        </CartProvider>
-      </div>
+        <Footer />
+      </CartProvider>
+    </div>
   )
 }
 

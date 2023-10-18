@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom";
-import UserProfile from "../User/Userprofile";
+import UserToggle from "../User/UserToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSun,
@@ -31,9 +31,6 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         {userData.isSuperAdmin || userData.isAdmin ? (
           <>
         <button>
-          <Link to="/create">Create</Link>
-        </button>
-        <button>
           <Link to="/review">Rate us!</Link>
         </button>
           </>
@@ -48,33 +45,33 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         </Link>
       </div>
 
-      <div className="flex justify-center items-center w-90 space-x-10">
+      <div className="flex justify-center items-center w-90 space-x-10 duration-300">
         {/* Botón de Modo Oscuro */}
         <button onClick={toggleDarkMode}>
           {darkMode ? (
-            <FontAwesomeIcon icon={faSun} className="text-yellow-500" />
+            <FontAwesomeIcon icon={faSun} className="text-yellow-500 ease-in-out hover:rotate-180 hover:duration-1000" />
           ) : (
-            <FontAwesomeIcon icon={faMoon} className="text-gray-500" />
+            <FontAwesomeIcon icon={faMoon} className="text-gray-500 hover:rotate-[360] hover:duration-1000" />
           )}
         </button>
-
+            
         {user ? (
           <>
-            <button onClick={signOut}>Sign Out</button>
-            <UserProfile  />
+            <button className="duration-150 hover:scale-105" onClick={signOut}>Sign Out</button>
+            <UserToggle  />
           </>
         ) : (
           <>
-            <Link to="/register">
+            <Link className="duration-200 hover:scale-105" to="/register">
               Register
             </Link>
-            <Link to="/login">Log In</Link>
+            <Link className="duration-200 hover:scale-105" to="/login">Log In</Link>
           </>
         )}
         {/* Icono de Carrito con Contador */}
         <button>
           <Link to="/cart">
-            <FontAwesomeIcon icon={faShoppingCart} className="text-green-500" />
+            <FontAwesomeIcon icon={faShoppingCart} className="text-green-500 hover:rotate-12 duration-150" />
             <span className="ml-1">{cartCount}</span>
           </Link>
         </button>

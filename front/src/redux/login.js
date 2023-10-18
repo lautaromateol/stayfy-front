@@ -1,7 +1,8 @@
 import axios from "axios";
+import { BACKEND_URL } from "../../utils";
 
 const login = async credentials => {
-    const { data } = await axios.post("http://localhost:3001/users/login", credentials)
+    const { data } = await axios.post(`${BACKEND_URL}/users/login`, credentials)
     return data
 }
 

@@ -1,9 +1,8 @@
 const server = require("./src/server");
 const { conn, createDefaultAdminUser } = require('./src/db.js');
+const { createBooks } = require("./src/controllers/books/getBooksController");
+const { deactivateByStock } = require("./src/controllers/books/deactivateByStock")
 const http = require('http');
-const { createBooks } = require("./src/controllers/getBooksController");
-const { deactivateByStock } = require("./src/controllers/books/deactivateByStock");
-
 const PORT = 3001;
 
 conn.sync({ alter: true }).then( async () => {

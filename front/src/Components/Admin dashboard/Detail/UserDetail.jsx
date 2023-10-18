@@ -1,88 +1,156 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { desactivateUser, reactivateUser, deleteUser } from "../../../redux/actions"
-import { useDispatch } from "react-redux"
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Button, Table } from 'antd';
+import axios from 'axios';
+import {
+  desactivateUser,
+  reactivateUser,
+  deleteUser,
+  makeAdmin,
+  deactivateAdmin
+} from '../../../redux/actions';
+import { BACKEND_URL } from '../../../../utils';
 
 const UserDetail = () => {
+  
+  const { id } = useParams();
 
-    const { id } = useParams()
+  const [user, setUser] = useState({});
 
-    const [user, setUser] = useState({})
+  const [orders, setOrders] = useState([]);
 
-    const [orders, setOrders] = useState([])
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  const handleDelete = () => {
+    dispatch(deleteUser(user.userId));
+  };
 
-    const handleDelete = () => {
-        dispatch(deleteUser(user.userId))
-    }
+  const handleDesactivate = () => {
+    dispatch(desactivateUser(user.userId));
+  };
 
-    const handleDesactivate = () => {
-        dispatch(desactivateUser(user.userId))
-    }
+  const handleReactivate = () => {
+    dispatch(reactivateUser(user.userId));
+  };
 
-    const handleReactivate = () => {
-        dispatch(reactivateUser(user.userId))
-    }
+  const handleAdmin = () => {
+    !user.isAdmin ? dispatch(makeAdmin(user.userId)) : dispatch(deactivateAdmin(user.userId))
+  }
 
-    useEffect(() => {
-        axios(`http://localhost:3001/users/${id}`).then(({ data }) => {
-            if (data.username) {
-                setUser(data);
-                setOrders(data.Orders);
-            } else {
-                window.alert('No hay usuario con ese ID');
-            }
-        });
-        return setUser({});
-    }, []);
+  useEffect(() => {
+    axios(`${BACKEND_URL}/users/${id}`).then(({ data }) => {
+      if (data.username) {
+        setUser(data);
+        setOrders(data.Orders);
+      } else {
+        window.alert('No hay usuario con ese ID');
+      }
+    });
+    return () => {
+      setUser({});
+    };
+  }, [id]);
 
-    return (
-        <div className="h-screen">
-            <div className="grid place-items-center">
-                <h1 className="text-3xl mt-5">{user.fullName}</h1>
-                <p className="mt-2">username: {user.username} - id: {user.userId} - active: {user.active ? 'true' : 'false'}</p>
-                {user.active ?
-                    <button className="border border-solid border-black-500 mt-2 bg-blue-800 text-white p-1 rounded-md h-8" onClick={handleDesactivate}><a href={`/admin/users/${id}`}>Desactivate</a></button>
-                    :
-                    <button className="border border-solid border-black-500 mt-2 bg-blue-800 text-white p-1 rounded-md h-8" onClick={handleReactivate}><a href={`/admin/users/${id}`}>Reactivate</a></button>
-                }
-                <button className="border border-solid border-black-500 mt-2 bg-red-800 text-white p-1 rounded-md" onClick={handleDelete}>Delete user</button>
-            </div>
-            <h2 className="text-2xl mt-10 ml-5 text-center underline">Orders</h2>
-            <div className="grid grid-cols-[25%_25%_25%_25%] place-items-center mt-10">
-                <strong>Merchant Order</strong>
-                <strong>Payment ID</strong>
-                <strong>Products</strong>
-                <strong>Ammount</strong>
-            </div>
-            {orders.map((order) => {
-                return (
-                    <div className="grid grid-cols-[25%_25%_25%_25%] place-items-center">
-                        <div className="mt-2">
-                            <p>{order.merchantOrder}</p>
-                        </div>
-                        <div className="mt-2">
-                            <p>{order.paymentId}</p>
-                        </div>
-                        <div className="mt-2">
-                            {order.products.map((product) => {
+  const columns = [
+    {
+      title: 'Merchant Order',
+      dataIndex: 'merchantOrder',
+      key: 'merchantOrder',
+    },
+    {
+      title: 'Payment ID',
+      dataIndex: 'paymentId',
+      key: 'paymentId',
+    },
+    {
+      title: 'Products',
+      dataIndex: 'products',
+      key: 'products',
+      render: (products) =>
+        products.map((product) => (
+            products.length > 1 && products.indexOf(product) !== products.length - 1 ?
+            <span key={product}>{product}, </span> :
+            <span key={product}>{product}</span>        
+            )),
+    },
+    {
+      title: 'Amount',
+      dataIndex: 'spent',
+      key: 'spent',
+      render: (spent) => <span>${spent}</span>,
+    },
+  ];
 
-                                return order.products.length > 1 && order.products.indexOf(product) !== order.products.length - 1 ?
-                                    <span>{product}, </span> :
-                                    <span>{product}</span>
+  return (
+    <div className="h-screen">
+      <div className="grid place-items-center">
+        <h1 className="text-3xl mt-5">{user.fullName}</h1>
+        <p className="mt-2">
+          username: {user.username} - id: {user.userId} - active:{' '}
+          {user.active ? 'true' : 'false'} - admin: {' '} {user.isAdmin ? 'true' : 'false'}
+        </p>
 
-                            })}
-                        </div>
-                        <div className="mt-2">
-                            ${order.spent}
-                        </div>
-                    </div>
-                )
-            })}
+        <div className='flex space-around'>
+        {user.active && !user.isSuperAdmin ? (
+          <Button
+            className="inline m-2"
+            type="primary"
+            onClick={handleDesactivate}
+            href={`/admin/users/${id}`}
+            >
+            Deactivate
+          </Button>
+        ) : '' } 
+        {!user.active && !user.isSuperAdmin ? (
+          <Button
+          className="m-2"
+          type="primary"
+          onClick={handleReactivate}
+          href={`/admin/users/${id}`}
+          >
+            Reactivate
+          </Button>
+        ) : '' }
+
+       {!user.isSuperAdmin ? (
+       <Button
+        className="flex space-around m-2 bg-red-500 text-white" 
+        type="danger" 
+        onClick={handleDelete}
+        href='/admin/users'>
+          Delete user
+        </Button>) : ''}
+        
+        {!user.isAdmin ? (
+        <Button
+        className="flex space-around m-2 bg-green-500 text-white" 
+        href={`/admin/users/${id}`}
+        onClick={handleAdmin}>
+          Make admin
+        </Button>) : ''
+        }
+
+       {user.isAdmin ? (
+        <Button
+        className="flex space-around m-2 bg-green-500 text-white" 
+        href={`/admin/users/${id}`}
+        onClick={handleAdmin}>
+          Deactivate admin
+        </Button>) : ''
+        }
+        
+        
         </div>
-    )
-}
+      </div>
+      <h2 className="text-2xl mt-10 ml-5 text-center underline">Orders</h2>
+      <Table
+        dataSource={orders}
+        columns={columns}
+        rowKey={(record) => record.paymentId}
+      />
+    </div>
+  );
+};
 
-export default UserDetail
+export default UserDetail;
