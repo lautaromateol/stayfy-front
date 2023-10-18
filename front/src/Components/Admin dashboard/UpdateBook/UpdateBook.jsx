@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function UpdateBook() {
   const dispatch = useDispatch();
-  const { genres, titles, allBooks } =  useSelector((state) => state);
-  const ratingArray = [0, 1, 2, 3, 4, 5];
+  const { genres, allBooks } =  useSelector((state) => state);
+  const ratingArray = [1, 2, 3, 4, 5];
 
   useEffect(() => {
     dispatch(getGenres());
@@ -21,15 +21,16 @@ export default function UpdateBook() {
   const [form, setForm] = useState({
     id: "",
     title: "",
-    authors: [""],
+    authors: [],
     publisher: "",
     image: "",
-    publishedDate: 0,
-    pageCount: 0,
+    publishedDate: "",
+    pageCount: "",
     genre: "",
-    price: 0,
+    price: "",
     description: "",
-    rating: 0,
+    rating: "",
+    stock: "",
   });
 
   const [error, setError] = useState({
@@ -44,35 +45,11 @@ export default function UpdateBook() {
     price: "",
     description: "",
     rating: "",
+    stock: "",
   });
 
   const [success, setSuccess] = useState(""); 
-  // const [authors, setAuthors] = useState([""]);
-
-
-  // const updateAuthor = (index, value) => {
-  //   const updatedAuthors = [...authors];
-  //   updatedAuthors[index] = value;
-  //   setAuthors(updatedAuthors);
-  //   setForm({
-  //     ...form,
-  //     authors: updatedAuthors,
-  //   });
-  // };
-
-  // const removeAuthor = (index) => {
-  //   const updatedAuthors = authors.filter((_, i) => i !== index);
-  //   setAuthors(updatedAuthors);
-  //   setForm({
-  //     ...form,
-  //     authors: updatedAuthors,
-  //   });
-  // }
-  
-  // const addAuthorInput = () => {
-  //   setAuthors([...authors, ""]);
-  // };
-
+ 
   const updateAuthor = (index, value) => {
     const updatedAuthors = [...form.authors];
     updatedAuthors[index] = value;
@@ -174,36 +151,33 @@ export default function UpdateBook() {
     }
   };
 
-  // const validateRating = (rating) => {
-  //   if (rating && !Number.isInteger(rating)){
-  //     setError({ ...error, price: "Rating must be an integer." })
-  //     return false;
-  //   }
-  //   else if (rating && rating < 1) {
-  //     setError({ ...error, rating: "Rating must be between 1 and 5" })
-  //     return false;
-  //   }
-  //   else if (rating && rating > 5) {
-  //     setError({ ...error, rating: "Rating must be between 1 and 5" })
-  //     return false;
-  //   } else {
-  //     setError({ ...error, rating: "" })
-  //     return true;
-  //   }
-  // };
+  const validateStock = (stock) => {
+    if (stock && !Number.isInteger(stock)){
+      setError({ ...error, stock: "Stock must be an integer." })
+      return false;
+    }
+    else if (stock && stock < 0) {
+      setError({ ...error, stock: "Stock must be 0 or above." })
+      return false;
+    } else {
+      setError({ ...error, stock: "" })
+      return true;
+    }
+  };
 
-  const validateForm = ( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating ) => {
+  const validateForm = ( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, stock ) => {
     if (
       (!title || title === "") &&
       (!authors || authors.length === 0 || authors == [] || authors == [""]) &&
       (!publisher || publisher === "") &&
       (!image || image === "") &&
       (!publishedDate || publishedDate === "") &&
-      (!pageCount || pageCount == 0) &&
+      (!pageCount || pageCount === "") &&
       (!genre || genre === "") &&
-      (!price || price == 0) &&
+      (!price || price === "") &&
       (!description || description === "") &&
-      (!rating || rating === "" || rating == 0))
+      (!rating || rating === "" ) &&
+      (!stock || stock === ""))
     {
       return false;
     } else {
@@ -217,8 +191,8 @@ export default function UpdateBook() {
       alert("You must select a book in order to update it.");
       return;
     };
-    const { title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating } = form 
-    if (!validateForm( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating )){
+    const { title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, stock } = form 
+    if (!validateForm( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, stock )){
       alert("You must select at least one parameter to update the book.");
       return;
     };
@@ -228,6 +202,7 @@ export default function UpdateBook() {
       ...form,
       genre: form.genre.toString(),
       rating: parseInt(form.rating),
+      stock: parseInt(form.stock),
     })
     .then((res) => {
       setSuccess("Book updated successfully!");
@@ -274,7 +249,6 @@ export default function UpdateBook() {
                 (option) => option.value
               );
               setForm({ ...form, id: selectedBook });
-              console.log(form.id);
             }}
             className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
           >
@@ -305,6 +279,34 @@ export default function UpdateBook() {
             name="title"
             className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
           />
+        </div>
+
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="genre"
+          >
+            Genre:
+          </label>
+          <select
+            value={form.genre}
+            name="genre"
+            onChange={(event) => {
+              const selectedGenre = Array.from(
+                event.target.selectedOptions,
+                (option) => option.value
+              );
+              setForm({ ...form, genre: selectedGenre });
+              console.log(form.id);
+            }}
+          >
+            <option value={""}> Select genre </option>
+            {genres.map((genre) => (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div>
@@ -371,8 +373,8 @@ export default function UpdateBook() {
             type="url"
             value={form.image}
             onChange={(event) => {
-              changeHandlder(event);
               validateImage(event.target.value);
+              changeHandlder(event);
             }}
             name="image"
             className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
@@ -387,13 +389,14 @@ export default function UpdateBook() {
             Year of Publication:
           </label>
           <input
-            type="intiger"
+            type="number"
             value={form.publishedDate}
             onChange={(event) => {
-              changeHandlder(event);
               validatePublishedDate(event.target.value);
+              changeHandlder(event);
             }}
             name="publishedDate"
+            placeholder = "Indicate year of publication (integer, between 1 and 2023)"
             className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
@@ -406,44 +409,18 @@ export default function UpdateBook() {
             Page Count:
           </label>
           <input
-            type="intiger"
+            type="number"
             value={form.pageCount}
             onChange={(event) => {
-              changeHandlder(event);
               validatePageCount(event.target.value);
+              changeHandlder(event);
             }}
             name="pageCount"
+            placeholder = "Indicate amount of pages (integer and above 0)"
             className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
 
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="genre"
-          >
-            Genre:
-          </label>
-          <select
-            value={form.genre}
-            name="genre"
-            onChange={(event) => {
-              const selectedGenre = Array.from(
-                event.target.selectedOptions,
-                (option) => option.value
-              );
-              setForm({ ...form, genre: selectedGenre });
-              console.log(form.id);
-            }}
-          >
-            <option value={""}> Select genre </option>
-            {genres.map((genre) => (
-              <option key={genre} value={genre}>
-                {genre}
-              </option>
-            ))}
-          </select>
-        </div>
 
         <div className="mb-4">
           <label
@@ -453,13 +430,14 @@ export default function UpdateBook() {
             Price:
           </label>
           <input
-            type="intiger"
+            type="number"
             value={form.price}
             onChange={(event) => {
-              changeHandlder(event);
               validatePrice(event.target.value);
+              changeHandlder(event);
             }}
             name="price"
+            placeholder = "Indicate price (integer and above 0)"
             className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
@@ -467,17 +445,19 @@ export default function UpdateBook() {
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="description"
+            htmlFor="stock"
           >
-            Description:
+            Stock:
           </label>
-          <textarea
-            value={form.description}
+          <input
+            type="number"
+            value={form.stock}
             onChange={(event) => {
+              validateStock(event.target.value);
               changeHandlder(event);
-              validateDescription(event.target.value);
             }}
-            name="description"
+            name="stock"
+            placeholder = "Indicate amount of units left in stock (integer and above 0)"
             className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
@@ -511,6 +491,25 @@ export default function UpdateBook() {
         </div>
 
         <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="description"
+          >
+            Description:
+          </label>
+          <textarea
+            value={form.description}
+            onChange={(event) => {
+              changeHandlder(event);
+              validateDescription(event.target.value);
+            }}
+            name="description"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+
+        <div className="mb-4">
           {!success && (
             <button
               type="submit"
@@ -523,25 +522,46 @@ export default function UpdateBook() {
 
         <div className="mb-4">
           {success && (
-            <a
-              href="/admin/update-book"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+            <Link
+              to={`/product-page/${form.id}`}
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-green-300"
             >
-              Update another book
-            </a>
+              View Updated Book
+            </Link>
           )}
         </div>
 
         <div className="mb-4">
           {success && (
-            <Link
-              to={`/product-page/${form.id}`}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-green-300"
+            <a
+              href="/admin/update-book"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
-              View updated book
-            </Link>
+              Update Another Book
+            </a>
           )}
         </div>
+        
+        <div className="mb-4">
+            <Link
+              to={"/admin/activate-book"}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+            >
+              Activate or Deactivate Books
+            </Link>
+        </div>
+
+        <div className="mb-4">
+          {success && (
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+            >
+              Update More Properties on Same Book
+            </button>
+          )}
+        </div>
+
       </form>
     </div>
   );
