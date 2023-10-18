@@ -162,7 +162,14 @@ const Detail = () => {
           </div>
         </div>
       </section>
-      <section className='dark:bg-[#111827]'>
+
+
+
+      <div className="grid grid-cols-2 gap-4">
+      <div className="col-span-1">
+        {/* Contenido de la primera columna (PRODUCT DETAILS) */}
+        {/* ... */}
+        <section className='dark:bg-[#111827]'>
       <hr className="border-b-2 border-gray-200 dark:border-blue-950 mx-auto w-[1050px]" />
       <h2 className="underline text-center text-2xl mt-5 dark:text-[#D1D5DB]">PRODUCT DETAILS</h2>
       <div className="mt-5 mb-10 h-100 mx-auto w-80 border-2 border-solid border-black dark:bg-[#E7E5E4] rounded-md">
@@ -184,11 +191,20 @@ const Detail = () => {
         </div>
       </div>
       </section>
+      </div>
+      <div className="col-span-1">
       <section className='dark:bg-[#111827]'>
         <hr className="border-b-2 border-blue-950 mx-auto w-[1050px] " />
         <h2 className='underline text-2xl text-center mt-5 dark:text-[#D1D5DB]'>COMMENT SECTION</h2>
         <button className='bg-green-500 m-2.5 py-0.5 px-1 w-30 h-7.3 rounded-md text-white hover:cursor-pointer'>Add review</button>
       </section>
+        {/* Contenido de la segunda columna (COMMENT SECTION) */}
+        {/* ... */}
+      </div>
+    </div>
+
+
+
     </div>
   )
 }

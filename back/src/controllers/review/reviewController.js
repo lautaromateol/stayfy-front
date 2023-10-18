@@ -1,4 +1,4 @@
-const { Review } = require("../../db");
+const { Review, conn, User  } = require("../../db");
 // Crear una nueva reseña
 exports.createReview = async (req, res) => {
     try {
@@ -70,7 +70,7 @@ exports.getAverageRating = async (req, res) => {
 
         const result = await Review.findOne({
             attributes: [
-                [Sequelize.fn("AVG", Sequelize.col("rating")), "averageRating"],
+                [conn.fn("AVG", conn.col("rating")), "averageRating"],
             ],
             where: {
                 bookId: bookId,
@@ -87,5 +87,49 @@ exports.getAverageRating = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Error al calcular el promedio de calificaciones" });
+    }
+};
+
+exports.getReviewsByBookId = async (req, res) => {
+    try {
+        const bookId = req.params.bookId;
+
+        const reviews = await Review.findAll({
+            where: {
+                bookId: bookId,
+            },
+            include: [User],
+        });
+
+        if (reviews.length === 0) {
+            return res.status(404).json({ message: "No se encontraron reseñas para este libro" });
+        }
+
+        res.json({ reviews });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error al obtener las reseñas" });
+    }
+};
+
+exports.getReviewByUserAndBookId = async (req, res) => {
+    try {
+        const { id_user, bookId } = req.params;
+
+        const review = await Review.findOne({
+            where: {
+                userId: id_user,
+                bookId: bookId,
+            },
+        });
+
+        if (!review) {
+            return res.status(404).json({ message: "No se encontró una reseña para este libro y usuario" });
+        }
+
+        res.json({ review });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error al obtener la reseña del usuario para este libro" });
     }
 };
