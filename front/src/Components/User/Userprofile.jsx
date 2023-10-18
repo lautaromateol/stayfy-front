@@ -17,12 +17,12 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="relative inline-block text-left" onBlur={closeDropdown}>
+    <div className="relative inline-block text-left duration-150 hover:scale-105" onBlur={closeDropdown}>
       <button
         id="avatarButton"
         type="button"
         onClick={toggleDropdown}
-        className="w-10 h-10 rounded-full cursor-pointer"
+        className="rounded-full cursor-pointer flex justify-center items-center"
       >
         {/* Aquí podría ir tu imagen de perfil */}
         {user?.name || "profile"}
