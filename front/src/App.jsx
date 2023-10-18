@@ -27,10 +27,6 @@ import './App.css'
 
 //import TestComponent from './TestComponent/TestComponent'
 import './App.css'
-import { CartProvider } from "./Components/Cart/CartContext/CartContext";
-// import NewsList from './Components/News/News'
-import Orders from './Components/Orders/Orders'
-import DashboardAdmin from './Views/DashboardAdmin/DashboardAdmin';
 import NewProducts from './Components/Products/NewProducts';
 import GenreCardList from './Components/GenreCardList/GenreCardList';
 import Orders from './Components/Orders/Orders';
