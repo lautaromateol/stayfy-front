@@ -5,7 +5,7 @@ const { deactivateByStock } = require("./src/controllers/books/deactivateByStock
 const http = require('http');
 const PORT = 3001;
 
-conn.sync({ alter: true }).then( async () => {
+conn.sync({ force: true }).then( async () => {
   await createBooks();
   await createDefaultAdminUser();
   await deactivateByStock();
