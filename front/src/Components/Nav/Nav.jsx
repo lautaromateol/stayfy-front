@@ -58,7 +58,6 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         {user ? (
           <>
             <button className="duration-150 hover:scale-105" onClick={signOut}>Sign Out</button>
-            <button onClick={signOut}>Sign Out</button>
             <UserToggle  />
           </>
         ) : (
