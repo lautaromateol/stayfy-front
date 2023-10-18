@@ -27,16 +27,6 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         <button className="bg-[#477A7D] hover:bg-[#A4BCB3] text-white font-bold py-2 px-4 rounded dark:bg-[#40495C] dark:hover:bg-[#111827]">
           <Link to="/store">STORE</Link>
         </button>
-        {/*  BOTONES PARA SUPER ADMIN */}
-        {userData.isSuperAdmin || userData.isAdmin ? (
-          <>
-        <button>
-          <Link to="/review">Rate us!</Link>
-        </button>
-          </>
-          ) : (
-            null
-          )}
       </div>
 
       <div>
