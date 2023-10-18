@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import validation from "./validation";
 import { useDispatch } from "react-redux";
-import { postBook } from "../../redux/actions";
+import { postBook } from "../../../redux/actions";
 import axios from "axios";
-import { BACKEND_URL } from "../../../utils";
+import { BACKEND_URL } from "../../../../utils";
 
 const AddBook = () => {
   
@@ -100,12 +100,6 @@ const AddBook = () => {
       <div className="flex justify-center w-full">
         <div className="flex flex-col justify-center items-center max-w-7xl w-[90%]">
           <div className="flex flex-col justify-center text-center space-y-3 my-9">
-            <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-300">
-              Add a new book
-            </h1>
-            <p className="text-gray-700 text-lg dark:text-gray-300">
-              Add your favorite book in just a few steps.
-            </p>
           </div>
           <div className="flex flex-col justify-center lg:w-full lg:flex-row items-center lg:space-x-10 xl:space-x-24 ">
             <form className="bg-gray-200 shadow-2xl flex justify-center md:w-full mb-7 md:mx-16 lg:mx-0 px-8 py-4  lg:py-8 rounded-lg">

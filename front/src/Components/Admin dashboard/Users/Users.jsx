@@ -50,7 +50,7 @@ const Users = () => {
     <div className="h-screen">
       <div>
         <h1 className="text-center text-3xl mt-5">Users admin-dashboard</h1>
-        <Table dataSource={users} columns={columns} pagination={false} style={{ marginTop: 20 }} />
+        <Table dataSource={users} columns={columns} pagination={{ pageSize: 10 }} style={{ marginTop: 20 }} />
       </div>
     </div>
   );

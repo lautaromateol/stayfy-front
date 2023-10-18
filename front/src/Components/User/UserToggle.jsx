@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useUser } from '../../Context/UserContext';
 
 
-const UserProfile = () => {
+const UserToggle = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { user,  } = useUser();
 
@@ -64,7 +64,7 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default UserToggle;
 
 
             

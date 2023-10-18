@@ -1,5 +1,5 @@
 // import { GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK } from "./actions";
-import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK, GET_GENRES, GET_BY_NAME, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DESACTIVATE_USER, DELETE_USER, GET_TITLES, GET_ALL_BOOKS } from "./types";
+import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK, GET_GENRES, GET_BY_NAME, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DESACTIVATE_USER, DELETE_USER, GET_TITLES, GET_ALL_BOOKS, MAKE_ADMIN, DEACTIVATE_ADMIN } from "./types";
 
 const initialState = {
   books: [],
@@ -56,55 +56,65 @@ const reducer = (state = initialState, action) => {
         ...state,
         genres: action.payload,
       };
-      case GET_AUTHOR:
+    case GET_AUTHOR:
       return {
         ...state,
         authors: action.payload,
       };
-      case GET_YEAR:
+    case GET_YEAR:
       return {
         ...state,
         year: action.payload,
       };
-      case GET_PUBLISHER:
+    case GET_PUBLISHER:
       return {
         ...state,
         publishers: action.payload,
       };
-      case GET_TITLES:
-        return {
-          ...state,
-          titles: action.payload,
-        };
-      case POST_BOOK:
-        return {
+    case GET_TITLES:
+      return {
+        ...state,
+        titles: action.payload,
+      };
+    case POST_BOOK:
+      return {
         ...state
-        }
-      case BUY_ORDERS:
-        return {
-          ...state,
-          orders: action.payload
-        }
-      case GET_USERS:
-        return {
-          ...state,
-          users: action.payload
-        }
-      case REACTIVATE_USER:
-        return {
-          ...state,
-          users: action.payload
-        }
-      case DESACTIVATE_USER:
-        return {
-          ...state,
-          users: action.payload
-        }
-      case DELETE_USER:
-        return {
-          ...state,
-          users: action.payload
-        }
+      }
+    case BUY_ORDERS:
+      return {
+        ...state,
+        orders: action.payload
+      }
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload
+      }
+    case REACTIVATE_USER:
+      return {
+        ...state,
+        users: action.payload
+      }
+    case DESACTIVATE_USER:
+      return {
+        ...state,
+        users: action.payload
+      }
+    case DELETE_USER:
+      return {
+        ...state,
+        users: action.payload
+      }
+    case MAKE_ADMIN:
+      return {
+        ...state,
+        users: action.payload
+      }
+    case DEACTIVATE_ADMIN:
+      return {
+        ...state,
+        users: action.payload
+      }
     default:
       return { ...state };
   }

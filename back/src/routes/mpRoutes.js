@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { Order, User } = require("../db");
+const {FRONT_URL} = require("../utils")
 const mercadopago = require("mercadopago");
 const mercadopagoRouter = Router();
 
@@ -19,7 +20,7 @@ mercadopagoRouter.post('/create_preference', async (req, res) => {
 	const preference = {
 		items,
 		back_urls: {
-			success: 'http://localhost:5173/order-approved'
+			success: `${FRONT_URL}/order-approved`
 		},
 		auto_return: 'approved',
 		external_reference: encodedInfo

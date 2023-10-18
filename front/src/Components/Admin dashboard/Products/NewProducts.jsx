@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBooks } from "../../redux/actions";
+import { getAllBooks } from "../../../redux/actions";
 
 const NewProducts = () => {
   const dispatch = useDispatch();
