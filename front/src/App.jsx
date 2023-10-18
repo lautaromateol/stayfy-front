@@ -33,6 +33,7 @@ import Orders from './Components/Orders/Orders'
 import DashboardAdmin from './Views/DashboardAdmin/DashboardAdmin';
 import NewProducts from './Components/Products/NewProducts';
 import GenreCardList from './Components/GenreCardList/GenreCardList';
+import Orders from './Components/Orders/Orders';
 
 function App() {
   const { user, userData } = useUser();
@@ -62,9 +63,8 @@ function App() {
           <Route path='/store' element={<Store />} />
           <Route path='/address' element={<Address />} />
           <Route path="/*" element={<NotFound />} />
-          {/* <Route path='/admin/orders' element={<Orders />} /> */}
-          <Route path='/admin/dashboard' element={<DashboardAdmin />} />
-          <Route path='/products' element={<NewProducts />}></Route>
+          <Route path='/admin/orders' element={<Orders />} />
+          <Route path='/admin/products' element={<NewProducts />}></Route>
           <Route path='/genre/:genre' element={<GenreCardList />}/>
         </Routes>
         <Footer />
