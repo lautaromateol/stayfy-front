@@ -116,7 +116,7 @@ const CartList = () => {
                                 decrementQuantity={decrementQuantity}
                             />
                         </div>
-                        <div className="w-80 max-h-[430px] ml-10 border border-solid border-black-500 bg-white rounded-md dark:bg-stone-200 dark:text-blue-950">
+                        <div className="pb-6 w-80 max-h-[430px] ml-10 border border-solid border-black-500 bg-white rounded-md dark:bg-stone-200 dark:text-blue-950">
                             <h1 className="text-2xl ml-5 mt-5">Order Summary</h1>
                             <div className="grid grid-cols-[70%_30%]">
                                 <p className="ml-5 mt-5">Total Items:</p>
@@ -147,9 +147,9 @@ const CartList = () => {
                             </div>
                             <div className="grid place-content-center mt-10">
                                 {user ?
-                                    <button className="bg-green-500 text-white p-2"><a href='/address' target="_blank" rel="noopener noreferrer">CHECKOUT</a></button>
+                                    <button className="bg-green-500 text-white p-2 rounded-md padding-"><a href='/address' target="_blank" rel="noopener noreferrer">CHECKOUT</a></button>
                                     :
-                                    <button className="bg-green-500 text-white p-2"><Link to='/login'>CHECKOUT</Link></button>
+                                    <button className="bg-green-500 text-white p-2 "><Link to='/login'>CHECKOUT</Link></button>
                                 }
                             </div>
                         </div>
