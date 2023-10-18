@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Aos from "aos"
 import 'aos/dist/aos.css'
 import axios from "axios";
+import { BACKEND_URL } from "../../../utils";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3001/users/forgot-password", { email: input.email }) // Pass email from input state
+      .post(`${BACKEND_URL}/users/forgot-password`, { email: input.email }) // Pass email from input state
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/login");

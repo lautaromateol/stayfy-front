@@ -52,7 +52,7 @@ function App() {
           <Route path='/login' element={<LogIn />} />
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
-          <Route path='/reset-password' element={<ResetPassword />} />
+          <Route path='/reset-password/:id' element={<ResetPassword />} />
           {/* <Route path='/user/:id' element={<UserProfile />} /> */}
           <Route path='/books' element={<Books />} />
           <Route path='/order-approved' element={<Success />} />
