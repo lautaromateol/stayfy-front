@@ -6,7 +6,6 @@ import axios from 'axios';
 import {
   desactivateUser,
   reactivateUser,
-  deleteUser,
   makeAdmin,
   deactivateAdmin
 } from '../../../redux/actions';
@@ -21,10 +20,6 @@ const UserDetail = () => {
   const [orders, setOrders] = useState([]);
 
   const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    dispatch(deleteUser(user.userId));
-  };
 
   const handleDesactivate = () => {
     dispatch(desactivateUser(user.userId));
@@ -112,15 +107,6 @@ const UserDetail = () => {
             Reactivate
           </Button>
         ) : '' }
-
-       {!user.isSuperAdmin ? (
-       <Button
-        className="flex space-around m-2 bg-red-500 text-white" 
-        type="danger" 
-        onClick={handleDelete}
-        href='/admin/users'>
-          Delete user
-        </Button>) : ''}
         
         {!user.isAdmin ? (
         <Button
@@ -131,7 +117,7 @@ const UserDetail = () => {
         </Button>) : ''
         }
 
-       {user.isAdmin ? (
+       {user.isAdmin && !user.isSuperAdmin ? (
         <Button
         className="flex space-around m-2 bg-green-500 text-white" 
         href={`/admin/users/${id}`}
