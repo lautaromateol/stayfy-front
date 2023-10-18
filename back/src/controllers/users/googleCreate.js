@@ -11,6 +11,7 @@ const googleCreate = async(req, res) => {
             profilePicture: picture
         }
         const newUser = await User.create(googleUser);
+        if(!newUser.active) return res.status(403).send("This user is blocked")
         res.status(201).json(newUser);
 
       } catch (error) {

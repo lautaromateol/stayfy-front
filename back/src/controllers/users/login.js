@@ -10,6 +10,7 @@ const login = async (req, res) =>{
     if(!user){
         return res.status(404).send("User not found")
     } else {
+        if(!user.active) return res.status(403).send("This user is blocked")
         if(user.passwordHash !== password){
             return res.status(403).send("Incorrect password")
         } else {

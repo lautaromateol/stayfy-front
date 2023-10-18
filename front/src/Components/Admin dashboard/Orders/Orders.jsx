@@ -21,6 +21,12 @@ const Orders = () => {
       title: 'Products',
       dataIndex: 'products',
       key: 'products',
+      render: (products) =>
+        products.map((product) => (
+            products.length > 1 && products.indexOf(product) !== products.length - 1 ?
+            <span key={product}>{product}, </span> :
+            <span key={product}>{product}</span>        
+            )),
     },
     {
       title: 'Ammount',

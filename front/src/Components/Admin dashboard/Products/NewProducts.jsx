@@ -101,6 +101,8 @@ const NewProducts = () => {
   ];
 
   return (
+    <div>
+    <h1 className="text-center text-3xl mt-5">Books admin-dashboard</h1>
     <Table
       columns={columns}
       dataSource={data}
@@ -109,7 +111,8 @@ const NewProducts = () => {
         x: 1500,
         y: 700,
       }}
-    />
+      />
+      </div>
   );
 };
 

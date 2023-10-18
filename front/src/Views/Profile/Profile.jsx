@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 import { useUser } from "../../Context/UserContext";
-import { Space, Table, Tag, Button, Modal } from 'antd';
+import { Table, Modal } from 'antd';
 import { BACKEND_URL } from '../../../utils';
 import ReviewForm from '../../Components/ReviewForm/ReviewForm';
 import axios from 'axios';
@@ -170,7 +170,6 @@ const UserProfile = () => {
                             columns={columns}
                             rowKey={(record) => record.paymentId}
                         />
-                        <button onClick={showModal}>Modal</button>
                     </div>
                 </div>
             </div>

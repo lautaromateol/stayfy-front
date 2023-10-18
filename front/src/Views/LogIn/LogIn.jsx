@@ -3,28 +3,47 @@
 import React, { useState, useEffect } from "react";
 import Google from "../../Components/Google/Google";
 import validation from "./validations/loginValidations";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import loginAction from "../../redux/login";
 import { useUser } from '../../Context/UserContext';
+import { Button, Modal } from 'antd';
 import Aos from "aos"
 import 'aos/dist/aos.css'
 
 const LogIn = () => {
-  const navigate = useNavigate();
+
   const [input, setInput] = useState({
     username: "",
     password: "",
   });
   const [error, setError] = useState({});
-  // eslint-disable-next-line no-unused-vars
+
   const [user, setUser] = useState(null)
+
+  const [warning, setWarning] = useState('')
 
   const {signIn, signOut} = useUser();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const lastTab = localStorage.getItem('lastTab')
 
+  const showModal = () => {
+    if(warning === 'This user is blocked'){
+      setIsModalOpen(true);
+    }
+}
+
+const handleOk = () => {
+  setIsModalOpen(false);
+};
+
+const handleCancel = () => {
+  setIsModalOpen(false);
+};
+
   const handleChange = (e) => {
+    setWarning('')
     setInput({
       ...input,
       [e.target.name]: e.target.value,
@@ -40,10 +59,6 @@ const LogIn = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setInput({
-      username: "",
-      password: "",
-    })
     try {
       const user = await loginAction.login({
         username: input.username,
@@ -54,12 +69,17 @@ const LogIn = () => {
       // window.localStorage.setItem("logged", JSON.stringify(user))
       signIn(JSON.stringify(user));
 
+      setInput({
+        username: "",
+        password: "",
+      })
+
       window.location.href = lastTab
       
     } catch (error) {
       if (error.response && (error.response.status === 404 || error.response.status === 403)) {
-      
-        window.alert("Usuario no encontrado o contraseña incorrecta");
+        setWarning(error.response.data)
+        showModal()
       } else {
         
         window.alert("Error!");
@@ -80,6 +100,9 @@ const LogIn = () => {
 
   return (
     <div className="bg-[#A4BCB3] h-screen dark:bg-gray-900">
+      <Modal title="Access Denied" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>{warning}</p>
+            </Modal>
       <div className="flex justify-center" data-aos = 'fade-up'>
         <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center md:flex-row shadow rounded-3xl max-w-7xl md:w-[50%]  m-2 mt-16 bg-white dark:bg-stone-200">
           <div className=" w-full md:w-3/4">
@@ -113,6 +136,7 @@ const LogIn = () => {
               </div>
             </div>
             <div className="flex flex-col items-center text-center mt-7">
+              {warning && warning !== 'This user is blocked' ? <p>{warning}</p> : ''}
               <button 
               type="submit"  
               className="lg:w-[340px] px-24 md:px-[118px] lg:px-[110px] py-2 rounded-md text-white bg-stone-600 hover:bg-stone-500  font-medium m-2 mb-3 "

@@ -1,5 +1,5 @@
 // import { GET_AUTHOR, GET_BOOKS, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK } from "./actions";
-import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK, GET_GENRES, GET_BY_NAME, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DESACTIVATE_USER, DELETE_USER, GET_TITLES, GET_ALL_BOOKS, MAKE_ADMIN, DEACTIVATE_ADMIN } from "./types";
+import { GET_FILTERED_BOOKS, SET_LOADING_FALSE, SET_LOADING_TRUE, GET_AUTHOR, GET_GENDER, GET_PUBLISHER, GET_YEAR, POST_BOOK, GET_GENRES, GET_BY_NAME, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DESACTIVATE_USER, GET_TITLES, GET_ALL_BOOKS, MAKE_ADMIN, DEACTIVATE_ADMIN } from "./types";
 
 const initialState = {
   books: [],
@@ -96,11 +96,6 @@ const reducer = (state = initialState, action) => {
         users: action.payload
       }
     case DESACTIVATE_USER:
-      return {
-        ...state,
-        users: action.payload
-      }
-    case DELETE_USER:
       return {
         ...state,
         users: action.payload

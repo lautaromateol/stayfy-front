@@ -19,7 +19,6 @@ export const BUY_ORDERS = "BUY_ORDERS"
 export const GET_USERS = "GET_USERS"
 export const REACTIVATE_USER = "REACTIVATE_USER"
 export const DESACTIVATE_USER = "DESACTIVATE_USER"
-export const DELETE_USER = "DELETE_USER"
 export const POST_REVIEW = "POST_REVIEW";
 export const MAKE_ADMIN = "MAKE_ADMIN"
 export const DEACTIVATE_ADMIN = "DEACTIVATE_ADMIN"
