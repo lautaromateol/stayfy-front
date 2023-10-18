@@ -17,6 +17,7 @@
     "aos": "^2.3.4",
     "axios": "^1.5.1",
     "cloudinary": "^1.41.0",
+    "dotenv": "^16.3.1",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.6.3",
     "jwt-decode": "^3.1.2",
