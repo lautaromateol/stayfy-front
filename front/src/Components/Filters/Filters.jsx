@@ -15,8 +15,11 @@ const Filters = () => {
     const [selectedAuthor, setAuthor] = useState('')
     const [selectedPublisher, setPublisher] = useState('')
     const [sort, setSort] = useState('')
+    const [publishedDate, setPublishedDate] = useState('')
     const [bookName, setBookName] = useState('')
+    const [selectedRating, setRating] = useState(0)
     const [selectedPage, setSelectedPage] = useState(0); // Inicialmente seleccionamos la página 
+    const ratingArray = [1, 2, 3, 4, 5];
 
 
     const handlePreviousPage = () => {
@@ -41,9 +44,11 @@ const Filters = () => {
             publisher: selectedPublisher,
             title: bookName,
             page: selectedPage,
+            rating: selectedRating,
+            publishedDate,
         })
         );
-    }, [sort, selectedGenre, selectedAuthor, selectedPublisher, bookName, selectedPage])
+    }, [sort, selectedGenre, selectedAuthor, selectedPublisher, bookName, selectedPage, selectedRating, publishedDate])
 
     return (
       <div data-aos = 'fade-up'>
@@ -53,14 +58,15 @@ const Filters = () => {
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setGenre(e.target.value)}
             >
-              <option hidden value="">
+              {/* <option hidden value="">
                 Genre
-              </option>
+              </option> */}
+              <option value={""}>Select Genre 🔍︎</option>
               {genres.map((genre) => {
                 return <option>{genre}</option>;
               })}
             </select>
-            <div className="flex justify-center mt-2">
+            {/* <div className="flex justify-center mt-2">
               <p className="text-center mr-0.5 text-white border-black-500  rounded-xl p-1">
                 {selectedGenre}
               </p>
@@ -71,7 +77,7 @@ const Filters = () => {
               ) : (
                 ""
               )}
-            </div>
+            </div> */}
           </div>
 
           <div className="mt-5 mx-auto">
@@ -79,14 +85,12 @@ const Filters = () => {
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setPublisher(e.target.value)}
             >
-              <option hidden value="">
-                Publisher
-              </option>
+              <option value={""}>Select Publisher 🔍︎</option>
               {publishers.map((publisher) => {
                 return <option>{publisher}</option>;
               })}
             </select>
-            <div className="flex justify-center mt-2 ">
+            {/* <div className="flex justify-center mt-2 ">
               <p className="text-center mr-0.5 text-white border-black-500 rounded-xl p-1">
                 {selectedPublisher}
               </p>
@@ -100,7 +104,7 @@ const Filters = () => {
               ) : (
                 ""
               )}
-            </div>
+            </div> */}
           </div>
 
           <div className="mt-5 mx-auto">
@@ -108,14 +112,12 @@ const Filters = () => {
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setAuthor(e.target.value)}
             >
-              <option hidden value="">
-                Author
-              </option>
+              <option value={""}>Select Author 🔍︎</option>
               {authors.map((author) => {
                 return <option>{author}</option>;
               })}
             </select>
-            <div className="flex justify-center mt-2">
+            {/* <div className="flex justify-center mt-2">
               <p className="text-center mr-0.5 text-white border-black-500 rounded-xl p-1">
                 {selectedAuthor}
               </p>
@@ -126,8 +128,27 @@ const Filters = () => {
               ) : (
                 ""
               )}
-            </div>
+            </div> */}
           </div>
+
+
+          <div className="mt-5 mx-auto">
+          <select
+            className= "rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
+            value={selectedRating}
+            name="rating"
+            onChange={(e) => setRating(e.target.value)}    
+          >
+            <option value={""}>Min rating 🔍︎</option>
+            {ratingArray.map((rating) => (
+              <option key={rating} value={rating}>
+                {rating}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* <div className="mt-5 mx-auto"> <p> Sort By:</p></div> */}
 
           <div className="mt-5 mx-auto">
             <select
@@ -136,13 +157,11 @@ const Filters = () => {
                 setSort({ field: "title", direction: e.target.value })
               }
             >
-              <option hidden value="">
-                Title
-              </option>
+              <option value={""}>Sort By Title</option>
               <option value="ASC">A-Z</option>
               <option value="DESC">Z-A</option>
             </select>
-            <div className="flex justify-center mt-2">
+            {/* <div className="flex justify-center mt-2">
               <p className="text-center mr-0.5 text-white border-black-500 rounded-xl p-1">
                 {sort.direction}
               </p>
@@ -153,9 +172,21 @@ const Filters = () => {
               ) : (
                 ""
               )}
-            </div>
+            </div> */}
           </div>
-        
+
+          <div className="mt-5 mx-auto">
+            <select
+              className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
+              onChange={(e) => setPublishedDate(e.target.value)} 
+            >
+              <option value={""}> Sort By Date </option>
+              <option value="ASC">Latest</option>
+              <option value="DESC">Older</option>
+            </select>
+          </div>
+
+
 
         <div className="grid place-content-center">
           <input
@@ -166,6 +197,7 @@ const Filters = () => {
             onChange={(e) => setBookName(e.target.value)}
           ></input>
         </div>
+
 </div>
 
         {/* PAGINADO */}
