@@ -48,7 +48,7 @@ export function postBook(payload) {
 export function postReview(payload) {
     return async function (dispatch) {
         try {
-            const postReview = await axios.post('http://localhost:3001/review/', payload);
+            const postReview = await axios.post(`${BACKEND_URL}/review/`, payload);
             if (postReview.status === 201) {
                 // console.log('Reseña insertada correctamente:', postReview.data);
             } else {

@@ -66,8 +66,8 @@ const Detail = () => {
               console.error(error);
             });
           // Nueva solicitud para obtener reseñas
-          // axios(`${BACKEND_URL}/review/reviews/${id}`)
-          axios(`http://localhost:3001/review/reviews/${id}`)
+          axios(`${BACKEND_URL}/review/reviews/${id}`)
+          // axios(`http://localhost:3001/review/reviews/${id}`)
             .then(response => {
               setReviews(response.data.reviews);
               console.log(response.data.reviews);

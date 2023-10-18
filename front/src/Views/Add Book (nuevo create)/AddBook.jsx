@@ -3,6 +3,7 @@ import validation from "./validation";
 import { useDispatch } from "react-redux";
 import { postBook } from "../../redux/actions";
 import axios from "axios";
+import { BACKEND_URL } from "../../../utils";
 
 const AddBook = () => {
   
@@ -52,7 +53,8 @@ const AddBook = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:3001/books/uploads",
+          `${BACKEND_URL}/books/uploads`,
+          // "http://localhost:3001/books/uploads",
           formData,
           {
             headers: {

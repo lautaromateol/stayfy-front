@@ -101,7 +101,7 @@ const UserProfile = () => {
 
     useEffect(() => {
         if (userData.userId) {
-            Axios.get(`http://localhost:3001/users/${userData.userId}`)
+            Axios.get(`${BACKEND_URL}/users/${userData.userId}`)
                 .then((response) => {
                     setaxiosData(response.data);
                 })
