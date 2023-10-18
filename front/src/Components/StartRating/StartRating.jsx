@@ -10,7 +10,7 @@ const StartRating = ({ average }) => {
 
     const fullStars = 'w-7 h-7 fill-current text-yellow-500';
     const halfStars = 'w-7 h-7 fill-current text-yellow-500'; // Estilo para estrellas medias
-    const emptyStars = 'w-7 h-7 fill-current text-gray-700'; // Estilo para estrellas vacías
+    const emptyStars = 'w-7 h-7 fill-current text-gray-700 dark:text-[#D1D5DB]'; // Estilo para estrellas vacías
 
     return (
         <div className="estrellas-rating flex items-center dark:text-[#F2F3F5]">

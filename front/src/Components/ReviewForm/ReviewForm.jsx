@@ -5,15 +5,24 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import { useDispatch } from "react-redux";
 import { postReview } from "../../redux/actions";
+import { notification } from 'antd';
 
 const ReviewForm = () => {
+    const [api, contextHolder] = notification.useNotification();
+    const openNotificationWithIcon = (type, description) => {
+        api[type]({
+            message: description,
+            // description: "Stayfy",
+        });
+    };
+
     const [review, setReview] = useState({
         rating: 0,
         title: '',
         message: '',
         userId: 1,
         bookId: 1,
-});
+    });
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -28,11 +37,31 @@ const ReviewForm = () => {
         const { name, value } = e.target;
         setReview({ ...review, [name]: value });
     };
-
-    const handleSubmit = (e) => {
+    const [message, setMessage] = useState(null);
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Review:', review);
-        dispatch(postReview(review));
+        console.log('review.rating:', review.rating);
+        if (review.rating === 0) {
+            openNotificationWithIcon('warning', 'Selecciona una calificación.');
+            return;
+        }
+            try {
+            
+            const response = await dispatch(postReview(review));
+
+            if (response && response.status === 201) {
+                openNotificationWithIcon('success','Review inserted successfully.');
+                setMessage('Reseña insertada correctamente.');
+            } else {
+                setMessage('Error al insertar la reseña. Inténtalo de nuevo.');
+                openNotificationWithIcon('warning','Error inserting the review. Please try again.')
+            }
+        } catch (error) {
+            console.error('Error al enviar la reseña:', error);
+            openNotificationWithIcon('warning','Error inserting the review. Please try again.')
+            setMessage('Error al insertar la reseña. Inténtalo de nuevo.');
+        }
+
         setReview({
             rating: 0,
             title: '',
@@ -41,9 +70,17 @@ const ReviewForm = () => {
             bookId: 1,
         });
     };
-    
+
     return (
         <div>
+            {contextHolder}
+            {/* <Space>
+                <Button onClick={() => openNotificationWithIcon('success')}>Success</Button>
+                <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>
+                <Button onClick={() => openNotificationWithIcon('warning')}>Warning</Button>
+                <Button onClick={() => openNotificationWithIcon('error')}>Error</Button>
+            </Space> */}
+
             <div className="min-h-screen bg-[#A4BCB3] dark:bg-gray-900">
                 <div className="bg-[#A4BCB3] dark:bg-gray-900 text-black py-20" data-aos='fade-up'>
                     <div className="container mx-auto flex flex-col md:flex-row my-6 md:my-4">

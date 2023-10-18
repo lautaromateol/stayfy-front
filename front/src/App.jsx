@@ -5,6 +5,7 @@ import { CartProvider } from "./Components/Cart/CartContext/CartContext";
 import { useUser } from './Context/UserContext';
 import AddBook  from './Views/Add Book (nuevo create)/AddBook'
 import Home from './Views/Home/Home'
+import Profile from './Views/Profile/Profile'
 import Detail from './Components/Detail/Detail'
 import Nav from './Components/Nav/Nav'
 import ReviewForm from './Components/ReviewForm/ReviewForm'
@@ -58,18 +59,18 @@ function App() {
           <Route path='/cart' element={<CartList />} />
           <Route path='/store' element={<Store />} />
           <Route path='/address' element={<Address />} />
-          <Route path='/create' 
-          element={userData.isSuperAdmin || userData.isAdmin ? <Create /> : <NoPermissions />}
-          />
           {isAuthenticated() ? (
             <>
               <Route path='/review' element={<ReviewForm/>}/>
+              <Route path='/user/profile' element={<Profile />} />
             </>
           ) : null}
           <Route path="/*" element={<NotFound />} />
           <Route path='/admin/orders' element={<Orders />} />
           <Route path='/admin/products' element={<NewProducts />}></Route>
           <Route path='/genre/:genre' element={<GenreCardList />}/>
+          {/* RUTAS USER PROFILE */}
+
         </Routes>
         <Footer />
       </CartProvider>
