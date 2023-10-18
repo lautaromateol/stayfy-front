@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "../../utils";
-import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DELETE_USER, DESACTIVATE_USER, GET_TITLES, GET_ALL_BOOKS } from "./types";
+import { GET_FILTERED_BOOKS, GET_YEAR, GET_AUTHOR, GET_PUBLISHER, GET_GENRES, SET_LOADING_FALSE, SET_LOADING_TRUE, FILTER, RESET, SEARCH_BOOK, SET_ERROR, BUY_ORDERS, GET_USERS, REACTIVATE_USER, DELETE_USER, DESACTIVATE_USER, GET_TITLES, GET_ALL_BOOKS, MAKE_ADMIN, DEACTIVATE_ADMIN } from "./types";
 
 export function getFilteredBooks(args) {
     const { sort, page, genre, title, publisher, author } = args || {};
@@ -242,6 +242,28 @@ export const desactivateUser = (id) => {
         return async (dispatch) => {
             const { data } = axios.put(`${BACKEND_URL}/users/${id}`)
             dispatch({ type: DESACTIVATE_USER, payload: data })
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const makeAdmin = (id)=>{
+    try {
+        return async (dispatch)=>{
+        const {data} = axios.put(`${BACKEND_URL}/users/${id}?admin=activate`)
+        dispatch({type: MAKE_ADMIN, payload: data})
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const deactivateAdmin = (id)=>{
+    try {
+        return async (dispatch)=>{
+        const {data} = axios.put(`${BACKEND_URL}/users/${id}?admin=deactivate`)
+        dispatch({type: DEACTIVATE_ADMIN, payload: data})
         }
     } catch (error) {
         console.error(error)
