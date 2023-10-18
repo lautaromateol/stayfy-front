@@ -92,8 +92,8 @@ const Google = () => {
     checkToken();
     /* global google */
 
-    google.accounts.id.initialize({
-      client_id: "977033928878-fhtsoleu1of5a13q4psdn699t31apk5q.apps.googleusercontent.com",
+    google.accounts.id.initialize({ 
+      client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
       callback: handleCallbackResponse
     })
     google.accounts.id.renderButton(
