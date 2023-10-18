@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Stars = () => {
+const Stars = ({ handleRatingChange }) => {
   const [hoveredRating, setHoveredRating] = useState(0); // Estado para almacenar la calificación al pasar el mouse
   const [rating, setRating] = useState(0); // Estado para almacenar la calificación final
 
@@ -29,7 +29,8 @@ const Stars = () => {
             (value <= rating || value <= hoveredRating) ? 'text-yellow-400' : 'text-gray-400'
           }`}
           onMouseEnter={() => handleRatingHover(value)} // Manejar el paso del mouse
-          onClick={() => handleRatingClick(value)} // Manejar el clic
+          // onClick={() => handleRatingClick(value)} // Manejar el clic
+          onClick={() => handleRatingChange(value)} 
         >
           <input
             value={value}
