@@ -24,6 +24,7 @@ import BookActivation from './Components/Admin dashboard/UpdateBook/BookActivati
 import NewProducts from './Components/Admin dashboard/Products/NewProducts';
 import Orders from './Components/Admin dashboard/Orders/Orders';
 import GenreCardList from './Components/GenreCardList/GenreCardList';
+import AdminButtons from "./Components/Admin dashboard/AdminButtons/AdminButtons"
 import ReviewForm from './Components/ReviewForm/ReviewForm'
 import './App.css'
 
@@ -38,6 +39,7 @@ function App() {
     <div className={darkMode ? 'dark' : ''}>
       <CartProvider>
         <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        {userData.isAdmin || userData.isSuperAdmin ? <AdminButtons/> : ''}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/product-page/:id' element={<Detail />} />
