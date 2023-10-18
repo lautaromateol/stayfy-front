@@ -4,6 +4,7 @@ import { Breadcrumb } from 'antd';
 import { useUser } from "../../Context/UserContext";
 import Axios from 'axios';
 import { Space, Table, Tag, Button, Modal } from 'antd';
+import { BACKEND_URL } from '../../../utils';
 
 
 
@@ -114,7 +115,6 @@ const UserProfile = () => {
     if (!axiosData) {
         return <div>Cargando...</div>;
     }
-
     return (
         <div className="bg-gray-100 dark:bg-gray-800 py-16">
         <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
@@ -127,7 +127,7 @@ const UserProfile = () => {
                 <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
                     <div className="text-center">
                         <img
-                            src={axiosData.profilePicture}
+                            src={axiosData?.profilePicture || "https://as1.ftcdn.net/v2/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg"}
                             alt="User Profile"
                             className="w-24 h-24 rounded-full mx-auto mb-4"
                         />
