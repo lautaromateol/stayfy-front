@@ -60,7 +60,7 @@ const getFilteredBooks = async ({ sort, page = 0, genre = '', title, publishedDa
   foundBooks = filterByRating(foundBooks, rating);
 
   if(publishedDate){
-    foundBooks = sortByDate(foundBooks, publishedDate.direction);
+    foundBooks = sortByDate(foundBooks, publishedDate);
   };
   const sortedBooks = sortBooks(foundBooks, sort, page);
   return sortedBooks;
