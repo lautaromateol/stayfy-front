@@ -49,6 +49,7 @@ const CartList = () => {
                             title: product.title,
                             unit_price: product.price,
                             quantity: cart.filter((item) => item === product.id).length,
+                            stock:product.stock
                         };
                         items.push(item);
                     }
