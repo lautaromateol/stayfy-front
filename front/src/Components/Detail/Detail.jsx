@@ -136,7 +136,7 @@ const Detail = () => {
               <p class="leading-relaxed dark:text-[#D1D5DB]">{book.description}</p>
               <hr class="border-b-2 border-gray-200 mt-5 mb-5" />
               <div class="flex">
-                <span class="title-font font-medium text-2xl text-gray-900">{
+                <span class="title-font font-medium text-2xl text-gray-900 dark:text-white">{
                   (book.price * 1.0).toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD",
@@ -209,7 +209,7 @@ const Detail = () => {
         <div className="col-span-1 bg-white dark:bg-[#111827] " >
           <section >
             <hr className="border-b-2 border-blue-950 mx-auto " />
-            <h2 className='underline text-2xl text-center mt-5'>COMMENT SECTION</h2>
+            <h2 className='underline text-2xl text-center mt-5 dark:text-[#D1D5DB]'>COMMENT SECTION</h2>
             {/* <button className='bg-green-500 m-2.5 py-0.5 px-1 w-30 h-7.3 rounded-md text-white  hover:cursor-pointer'>Add review</button> */}
           </section>
 

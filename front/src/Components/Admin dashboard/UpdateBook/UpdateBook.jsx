@@ -218,8 +218,8 @@ export default function UpdateBook() {
 
 
   return (
-    <div className="container mx-auto mt-8">
-      <div className="text-2xl font-semibold mb-4">
+    <div className="m-auto px-60 pt-6 pb-6 bg-[#b2d1c5] dark:bg-[#111827]">
+      <div className="text-2xl font-semibold mt-4 mb-4 text-[#816d64] dark:text-white">
         <h2>UPDATE EXISTING BOOK</h2>
       </div>
       {success && <div className="text-green-600 mb-2">{success}</div>}{" "}
@@ -228,16 +228,21 @@ export default function UpdateBook() {
         <div className="text-red-600 mb-2">{error.error}</div>
       )}{" "}
       {/* Mostrar el mensaje de error */}
+
+
+      {/* ARRANCA FORM */}
       <form
         onSubmit={submitHandler}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white dark:bg-[#40495C] shadow-md rounded-xl px-8 pt-6 pb-8 mb-4"
       >
+
+        {/* SELECT BOOK */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="id"
           >
-            Select book (id - title):
+            Select book (ID - Title):
           </label>
           <select
             required
@@ -250,7 +255,7 @@ export default function UpdateBook() {
               );
               setForm({ ...form, id: selectedBook });
             }}
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           >
             <option value={""}> Select book </option>
             {allBooks.map((book) => (
@@ -263,9 +268,10 @@ export default function UpdateBook() {
           </select>
         </div>
 
+        {/* TITLE */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="title"
           >
             Title:
@@ -277,13 +283,14 @@ export default function UpdateBook() {
               changeHandlder(event);
             }}
             name="title"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+            {/* GENRE */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="genre"
           >
             Genre:
@@ -291,6 +298,7 @@ export default function UpdateBook() {
           <select
             value={form.genre}
             name="genre"
+            className="rounded dark:bg-[#2d364b] dark:text-[#F2F3F5]"
             onChange={(event) => {
               const selectedGenre = Array.from(
                 event.target.selectedOptions,
@@ -309,9 +317,10 @@ export default function UpdateBook() {
           </select>
         </div>
 
+              {/* AUTHOR */}
         <div>
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="authors"
           >
             Authors:
@@ -322,8 +331,9 @@ export default function UpdateBook() {
                 type="text"
                 value={author}
                 onChange={(e) => updateAuthor(index, e.target.value)}
+                className="dark:bg-[#2d364b] dark:text-[#F2F3F5]"
               />
-              <button onClick={() => removeAuthor(index)}>Remove</button>
+              <button onClick={() => removeAuthor(index)} className="bg-transparent hover:bg-red-800 text-red-800 font-extrabold hover:text-white py-2 px-4 border border-red-800 dark:border-gray-400 dark:text-white dark:bg-red-800 dark:bg-opacity-50 hover:dark:bg-red-800 hover:border-transparent rounded">Remove</button>
             </div>
           ))}
         </div>
@@ -332,6 +342,7 @@ export default function UpdateBook() {
         <input
           type="text"
           value=""
+          className="rounded mb-4 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           onChange={(e) => {
             const newAuthor = e.target.value;
             if (newAuthor) {
@@ -344,9 +355,11 @@ export default function UpdateBook() {
           placeholder="Add Author"
         />
 
+
+          {/* PUBLISHER */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="publisher"
           >
             Publisher:
@@ -358,13 +371,15 @@ export default function UpdateBook() {
               changeHandlder(event);
             }}
             name="publisher"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+
+            {/* IMAGE */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="image"
           >
             Image:
@@ -377,13 +392,15 @@ export default function UpdateBook() {
               changeHandlder(event);
             }}
             name="image"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+
+            {/* YEAR OF PUBLICATION */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="publishedDate"
           >
             Year of Publication:
@@ -397,13 +414,14 @@ export default function UpdateBook() {
             }}
             name="publishedDate"
             placeholder = "Indicate year of publication (integer, between 1 and 2023)"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+            {/* PAGE COUNT */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="pageCount"
           >
             Page Count:
@@ -417,14 +435,14 @@ export default function UpdateBook() {
             }}
             name="pageCount"
             placeholder = "Indicate amount of pages (integer and above 0)"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
-
+            {/* PRICE */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="price"
           >
             Price:
@@ -438,13 +456,14 @@ export default function UpdateBook() {
             }}
             name="price"
             placeholder = "Indicate price (integer and above 0)"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+            {/* STOCK */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="stock"
           >
             Stock:
@@ -458,19 +477,21 @@ export default function UpdateBook() {
             }}
             name="stock"
             placeholder = "Indicate amount of units left in stock (integer and above 0)"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+            {/* RATING */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="rating"
           >
             Rating:
           </label>
           <select
             value={form.rating}
+            className="dark:bg-[#2d364b] dark:text-[#F2F3F5]"
             name="rating"
             onChange={(event) => {
               const selectedRating = Array.from(
@@ -490,9 +511,10 @@ export default function UpdateBook() {
           </select>
         </div>
 
+              {/* DESCRIPTION */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="description"
           >
             Description:
@@ -504,7 +526,7 @@ export default function UpdateBook() {
               validateDescription(event.target.value);
             }}
             name="description"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
@@ -513,7 +535,7 @@ export default function UpdateBook() {
           {!success && (
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
               Update Book
             </button>
@@ -524,7 +546,7 @@ export default function UpdateBook() {
           {success && (
             <Link
               to={`/product-page/${form.id}`}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-green-300"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-green-300"
             >
               View Updated Book
             </Link>
@@ -535,7 +557,7 @@ export default function UpdateBook() {
           {success && (
             <a
               href="/admin/update-book"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
               Update Another Book
             </a>
@@ -545,7 +567,7 @@ export default function UpdateBook() {
         <div className="mb-4">
             <Link
               to={"/admin/activate-book"}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
               Activate or Deactivate Books
             </Link>
@@ -555,7 +577,7 @@ export default function UpdateBook() {
           {success && (
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
               Update More Properties on Same Book
             </button>
