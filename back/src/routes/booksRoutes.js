@@ -2,12 +2,12 @@ const { Router } = require("express");
 const { getBooksHandler, getFilteredBooksHandler } = require("../handlers/books/getBooksHandler");
 const { getByIDHandler } = require("../handlers/books/getByIDHandler");
 const { postHandler } = require("../handlers/books/postBook")
-// const { getGenresHandler } = require("../handlers/genresHandler");
 const { deactivateBookHandler, updateBookHandler } = require("../handlers/books/updateBookHandler");
-
-
+const { removeUnitHandler } = require("../handlers/books/removeUnitHandler");
 const cloudinary = require("cloudinary").v2;
 const Multer = require("multer");
+
+
 cloudinary.config({
     cloud_name: "dhqudb28a",
     api_key: "259744883376975",
@@ -32,6 +32,7 @@ booksRouter.get("/:id", getByIDHandler);
 booksRouter.post("/create", postHandler);
 booksRouter.put("/activation", deactivateBookHandler);
 booksRouter.put("/update", updateBookHandler);
+booksRouter.put("/remove_unit", removeUnitHandler)
 booksRouter.post("/uploads", upload.single("image"), async (req, res) => {
     try {
         const b64 = Buffer.from(req.file.buffer).toString("base64");

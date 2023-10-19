@@ -43,6 +43,10 @@ const Success = () => {
                     {
                         items, shippingInfo, buyer: id ? id : null
                     })
+                axios.put(`${BACKEND_URL}/books/remove_unit`, 
+                {
+                    items
+                })
             } catch (error) {
                 console.error(error)
             }
