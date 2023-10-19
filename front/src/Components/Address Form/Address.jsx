@@ -62,7 +62,7 @@ const Address = ()=>{
                 <option hidden>Select your country</option>
                     {countries?.map((country)=> {
                         return(
-                            <option>{country}</option>
+                            <option value={country}>{country}</option>
                         )
                     })}
                 </select>

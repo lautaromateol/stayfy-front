@@ -57,8 +57,8 @@ const UserProfile = () => {
                 products.map((product) => (
                     <div>
                     {products.length > 1 && products.indexOf(product) !== products.length - 1 ?
-                        <span key={product}>{product} <a className="bg-green-500 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>Review</a></span> :
-                        <span key={product}>{product} <a className="bg-green-500 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>Review</a></span>}
+                        <span className='mt-5' key={product}>{product} <a className="bg-green-500 mt-5 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>⭐</a></span> :
+                        <span className='mt-5' key={product}>{product} <a className="bg-green-500 mt-5 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>⭐</a></span>}
                     </div>
                 ))
         },
