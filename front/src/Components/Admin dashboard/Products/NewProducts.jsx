@@ -53,7 +53,7 @@ const NewProducts = () => {
       title: "Image",
       dataIndex: "image",
       key: "image",
-      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-white",
+      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-black",
       render: (image) => (
         <img src={image} alt="book cover" style={{ width: "50px" }} />
       ),
@@ -64,7 +64,7 @@ const NewProducts = () => {
       key: "title",
       sorter: (a, b) => a.title.localeCompare(b.title),
       sortOrder: sortedInfo.columnKey === "title" && sortedInfo.order,
-      className: "bg-[#ccc1b3] dark:bg-[#2D364B] dark:text-white",
+      className: "bg-[#ccc1b3] dark:bg-[#2D364B] dark:text-black",
     },
     {
       title: "Price",
@@ -72,13 +72,13 @@ const NewProducts = () => {
       key: "price",
       sorter: (a, b) => a.price - b.price,
       sortOrder: sortedInfo.columnKey === "price" && sortedInfo.order,
-      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-white",
+      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-black",
     },
     {
       title: "Genre",
       dataIndex: "genre",
       key: "genre",
-      className: "bg-[#ccc1b3] dark:bg-[#2D364B] dark:text-white",
+      className: "bg-[#ccc1b3] dark:bg-[#2D364B] dark:text-black",
       filters: genres,
       onFilter: (value, record) => record.genre.indexOf(value) === 0,
       render: (text) => <p>{text}</p>,
@@ -87,15 +87,17 @@ const NewProducts = () => {
       title: "Stock",
       dataIndex: "stock",
       key: "stock",
+      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-black",
     },
     {
       title: 'Action',
       key: 'operation',
-      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-white",
+      className: "bg-[#ccc1b3] dark:bg-[#2D364B] dark:text-black",
       fixed: 'right',
       width: 100,
       render: (text, record) => (
         <Button
+          className="bg-[#dbd1c3] dark:bg-[#40495C] dark:text-white"
           style={{ backgroundColor: record.active ? 'green' : 'red', color: 'white' }}
           onClick={() => changeBookStatus(record.id, record.active)}
         >
