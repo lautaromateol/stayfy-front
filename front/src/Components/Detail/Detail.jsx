@@ -136,7 +136,7 @@ const Detail = () => {
               <p class="leading-relaxed dark:text-[#D1D5DB]">{book.description}</p>
               <hr class="border-b-2 border-gray-200 mt-5 mb-5" />
               <div class="flex">
-                <span class="title-font font-medium text-2xl text-gray-900">{
+                <span class="title-font font-medium text-2xl text-gray-900 dark:text-white">{
                   (book.price * 1.0).toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD",
