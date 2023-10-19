@@ -10,10 +10,15 @@ import {
   deactivateAdmin
 } from '../../../redux/actions';
 import { BACKEND_URL } from '../../../../utils';
+import { useUser } from '../../../Context/UserContext'
 
 const UserDetail = () => {
   
   const { id } = useParams();
+
+  const {userData} = useUser()
+
+  console.log(userData)
 
   const [user, setUser] = useState({});
 
@@ -87,7 +92,7 @@ const UserDetail = () => {
         </p>
 
         <div className='flex space-around'>
-        {user.active && !user.isSuperAdmin ? (
+        {user.active && !user.isSuperAdmin && userData.userId !== user.userId ? (
           <Button
             className="inline m-2"
             type="primary"
@@ -97,7 +102,7 @@ const UserDetail = () => {
             Deactivate
           </Button>
         ) : '' } 
-        {!user.active && !user.isSuperAdmin ? (
+        {!user.active && !user.isSuperAdmin && userData.userId !== user.userId ? (
           <Button
           className="m-2"
           type="primary"
@@ -108,7 +113,7 @@ const UserDetail = () => {
           </Button>
         ) : '' }
         
-        {!user.isAdmin ? (
+        {!user.isAdmin && userData.userId !== user.userId ? (
         <Button
         className="flex space-around m-2 bg-green-500 text-white" 
         href={`/admin/users/${id}`}
@@ -117,7 +122,7 @@ const UserDetail = () => {
         </Button>) : ''
         }
 
-       {user.isAdmin && !user.isSuperAdmin ? (
+       {user.isAdmin && !user.isSuperAdmin && userData.userId !== user.userId ? (
         <Button
         className="flex space-around m-2 bg-green-500 text-white" 
         href={`/admin/users/${id}`}
