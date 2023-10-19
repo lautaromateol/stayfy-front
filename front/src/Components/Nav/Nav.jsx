@@ -62,7 +62,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         <button>
           <Link to="/cart">
             <FontAwesomeIcon icon={faShoppingCart} className="text-green-500 hover:rotate-12 duration-150" />
-            <span className="ml-1">{cartCount}</span>
+            <span className="ml-1 ">{cartCount}</span>
           </Link>
         </button>
       </div>
