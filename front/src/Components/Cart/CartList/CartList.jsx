@@ -49,7 +49,6 @@ const CartList = () => {
                             title: product.title,
                             unit_price: product.price,
                             quantity: cart.filter((item) => item === product.id).length,
-                            currency_id: 'ARS',
                             stock:product.stock
                         };
                         items.push(item);

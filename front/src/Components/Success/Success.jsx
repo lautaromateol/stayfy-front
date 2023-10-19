@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useUser } from "../../Context/UserContext";
 import { BACKEND_URL } from "../../../utils"
 import axios from 'axios'
+import LZString from 'lz-string'
 
 const Success = () => {
 
@@ -16,7 +17,11 @@ const Success = () => {
 
     const externalReference = params.get('external_reference');
 
-    const { items } = externalReference ? JSON.parse(atob(externalReference)) : null;
+    const externalReferenceJSON = LZString.decompressFromBase64(externalReference);
+
+    const externalReferenceInfo = JSON.parse(externalReferenceJSON);
+
+    const {items} = externalReferenceInfo
 
     const shippingInfoJSON = localStorage.getItem('shippingInfo');
 
@@ -26,23 +31,23 @@ const Success = () => {
 
         if (id) {
             try {
-                axios.post(`${BACKEND_URL}/checkout/mercado-pago/create_order`, 
-                {
-                    paymentId: payment_id,
-                    merchantOrder: merchant_order_id,
-                    products: items.map(({ title }) => title),
-                    spent: items.map(({ unit_price, quantity }) => unit_price * quantity).reduce((sum, num) => sum + num, 0),
-                    buyer: id ? id : null
-                })
-                axios.post(`${BACKEND_URL}/mail/order_approved`, 
-                {
-                    items, shippingInfo, buyer: id ? id : null
-                })
+                axios.post(`${BACKEND_URL}/checkout/mercado-pago/create_order`,
+                    {
+                        paymentId: payment_id,
+                        merchantOrder: merchant_order_id,
+                        products: items.map(({ title }) => title),
+                        spent: items.map(({ unit_price, quantity }) => unit_price * quantity).reduce((sum, num) => sum + num, 0),
+                        buyer: id ? id : null
+                    })
+                axios.post(`${BACKEND_URL}/mail/order_approved`,
+                    {
+                        items, shippingInfo, buyer: id ? id : null
+                    })
             } catch (error) {
                 console.error(error)
             }
         }
-        
+
     }, [id])
 
     return (
@@ -122,23 +127,7 @@ const Success = () => {
                                 <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">${items.map(({ unit_price, quantity }) => unit_price * quantity).reduce((sum, num) => sum + num, 0)}</p>
                             </div>
                         </div>
-                        <div class="flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50 dark:bg-gray-800 space-y-6">
-                            <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Shipping</h3>
-                            <div class="flex justify-between items-start w-full">
-                                <div class="flex justify-center items-center space-x-4">
-                                    <div class="w-8 h-8">
-                                        <img class="w-full h-full" alt="logo" src="https://i.ibb.co/L8KSdNQ/image-3.png" />
-                                    </div>
-                                    <div class="flex flex-col justify-start items-center">
-                                        <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">DPD Delivery<br /><span class="font-normal">Delivery with 24 Hours</span></p>
-                                    </div>
-                                </div>
-                                <p class="text-lg font-semibold leading-6 dark:text-white text-gray-800">$8.00</p>
-                            </div>
-                            <div class="w-full flex justify-center items-center">
-                                <button class="hover:bg-black dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-gray-800 text-base font-medium leading-4 text-white">View Carrier Details</button>
-                            </div>
-                        </div>
+            
                     </div>
                 </div>
                 <div class="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col">
@@ -163,14 +152,12 @@ const Success = () => {
                                 <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8">
                                     <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Shipping Address</p>
                                     <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">{shippingInfo?.address}, {shippingInfo?.city}, {shippingInfo?.country}, {shippingInfo?.postcode}</p>
+                                    <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">Phone number: +{shippingInfo?.phone}</p>
                                 </div>
                                 <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4">
                                     <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">Billing Address</p>
                                     <p class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">{shippingInfo?.address}, {shippingInfo?.city}, {shippingInfo?.country}, {shippingInfo?.postcode}</p>
                                 </div>
-                            </div>
-                            <div class="flex w-full justify-center items-center md:justify-start md:items-start">
-                                <button class="mt-6 md:mt-0 dark:border-white dark:hover:bg-gray-900 dark:bg-transparent dark:text-white py-5 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 border border-gray-800 font-medium w-96 2xl:w-full text-base font-medium leading-4 text-gray-800">Edit Details</button>
                             </div>
                         </div>
                     </div>
