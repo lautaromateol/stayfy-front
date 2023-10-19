@@ -10,7 +10,7 @@ const Cart = ({ products, cart, removeFromCart, incrementQuantity, decrementQuan
                     product={product}
                     quantity={cart.filter((item) => item === product.id).length}
                     onRemove={() => removeFromCart(product.id)}
-                    onIncrement={() => incrementQuantity(product.id)}
+                    onIncrement={() => incrementQuantity(product.id,product.stock)}
                     onDecrement={() => decrementQuantity(product.id)}
                 />
             ))}

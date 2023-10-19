@@ -1,19 +1,19 @@
-const { ASC } = require("../../utils");
+const { ASC, DESC } = require("../../utils");
 
 function sortByDate(books, direction) {
     let sortedBooks = [...books];
     sortedBooks.sort((a, b) => {
-      // const dateA = new Date(a.dob);
-      // const dateB = new Date(b.dob);
       const dateA = a.publishedDate;
       const dateB = b.publishedDate;
   
       if (direction === ASC) {
-        return dateA - dateB;
-      } else {
         return dateB - dateA;
+      } 
+      else if (direction === DESC) {
+        return dateA - dateB;
       }
     });
+    console.log(direction)
     return sortedBooks;
   };
 
