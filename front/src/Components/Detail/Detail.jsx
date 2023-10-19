@@ -168,7 +168,6 @@ const Detail = () => {
                     <FontAwesomeIcon icon={faCartShopping} /> Add to cart
                   </button>
                 )}
-                stock:{book.stock}
               </div>
               <div className="flex flex-col">
               </div>

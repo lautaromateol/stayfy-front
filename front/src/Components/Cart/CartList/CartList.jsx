@@ -147,7 +147,7 @@ const CartList = () => {
                             </div>
                             <div className="grid place-content-center mt-10">
                                 {user ?
-                                    <button className="bg-green-500 text-white p-2 rounded-md padding-"><a href='/address' target="_blank" rel="noopener noreferrer">CHECKOUT</a></button>
+                                    <button className="bg-green-500 text-white p-2 rounded-md padding-"><a href='/address'>CHECKOUT</a></button>
                                     :
                                     <button className="bg-green-500 text-white p-2 "><Link to='/login'>CHECKOUT</Link></button>
                                 }

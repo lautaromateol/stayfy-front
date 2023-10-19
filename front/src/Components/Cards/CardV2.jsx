@@ -77,8 +77,6 @@ function CardV2({ id, title, authors, price, image, rating, stock }) {
             <FontAwesomeIcon icon={faCartShopping} /> Add to cart
           </button>
         )}
-        {stock}
-
       </figcaption>
     </div>
 
