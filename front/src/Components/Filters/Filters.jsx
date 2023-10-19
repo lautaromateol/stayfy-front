@@ -52,8 +52,8 @@ const Filters = () => {
 
     return (
       <div data-aos = 'fade-up'>
-        <div className="grid grid-cols-[20%_20%_20%_20%_20%]">
-          <div className="mt-5 mx-auto">
+        <div className="grid grid-cols-7">
+          <div className="mt-5 ml-6 mr-6 mb-2">
             <select
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setGenre(e.target.value)}
@@ -61,7 +61,7 @@ const Filters = () => {
               {/* <option hidden value="">
                 Genre
               </option> */}
-              <option value={""}>Select Genre 🔍︎</option>
+              <option value={""}>Select Genre</option>
               {genres.map((genre) => {
                 return <option>{genre}</option>;
               })}
@@ -80,12 +80,12 @@ const Filters = () => {
             </div> */}
           </div>
 
-          <div className="mt-5 mx-auto">
+          <div className="mt-5 ml-6 mr-6 mb-2">
             <select
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setPublisher(e.target.value)}
             >
-              <option value={""}>Select Publisher 🔍︎</option>
+              <option value={""}>Select Publisher</option>
               {publishers.map((publisher) => {
                 return <option>{publisher}</option>;
               })}
@@ -107,12 +107,12 @@ const Filters = () => {
             </div> */}
           </div>
 
-          <div className="mt-5 mx-auto">
+          <div className="mt-5 ml-10 mr-6 mb-2">
             <select
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setAuthor(e.target.value)}
             >
-              <option value={""}>Select Author 🔍︎</option>
+              <option value={""}>Select Author</option>
               {authors.map((author) => {
                 return <option>{author}</option>;
               })}
@@ -132,14 +132,14 @@ const Filters = () => {
           </div>
 
 
-          <div className="mt-5 mx-auto">
+          <div className="mt-5 ml-20 mb-2">
           <select
             className= "rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
             value={selectedRating}
             name="rating"
             onChange={(e) => setRating(e.target.value)}    
           >
-            <option value={""}>Min rating 🔍︎</option>
+            <option value={""}>Min rating</option>
             {ratingArray.map((rating) => (
               <option key={rating} value={rating}>
                 {rating}
@@ -150,7 +150,7 @@ const Filters = () => {
 
         {/* <div className="mt-5 mx-auto"> <p> Sort By:</p></div> */}
 
-          <div className="mt-5 mx-auto">
+          <div className="mt-5 ml-6 mr-6 mb-2">
             <select
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) =>
@@ -175,7 +175,7 @@ const Filters = () => {
             </div> */}
           </div>
 
-          <div className="mt-5 mx-auto">
+          <div className="mt-5 ml-6 mr-6 mb-2">
             <select
               className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
               onChange={(e) => setPublishedDate(e.target.value)} 
@@ -188,7 +188,7 @@ const Filters = () => {
 
 
 
-        <div className="grid place-content-center">
+        <div className="mt-5 ml-6 mr-6 mb-2">
           <input
             className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
             type="text"

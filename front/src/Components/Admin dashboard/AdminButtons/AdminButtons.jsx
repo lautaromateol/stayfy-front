@@ -17,7 +17,7 @@ const AdminButtons = () => {
           ☰ ADMIN DASHBOARD
         </div>
         {menuVisible && (
-          <div className="flex flex-col mt-2 border-t-2 border-[#B2D1C5] ">
+          <div className="absolute left-0 top-12 flex flex-col mt-2 border-t-2 border-[#B2D1C5] bg-[#477A7D] bg-opacity-60 backdrop-filter backdrop-blur-lg">
             <Link
               to="/admin/users"
               className="py-2 px-4 block duration-200 hover:translate-x-4"

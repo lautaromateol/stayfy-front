@@ -42,7 +42,7 @@ const UserProfile = () => {
             const idBook = filteredBook.id;
             setFound(false);
             // const url = `http://localhost:3001/review/user/2/book/${idBook}`;
-            const url = `http://localhost:3001/review/user/${userData.userId}/book/${idBook}`;
+            const url = `${BACKEND_URL}/review/user/${userData.userId}/book/${idBook}`;
     
             // console.log("book:", idBook);
             axios.get(url)
