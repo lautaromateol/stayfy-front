@@ -30,7 +30,7 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
       </div>
 
       <div>
-        <Link to="/" className="h-full ">
+        <Link to="/" className="h-full">
           <img className="w-24 mb-1 py-2" src={logo} alt="Logo de la empresa" />
         </Link>
       </div>
