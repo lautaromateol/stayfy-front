@@ -29,8 +29,8 @@ const CartItem = ({ product, quantity, onRemove, onIncrement, onDecrement }) => 
                         onDecrement={onDecrement}
                         onRemove={onRemove}
                     />
+                <span className="ml-2 rounded-md w-[80px]">Stock: {product.stock}</span>
                 </div>
-                stock:{product.stock}
             </div>
         </div>
     );
