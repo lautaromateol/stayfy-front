@@ -25,6 +25,7 @@ const UserProfile = () => {
 
     const [found, setFound] = useState(false)
     const [rating, setRating] = useState(false)
+    // const id_user = useUser(userData.userId);
 
     // const showModal = (bookTitle) => {
     //     const filteredBooks = books.filter((book)=> book.title === bookTitle)[0].id
@@ -33,7 +34,7 @@ const UserProfile = () => {
     //     setIsModalOpen(true);
     // };
 
-    const showModal = (bookTitle, userId) => {
+    const showModal = (bookTitle) => {
         const filteredBook = books.find((book) => book.title === bookTitle);
         console.log(filteredBook.id);
     
@@ -41,9 +42,9 @@ const UserProfile = () => {
             const idBook = filteredBook.id;
             setFound(false);
             // const url = `http://localhost:3001/review/user/2/book/${idBook}`;
-            const url = `http://localhost:3001/review/user/2/book/${idBook}`;
+            const url = `http://localhost:3001/review/user/${userData.userId}/book/${idBook}`;
     
-            console.log("book:", idBook);
+            // console.log("book:", idBook);
             axios.get(url)
                 .then((response) => {
                     if (response.data === null) {

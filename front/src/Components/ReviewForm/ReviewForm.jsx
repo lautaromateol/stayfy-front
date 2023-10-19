@@ -50,7 +50,7 @@ const ReviewForm = ({ idBook, found, rating  }) => {
             return;
         }
         try {
-
+            // console.log(review);
             const response = await dispatch(postReview(review));
 
             if (response && response.status === 201) {
