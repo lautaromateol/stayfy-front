@@ -23,12 +23,49 @@ const UserProfile = () => {
 
     const [idReview, setIdReview] = useState(null)
 
-    const showModal = (bookTitle) => {
-        const filteredBooks = books.filter((book)=> book.title === bookTitle)[0].id
-        setIdReview(filteredBooks)
-        setIsModalOpen(true);
-    };
+    const [found, setFound] = useState(false)
+    const [rating, setRating] = useState(false)
 
+    // const showModal = (bookTitle) => {
+    //     const filteredBooks = books.filter((book)=> book.title === bookTitle)[0].id
+    //     setIdReview(filteredBooks)
+    //     console.log(filteredBooks);
+    //     setIsModalOpen(true);
+    // };
+
+    const showModal = (bookTitle, userId) => {
+        const filteredBook = books.find((book) => book.title === bookTitle);
+        console.log(filteredBook.id);
+    
+        if (filteredBook) {
+            const idBook = filteredBook.id;
+            setFound(false);
+            // const url = `http://localhost:3001/review/user/2/book/${idBook}`;
+            const url = `http://localhost:3001/review/user/2/book/${idBook}`;
+    
+            console.log("book:", idBook);
+            axios.get(url)
+                .then((response) => {
+                    if (response.data === null) {
+                        console.log("La respuesta de la solicitud es nula.");
+                        setFound(false);
+                    } else {
+                        setFound(true);
+                        setRating(response.data.review.rating);
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    console.log("Error al realizar la solicitud Axios.");
+                });
+    
+            setIdReview(idBook, found);
+            setIsModalOpen(true);
+        } else {
+            console.log("No se encontró el libro con el título proporcionado.");
+        }
+    };
+        
     const handleOk = () => {
         setIsModalOpen(false);
     };
@@ -57,7 +94,7 @@ const UserProfile = () => {
                 products.map((product) => (
                     <div>
                     {products.length > 1 && products.indexOf(product) !== products.length - 1 ?
-                        <span key={product}>{product} <a className="bg-green-500 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>Review</a></span> :
+                        <span key={product}>{product} <a className="bg-green-500 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>Review{}</a></span> :
                         <span key={product}>{product} <a className="bg-green-500 text-white p-0.5 rounded-md" onClick={()=> showModal(product)}>Review</a></span>}
                     </div>
                 ))
@@ -93,8 +130,8 @@ const UserProfile = () => {
     }
     return (
         <div className="bg-gray-100 dark:bg-gray-800 py-16">
-            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <ReviewForm idBook={idReview} />
+            <Modal title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <ReviewForm idBook={idReview} found={found} rating={rating} />
             </Modal>
 
             <div className="container mx-auto px-4">

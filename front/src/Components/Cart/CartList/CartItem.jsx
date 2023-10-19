@@ -30,6 +30,7 @@ const CartItem = ({ product, quantity, onRemove, onIncrement, onDecrement }) => 
                         onRemove={onRemove}
                     />
                 </div>
+                stock:{product.stock}
             </div>
         </div>
     );
