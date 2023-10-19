@@ -54,7 +54,7 @@
             "price": 8.18,
             "gender": "Self-help",
             "pageCount": 238,
-            "image": "",
+            "image": "https://m.media-amazon.com/images/I/71UypkUjStL._AC_UF1000,1000_QL80_.jpg",
             "stock": 90
         },
         {
@@ -125,7 +125,7 @@
             "price": 15.35,
             "gender": "Self-help",
             "pageCount": 224,
-            "image": "",
+            "image": "https://i.ebayimg.com/images/g/ZrwAAOSwQZ1lLrQ4/s-l1600.jpg",
             "stock": 30
         },
         {
@@ -139,7 +139,7 @@
             "price": 4.99,
             "gender": "Self-help",
             "pageCount": 60,
-            "image": "",
+            "image": "https://target.scene7.com/is/image/Target/GUEST_0dd280c2-efc8-450d-87de-989fb23ab513?wid=488&hei=488&fmt=pjpeg",
             "stock": 88
         },
         {
@@ -237,7 +237,7 @@
             "price": 21.49,
             "gender": "Horror",
             "pageCount": 1138,
-            "image": "https://stephenking.com/images/books/it/hardcover_prop_embed.jpg",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/1/1a/It_%281986%29_front_cover%2C_first_edition.jpg",
             "stock": 68
         },
         {
