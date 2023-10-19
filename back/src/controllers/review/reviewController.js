@@ -1,23 +1,23 @@
-const { Review, conn, User  } = require("../../db");
+const { Review, conn, User, Book  } = require("../../db");
 // Crear una nueva reseña
-exports.createReview = async (req, res) => {
-    try {
-        const { userId, bookId, rating, title, message } = req.body;
+// exports.createReview = async (req, res) => {
+//     try {
+//         const { userId, bookId, rating, title, message } = req.body;
 
-        const newReview = await Review.create({
-            userId,
-            bookId,
-            rating,
-            title,
-            message,
-        });
+//         const newReview = await Review.create({
+//             userId,
+//             bookId,
+//             rating,
+//             title,
+//             message,
+//         });
 
-        res.status(201).json(newReview);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Error al crear la reseña" });
-    }
-};
+//         res.status(201).json(newReview);
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: "Error al crear la reseña" });
+//     }
+// };
 
 // Actualizar una reseña existente
 exports.updateReview = async (req, res) => {
@@ -60,6 +60,42 @@ exports.deleteReview = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Error al eliminar la reseña" });
+    }
+};
+
+
+// const sequelize = require('sequelize'); // Asegúrate de importar Sequelize adecuadamente
+
+exports.createReview = async (req, res) => {
+    try {
+        const { userId, bookId, rating, title, message } = req.body;
+
+        const newReview = await Review.create({
+            userId,
+            bookId,
+            rating,
+            title,
+            message,
+        });
+
+        const result = await Review.findOne({
+            attributes: [
+                [conn.fn('AVG', conn.col('rating')), 'averageRating'],
+            ],
+            where: {
+                bookId: bookId,
+            },
+        });
+
+        if (result && result.dataValues.averageRating) {
+            const averageRating = result.dataValues.averageRating;
+            await Book.update({ rating: averageRating }, { where: { id: bookId } });
+        }
+
+        res.status(201).json(newReview);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error al crear la reseña" });
     }
 };
 
