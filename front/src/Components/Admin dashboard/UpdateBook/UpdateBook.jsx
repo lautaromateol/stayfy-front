@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function UpdateBook() {
   const dispatch = useDispatch();
-  const { genres, titles, allBooks } =  useSelector((state) => state);
-  const ratingArray = [0, 1, 2, 3, 4, 5];
+  const { genres, allBooks } =  useSelector((state) => state);
+  const ratingArray = [1, 2, 3, 4, 5];
 
   useEffect(() => {
     dispatch(getGenres());
@@ -21,15 +21,16 @@ export default function UpdateBook() {
   const [form, setForm] = useState({
     id: "",
     title: "",
-    authors: [""],
+    authors: [],
     publisher: "",
     image: "",
-    publishedDate: 0,
-    pageCount: 0,
+    publishedDate: "",
+    pageCount: "",
     genre: "",
-    price: 0,
+    price: "",
     description: "",
-    rating: 0,
+    rating: "",
+    stock: "",
   });
 
   const [error, setError] = useState({
@@ -44,35 +45,11 @@ export default function UpdateBook() {
     price: "",
     description: "",
     rating: "",
+    stock: "",
   });
 
   const [success, setSuccess] = useState(""); 
-  // const [authors, setAuthors] = useState([""]);
-
-
-  // const updateAuthor = (index, value) => {
-  //   const updatedAuthors = [...authors];
-  //   updatedAuthors[index] = value;
-  //   setAuthors(updatedAuthors);
-  //   setForm({
-  //     ...form,
-  //     authors: updatedAuthors,
-  //   });
-  // };
-
-  // const removeAuthor = (index) => {
-  //   const updatedAuthors = authors.filter((_, i) => i !== index);
-  //   setAuthors(updatedAuthors);
-  //   setForm({
-  //     ...form,
-  //     authors: updatedAuthors,
-  //   });
-  // }
-  
-  // const addAuthorInput = () => {
-  //   setAuthors([...authors, ""]);
-  // };
-
+ 
   const updateAuthor = (index, value) => {
     const updatedAuthors = [...form.authors];
     updatedAuthors[index] = value;
@@ -174,36 +151,33 @@ export default function UpdateBook() {
     }
   };
 
-  // const validateRating = (rating) => {
-  //   if (rating && !Number.isInteger(rating)){
-  //     setError({ ...error, price: "Rating must be an integer." })
-  //     return false;
-  //   }
-  //   else if (rating && rating < 1) {
-  //     setError({ ...error, rating: "Rating must be between 1 and 5" })
-  //     return false;
-  //   }
-  //   else if (rating && rating > 5) {
-  //     setError({ ...error, rating: "Rating must be between 1 and 5" })
-  //     return false;
-  //   } else {
-  //     setError({ ...error, rating: "" })
-  //     return true;
-  //   }
-  // };
+  const validateStock = (stock) => {
+    if (stock && !Number.isInteger(stock)){
+      setError({ ...error, stock: "Stock must be an integer." })
+      return false;
+    }
+    else if (stock && stock < 0) {
+      setError({ ...error, stock: "Stock must be 0 or above." })
+      return false;
+    } else {
+      setError({ ...error, stock: "" })
+      return true;
+    }
+  };
 
-  const validateForm = ( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating ) => {
+  const validateForm = ( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, stock ) => {
     if (
       (!title || title === "") &&
       (!authors || authors.length === 0 || authors == [] || authors == [""]) &&
       (!publisher || publisher === "") &&
       (!image || image === "") &&
       (!publishedDate || publishedDate === "") &&
-      (!pageCount || pageCount == 0) &&
+      (!pageCount || pageCount === "") &&
       (!genre || genre === "") &&
-      (!price || price == 0) &&
+      (!price || price === "") &&
       (!description || description === "") &&
-      (!rating || rating === "" || rating == 0))
+      (!rating || rating === "" ) &&
+      (!stock || stock === ""))
     {
       return false;
     } else {
@@ -217,8 +191,8 @@ export default function UpdateBook() {
       alert("You must select a book in order to update it.");
       return;
     };
-    const { title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating } = form 
-    if (!validateForm( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating )){
+    const { title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, stock } = form 
+    if (!validateForm( title, authors, publisher, image, publishedDate, pageCount, genre, price, description, rating, stock )){
       alert("You must select at least one parameter to update the book.");
       return;
     };
@@ -228,6 +202,7 @@ export default function UpdateBook() {
       ...form,
       genre: form.genre.toString(),
       rating: parseInt(form.rating),
+      stock: parseInt(form.stock),
     })
     .then((res) => {
       setSuccess("Book updated successfully!");
@@ -243,8 +218,8 @@ export default function UpdateBook() {
 
 
   return (
-    <div className="container mx-auto mt-8">
-      <div className="text-2xl font-semibold mb-4">
+    <div className="m-auto px-60 pt-6 pb-6 bg-[#b2d1c5] dark:bg-[#111827]">
+      <div className="text-2xl font-semibold mt-4 mb-4 text-[#816d64] dark:text-white">
         <h2>UPDATE EXISTING BOOK</h2>
       </div>
       {success && <div className="text-green-600 mb-2">{success}</div>}{" "}
@@ -253,16 +228,21 @@ export default function UpdateBook() {
         <div className="text-red-600 mb-2">{error.error}</div>
       )}{" "}
       {/* Mostrar el mensaje de error */}
+
+
+      {/* ARRANCA FORM */}
       <form
         onSubmit={submitHandler}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white dark:bg-[#40495C] shadow-md rounded-xl px-8 pt-6 pb-8 mb-4"
       >
+
+        {/* SELECT BOOK */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="id"
           >
-            Select book (id - title):
+            Select book (ID - Title):
           </label>
           <select
             required
@@ -274,9 +254,8 @@ export default function UpdateBook() {
                 (option) => option.value
               );
               setForm({ ...form, id: selectedBook });
-              console.log(form.id);
             }}
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           >
             <option value={""}> Select book </option>
             {allBooks.map((book) => (
@@ -289,9 +268,10 @@ export default function UpdateBook() {
           </select>
         </div>
 
+        {/* TITLE */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="title"
           >
             Title:
@@ -303,123 +283,14 @@ export default function UpdateBook() {
               changeHandlder(event);
             }}
             name="title"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
-        <div>
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="authors"
-          >
-            Authors:
-          </label>
-          {form.authors.map((author, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                value={author}
-                onChange={(e) => updateAuthor(index, e.target.value)}
-              />
-              <button onClick={() => removeAuthor(index)}>Remove</button>
-            </div>
-          ))}
-        </div>
-
-        {/* Input adicional para agregar automáticamente un nuevo autor */}
-        <input
-          type="text"
-          value=""
-          onChange={(e) => {
-            const newAuthor = e.target.value;
-            if (newAuthor) {
-              setForm({
-                ...form,
-                authors: [...form.authors, newAuthor],
-              });
-            }
-          }}
-          placeholder="Add Author"
-        />
-
+            {/* GENRE */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="publisher"
-          >
-            Publisher:
-          </label>
-          <input
-            type="text"
-            value={form.publisher}
-            onChange={(event) => {
-              changeHandlder(event);
-            }}
-            name="publisher"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="image"
-          >
-            Image:
-          </label>
-          <input
-            type="url"
-            value={form.image}
-            onChange={(event) => {
-              changeHandlder(event);
-              validateImage(event.target.value);
-            }}
-            name="image"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="publishedDate"
-          >
-            Year of Publication:
-          </label>
-          <input
-            type="intiger"
-            value={form.publishedDate}
-            onChange={(event) => {
-              changeHandlder(event);
-              validatePublishedDate(event.target.value);
-            }}
-            name="publishedDate"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="pageCount"
-          >
-            Page Count:
-          </label>
-          <input
-            type="intiger"
-            value={form.pageCount}
-            onChange={(event) => {
-              changeHandlder(event);
-              validatePageCount(event.target.value);
-            }}
-            name="pageCount"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="genre"
           >
             Genre:
@@ -427,6 +298,7 @@ export default function UpdateBook() {
           <select
             value={form.genre}
             name="genre"
+            className="rounded dark:bg-[#2d364b] dark:text-[#F2F3F5]"
             onChange={(event) => {
               const selectedGenre = Array.from(
                 event.target.selectedOptions,
@@ -445,52 +317,181 @@ export default function UpdateBook() {
           </select>
         </div>
 
+              {/* AUTHOR */}
+        <div>
+          <label
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
+            htmlFor="authors"
+          >
+            Authors:
+          </label>
+          {form.authors.map((author, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={author}
+                onChange={(e) => updateAuthor(index, e.target.value)}
+                className="dark:bg-[#2d364b] dark:text-[#F2F3F5]"
+              />
+              <button onClick={() => removeAuthor(index)} className="bg-transparent hover:bg-red-800 text-red-800 font-extrabold hover:text-white py-2 px-4 border border-red-800 dark:border-gray-400 dark:text-white dark:bg-red-800 dark:bg-opacity-50 hover:dark:bg-red-800 hover:border-transparent rounded">Remove</button>
+            </div>
+          ))}
+        </div>
+
+        {/* Input adicional para agregar automáticamente un nuevo autor */}
+        <input
+          type="text"
+          value=""
+          className="rounded mb-4 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
+          onChange={(e) => {
+            const newAuthor = e.target.value;
+            if (newAuthor) {
+              setForm({
+                ...form,
+                authors: [...form.authors, newAuthor],
+              });
+            }
+          }}
+          placeholder="Add Author"
+        />
+
+
+          {/* PUBLISHER */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
+            htmlFor="publisher"
+          >
+            Publisher:
+          </label>
+          <input
+            type="text"
+            value={form.publisher}
+            onChange={(event) => {
+              changeHandlder(event);
+            }}
+            name="publisher"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
+          />
+        </div>
+
+
+            {/* IMAGE */}
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
+            htmlFor="image"
+          >
+            Image:
+          </label>
+          <input
+            type="url"
+            value={form.image}
+            onChange={(event) => {
+              validateImage(event.target.value);
+              changeHandlder(event);
+            }}
+            name="image"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
+          />
+        </div>
+
+
+            {/* YEAR OF PUBLICATION */}
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
+            htmlFor="publishedDate"
+          >
+            Year of Publication:
+          </label>
+          <input
+            type="number"
+            value={form.publishedDate}
+            onChange={(event) => {
+              validatePublishedDate(event.target.value);
+              changeHandlder(event);
+            }}
+            name="publishedDate"
+            placeholder = "Indicate year of publication (integer, between 1 and 2023)"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
+          />
+        </div>
+
+            {/* PAGE COUNT */}
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
+            htmlFor="pageCount"
+          >
+            Page Count:
+          </label>
+          <input
+            type="number"
+            value={form.pageCount}
+            onChange={(event) => {
+              validatePageCount(event.target.value);
+              changeHandlder(event);
+            }}
+            name="pageCount"
+            placeholder = "Indicate amount of pages (integer and above 0)"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
+          />
+        </div>
+
+            {/* PRICE */}
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="price"
           >
             Price:
           </label>
           <input
-            type="intiger"
+            type="number"
             value={form.price}
             onChange={(event) => {
-              changeHandlder(event);
               validatePrice(event.target.value);
+              changeHandlder(event);
             }}
             name="price"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            placeholder = "Indicate price (integer and above 0)"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+            {/* STOCK */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="description"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
+            htmlFor="stock"
           >
-            Description:
+            Stock:
           </label>
-          <textarea
-            value={form.description}
+          <input
+            type="number"
+            value={form.stock}
             onChange={(event) => {
+              validateStock(event.target.value);
               changeHandlder(event);
-              validateDescription(event.target.value);
             }}
-            name="description"
-            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            name="stock"
+            placeholder = "Indicate amount of units left in stock (integer and above 0)"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
           />
         </div>
 
+            {/* RATING */}
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
             htmlFor="rating"
           >
             Rating:
           </label>
           <select
             value={form.rating}
+            className="dark:bg-[#2d364b] dark:text-[#F2F3F5]"
             name="rating"
             onChange={(event) => {
               const selectedRating = Array.from(
@@ -510,11 +511,31 @@ export default function UpdateBook() {
           </select>
         </div>
 
+              {/* DESCRIPTION */}
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-lg font-bold mb-2 dark:text-white"
+            htmlFor="description"
+          >
+            Description:
+          </label>
+          <textarea
+            value={form.description}
+            onChange={(event) => {
+              changeHandlder(event);
+              validateDescription(event.target.value);
+            }}
+            name="description"
+            className="block w-full mt-1 py-2 px-3 border rounded focus:outline-none focus:ring focus:border-blue-300 dark:bg-[#2d364b] dark:text-[#F2F3F5]"
+          />
+        </div>
+
+
         <div className="mb-4">
           {!success && (
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
               Update Book
             </button>
@@ -523,25 +544,46 @@ export default function UpdateBook() {
 
         <div className="mb-4">
           {success && (
-            <a
-              href="/admin/update-book"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+            <Link
+              to={`/product-page/${form.id}`}
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-green-300"
             >
-              Update another book
-            </a>
+              View Updated Book
+            </Link>
           )}
         </div>
 
         <div className="mb-4">
           {success && (
-            <Link
-              to={`/product-page/${form.id}`}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-green-300"
+            <a
+              href="/admin/update-book"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
             >
-              View updated book
-            </Link>
+              Update Another Book
+            </a>
           )}
         </div>
+        
+        <div className="mb-4">
+            <Link
+              to={"/admin/activate-book"}
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+            >
+              Activate or Deactivate Books
+            </Link>
+        </div>
+
+        <div className="mb-4">
+          {success && (
+            <button
+              type="submit"
+              className="bg-[#477A7D] dark:bg-[#1E293B] dark:hover:bg-[#54617d] hover:bg-[#6cbfa0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300"
+            >
+              Update More Properties on Same Book
+            </button>
+          )}
+        </div>
+
       </form>
     </div>
   );

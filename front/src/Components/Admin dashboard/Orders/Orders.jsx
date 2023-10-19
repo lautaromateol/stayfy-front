@@ -16,6 +16,7 @@ const Orders = () => {
       title: 'Buyer ID',
       dataIndex: 'buyer',
       key: 'buyer',
+      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-white",
     },
     {
       title: 'Products',
@@ -27,16 +28,19 @@ const Orders = () => {
             <span key={product}>{product}, </span> :
             <span key={product}>{product}</span>        
             )),
+      className: "bg-[#ccc1b3] dark:bg-[#2D364B] dark:text-white",
     },
     {
       title: 'Ammount',
       dataIndex: 'ammount',
       key: 'ammount',
+      className: "bg-[#dbd1c3] dark:bg-[#40495C] dark:text-white",
     },
     {
       title: 'Created at',
       dataIndex: 'created',
-      key: 'created'
+      key: 'created',
+      className: "bg-[#ccc1b3] dark:bg-[#2D364B] dark:text-white",
     }
   ];
 
@@ -49,9 +53,10 @@ const Orders = () => {
   }));
 
   return (
-    <div className='h-screen'>
-      <h1 className="text-center text-3xl mt-5">Orders admin-dashboard</h1>
+    <div className='h-screen pt-2 bg-[#B2D1C5] dark:bg-[#101726]'>
+      <h1 className="text-center text-3xl mt-2 text-[#816d64] dark:text-white">Orders Admin-Dashboard</h1>
       <Table
+       className='bg-white'
         dataSource={data}
         columns={columns}
         pagination={{pageSize: 10}}

@@ -6,7 +6,7 @@ import QuantityControl from '../Cart/CartList/QuantityControl';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-function CardV2({ id, title, authors, price, image, rating }) {
+function CardV2({ id, title, authors, price, image, rating, stock }) {
 
   const { cart, addToCart, removeAllByProduct, removeFromCart } = useCart();
 
@@ -31,7 +31,7 @@ function CardV2({ id, title, authors, price, image, rating }) {
   }, [id, cart]);
 
   const handleAddToCart = () => {
-    addToCart(id);
+    addToCart(id, stock);
   };
 
   return (
@@ -68,7 +68,7 @@ function CardV2({ id, title, authors, price, image, rating }) {
         {isInCart ? (
           <QuantityControl
             quantity={cart.filter((item) => item === parseInt(id, 10)).length}
-            onIncrement={() => addToCart(id)}
+            onIncrement={() => addToCart(id, stock)}
             onDecrement={() => removeFromCart(id)}
             onRemove={() => removeAllByProduct(id)}
           />
@@ -77,7 +77,7 @@ function CardV2({ id, title, authors, price, image, rating }) {
             <FontAwesomeIcon icon={faCartShopping} /> Add to cart
           </button>
         )}
-
+        {stock}
 
       </figcaption>
     </div>

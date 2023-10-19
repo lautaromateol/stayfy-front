@@ -23,12 +23,50 @@ const UserProfile = () => {
 
     const [idReview, setIdReview] = useState(null)
 
-    const showModal = (bookTitle) => {
-        const filteredBooks = books.filter((book)=> book.title === bookTitle)[0].id
-        setIdReview(filteredBooks)
-        setIsModalOpen(true);
-    };
+    const [found, setFound] = useState(false)
+    const [rating, setRating] = useState(false)
+    // const id_user = useUser(userData.userId);
 
+    // const showModal = (bookTitle) => {
+    //     const filteredBooks = books.filter((book)=> book.title === bookTitle)[0].id
+    //     setIdReview(filteredBooks)
+    //     console.log(filteredBooks);
+    //     setIsModalOpen(true);
+    // };
+
+    const showModal = (bookTitle) => {
+        const filteredBook = books.find((book) => book.title === bookTitle);
+        console.log(filteredBook.id);
+    
+        if (filteredBook) {
+            const idBook = filteredBook.id;
+            setFound(false);
+            // const url = `http://localhost:3001/review/user/2/book/${idBook}`;
+            const url = `http://localhost:3001/review/user/${userData.userId}/book/${idBook}`;
+    
+            // console.log("book:", idBook);
+            axios.get(url)
+                .then((response) => {
+                    if (response.data === null) {
+                        console.log("La respuesta de la solicitud es nula.");
+                        setFound(false);
+                    } else {
+                        setFound(true);
+                        setRating(response.data.review.rating);
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    console.log("Error al realizar la solicitud Axios.");
+                });
+    
+            setIdReview(idBook, found);
+            setIsModalOpen(true);
+        } else {
+            console.log("No se encontró el libro con el título proporcionado.");
+        }
+    };
+        
     const handleOk = () => {
         setIsModalOpen(false);
     };
@@ -93,17 +131,17 @@ const UserProfile = () => {
     }
     return (
         <div className="bg-gray-100 dark:bg-gray-800 py-16">
-            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <ReviewForm idBook={idReview} />
+            <Modal title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <ReviewForm idBook={idReview} found={found} rating={rating} />
             </Modal>
 
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-                    <div className="text-center">
+                    <div className="text-center dark:text-white">
                         <img
                             src={axiosData?.profilePicture || "https://as1.ftcdn.net/v2/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg"}
                             alt="User Profile"
-                            className="w-24 h-24 rounded-full mx-auto mb-4"
+                            className="w-24 h-24 rounded-full mx-auto mb-4 dark:text-white"
                         />
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
                             {axiosData.fullName}
