@@ -9,7 +9,7 @@ import { notification } from 'antd';
 import { useUser } from "../../Context/UserContext";
 import EstrellasRating from '../StartRating/StartRating';
 
-const ReviewForm = ({ idBook, found, rating  }) => {
+const ReviewForm = ({ idBook, found, rating, setIsModalOpen={setIsModalOpen}  }) => {
     const [api, contextHolder] = notification.useNotification();
     const { userData } = useUser();
 
@@ -56,6 +56,7 @@ const ReviewForm = ({ idBook, found, rating  }) => {
             if (response && response.status === 201) {
                 openNotificationWithIcon('success', 'Review inserted successfully.');
                 setMessage('Reseña insertada correctamente.');
+                setIsModalOpen(false);
             } else {
                 setMessage('Error al insertar la reseña. Inténtalo de nuevo.');
                 openNotificationWithIcon('warning', 'Error inserting the review. Please try again.')

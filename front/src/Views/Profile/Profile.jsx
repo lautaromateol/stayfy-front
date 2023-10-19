@@ -44,6 +44,7 @@ const UserProfile = () => {
             // const url = `http://localhost:3001/review/user/2/book/${idBook}`;
             const url = `${BACKEND_URL}/review/user/${userData.userId}/book/${idBook}`;
     
+
             // console.log("book:", idBook);
             axios.get(url)
                 .then((response) => {
@@ -132,7 +133,7 @@ const UserProfile = () => {
     return (
         <div className="bg-gray-100 dark:bg-gray-800 py-16">
             <Modal title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <ReviewForm idBook={idReview} found={found} rating={rating} />
+                <ReviewForm idBook={idReview} found={found} rating={rating} setIsModalOpen={setIsModalOpen}/>
             </Modal>
 
             <div className="container mx-auto px-4">
