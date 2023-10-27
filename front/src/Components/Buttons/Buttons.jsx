@@ -23,7 +23,7 @@ const Buttons = () => {
     return (
         <div className="flex flex-col items-center justify-center text-center">
             <div className="text-4xl font-medium text-stone-600 bg-gray-200 w-full py-3 mb-5 shadow-2xl shadow-gray-400 dark:bg-gray-900 px-12 dark:text-gray-100 dark:shadow-transparent dark:border-b-2 dark:border-gray-600">Genres</div>
-            <div className="grid grid-cols-[33%_33%_33%] gap-10" data-aos = 'fade-up'>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-10" data-aos = 'fade-up'>
                 <button onClick={()=>handleNavigation("Horror")}>
                     <img className="rounded-xl shadow-2xl shadow-gray-600 dark:shadow-transparent"  src="https://res.cloudinary.com/dhqudb28a/image/upload/v1697066639/Horror_n7hieu.png" alt="Horror" />
                 </button>
