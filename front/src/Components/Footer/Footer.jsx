@@ -9,15 +9,6 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[#6A8A8E] p-4 items-center dark:bg-slate-0 dark:bg-slate-800">
-        <div className="flex justify-center pt-10 pb-14 md:pb-9">
-          
-          <img
-            className="w-2/5 md:w-[25%] lg:w-[18%] xl:w-[15%]"
-            src="images/cucet-footer-logo.png"
-            alt=""
-            srcSet=""
-          />
-        </div>
         <div className="space-y-9 grid grid-cols-1 md:grid-cols-2 md:pl-24 md:pr-16 lg:grid-cols-4 lg:px-7 xl:px-14 xl:ml-16">
           <div className="text-neutral-200 font-[650] text-[16px] leading-7">
             <div className="flex justify-start md:mt-10">
