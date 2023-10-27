@@ -17,10 +17,9 @@ const Members = () => {
             Meet the team member who have worked in this project
           </div>
 
-          <div className="md:grid flex">
-            <div className="flex items-center justify-center md:flex-row flex-col space-x-4  p-2 ">
+          <div className="grid md:grid-cols-4 grid-cols-2">
               <div className="flex-col px-6 py-2  max-w-7xl" >
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-[98.775px] w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/juane_w65i3b.jpg'
                     alt="Imagen de Juan Emilio Elizondo"
@@ -33,7 +32,7 @@ const Members = () => {
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-15 w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066819/lara_fd5dtn.png'
                     alt="Imagen de Lara María De Cillis"
@@ -47,7 +46,7 @@ const Members = () => {
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-15 w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/mati_ztu9in.jpg'
                     alt="Imagen de Matias Helueni"
@@ -61,7 +60,7 @@ const Members = () => {
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-15 w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/L_vghyg7.svg'
                     alt="Imagen de Lautaro Leguizamon"
@@ -74,10 +73,8 @@ const Members = () => {
                 </a>
                 <div className=" italic text-gray-500">FrontEnd</div>
               </div>
-            </div>
-            <div className="flex space-x-4  p-2 items-center justify-center md:flex-row flex-col ">
               <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-15 w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066819/agustin_ynxqtl.png'
                     alt="Imagen de Agustin Radocaj"
@@ -91,7 +88,7 @@ const Members = () => {
                 <div className=" italic text-gray-500">BackEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-[98.775px] w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/daniel_xm7ywx.jpg'
                     alt="Imagen de Daniel Chávez"
@@ -105,7 +102,7 @@ const Members = () => {
                 <div className=" italic text-gray-500">BackEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-15 w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066818/joseLuis_rhicxl.jpg'
                     alt="Imagen de José Luis Farias"
@@ -119,7 +116,7 @@ const Members = () => {
                 <div className=" italic text-gray-500">BackEnd</div>
               </div>
               <div className="flex-col px-6 py-2 ">
-                <div className="md:h-40 h-28 w-28 md:w-40 rounded-full overflow-hidden bg-gray-200">
+                <div className="md:h-40 h-15 w-15 md:w-40 rounded-full overflow-hidden bg-gray-200">
                   <img
                     src='https://res.cloudinary.com/dhqudb28a/image/upload/v1697066817/D_ukboni.png'
                     alt="Imagen de Duglas Antonio Paez"
@@ -131,7 +128,6 @@ const Members = () => {
                     Duglas Antonio Paez
                 </a>
                 <div className=" italic text-gray-500">BackEnd</div>
-              </div>
             </div>
           </div>
         </div>
