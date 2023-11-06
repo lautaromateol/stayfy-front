@@ -18,7 +18,7 @@ const GenreCardList = () => {
     : books;
 
   return (
-    <div>
+    <div class="h-full">
       <section
         x-data="xData()"
         className="bg-stone-400 dark:bg-gray-900 py-10 px-12"
