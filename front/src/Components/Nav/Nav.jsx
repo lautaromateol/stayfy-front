@@ -7,6 +7,7 @@ import {
   faSun,
   faMoon,
   faShoppingCart,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../Cart/CartContext/CartContext";
 import { useUser } from "../../Context/UserContext";
@@ -22,7 +23,8 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
   // console.log("Es super Admin: ",userData.isSuperAdmin);
   // console.log("ES Admin",userData.isAdmin);
   return (
-    <div className="flex justify-between w-full  bg-gray-200 text-lg dark:bg-slate-800 px-12 dark:text-gray-100 items-center sticky top-0 shadow-2xl z-50">
+    <div>
+    <div className="flex justify-between w-full  bg-gray-200 text-lg dark:bg-slate-800 px-12 dark:text-gray-100 items-center sticky top-0 shadow-2xl z-50 sm:flex hidden">
       <div className="flex justify-around w-60">
         <button className="bg-[#477A7D] hover:bg-[#A4BCB3] text-white font-bold py-2 px-4 rounded dark:bg-[#40495C] dark:hover:bg-[#111827]">
           <Link to="/store">STORE</Link>
@@ -67,6 +69,12 @@ const Nav = ({ darkMode, toggleDarkMode }) => {
         </button>
       </div>
     </div>
+    <nav class="md:hidden py-1 flex justify-between items-center bg-gray-200 text-lg dark:bg-slate-800 dark:text-gray-100">
+      <img src={logo} alt="Logo" class="ml-5 w-20 h-15" />
+      <FontAwesomeIcon className="mr-5" icon={faBars}/>
+    </nav>
+    </div>
+
   );
 };
 
