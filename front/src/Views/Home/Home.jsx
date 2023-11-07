@@ -23,8 +23,8 @@ const Home = ()=>{
         <div className="bg-gray-200 dark:bg-gray-900 h-full">
             <Slider />
             <Buttons />
-            <Members/>
             <CarruselHome/>
+            <Members/>
         </div>
     )
 }
