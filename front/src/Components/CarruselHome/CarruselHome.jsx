@@ -27,7 +27,7 @@ const BookCarousel = () => {
   const [mostRanked, setMostRanked] = useState([])
 
   useEffect(() => {
-    Aos.init({ duration: 1500 })
+    Aos.init({ duration: 1000 })
     try {
       axios.get(`${BACKEND_URL}/books/filters?page=&sort=&genre=&title=&publisher=&author=&rating=5&publishedDate=`).then(({ data }) => setMostRanked(data.foundBooks))
     } catch (error) {
@@ -36,7 +36,7 @@ const BookCarousel = () => {
   }, [])
 
   return (
-    <div className="my-[10rem] mx-auto max-w-6xl bg-gray-200">
+    <div className="mt-[10rem] mb-[5rem] mx-auto max-w-6xl bg-gray-200">
       <div className="text-center text-4xl font-medium text-stone-600 bg-gray-200 w-full py-3 mb-5 shadow-2xl shadow-gray-400 dark:bg-gray-900 px-12 dark:text-gray-100 dark:shadow-transparent dark:border-b-2 dark:border-gray-600">
         Best Ranked
       </div>
