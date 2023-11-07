@@ -4,32 +4,32 @@ import QuantityControl from "./QuantityControl";
 
 const CartItem = ({ product, quantity, onRemove, onIncrement, onDecrement }) => {
     return (
-        <div className="flex flex-col items-center border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img
-                className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-                src={product.image}
-                alt=""
-            />
+        <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+            <img src={product.image} alt="product-image" class="h-[260px] md:h-[140px] md:object-center w-full rounded-lg sm:w-40" />
+            <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+                <div class="mt-5 sm:mt-0">
+                    <h2 class="text-lg font-bold text-gray-900">{product.title}</h2>
+                    {product.authors.map((aut) => {
 
-            <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {product.title}
-                </h5>
-                <p className="text-lg mb-4 font-bold text-gray-800 dark:text-gray-300">
-                    {((product.price * quantity) * 1.0).toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
+                        return product.authors.length > 1 && product.authors.indexOf(aut) !== product.authors.length - 1 ?
+                            <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">{aut}, </span> :
+                            <span className="text-sm mb-2 text-gray-500 dark:text-gray-400">{aut}</span>
+
                     })}
-                </p>
-
-                <div className="flex">
+                </div>
+                <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <QuantityControl
                         quantity={quantity}
                         onIncrement={onIncrement}
                         onDecrement={onDecrement}
                         onRemove={onRemove}
                     />
-                <span className="ml-2 rounded-md w-[80px]">Stock: {product.stock}</span>
+                    <div class="flex items-center space-x-4">
+                        <p class="text-sm">{((product.price * quantity) * 1.0).toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "USD",
+                        })}</p>
+                    </div>
                 </div>
             </div>
         </div>

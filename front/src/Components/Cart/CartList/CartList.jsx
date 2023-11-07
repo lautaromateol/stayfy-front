@@ -22,11 +22,11 @@ const CartList = () => {
 
     useEffect(() => {
 
-        if(lastTab && preferenceId){
+        if (lastTab && preferenceId) {
             localStorage.removeItem('lastTab')
             localStorage.removeItem('preferenceId')
             localStorage.setItem('lastTab', window.location.href)
-          }
+        }
 
         const storedItems = localStorage.getItem("cartItems");
         if (storedItems) {
@@ -49,7 +49,7 @@ const CartList = () => {
                             title: product.title,
                             unit_price: product.price,
                             quantity: cart.filter((item) => item === product.id).length,
-                            stock:product.stock
+                            stock: product.stock
                         };
                         items.push(item);
                     }
@@ -73,7 +73,7 @@ const CartList = () => {
         };
 
         fetchUniqueProducts();
-        
+
     }, [cart, user]);
 
     const getProductQuantity = (productId) => {
@@ -95,19 +95,12 @@ const CartList = () => {
     }, 0);
 
     return (
-        <div className="min-h-screen bg-[#A4BCB3] dark:bg-gray-900 text-gray-800 dark:text-gray-300">
-            <div className="py-24 sm:py-12">
-                <div className="mx-auto max-w-7xl px-6 lg:px-20">
-                    <div className="mx-auto max-w-2xl lg:mx-0">
-                        <p className="text-3xl md:text-5xl text-gray-800 dark:text-gray-300  leading-relaxed md:leading-snug">
-                            Cart
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                            <p className="mt-2 text-lg leading-8 ">
-                                Review Your Purchases and Prepare Your Order in the Shopping Cart.
-                            </p>
+        <>
+            {totalItems ?
+                <div class="min-h-screen bg-gray-100 pt-20">
+                    <h1 class="mb-10 text-center text-2xl font-bold">Cart Items</h1>
+                    <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+                        <div class="rounded-lg md:w-2/3">
                             <Cart
                                 products={products}
                                 cart={cart}
@@ -116,48 +109,56 @@ const CartList = () => {
                                 decrementQuantity={decrementQuantity}
                             />
                         </div>
-                        <div className="pb-6 w-80 max-h-[430px] ml-10 border border-solid border-black-500 bg-white rounded-md dark:bg-stone-200 dark:text-blue-950">
-                            <h1 className="text-2xl ml-5 mt-5">Order Summary</h1>
-                            <div className="grid grid-cols-[70%_30%]">
-                                <p className="ml-5 mt-5">Total Items:</p>
-                                <p className="mt-5">{totalItems}</p>
+                        <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+                            <div class="mb-2 flex justify-between">
+                                <p class="text-gray-700">Total Items:</p>
+                                <p class="text-gray-700">{totalItems}</p>
                             </div>
-                            <div className="grid grid-cols-[70%_30%]">
-                                <p className="ml-5 mt-5">Subtotal:</p>
-                                <p className="mt-5">{(totalCost * 1.0).toLocaleString("en-US", {
+                            <div class="mb-2 flex justify-between">
+                                <p class="text-gray-700">Subtotal</p>
+                                <p class="text-gray-700">{(totalCost * 1.0).toLocaleString("en-US", {
                                     style: "currency",
                                     currency: "USD",
                                 })}</p>
                             </div>
-                            <div className="grid grid-cols-[70%_30%]">
-                                <p className="ml-5 mt-5">Estimated Shipping:</p>
-                                <p className="mt-5">$0.00</p>
+                            <div class="flex justify-between">
+                                <p class="text-gray-700">Shipping</p>
+                                <p class="text-gray-700">$0.00</p>
                             </div>
-                            <div className="grid grid-cols-[70%_30%]">
-                                <p className="ml-5 mt-5">Estimated Tax:</p>
-                                <p className="mt-5">$0.00</p>
+                            <hr class="my-4" />
+                            <div class="flex justify-between">
+                                <p class="text-lg font-bold">Total</p>
+                                <div class="">
+                                    <p class="mb-1 text-lg font-bold">{(totalCost * 1.0).toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                    })}</p>
+                                </div>
                             </div>
-                            <hr className="mt-5" />
-                            <div className="grid grid-cols-[70%_30%]">
-                                <strong className="ml-5 mt-5">Order Total:</strong>
-                                <strong className="mt-5">{(totalCost * 1.0).toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "USD",
-                                })}</strong>
-                            </div>
-                            <div className="grid place-content-center mt-10">
-                                {user ?
-                                    <button className="bg-green-500 text-white p-2 rounded-md padding-"><a href='/address'>CHECKOUT</a></button>
-                                    :
-                                    <button className="bg-green-500 text-white p-2 "><Link to='/login'>CHECKOUT</Link></button>
-                                }
-                            </div>
+                            {user ?
+                                <a href="/address"><button class="mt-6 w-full rounded-md bg-green-500 py-1.5 font-medium text-blue-50 hover:bg-green-600">Check out</button></a>
+                                :
+                                <a href="/login"><button href="/login" class="mt-6 w-full rounded-md bg-green-500 py-1.5 font-medium text-blue-50 hover:bg-green-600">Check out</button></a>
+
+                            }
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                :
+                <div class="flex items-center justify-center text-center py-7 h-screen">
+                    <div class='max-w-md'>
+                        <div class='text-5xl font-bold'>Your cart is empty</div>
+                        <div class='my-4'>
+                            <p class='text-base leading-normal md:text-xl'>Add items to your cart</p>
+                        </div>
+                        <a href="/store" class='bg-green-500 hover:bg-green-600 px-6 py-2 text-white rounded-md'>Continue shopping</a>
+                    </div>
+                </div>
+            }
+        </>
     );
 };
 
 export default CartList;
+
+
