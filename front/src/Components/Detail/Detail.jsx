@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../Cart/CartContext/CartContext";
 import { useUser } from "../../Context/UserContext"
-import EstrellasRating from '../StartRating/StartRating';
+import Rating from '../StarsRating/StarsRating';
 import QuantityControl from '../Cart/CartList/QuantityControl';
 import axios from 'axios';
 import { BACKEND_URL } from '../../../utils';
@@ -112,7 +112,7 @@ const Detail = () => {
               {book.authors && book.authors.length === 1 ? <p className='mb-5 dark:text-[#D1D5DB]'>By <a className='underline'>{book.authors && book.authors[0]}</a></p> : <p className='mb-5 dark:text-[#D1D5DB]'>By <a>{book.authors && book.authors[0]}</a> and <a>{book.authors && book.authors[1]}</a></p>}
               <div class="flex">
                 <span class="flex items-center">
-                  <EstrellasRating average={rating} />
+                  <Rating average={rating} />
                   {/* <span class="text-gray-600 ml-3">4 Reviews</span> */}
                 </span>
                 <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
@@ -219,7 +219,7 @@ const Detail = () => {
               <List.Item>
                 <List.Item.Meta
                   avatar={<Avatar src={item.User.profilePicture || "https://xsgames.co/randomusers/assets/avatars/pixel/2.jpg"} />}
-                  title={<a href="#"><div className="text-gray-900 dark:text-[#D1D5DB]">{item.title}</div><EstrellasRating average={item.rating} />
+                  title={<a href="#"><div className="text-gray-900 dark:text-[#D1D5DB]">{item.title}</div><Rating average={item.rating} />
                   </a>}
                   description={<div className="text-gray-900 dark:text-[#D1D5DB]">{item.message}</div>}
                 />

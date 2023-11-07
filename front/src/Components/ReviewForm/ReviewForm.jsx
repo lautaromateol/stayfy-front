@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { postReview } from "../../redux/actions";
 import { notification } from 'antd';
 import { useUser } from "../../Context/UserContext";
-import EstrellasRating from '../StartRating/StartRating';
+import Rating from '../StarsRating/StarsRating';
 
 const ReviewForm = ({ idBook, found, rating  }) => {
     const [api, contextHolder] = notification.useNotification();
@@ -79,7 +79,7 @@ const ReviewForm = ({ idBook, found, rating  }) => {
     if (found) {
         return <div>
                 <h4 className="text-2xl mb-4 text-black font-semibold">Thank you, review sent</h4>
-                <EstrellasRating average={rating} />
+                <Rating average={rating} />
                 </div>
     }
 
@@ -95,7 +95,7 @@ const ReviewForm = ({ idBook, found, rating  }) => {
                             {/* <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="rating">
                                                             Calificación seleccionada: {review.rating} estrellas
                                                         </label> */}
-                            <Stars handleRatingChange={handleRatingChange} />
+                            <Rating handleRatingChange={handleRatingChange} />
                         </div>
                         <div className="relative w-full mb-3">
                             <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="title">

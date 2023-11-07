@@ -145,7 +145,7 @@ const CartList = () => {
                     </div>
                 </div>
                 :
-                <div class="flex items-center justify-center text-center py-7 h-screen">
+                <div class="bg-gray-100 flex items-center justify-center text-center py-7 h-screen">
                     <div class='max-w-md'>
                         <div class='text-5xl font-bold'>Your cart is empty</div>
                         <div class='my-4'>

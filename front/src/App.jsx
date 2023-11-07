@@ -28,6 +28,7 @@ import AdminButtons from "./Components/Admin dashboard/AdminButtons/AdminButtons
 import ReviewForm from './Components/ReviewForm/ReviewForm'
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
+import CollectionsNav from './Components/Nav/CollectionsNav';
 import './App.css'
 
 
@@ -46,7 +47,10 @@ function App() {
   return (
     <div className={darkMode ? 'dark' : ''}>
       <CartProvider>
+        <header>
         <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <CollectionsNav/>
+        </header>
         {userData.isAdmin || userData.isSuperAdmin ? <AdminButtons/> : ''}
         <Routes>
           <Route path='/' element={<Home />} />

@@ -1,12 +1,9 @@
 import Slider from "../../Components/Slider/Slider"
-import Members from "../../Components/Members (nuevo Our Team)/Members"
 import Buttons from "../../Components/Buttons/Buttons"
 import CarruselHome from "../../Components/CarruselHome/CarruselHome"
+import NewestBooks from "../../Components/CarruselHome/NewestBooks"
 import { useEffect } from "react"
 
-
-// import Paginado from "../../Components/Paginado/paginado"
-// import Nav from "../../Components/Nav/Nav"
 
 const Home = ()=>{
 
@@ -20,11 +17,11 @@ const Home = ()=>{
     }, [])
 
     return (
-        <div className="bg-gray-200 dark:bg-gray-900 h-full">
+        <div className="bg-gray-200 dark:bg-gray-900 min-h-screen">
             <Slider />
             <Buttons />
             <CarruselHome/>
-            <Members/>
+            <NewestBooks/>
         </div>
     )
 }
