@@ -1,6 +1,7 @@
 import Slider from "../../Components/Slider/Slider"
 import Members from "../../Components/Members (nuevo Our Team)/Members"
 import Buttons from "../../Components/Buttons/Buttons"
+import CarruselHome from "../../Components/CarruselHome/CarruselHome"
 import { useEffect } from "react"
 
 
@@ -21,10 +22,9 @@ const Home = ()=>{
     return (
         <div className="bg-gray-200 dark:bg-gray-900 h-full">
             <Slider />
-            <div>
             <Buttons />
             <Members/>
-            </div>
+            <CarruselHome/>
         </div>
     )
 }

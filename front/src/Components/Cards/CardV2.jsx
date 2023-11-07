@@ -37,7 +37,7 @@ function CardV2({ id, title, authors, price, image, rating, stock }) {
   return (
     <div
       title={`Click here to see more details of ${title}`}
-      className="my-4 rounded-[10px] rounded shadow-lg dark:shadow-gray-900 bg-[#ededed] dark:bg-gray-800 duration-300 hover:-translate-y-1"
+      className="my-4 rounded-lg shadow-lg dark:shadow-gray-900 bg-[#ededed] dark:bg-gray-800 duration-300 hover:-translate-y-1"
     >
       <div className="mx-auto">
         <img src={image} alt={title}
