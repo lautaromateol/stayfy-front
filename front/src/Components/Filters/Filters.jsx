@@ -1,26 +1,32 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { getFilteredBooks } from "../../redux/actions";
+import { getFilteredBooks, getAuthors, getPublishers } from "../../redux/actions";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-const Filters = () => {
+const Filters = ({genre}) => {
 
   const dispatch = useDispatch()
 
-  const { genres, authors, publishers } = useSelector((state) => state)
+  const { authors, publishers } = useSelector((state) => state)
+
   const totalPages = useSelector((state) => state.totalPages);
 
-  const [selectedGenre, setGenre] = useState('')
   const [selectedAuthor, setAuthor] = useState('')
-  const [selectedPublisher, setPublisher] = useState('')
-  const [sort, setSort] = useState('')
-  const [publishedDate, setPublishedDate] = useState('')
-  const [bookName, setBookName] = useState('')
-  const [selectedRating, setRating] = useState(0)
-  const [selectedPage, setSelectedPage] = useState(0); // Inicialmente seleccionamos la página 
-  const ratingArray = [1, 2, 3, 4, 5];
 
+  const [selectedPublisher, setPublisher] = useState('')
+
+  const [sort, setSort] = useState('')
+
+  const [publishedDate, setPublishedDate] = useState('')
+
+  const [bookName, setBookName] = useState('')
+
+  const [selectedRating, setRating] = useState(0)
+  
+  const [selectedPage, setSelectedPage] = useState(0)
+
+  const ratingArray = [1, 2, 3, 4, 5];
 
   const handlePreviousPage = () => {
     if (selectedPage >= 1) {
@@ -37,9 +43,11 @@ const Filters = () => {
 
   useEffect(() => {
     Aos.init({ duration: 1500 })
+    dispatch(getAuthors(genre))
+    dispatch(getPublishers(genre))
     dispatch(getFilteredBooks({
       sort,
-      genre: selectedGenre,
+      genre,
       author: selectedAuthor,
       publisher: selectedPublisher,
       title: bookName,
@@ -48,93 +56,40 @@ const Filters = () => {
       publishedDate,
     })
     );
-  }, [sort, selectedGenre, selectedAuthor, selectedPublisher, bookName, selectedPage, selectedRating, publishedDate])
+  }, [genre, sort, selectedAuthor, selectedPublisher, bookName, selectedPage, selectedRating, publishedDate])
 
   return (
     <div data-aos='fade-up'>
-      <div className="grid grid-cols-[16%_16%_16%_16%_16%_16%]">
-        <div className="mt-5 mx-auto">
-          <select
-            className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
-            onChange={(e) => setGenre(e.target.value)}
-          >
-            {/* <option hidden value="">
-                Genre
-              </option> */}
-            <option value={""}>Select Genre 🔍︎</option>
-            {genres.map((genre) => {
-              return <option>{genre}</option>;
-            })}
-          </select>
-          {/* <div className="flex justify-center mt-2">
-              <p className="text-center mr-0.5 text-white border-black-500  rounded-xl p-1">
-                {selectedGenre}
-              </p>
-              {selectedGenre ? (
-                <button className="w-5 h-5 mt-1" onClick={() => setGenre("")}>
-                  ✖{" "}
-                </button>
-              ) : (
-                ""
-              )}
-            </div> */}
-        </div>
+      <div className="grid grid-cols-5">
 
         <div className="mt-5 mx-auto">
           <select
-            className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
+            className="bg-gray-200 dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
             onChange={(e) => setPublisher(e.target.value)}
           >
-            <option value={""}>Select Publisher 🔍︎</option>
+            <option value={""}>Select Publisher</option>
             {publishers.map((publisher) => {
               return <option>{publisher}</option>;
             })}
           </select>
-          {/* <div className="flex justify-center mt-2 ">
-              <p className="text-center mr-0.5 text-white border-black-500 rounded-xl p-1">
-                {selectedPublisher}
-              </p>
-              {selectedPublisher ? (
-                <button
-                  className="w-5 h-5 mt-1"
-                  onClick={() => setPublisher("")}
-                >
-                  ✖{" "}
-                </button>
-              ) : (
-                ""
-              )}
-            </div> */}
         </div>
 
         <div className="mt-5 mx-auto">
           <select
-            className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
+            className="bg-gray-200 dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
             onChange={(e) => setAuthor(e.target.value)}
           >
-            <option value={""}>Select Author 🔍︎</option>
+            <option value={""}>Select Author</option>
             {authors.map((author) => {
               return <option>{author}</option>;
             })}
           </select>
-          {/* <div className="flex justify-center mt-2">
-              <p className="text-center mr-0.5 text-white border-black-500 rounded-xl p-1">
-                {selectedAuthor}
-              </p>
-              {selectedAuthor ? (
-                <button className="w-5 h-5 mt-1" onClick={() => setAuthor("")}>
-                  ✖{" "}
-                </button>
-              ) : (
-                ""
-              )}
-            </div> */}
         </div>
 
 
         <div className="mt-5 mx-auto">
           <select
-            className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
+            className="bg-gray-200 dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
             value={selectedRating}
             name="rating"
             onChange={(e) => setRating(e.target.value)}
@@ -148,11 +103,9 @@ const Filters = () => {
           </select>
         </div>
 
-        {/* <div className="mt-5 mx-auto"> <p> Sort By:</p></div> */}
-
         <div className="mt-5 mx-auto">
           <select
-            className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
+            className="bg-gray-200 dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
             onChange={(e) =>
               setSort({ field: "title", direction: e.target.value })
             }
@@ -161,23 +114,11 @@ const Filters = () => {
             <option value="ASC">A-Z</option>
             <option value="DESC">Z-A</option>
           </select>
-          {/* <div className="flex justify-center mt-2">
-              <p className="text-center mr-0.5 text-white border-black-500 rounded-xl p-1">
-                {sort.direction}
-              </p>
-              {sort.direction ? (
-                <button className="w-5 h-5 mt-1" onClick={() => setSort("")}>
-                  ✖{" "}
-                </button>
-              ) : (
-                ""
-              )}
-            </div> */}
         </div>
 
         <div className="mt-5 mx-auto">
           <select
-            className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
+            className="bg-gray-200 dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
             onChange={(e) => setPublishedDate(e.target.value)}
           >
             <option value={""}> Sort By Date </option>
@@ -189,7 +130,7 @@ const Filters = () => {
       </div>
       <div className="grid place-content-center my-5">
         <input
-          className="rounded-3xl dark:bg-[#434c60] dark:text-[#F2F3F5]"
+          className="bg-gray-200 dark:bg-[#434c60] dark:text-[#F2F3F5] w-[200px]"
           type="text"
           placeholder="Search by name...           🔍︎"
           value={bookName}
@@ -199,13 +140,7 @@ const Filters = () => {
 
 
       {/* PAGINADO */}
-      <div class="flex items-center justify-center border-gray-200 bg-[#74A89B] bg-opacity-30 p-3"
-        style={{
-
-          backgroundClip: 'padding-box',  // Evita que el fondo se extienda a través del borde
-
-          boxShadow: '0px 5px 15px 0px rgba(0, 0, 0, 0.35)'  // Aplica un efecto de sombra para lograr un borde difuminado
-        }}>
+      <div class="flex items-center justify-center p-3 mb-[30px]">
         <button
           onClick={handlePreviousPage}
           disabled={selectedPage === 0}

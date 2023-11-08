@@ -75,11 +75,12 @@ export function orderBooks(orderType) {
 }
 
 
-export function getAuthors() {
+export function getAuthors(genre) {
     return async function (dispatch) {
         try {
             const response = await axios(`${BACKEND_URL}/books`);
-            const authors = response.data.map((book) => book.authors[0])
+            const filteredByGenre = response.data.filter((book) => book.genre === genre)
+            const authors = filteredByGenre.map((book) => book.authors[0])
             let uniqueAuthors = [...new Set(authors)].sort();
             return dispatch({
                 type: GET_AUTHOR,
@@ -92,11 +93,12 @@ export function getAuthors() {
 }
 
 
-export function getPublishers() {
+export function getPublishers(genre) {
     return async function (dispatch) {
         try {
             const response = await axios(`${BACKEND_URL}/books`);
-            const publisher = response.data.map((book) => book.publisher)
+            const filteredByGenre = response.data.filter((book) => book.genre === genre)
+            const publisher = filteredByGenre.map((book) => book.publisher)
             let uniquePublishers = [...new Set(publisher)].sort();
             return dispatch({
                 type: GET_PUBLISHER,
