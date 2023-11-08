@@ -130,7 +130,7 @@ const UserProfile = () => {
         return <div>Cargando...</div>;
     }
     return (
-        <div className="bg-gray-100 dark:bg-gray-800 py-16">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-800 py-16">
             <Modal title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <ReviewForm idBook={idReview} found={found} rating={rating} />
             </Modal>

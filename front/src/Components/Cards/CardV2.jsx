@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import EstrellasRating from '../StartRating/StartRating';
+import Stars from '../StarsRating/StarsRating';
 import { Link } from 'react-router-dom';
 import { useCart } from "../Cart/CartContext/CartContext";
 import QuantityControl from '../Cart/CartList/QuantityControl';
@@ -54,7 +54,7 @@ function CardV2({ id, title, authors, price, image, rating, stock }) {
             {/* <p className="text-lg mb-2 font-bold leading-relaxed text-gray-800 dark:text-gray-300"> */}
             {title}</p>
         </Link>
-        <EstrellasRating average={rating} />
+        <Stars average={rating} />
         {authors.map((aut)=> {
           
           return authors.length > 1 && authors.indexOf(aut) !== authors.length -1 ? 
