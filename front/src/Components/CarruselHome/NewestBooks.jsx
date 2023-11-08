@@ -34,7 +34,7 @@ const NewestBooks = ()=> {
     }, [])
 
     return(
-        <div className="py-[10rem] mx-auto max-w-6xl bg-gray-200">
+        <div className="py-[8rem] mx-auto max-w-6xl bg-gray-200">
       <div className="text-center text-4xl font-bold text-stone-600 bg-gray-200 w-full py-3 mb-5 shadow-2xl shadow-gray-400 dark:bg-gray-900 px-12 dark:text-gray-100 dark:shadow-transparent dark:border-b-2 dark:border-gray-600">
         Our latest acquistions
       </div>
@@ -51,7 +51,7 @@ const NewestBooks = ()=> {
       <Slider {...mobileSettings}>
           {newest.map(({id, image}) => {
             return(
-                <a href={`/product-page/${id}`}><img className="w-30 h-60 object-center" src={image} /></a>
+                <a className="mx-auto" href={`/product-page/${id}`}><img className="mx-auto w-30 h-60 object-center" src={image} /></a>
             )
           })}
         </Slider>
