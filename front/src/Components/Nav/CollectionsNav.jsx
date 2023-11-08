@@ -25,7 +25,7 @@ const CollectionsNav = ()=> {
         <div className="flex justify-around items-center w-full h-10 bg-green-700 sm:flex hidden">
             {genres.map((genre) => {
                 return(
-                    <a className="cursor-pointer text-white font-medium text-sm underline" onClick={() => handleNavigation(genre)}>{genre}</a>
+                    <p className="cursor-pointer text-white font-medium text-sm underline" onClick={() => handleNavigation(genre)}>{genre}</p>
                 )
             })}
         </div>

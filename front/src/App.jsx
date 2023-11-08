@@ -59,7 +59,6 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/reset-password/:id' element={<ResetPassword />} />
-          {/* <Route path='/user/:id' element={<UserProfile />} /> */}
           <Route path='/books' element={<Books />} />
           <Route path='/order-approved' element={<Success />} />
           <Route path={'/admin/create'} element = {userData.isSuperAdmin || userData.isAdmin ? <AddBook/> : <NoPermissions/>}/>
