@@ -107,7 +107,7 @@ const Detail = () => {
           <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <img class="w-[350px] h-[500px] object-center rounded border border-gray-200 " src={book.image} alt={book.title} />
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-              <h2 class="text-sm title-font text-gray-500 tracking-widest">Book Store</h2>
+              <h2 class="text-sm title-font text-gray-500 tracking-widest">Stayfy</h2>
               <h1 class="text-gray-900 dark:text-[#D1D5DB] text-3xl title-font font-medium mb-1">{book.title && book.title.toUpperCase()}</h1>
               {book.authors && book.authors.length === 1 ? <p className='mb-5 dark:text-[#D1D5DB]'>By <a className='underline'>{book.authors && book.authors[0]}</a></p> : <p className='mb-5 dark:text-[#D1D5DB]'>By <a>{book.authors && book.authors[0]}</a> and <a>{book.authors && book.authors[1]}</a></p>}
               <div class="flex">
