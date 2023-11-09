@@ -1,4 +1,4 @@
-const StartRating = ({ average }) => {
+const StarsRating = ({ average }) => {
     if (average > 5) {
         average = 5; // Limitar el valor a 5 si es mayor
     }
@@ -52,4 +52,4 @@ const StartRating = ({ average }) => {
     );
 };
 
-export default StartRating;
+export default StarsRating;

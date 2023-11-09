@@ -95,7 +95,7 @@ const ReviewForm = ({ idBook, found, rating  }) => {
                             {/* <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="rating">
                                                             Calificación seleccionada: {review.rating} estrellas
                                                         </label> */}
-                            <Rating handleRatingChange={handleRatingChange} />
+                            <Stars handleRatingChange={handleRatingChange} />
                         </div>
                         <div className="relative w-full mb-3">
                             <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="title">
