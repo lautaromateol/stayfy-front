@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-// export const BACKEND_URL = 'http://localhost:3001';
-// export const FRONT_URL = 'http://localhost:5173'
-export const BACKEND_URL = 'https://stayfy-api.up.railway.app'
+export const BACKEND_URL = 'https://styfyback-production-bcc4.up.railway.app'
 export const FRONT_URL = 'https://stayfy-xi.vercel.app'
 export const DESC = 'DESC';
 export const ASC = 'ASC';
